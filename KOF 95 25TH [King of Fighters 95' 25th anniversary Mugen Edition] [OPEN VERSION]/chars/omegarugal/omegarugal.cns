@@ -4234,9 +4234,9 @@ anim = 4000
 velset = 0,0
 
 [State 4000, 1]
-type = HitBy
+type = NotHitBy
 trigger1 = Time = 80
-value = S, SP
+value = SCA
 time = 500
 
 [State 4000, 0]
