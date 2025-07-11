@@ -1,4 +1,4 @@
-﻿List o f changes
+﻿List of changes
 
 Big changes
 
