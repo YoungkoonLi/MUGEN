@@ -1,0 +1,32 @@
+
+[Info]
+name = "Daimon"
+displayname = "Daimon"
+versiondate = 09,19,2009
+mugenversion = 1.0
+author = "41"
+pal.defaults = 1
+;localcoord = 640,480
+
+[Files]
+cmd     = daimon_cmd.cns    ;Command set
+cns     = daimon.cns        ;Constants
+stcommon = common1.cns      ;Common states (from data/ or motif)
+sprite  = daimon.sff        ;Sprite
+anim    = daimon.air        ;Animation
+sound   = daimon.snd        ;Sound
+st      = daimon.cns        ;States
+st1     = STAND.cns
+st2     = helpers.cns
+
+[Palette Keymap]
+x = 1 ;ÉmÅ[É}Éã
+y = 2
+z = 3
+a = 4
+b = 5
+c = 6
+
+;[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def

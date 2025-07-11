@@ -1,0 +1,164 @@
+*******************************************************
+King of Fighters 94 - Mugen Edition
+*******************************************************
+
+Versão 0.3 - Beta - 26/04/2002
+Desenvolvido por Eduardo Bonfandini
+Nick: Trial Force
+Email: junda@bewnet.com.br
+Home: www.trialforce.hpg.com.br
+Compatível com Mugen: 04.14.2001 
+Plataforma: DOS
+
+*******************************************************
+Comentários Iniciais
+*******************************************************
+
+Isto é um Add-on do Mugen, que faz com que o jogo se
+assemelhe o King of Fighters 94, é uma versão inicial
+inacabada (quase), foi lançada como presente de Natal
+Atenção está é uma versão de DEMONSTRAÇÃO.
+
+*******************************************************
+Direitos Autorais
+*******************************************************
+
+O King of Fighters é de autoria da SNK e sua equipe,
+o trabalho de codifica-lo para Mugen, foi meu, por isto
+estes arquivos, incluindo o read-me são de minha propria
+autoria se você quiser alterar ou distribuir, tem direitos
+de faze-lo (você não vai para cadeira elétrica como no
+USA), mas eu gostaria muito que se alguém mudasse, incluise
+algo no meu trabalho, que me avisasse antes.
+Gostaria muito de ver outras pessoas trabalhando e se
+divertindo em cima do meu trabalho.  
+
+*******************************************************
+Onde Achar
+*******************************************************
+
+O Download pode e deve ser feito:
+
+www.trialforce.hpg.com.br
+
+Meu Site oficial.
+
+www.paodemugen.cjb.net
+
+Site do evil_gargamel o site é atualizado diariamente,
+se quiser ficar por dentro do mundo do mugen é só
+cliclar lá.
+
+*******************************************************
+Dicas e comentários
+*******************************************************
+
+Versão Beta.
+
+*******************************************************
+O Que já tem nesta versão?
+*******************************************************
+
+- Todas as fontes
+- Baras de Energia de Poder
+- Tela Abertura
+- Tela Seleção (quase)
+- Abertura Animada
+
+*******************************************************
+O Que falta? Próxima Versão?
+*******************************************************
+
+Falta muita coisa.
+1 - Sons
+2 - End Screen
+3 - Sempre tem mais coisas pra arrumar
+
+*******************************************************
+Histórico Das Versões
+*******************************************************
+0.1 - Demo - 24/12/2001
+- Todas as fontes
+- Baras de Energia de Poder
+- Tela Abertura
+- Tela Seleção (quase)
+- Abertura Animada (quase)
+
+0.2 - Beta
+- Abertura Animada Completa
+- Arrumada Tela de Seleção
+- Retirada Tela VS (Kof 94 não tem uma)
+- Animação KO
+- Arrumados Sparks Garou
+
+0.3 - Beta 26/04/2002
+Kof 94 Começa a Cantar!
+- Adicionada Música de Intro (2 arquivos ouei.mp3 e
+tadam.mp3)
+- Adicionada a Música de Seleção (tudum.mp3)
+- Adicionada o Cursor de Seleção.
+
+*******************************************************
+Instalação
+*******************************************************
+
+Descompacte tudo para a pasta "Kof94" dentro da pasta
+"data" do seu Mugen, e execute "mugen -r kof94".
+Ou ao inves de executar este comando estranho, utilize
+faz simples, mas útil, programinha chamado MAM.
+
+*******************************************************
+Erros Conhecidos
+*******************************************************
+
+- Uns nas fontes e etc.
+ 
+*******************************************************
+Outros trabalhos/Projetos
+*******************************************************
+
+Eu já fiz; 
+Programas:
+- MSC (Mugen Stage Configurator)
+- MAC (Mugen Add-on Conversor)
+- MAM (Mugen Add-on Manager)
+Add-ons
+- Este Add-On
+- Street Fighter Zero - Mugen Edition (Tá muito legal)
+- Tenho alguns stages também.
+- 01 Char Original "Sargento Manuel"
+
+Outros trabalhos viram e se concretizaram, visite sempre
+a Trialforce - Coisas para Mugen e a PaodeMugen para ver
+novos trabalhos meus.
+
+*******************************************************
+Agradecimentos
+*******************************************************
+
+- Sés, pelo MCM (Onde eu fiz o SFF)
+- WinKawaks, por emular o jogo (Onde tirei as imagens)
+- Photo Shop 5.0 , tranformei as imagens em pcx.
+- Paint Brush, sim ele mesmo, aquele podre. Só eu
+gosto muito dele por sua simplicidade.
+- MHZ, pelo SFA3 (Onde me inspirei)
+- Snk, por seus maravilhosos jogos de luta
+- Elecbyte, por... por... como é o nome mesmo?
+- A alguém que fez os Sparks o Garou, que eu inclui.
+- Ao evil_gargamel e a paodemugen.
+- Minha mulher, por me deixar terminar isto.
+- Eu, pois eu me adoro. :P
+
+P.S.1: Quero deixar bem claro que na minha casa a 
+última palavra é minha:
+- Sim Carine!
+
+P.S.2: EU AMO MUGEN É MEU SONHO DE INFANCIA TER UM
+PROGRAMA DESTE (ha, e amo minha mulher, se não dizer
+isto eu apanho!)
+
+P.S.3: Sim este readme foi chupinhado do Street Fighter
+Zero - Me. Eu assumo copiei meu trabalho, sim eu tava
+com preguiça.
+
+P.S.4: Adoro PSs.

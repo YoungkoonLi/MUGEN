@@ -1,0 +1,40 @@
+
+[Info]
+Name         = "Omega_Rugal'95"
+DisplayName  = "Omega Rugal A"
+VersionDate  = 04,01,2008
+MugenVersion = 06,14,2003
+Author       = "Noise Low"
+;Pal.Defaults = 1,2,3,4,5,6,7,8,9,10
+
+
+[Files];ファイルリスト
+Cmd      = omega_rugal95.cmd
+;Cmd      = omega_rugal95-2.cmd
+Cns      = omega_rugal95.cns
+St       = omega_rugal95.cns
+St1      = omega_rugal95-N.cns
+St2      = omega_rugal95-S.cns
+St3      = omega_rugal95-2-3.cns
+
+StCommon = common1.cns
+Sprite   = omega_rugal95.sff
+Anim     = omega_rugal95.air
+Sound    = omega_rugal95.snd
+
+Pal1 = Act/omega_rugal95_01.act
+Pal2 = Act/omega_rugal95_02.act
+Pal3 = Act/omega_rugal02_01.act
+Pal4 = Act/omega_rugal02_02.act
+Pal5 = Act/omega_rugal98_01.act
+Pal6 = Act/omega_rugal98_02.act
+Pal7 = Act/omega_rugal_Adel.act
+Pal8 = Act/omega_rugal_Goenitz.act
+Pal9 = Act/omega_rugal_G_rugal.act
+Pal10 = Act/omega_rugal_Orochi.act
+Pal11 = Act/omega_rugal_Black.act
+Pal12 = Act/omega_rugal_Gold.act
+
+[Arcade]
+Intro.Storyboard  = 
+Ending.Storyboard = 

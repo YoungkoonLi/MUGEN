@@ -1,0 +1,1135 @@
+;Ver 0.92
+;Choi Bounge
+;Made by Fangke
+;http://www.bwhd.com/emuzone/Mugen/newweb/index.html
+;---------------------------------------------------------------------------
+;LOSE(Timeover)
+[Statedef 170]
+type=S
+ctrl=0
+anim=170
+velset=0,0,0
+
+[State 170,1]
+type=NotHitBy
+trigger1=Time>=0
+value=SCA
+time=1
+
+;INTRO
+[Statedef 190]
+type=S
+anim=190+Random % 3
+velset=0,0,0
+
+[State 190,0]
+type=PlaySnd
+trigger1=Time=12
+trigger1=Anim=190
+value=S300,10
+
+[State 190,0]
+type=PlaySnd
+trigger1=Time=12
+trigger1=Anim=191
+value=S3000,6
+
+[State 190,0]
+type=PlaySnd
+trigger1=AnimElem=14
+trigger1=Anim=192
+value=S300,14
+
+[State 190,1]
+type=RemoveExplod
+trigger1=Time=0
+ID=2845
+
+[State 190,1]
+type=RemoveExplod
+trigger1=Time=0
+ID=2855
+
+;Intro VS Self OR Chang98
+[State 190,Helper]
+type=Helper
+triggerall=Time=0
+trigger1=P2Name="Choi Bounge"
+trigger2=P2Name="Choi"
+trigger3=P4Name="Choi Bounge"
+trigger4=P4Name="Choi"
+helpertype=normal
+name="Helper Choi"
+ID=4000
+postype=p1
+facing=1
+stateno=4192
+keyctrl=0
+ownpal=1
+pos=35,0
+
+[State 190,2]
+type=AssertSpecial
+trigger1=NumHelper(4000)
+trigger1=Helper(4000),StateNo!=4100
+trigger2=Anim=192
+trigger2=Time<=380
+flag=intro
+
+[Statedef 4192]
+type=S
+anim=4192
+sprpriority=1
+
+[State 4192,0]
+type=ChangeState
+trigger1=AnimTime=0
+value=4005
+
+[Statedef 4005]
+type=S
+anim=4005
+sprpriority=1
+
+[State 4005,1]
+type=Turn
+trigger1=Time=0
+
+;Intro over
+
+[State 4005,0]
+type=ChangeState
+trigger1=AnimTime=0
+value=4100
+
+;奔跑
+[Statedef 4100]
+type=S
+physics=S
+
+[State 4100,1]
+type=ChangeAnim
+trigger1=Time=0
+value=4100
+
+[State 4100,2]
+type=VelSet
+trigger1=AnimElem=1,>=0
+x=const(velocity.run.fwd.x)
+
+[State 4100,2]
+type=AssertSpecial
+trigger1=1
+flag=NoWalk
+
+[State 4100,3]
+type=AssertSpecial
+trigger1=1
+flag=NoAutoTurn
+
+[State 4100,2]
+type=PlaySnd
+trigger1=TimeMod=80,0
+value=S100,15
+
+[State 4100,2]
+type=PlaySnd
+trigger1=TimeMod=80,20
+value=S100,16
+
+[State 4100,2]
+type=PlaySnd
+trigger1=TimeMod=80,40
+value=S100,17
+
+[State 4100,2]
+type=PlaySnd
+trigger1=TimeMod=80,60
+value=S100,18
+
+[State 4100,2]
+type=DestroySelf
+trigger1=Time=120
+
+;挑拨
+[Statedef 195]
+type=S
+physics=S
+ctrl=0
+velset=0,0
+anim=195
+
+[State 195,0]
+type=VarAdd
+trigger1=Time=0
+trigger1=Var(31)<Roundno+2
+trigger1=Var(31)<5
+v=31
+value=1
+
+[State 195,1]
+type=PlaySnd
+trigger1=Time=1
+value=s300,0
+
+[State 195,2]
+type=PowerAdd
+trigger1=Time=0
+value=-950
+
+[State 195,2]
+type=VarAdd
+trigger1=Time=0
+trigger1=Var(2)>0
+v=2
+value=300
+
+[State 195,4]
+type=ChangeState 
+trigger1=AnimTime=0
+value=0
+ctrl=1
+
+;挑拨-2
+[Statedef 196]
+type=S
+physics=S
+ctrl=0
+velset=0,0
+anim=195
+
+[State 196,0]
+type=CtrlSet
+trigger1=AnimElem=6
+value=1
+
+[State 196,1]
+type=PlaySnd
+trigger1=Time=1
+value=s300,0
+
+[State 196,2]
+type=PowerAdd
+trigger1=Time=0
+value=50
+
+[State 196,Re]
+type=RemoveExplod
+trigger1=Time=0
+ID=2803+Var(17)
+
+[State 196,3]
+type=VarSet
+trigger1=Time=0
+value=(Var(17)+10)%30
+v=17
+
+[State 196,4]
+type=ChangeState 
+trigger1=AnimTime=0
+value=0
+ctrl=1
+
+;援助动作-Choi99
+[Statedef 280]
+type=S
+movetype=I
+physics=S
+velset=0,0
+anim=280
+ctrl=0
+
+[State 280,回避攻击类型]
+type=HitBy
+trigger1=Time>=0
+value=C,AA
+
+;[State 280,Explod];Abandon
+;type=Explod
+;trigger1=Time=10
+;anim=2520
+;supermove=1
+;supermovetime=12
+;sprpriority=-2
+;ownpal=1
+;removeongethit=1
+
+[State 280,3]
+type=PlaySnd
+trigger1=Time=4
+value=s300,3
+
+[State 280,Helper]
+type=Helper
+trigger1=Time=0
+helpertype=normal
+name="Helper Choi"
+ID=4000
+postype=p1
+stateno=4280
+keyctrl=0
+ownpal=1
+pos=-135,-80
+
+[State 280,End]
+type=ChangeState 
+trigger1=AnimTime=0
+value=0
+ctrl=1
+
+[Statedef 4280]
+anim=4043
+type=A
+physics=N
+velset=8,0
+sprpriority=-1
+
+[State 4280,1]
+type=PlaySnd
+trigger1=Time=1
+value=S100,1
+
+[State 280,1]
+type=ParentVarAdd
+trigger1=Time=0
+v=31
+value=-1
+
+[State 4280,0]
+type=VelAdd
+trigger1=1
+y=.33
+
+[State 4280,2]
+type=HitOverride
+trigger1=1
+time=2
+attr=SCA,AA,AT,AP
+slot=4
+stateno=4282
+
+[State 4280,End]
+type=ChangeState
+trigger1=(Pos Y>=0)&&(Vel Y>0)
+value=4281
+
+[Statedef 4281]
+anim=4280+(Random<340)+(Random<340)
+type=S
+physics=S
+velset=0,0
+
+[State 4280,0]
+type=PosSet
+trigger1=Time=0
+y=0
+
+[State 4280,1]
+type=PlaySnd
+trigger1=Time=0
+value=S100,14
+
+[State 4281,1]
+type=PlaySnd
+triggerall=Anim=4280
+trigger1=AnimElem=9
+trigger2=AnimElem=15
+value=S300,2
+
+[State 4281,1]
+type=PlaySnd
+triggerall=Anim=4281
+trigger1=AnimElem=9
+value=S300,9
+
+[State 4281,1]
+type=PlaySnd
+triggerall=Anim=4281
+trigger1=AnimElem=26
+value=S111,1
+
+[State 4281,1]
+type=PlaySnd
+triggerall=Anim=4282
+trigger1=AnimElem=8
+value=S300,8
+
+[State 4281,2]
+type=HitOverride
+trigger1=1
+time=2
+attr=SCA,AA,AT,AP
+slot=4
+stateno=4282
+
+[State 4281,End]
+type=ChangeState
+trigger1=P2Dist X=[-45,40]
+trigger1=Time>=12
+value=4285
+
+[State 4281,End]
+type=PowerAdd
+trigger1=AnimTime=0
+value=250
+
+[State 4281,End]
+type=ChangeState
+trigger1=AnimTime=0
+value=4282
+
+[Statedef 4282]
+anim=4042
+type=A
+physics=N
+velset=-7,-10
+
+[State 4282,1]
+type=PlaySnd
+trigger1=Time=0
+value=S100,1
+
+[State 4282,0]
+type=VelAdd
+trigger1=Vel Y<=-1.5
+y=.33
+
+[State 4282,1]
+type=DestroySelf
+trigger1=Time>60
+
+[Statedef 4285]
+anim=4300
+type=A
+physics=N
+movetype=A
+
+[State 4285,1]
+type=Hitdef
+trigger1=TimeMod=5,0
+attr=A,NA
+damage=ifelse(UniqHitCount<10,16,8),4
+givepower=5,1
+guardflag=MA
+hitflag=MAF
+sparkno=S2614
+guard.sparkno=S2602
+sparkxy=10,-60
+pausetime=1,1
+hitsound=S100,26
+guardsound=S100,22
+ground.hittime=8
+ground.slidetime=8
+ground.velocity=-2,-6
+air.velocity=-1.2+UniqHitCount/10.0,-8
+fall=1
+
+[State 4285,2]
+type=Explod
+trigger1=AnimElem=2
+anim=1005
+pos=0,0
+postype=p1
+sprpriority=4
+bindtime=-1
+removetime=80
+
+[State 4285,3]
+type=PlaySnd
+trigger1=AnimElem=2
+value=S300,4
+
+[State 4285,3]
+type=Velset
+trigger1=Time=8
+y=-5
+
+[State 4285,End]
+type=DestroySelf
+trigger1=ScreenPos Y<-20
+
+[Statedef 4500]
+type=S
+movetype=A
+velset=8
+anim=4500
+sprpriority=-1
+
+[State 282,1]
+type=ParentVarAdd
+trigger1=Time=0
+v=31
+value=-1
+
+[State 4500,1]
+type=HitDef
+trigger1=AnimElem=1
+attr=S,SA
+priority=7,Hit
+animtype=Heavy
+pausetime=5,10
+guard.pausetime=10,10
+damage=35,8
+hitflag=MAF
+guardflag=MA
+sparkno=S2612
+guard.sparkno=S2602
+sparkxy=-30,-50
+hitsound=S100,9
+guardsound=S100,22
+ground.type=High
+ground.slidetime=25
+ground.hittime=25
+ground.velocity=-3.2,-4.5
+guard.velocity=-4.2
+airguard.velocity=-4.9,-4.2
+air.velocity=-3.2,-2.5
+air.hittime=12
+getpower=20,5
+givepower=10,2
+fall=1
+
+[State 4500,2]
+type=HitOverride
+trigger1=1
+time=2
+attr=SCA,AA,AT,AP
+slot=4
+stateno=4503
+
+[State 4500,End]
+type=ChangeState
+trigger1=ParentDist X=[0,10]
+trigger2=MoveContact
+trigger3=Time=14
+value=4501
+
+[Statedef 4501]
+type=S
+movetype=A
+velset=6
+anim=4501
+
+[State 4501,1]
+type=HitDef
+trigger1=AnimElem=3
+trigger2=AnimElem=10
+attr=S,SA
+priority=7,Hit
+animtype=Heavy
+pausetime=16,16
+guard.pausetime=10,10
+damage=30,8
+hitflag=MAF
+guardflag=MA
+sparkno=S2612
+guard.sparkno=S2602
+sparkxy=-50,-50
+hitsound=S100,25
+guardsound=S100,22
+ground.type=High
+ground.slidetime=25
+ground.hittime=25
+ground.velocity=-5
+guard.velocity=-4.2
+airguard.velocity=-4.9,-.8
+air.velocity=-5,-2.5
+air.hittime=12
+getpower=20,5
+givepower=10,2
+hittime=10
+
+[State 4501,2]
+type=HitOverride
+trigger1=1
+time=2
+attr=SCA,AA,AT,AP
+slot=5
+stateno=4503
+
+[State 4501,2]
+type=HitDef
+trigger1=AnimElem=16
+attr=S,SA
+priority=7,Hit
+animtype=Heavy
+pausetime=8,8
+guard.pausetime=10,10
+damage=35,8
+hitflag=MAF
+guardflag=MA
+sparkno=S2612
+guard.sparkno=S2602
+sparkxy=-60,-50
+hitsound=S100,26
+guardsound=S100,22
+ground.type=High
+ground.slidetime=25
+ground.hittime=25
+ground.velocity=-6.2,-2.5
+guard.velocity=-4.2
+airguard.velocity=-4.9,-.8
+air.velocity=-6.2,-2.5
+air.hittime=12
+getpower=20,5
+givepower=10,2
+fall=1
+hittime=12
+snap=40,0,0,0
+
+[State 4501,3]
+type=PlaySnd
+trigger1=AnimElem=3
+value=300,5
+
+[State 4501,End]
+type=ChangeState
+trigger1=AnimTime=0
+value=4502
+
+[Statedef 4502]
+type=S
+velset=0
+anim=4510
+sprpriority=-1
+
+[State 4510,End]
+type=ChangeState
+trigger1=AnimTime=0
+value=4503
+
+[Statedef 4503]
+anim=4503
+type=A
+physics=N
+velset=-7,-10
+sprpriority=-1
+
+[State 4503,1]
+type=PlaySnd
+trigger1=Time=0
+value=S100,1
+
+[State 4503,0]
+type=VelAdd
+trigger1=Vel Y<=-1.5
+y=.33
+
+[State 4503,1]
+type=DestroySelf
+trigger1=Time>60
+
+;援助动作-Chang
+[Statedef 281]
+type=S
+movetype=I
+physics=S
+velset=0,0
+anim=280
+ctrl=0
+
+[State 281,回避攻击类型]
+type=HitBy
+trigger1=Time>=0
+value=C,AA
+
+[State 281,3]
+type=PlaySnd
+trigger1=Time=4
+value=s300,3
+
+[State 281,Helper]
+type=Helper
+trigger1=Time=0
+helpertype=normal
+name="Chang Koehan"
+ID=4000
+postype=back
+stateno=4600
+keyctrl=0
+ownpal=1
+pos=-30,0
+
+[State 281,End]
+type=ChangeState 
+trigger1=AnimTime=0
+value=0
+ctrl=1
+
+;援助动作-Cool Choi
+[Statedef 282]
+type=S
+movetype=I
+physics=S
+velset=0,0
+anim=280
+ctrl=0
+
+[State 282,回避攻击类型]
+type=HitBy
+trigger1=Time>=0
+value=C,AA
+
+[State 282,3]
+type=PlaySnd
+trigger1=Time=4
+value=s300,3
+
+[State 282,Helper]
+type=Helper
+trigger1=Time=0
+helpertype=normal
+name="Cool Choi"
+ID=4000
+postype=back
+stateno=4500
+keyctrl=0
+ownpal=1
+pos=-30,0
+
+[State 282,End]
+type=ChangeState 
+trigger1=AnimTime=0
+value=0
+ctrl=1
+
+[Statedef 4600]
+type=A
+movetype=A
+velset=3.6,-9
+anim=4600
+sprpriority=-1
+
+[State 4600,3]
+type=PlaySnd
+trigger1=Time=14
+value=s300,6
+
+[State 282,1]
+type=ParentVarAdd
+trigger1=Time=0
+v=31
+value=-1
+
+[State 4600,1]
+type=HitDef
+trigger1=AnimElem=1
+attr=A,SA
+priority=7,Hit
+animtype=Up
+pausetime=5,10
+guard.pausetime=8,0
+damage=30,8
+hitflag=MAF
+guardflag=MA
+sparkno=S2613
+guard.sparkno=S2602
+sparkxy=-20,-45
+hitsound=S100,9
+guardsound=S100,22
+ground.type=High
+ground.slidetime=0
+ground.hittime=10
+ground.velocity=-3.2
+guard.velocity=-4.2
+airguard.velocity=-4.9,2
+air.velocity=-3.2,2
+air.hittime=10
+getpower=20,5
+givepower=10,2
+snap=0,30,0,0
+fall=1
+
+[State 4600,2]
+type=VelAdd
+trigger1=1
+y=.4
+
+[State 4600,2]
+type=HitOverride
+trigger1=1
+time=2
+attr=SCA,AA,AT,AP
+slot=4
+stateno=4604
+
+[State 4600,End]
+type=EnvShake
+trigger1=(Vel Y>0)&&(Pos Y>=25)
+persistent=0
+time=8
+ampl=-20
+freq=85
+phase=80
+
+[State 4600,End]
+type=ChangeState
+trigger1=(Vel Y>0)&&(Pos Y>=25)
+trigger1=!MoveHit
+value=4601
+
+[State 4600,End]
+type=ChangeState
+trigger1=(Vel Y>0)&&(Pos Y>=25)
+trigger1=MoveHit
+value=4611
+
+[Statedef 4601]
+type=S
+movetype=A
+velset=1,0
+anim=4601
+
+[State 4601,1]
+type=PosSet
+trigger1=Time=0
+trigger2=AnimElem=5
+y=0
+
+[State 4601,2]
+type=PlaySnd
+trigger1=AnimElem=2
+trigger2=AnimElem=6
+value=s300,7
+
+[State 4601,3]
+type=Velset
+trigger1=AnimElem=2
+;trigger2=AnimElem=6
+y=-3
+
+[State 4601,4]
+type=VelAdd
+trigger1=Pos Y<0
+y=0.2
+
+[State 4601,5]
+type=VelSet
+trigger1=AnimElem=1
+x=2
+
+[State 4601,7]
+type=VelSet
+trigger1=AnimElem=5
+x=1
+y=0
+
+[State 4601,7]
+type=VelSet
+trigger1=AnimElem=7
+x=0
+y=0
+
+[State 4600,Shake]
+type=EnvShake
+trigger1=AnimElem=5
+persistent=0
+time=8
+ampl=-20
+freq=85
+phase=80
+
+[State 4601,1]
+type=HitDef
+trigger1=AnimElem=1
+trigger2=AnimElem=3
+trigger3=AnimElem=5
+persistent=2
+attr=S,SA
+priority=7,Hit
+animtype=Up
+pausetime=5,10
+guard.pausetime=8,8
+damage=54/2**UniqHitCount,8
+hitflag=MAFD
+guardflag=MA
+sparkno=S2613
+guard.sparkno=S2602
+sparkxy=-30,-10
+hitsound=S100,9
+guardsound=S100,22
+ground.type=High
+ground.slidetime=25
+ground.hittime=25
+ground.velocity=-4
+guard.velocity=-4
+airguard.velocity=-4
+air.velocity=-4
+air.hittime=12
+getpower=20,5
+givepower=10,2
+p2stateno=4658
+fall=1
+fall.recover=0
+
+[State 4601,2]
+type=HitOverride
+trigger1=1
+time=2
+attr=SCA,AA,AT,AP
+slot=5
+stateno=4604
+
+[State 4601,End]
+type=ChangeState
+trigger1=AnimTime=0
+value=4602
+
+[Statedef 4658]
+type=L
+velset=2,0
+movetype=H
+physics=N
+
+[State 4658,1]
+type=ChangeAnim
+trigger1=Time=0
+value=ifelse(SelfAnimExist(5081),5081,5080)
+
+[State 4658,End]
+type=SelfState
+trigger1=Time=3
+value=5080
+
+[Statedef 4602]
+type=S
+movetype=A
+velset=0,0
+anim=4602
+sprpriority=-1
+
+[State 4602,End]
+type=ChangeState
+trigger1=AnimTime=0
+value=4603
+
+[Statedef 4603]
+type=S
+movetype=A
+velset=0,0
+anim=4603
+sprpriority=-1
+
+[State 4603,End]
+type=ChangeState
+trigger1=AnimTime=0
+value=4604
+
+[Statedef 4604]
+anim=4604
+type=A
+physics=N
+velset=-9,-10
+sprpriority=-1
+
+[State 4604,1]
+type=PlaySnd
+trigger1=Time=0
+value=S100,1
+
+[State 4604,0]
+type=VelAdd
+trigger1=Vel Y<=-2.2
+y=.33
+
+[State 4604,1]
+type=DestroySelf
+trigger1=Time>60
+
+[Statedef 4611]
+type=S
+movetype=A
+velset=1,0
+anim=4601
+
+[State 4611,1]
+type=PosSet
+trigger1=Time=0
+trigger2=AnimElem=5
+y=0
+
+[State 4611,2]
+type=PlaySnd
+trigger1=AnimElem=2
+trigger2=AnimElem=6
+value=s300,7
+
+[State 4601,3]
+type=Velset
+trigger1=AnimElem=2
+;trigger2=AnimElem=6
+y=-3
+
+[State 4601,4]
+type=VelAdd
+trigger1=Pos Y<0
+y=0.2
+
+[State 4601,5]
+type=VelSet
+trigger1=AnimElem=1
+x=2
+
+[State 4601,7]
+type=VelSet
+trigger1=AnimElem=5
+x=1
+y=0
+
+[State 4601,7]
+type=VelSet
+trigger1=AnimElem=7
+x=0
+y=0
+
+[State 4600,Shake]
+type=EnvShake
+trigger1=AnimElem=5
+persistent=0
+time=8
+ampl=-20
+freq=85
+phase=80
+
+[State 4601,1]
+type=HitDef
+trigger1=AnimElem=1
+trigger2=AnimElem=3
+trigger3=AnimElem=5
+persistent=2
+attr=S,SA
+priority=7,Hit
+animtype=Up
+pausetime=5,10
+guard.pausetime=8,8
+damage=54/2**UniqHitCount,8
+hitflag=MAFD
+guardflag=MA
+sparkno=S2613
+guard.sparkno=S2602
+sparkxy=-30,-10
+hitsound=S100,9
+guardsound=S100,22
+ground.type=High
+ground.slidetime=25
+ground.hittime=25
+ground.velocity=-4
+guard.velocity=-4
+airguard.velocity=-4
+air.velocity=-4
+air.hittime=12
+getpower=20,5
+givepower=10,2
+p2stateno=4658
+fall=1
+
+[State 4611,2]
+type=HitOverride
+trigger1=1
+time=2
+attr=SCA,AA,AT,AP
+slot=4
+stateno=4604
+
+[State 4611,End]
+type=ChangeState
+trigger1=AnimTime=0
+value=4612
+
+[Statedef 4612]
+type=S
+movetype=A
+velset=0,0
+anim=4605
+sprpriority=-1
+
+[State 4612,End]
+type=ChangeState
+trigger1=AnimTime=0
+value=4603
+
+[Statedef 4700]
+type=A
+movetype=A
+physics=N
+velset=10,10
+anim=4530+Parent,Var(17)/10
+
+[State 4700,3]
+type=PlaySnd
+trigger1=Time=4
+value=s100,2
+
+[State 4700,1]
+type=ParentVarAdd
+trigger1=Time=0
+v=31
+value=-1
+
+[State 4700,1]
+type=HitDef
+trigger1=AnimElem=1
+attr=A,NA
+priority=7,Hit
+animtype=Up
+pausetime=25,10
+guard.pausetime=8,0
+damage=60,8
+hitflag=MAFD+
+guardflag=MA
+sparkno=S2613
+guard.sparkno=S2602
+sparkxy=12,0
+hitsound=S100,9
+guardsound=S100,22
+ground.type=High
+ground.slidetime=0
+ground.hittime=10
+ground.velocity=-2.2,-14.5
+air.velocity=-2.2,-14.5
+guard.velocity=-4.2
+airguard.velocity=-4.9,2
+air.hittime=10
+getpower=20,5
+givepower=10,2
+fall=1
+p2stateno=3190
+
+[State 4700,End]
+type=ChangeState
+trigger1=Pos Y>=0
+value=4701
+
+[Statedef 4701]
+type=S
+movetype=I
+physics=N
+velset=0,0
+anim=anim+5
+
+[State 4701,1]
+type=PlaySnd
+trigger1=Time=10
+trigger1=Anim=4535
+value=300,8
+
+[State 4701,2]
+type=PlaySnd
+trigger1=Time=10
+trigger1=Anim=4536
+value=300,13
+
+[State 4701,End]
+type=ChangeState
+trigger1=AnimTime=0
+value=ifelse(Anim=4536,4604,ifelse(Anim=4537,4503,4282))
+
+;Win Pose
+[Statedef 180]
+type=S
+anim=180
+
+[State 180,1]
+type=PlaySnd
+trigger1=Time=39
+value=300,17

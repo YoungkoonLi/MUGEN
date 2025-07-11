@@ -1,0 +1,44 @@
+;=====================================================================
+;  DEF File For "Rugal Bernstein From TLE"         Made By Mr.X-file 
+;                                       Last Update 2006/10/04
+;=====================================================================
+; Player Information
+[Info]
+name = "Rugal Bernstein" ;Name of character
+displayname = "Rugal Bernstein" ;Name of character to display
+versiondate = 10,04,2006
+mugenversion = 04,14,2001
+author = "Mr.X-file"
+pal.defaults = 1,2,3,4,5,6,7,8,9,10
+
+
+; Files for the Player
+[Files]
+cmd     = Rugal_TLE.cmd
+cns     = Rugal_TLE-N.cns         ;Constants
+st      = Rugal_TLE-N.cns         ;States (Normal)
+st1     = Rugal_TLE-S.cns	  ;States (Special)
+st2     = Rugal_TLE-H.cns         ;States (Hyper)
+st3     = Rugal_TLE-Win.cns       ;States (Win)
+st4     = Rugal_TLE-Rodem.cns     ;States (Rodem)
+stcommon = common1.cns	          ;Common states (in data/)
+sprite  = o-rugal.sff ;Rugal_TLE.sff		  ;Sprite
+anim    = o-rugal.air	          ;Animation
+sound   = Rugal_TLE.snd           ;Sound
+pal1    = o-rugal.act         ;Palettes(レッド)
+pal2    = o-rugal2.act         ;Palettes(ブルー)
+pal3    = o-rugal3.act         ;Palettes(パープル)
+pal4    = o-rugal4.act         ;Palettes(グレイ)
+pal5    = o-rugal5.act         
+pal6    = o-rugal6.act    
+pal7    = o-rugal7.act 
+pal8    = o-rugal8.act 
+pal9    = o-rugal9.act 
+pal10    = o-rugal10.act    
+pal11    = o-rugal11.act 
+pal12    = o-rugal12.act   
+
+[Arcade]
+;intro.storyboard  = story/Rugal_intro.def
+;ending.storyboard = Rugal_TLE_End.def
+

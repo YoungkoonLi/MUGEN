@@ -1,0 +1,195 @@
+
+;=============================================================================
+; [Statedef -2]開始
+;=============================================================================
+[Statedef -2]
+
+;=============================================================================
+; デバッグ表示
+;=============================================================================
+[State -2, DisplaytoClipBoard]
+type = DisplayToClipBoard
+trigger1 = 1
+text ="		var(2) = %d var(3) = %d"
+params =	var(2), var(3)
+supermovetime = 9999999
+pausemovetime = 9999999
+
+;=============================================================================
+;  ランダム変数生成
+;=============================================================================
+[State -2, VarRand]
+type = VarRandom
+trigger1 = roundstate = 2
+Trigger1 = time%2
+v = 0
+range = 1,2
+ignorehitpause = 1
+
+;=============================================================================
+;  フラグ類
+;=============================================================================
+[State -2, 天地返し先行入力フラグOFF]
+type = VarSet
+triggerall = var(3)
+trigger1 = stateno != [100,101]
+trigger2 = movetype = H
+var(3) = 0
+
+[State -2, 気絶フラグ設定]
+type = VarSet
+trigger1 = roundstate = 2
+trigger1 = !var(2)
+var(2) = 1
+
+[State -2, 気絶フラグ加算]
+type = VarAdd
+trigger1 = p2stateno = 9803 && enemy,time = 1
+var(2) = 1
+
+[State -2, 気絶フラグ除算]
+type = VarAdd
+triggerall = roundstate = 2
+triggerall = var(2) >= 2
+triggerall = p2stateno != 9803
+trigger1 = enemy,ctrl = 1
+var(2) = -1
+
+[State -2, チートフラグOFF]
+type = VarSet
+trigger1 = enemy,movetype != H
+trigger1 = var(1)
+var(1) = 0
+
+[State -2, ヒットカウントしない]
+type = HitAdd
+trigger1 = 1
+value = -1
+
+;=============================================================================
+;  SE類
+;=============================================================================
+[state 9801,気絶時ダウン音]
+type = PlaySnd
+trigger1 = enemy,stateno = 9801 && enemy,time = 1
+trigger2 = enemy,stateno = 9802 && enemy,time = 1
+value = S1,5
+
+[State -2, 叩きつけ音]
+type = PlaySnd
+triggerall = enemy,alive
+trigger1 = enemy,stateno = 1104 && enemy,time = 1
+trigger2 = enemy,stateno = 1105 && enemy,time = 1
+value = S3,0
+
+[State -2, トドメ音]
+type = PlaySnd
+triggerall = !enemy,alive
+trigger1 = enemy,stateno = 1104 && enemy,time = 1
+trigger2 = enemy,stateno = 1105 && enemy,time = 1
+trigger3 = enemy,stateno = 1106 && enemy,time = 1
+trigger4 = stateno != [420,430]
+trigger4 = movehit && hitpausetime = 10
+trigger5 = stateno = [420,430]
+trigger5 = movehit && hitpausetime = 6
+value = S3,2
+ignorehitpause = 1
+
+;=============================================================================
+;  Explod / Helper
+;=============================================================================
+[State 1101, 気絶ダウン時グラウンドウェーブ(小)]
+type = Explod
+trigger1 = !NumExplod(10003)
+trigger1 = enemy,stateno = 9801 && enemy,time = 1
+Anim = 10003
+id = 10003
+pos = 0, 10
+postype = p2
+ownpal = 1
+scale = 1.0,1.0
+sprpriority = -1
+
+[State 1101, 気絶時血]
+type = Explod
+trigger1 = !NumExplod(10005)
+trigger1 = enemy,stateno = 9800 && enemy,time = 1
+Anim = 10005
+id = 10005
+pos = -10, -88
+postype = p2
+ownpal = 1
+scale = 1.0,1.0
+sprpriority = 2
+
+[State 1101, 天地返しKO時グラウンドウェーブ(小)]
+type = Explod
+triggerall = !NumExplod(10003)
+trigger1 = enemy,stateno = 1104 && enemy,time = 1
+trigger2 = enemy,stateno = 1106 && enemy,time = 1
+Anim = 10003
+id = 10003
+pos = 0, 5
+postype = p2
+ownpal = 1
+scale = 1.2,1.2
+sprpriority = 2
+
+[state -2,勝利時ヘルパー]
+type=helper
+trigger1 = !numhelper(20000)
+trigger1 = roundstate=3 && time = 1
+trigger1 = winko || loseko
+helpertype = normal
+stateno = 20000
+id = 20000
+ownpal = 1
+ignorehitpause = 1
+pausemovetime = 999
+
+;=============================================================================
+; ダメージボイス
+;=============================================================================
+[state -2]
+type = PlaySnd
+triggerall = stateno = 5000 ||  stateno = 5010 || stateno = 5020
+triggerall = time = 0
+triggerall = alive = 1
+trigger1 = GetHitVar(animtype) = 0
+value = 5,0 + (random%4)
+persistent = 0
+
+[state -2]
+type = PlaySnd
+triggerall = stateno = 5000 ||  stateno = 5010 || stateno = 5020
+triggerall = time = 0
+triggerall = alive = 1
+trigger1 = GetHitVar(animtype) = 1
+value = 5,0 + (random%4)
+persistent = 0
+
+[state -2]
+type = PlaySnd
+triggerall = stateno = 5000 ||  stateno = 5010 || stateno = 5020
+triggerall = time = 0
+triggerall = alive = 1
+trigger1 = GetHitVar(animtype) = 2
+trigger2 = GetHitVar(animtype) = 3
+trigger3 = GetHitVar(animtype) = 4
+value = 5,1 + (random%4)
+persistent = 0
+
+
+
+
+;=============================================================================
+; [Statedef -3]開始
+;=============================================================================
+[Statedef -3]
+
+[State -3, 画面端での飛び越え防止]
+type = Width
+trigger1 = FrontEdgeDist < 8 && MoveType != H
+edge = 3,
+
+

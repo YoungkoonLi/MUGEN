@@ -1,0 +1,40 @@
+﻿
+[Info]
+Name         = "chang_koehan"
+DisplayName  = "chang_koehan"
+VersionDate  = 04,01,2008
+MugenVersion = 06,14,2003
+Author       = "Noise_Low"
+Pal.Defaults = 1,2,3,4,5,6,7,8,9,10
+
+
+[Files];ファイルリスト
+Cmd      = chang_koehan.cmd
+Cns      = chang_koehan.cns
+St       = chang_koehan.cns
+St1      = chang_koehan-N.cns
+St2      = chang_koehan-S.cns
+St3      = chang_koehan-H.cns
+St4      = chang_koehan-2-3.cns
+
+StCommon = common1.cns
+Sprite   = chang_koehan.sff
+Anim     = chang_koehan.air
+Sound    = chang_koehan.snd
+
+Pal1 = Act/chang_01.act
+Pal2 = Act/chang_02.act
+Pal3 = Act/chang_03.act
+Pal4 = Act/chang_04.act
+Pal5 = Act/chang_05.act
+Pal6 = Act/chang_06.act
+Pal7 = Act/chang_07.act
+Pal8 = Act/chang_08.act
+Pal9 = Act/chang_09.act
+Pal10 = Act/chang_10.act
+Pal11 = Act/chang_11.act
+Pal12 = Act/chang_12.act
+
+[Arcade]
+Intro.Storyboard  = 
+Ending.Storyboard = 

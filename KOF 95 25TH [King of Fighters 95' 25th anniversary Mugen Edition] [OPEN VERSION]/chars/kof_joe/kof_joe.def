@@ -1,0 +1,37 @@
+;=====================================================================
+;  DEF File For "Joe"                                  Made By H"
+;                                       Ver. 1.03          
+;=====================================================================
+; Player Information
+[Info]
+name    = "Joe Higashi"
+displayname = "Joe Higashi"
+versiondate = 01,30,2005
+mugenversion = 04,14,2001
+author = "HÅh"
+Pal.Defaults= 1,2,3,4,5,6,7,8,9,10,11,12
+
+; Files for the Player
+[Files]
+cmd     = kof_joe.cmd
+cns     = kof_joe-N.cns  ;Constants
+st      = kof_joe-N.cns  ;States (Normal)
+st1     = kof_joe-S2.cns  ;States (Special)
+st2     = kof_joe-H.cns  ;States (Hyper)
+st3     = SNK-common.cns
+stcommon = common1.cns    ;Common states (in data/)
+sprite  = kof_joe.sff      ;Sprite
+anim    = kof_joe.air      ;Animation
+sound   = kof_joe.snd      ;Sound
+pal1    = kof_joe04.act    ;Palettes
+pal2    = kof_joe05.act
+pal3    = kof_joe06.act
+pal4    = kof_joe01.act
+pal5    = kof_joe02.act
+pal6    = kof_joe03.act
+pal7    = kof_joe10.act
+pal8    = kof_joe11.act
+pal9    = kof_joe12.act
+pal10   = kof_joe07.act
+pal11   = kof_joe08.act
+pal12   = kof_joe09.act

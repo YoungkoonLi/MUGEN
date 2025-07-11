@@ -1,0 +1,36 @@
+; The King of Fighters 95 (C) SNK/SNK Playmore 
+; Storyboard: Game Over screen
+; Version 1.0
+; Converted for Mugen by Dark Saviour
+
+;------------------------------------
+[SceneDef]
+spr = kof95-sb-gameover.sff
+
+;------------------------------------
+[Scene 0]
+bgm = data/kof95/mp3/kof95-sb-gameover.mp3
+bgm.loop = 0
+fadein.time = 0
+fadeout.time = 0
+clearcolor = 0,0,0
+layeall.pos = 0,0
+layer0.offset = 0,0
+layer0.anim = 0
+layer0.starttime = 0
+layer0.displaytime = 0
+layer1.offset = 0,0
+layer1.anim = 1
+layer1.starttime = 0
+end.time = 120
+
+;------------------------------------
+[Begin Action 0]
+0,0, 0,0, -1
+
+[Begin Action 1]
+1,0, 0,0, 12
+1,1, 0,0, 6
+1,2, 0,0, 4
+1,3, 0,0, 2
+1,4, 0,0, 96

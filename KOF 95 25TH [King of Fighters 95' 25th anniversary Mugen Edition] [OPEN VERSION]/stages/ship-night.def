@@ -1,0 +1,1001 @@
+
+;----------------------------
+; for win MUGEN only!
+;----------------------------
+
+
+[Info]
+	name = "Ship"
+
+[Camera]
+	startx = 0
+	starty = 0
+	boundleft = -224
+	boundright = 224
+	boundhigh = -320
+	boundlow = 0
+	verticalfollow = 1.00
+	tension = 50
+	floortension = 150
+
+[PlayerInfo]
+	p1startx = -70
+	p1starty = 0
+	p1startz = 0
+	p1facing = 1
+
+	p2startx = 70
+	p2starty = 0
+	p2startz = 0
+	p2facing = -1
+
+	leftbound = -1000
+	rightbound = 1000
+	topbound = 0
+	botbound = 0
+
+[Scaling]
+	topz = 0
+	botz = 50
+	topscale = 1
+	botscale = 1.2
+
+[Bound]
+	screenleft = 15
+	screenright = 15
+
+[StageInfo]
+	zoffset = 215
+	autoturn = 1
+	resetBG = 0
+
+[Shadow]
+	color = 0, 0, 0
+	intensity = 128
+	yscale = -.1
+	reflect = 1
+	fade.range = -100, -50
+
+[Reflection]
+	intensity = 128
+
+[Music]
+	bgmusic = sound/Slam No.5.mp3
+	bgvolume = 250
+
+
+[BGdef]
+	spr=stages/ship-night.sff
+	debugbg = 0
+
+
+
+;------------------------
+
+;------------------------
+[BG Sky] ;ãÛ
+	type  = normal
+	spriteno = 0, 2
+	ID = 100
+	delta = 0.05, 0.05
+	start = 0, 140
+	tile = 1,0
+	mask = 0
+	layerno = 0
+
+[BG Buildings] ;åöï®
+	type  = normal
+	spriteno = 0, 5
+	ID = 101
+	delta = 0.075, 0.075
+	tile = 1,0
+	mask = 1
+	start = 0, 140
+	layerno = 0
+
+[BG B2] ;åöï®ÇQ
+	type  = normal
+	spriteno = 0, 3
+	ID = 102
+	delta = 0.15, 0.15
+	tile = 1,0
+	mask = 1
+	start = 0, 140
+	layerno = 0
+
+;--------
+[BG buildings lights] ;åöï®ÇÃåıÇP
+	Type = anim
+	actionno = 30
+	ID = 102
+	Tile  = 1,0
+	delta = 0.15, 0.15
+	tile = 1,0
+	tilespacing = 527, 240
+	mask = 1
+	start = -63, 67
+	layerno = 0
+
+[BG buildings lights] ;åöï®ÇÃåıÇQ
+	Type = anim
+	actionno = 31
+	ID = 102
+	Tile  = 1,0
+	delta = 0.15, 0.15
+	tile = 1,0
+	tilespacing = 527, 240
+	mask = 1
+	start = -56, 74
+	layerno = 0
+
+[BG buildings lights] ;åöï®ÇÃåıÇR
+	Type = anim
+	actionno = 31
+	ID = 102
+	Tile  = 1,0
+	delta = 0.15, 0.15
+	tilespacing = 527, 240
+	tile = 1,0
+	mask = 1
+	start = 80, 130
+	layerno = 0
+
+[BG buildings lights] ;åöï®ÇÃåıÇS
+	Type = anim
+	actionno = 32
+	ID = 102
+	Tile  = 1,0
+	delta = 0.15, 0.15
+	tilespacing = 527, 240
+	tile = 1,0
+	mask = 1
+	start = 220, 100
+	layerno = 0
+
+[BG buildings lights] ;åöï®ÇÃåıÇT
+	Type = anim
+	actionno = 33
+	ID = 102
+	Tile  = 1,0
+	delta = 0.15, 0.15
+	tilespacing = 263, 240
+	tile = 1,0
+	mask = 1
+	start = 120, 125
+	layerno = 0
+
+[BG buildings lights] ;åöï®ÇÃåıÇU
+	Type = anim
+	actionno = 34
+	ID = 102
+	Tile  = 1,0
+	delta = 0.15, 0.15
+	tilespacing = 120, 240
+	tile = 1,0
+	mask = 1
+	start = 100, 130
+	layerno = 0
+
+[BG buildings lights] ;åöï®ÇÃåıÇV
+	Type = anim
+	actionno = 33
+	ID = 102
+	Tile  = 1,0
+	delta = 0.15, 0.15
+	tilespacing = 80, 240
+	tile = 1,0
+	mask = 1
+	start = 50, 110
+	layerno = 0
+
+
+;--------
+[BG mics] ;ê·ÇP
+	type  = normal
+	spriteno = 4, 3
+	ID = 40
+	start = 0, 0
+	tile = 1,1
+	tilespacing = 110,100
+	mask = 1
+	delta = 0.25, 0.25
+	sin.x = 0.06, 20, 1
+	trans = add
+
+[BG mics] ;ê·ÇQ
+	type  = normal
+	spriteno = 4, 3
+	ID = 41
+	start = 60, 160
+	tile = 1,1
+	tilespacing = 100,120
+	mask = 1
+	delta = 0.30, 0.30
+	sin.x = 0.12, 24, 1
+	trans = add
+
+[BG mics] ;ê·ÇR
+	type  = normal
+	spriteno = 4, 3
+	ID = 42
+	start = -130, 30
+	tile = 1,1
+	tilespacing = 140,130
+	mask = 1
+	delta = 0.35, 0.35
+	sin.x = 0.5, 30, 1
+	trans = add
+
+[BG mics] ;ê·ÇS
+	type  = normal
+	spriteno = 4, 3
+	ID = 43
+	start = -330, 30
+	tile = 1,1
+	tilespacing = 120,140
+	mask = 1
+	delta = 0.40, 0.40
+	sin.x = 0.6, 40, 1
+	trans = add
+
+;--------
+[BG B3] ;åöï®ÇR(ãﬂï®)
+	type  = normal
+	spriteno = 0, 4
+	ID = 104
+	start = -280, -160
+	delta = 0.45, 0.45
+	tile = 1,0
+	tilespacing = 180,0
+	mask = 1
+	layerno = 0
+
+
+;--------
+;Ç≤íçà”ÅF
+;  ëÂÇ´Ç¢ÉTÉCÉYÇÃÉXÉvÉâÉCÉgÇÃÉAÉãÉtÉ@ÉuÉåÉìÉh(îºìßñæ)èàóùÇÕéûä‘Ç™Ç©Ç©ÇËÇ‹Ç∑ÇÃÇ≈ÅA
+;  íxÇ¢É}ÉVÉìÇÃèÍçáÇÕè¡ÇµÇƒégópÇµÇƒÇ≠ÇæÇ≥Ç¢ÅBèàóùóéÇøÇÕÇ©Ç»ÇËâ¸ëPÇ≈Ç´Ç‹Ç∑ÅB
+;  Ç≤éQçlÇ…ÅA60fpsà»â∫ÇÃèÛë‘ÇÕÅgèàóùóéÇøÅhÇ∆Ç¢Ç¢Ç‹Ç∑ÅBÇΩÇ‘ÇÒ(^^;
+
+[BG smoke] ;ñ∂
+	type = normal
+	spriteno = 1, 1
+	ID = 105
+	start = 0, 210
+	delta = .56, 0.75
+	Tile = 1,0
+	Trans = add
+	layerno = 0
+
+;--------
+[BG mics] ;ê·ÇT
+	type  = normal
+	spriteno = 4, 3
+	ID = 44
+	start = -50, -30
+	tile = 1,1
+	tilespacing = 150,210
+	mask = 1
+	delta = 0.5, 0.5
+	sin.x = 1.0, 40, 1
+	trans = add
+
+[BG mics] ;ê·ÇU
+	type  = normal
+	spriteno = 4, 2
+	ID = 45
+	start = 40, -40
+	tile = 1,1
+	tilespacing = 260,140
+	mask = 1
+	delta = 0.54, 0.54
+	sin.x = 2.0, 50, 1
+	trans = add
+
+[BG mics] ;ê·ÇV
+	type  = normal
+	spriteno = 4, 2
+	ID = 46
+	start = 30, 50
+	tile = 1,1
+	tilespacing = 190,160
+	mask = 1
+	delta = 0.58, 0.58
+	sin.x = 2.2, 60, 1
+	trans = add
+
+[BG mics] ;ê·ÇW
+	type  = normal
+	spriteno = 4, 2
+	ID = 47
+	start = -40, 50
+	tile = 1,1
+	tilespacing = 160,200
+	mask = 1
+	delta = 0.62, 0.62
+	sin.x = 1.6, 60, 1
+	trans = add
+
+[BG mics] ;ê·ÇX
+	type  = normal
+	spriteno = 4, 1
+	ID = 48
+	start = 50, -45
+	tile = 1,1
+	tilespacing = 200,180
+	mask = 1
+	delta = 0.66, 0.66
+	sin.x = 2.0, 56, 1
+	trans = add
+
+
+
+
+
+;-------------
+[BG Ship] ;ëD
+	type  = anim
+	actionno = 1
+	start = 0, 177
+	delta = .6714285, 1
+	mask  = 1
+
+[BG Ship] ;ëDÉfÉbÉL
+	type  = parallax
+	spriteno = 0, 0
+	delta = .6714285,1
+	xscale= 1,1.7560871
+	mask = 1
+	layerno = 0
+
+[BG Ship shadow] ;ëDîΩâe
+	type  = anim
+	actionno = 2
+	start = 0, 175
+	delta = .6714285,1
+	mask  = 1
+
+;-------------
+[BG ships lights] ;ëDåı
+	Type = anim
+	actionno = 40
+	Tile  = 1,0
+	delta = .6714285,1
+	tilespacing = 50, 240
+	tile = 1,0
+	mask = 1
+	start = 4, 150
+
+;------------
+;sub chars
+
+[BG 0] ;îwåiÉLÉÉÉâÇP
+	type  = anim
+	actionno = 10
+	start = -250, 180
+	delta = .6714285,1
+	mask  = 1
+[BG 0] ;îwåiÉLÉÉÉâîΩâeÇP
+	type  = anim
+	actionno = 20
+	start = -250, 182
+	delta = .6714285,1
+	mask  = 1
+
+[BG 0] ;îwåiÉLÉÉÉâÇQ
+	type  = anim
+	actionno = 11
+	start = -330, 180
+	delta = .6714285,1
+	mask  = 1
+[BG 0] ;îwåiÉLÉÉÉâîΩâeÇQ
+	type  = anim
+	actionno = 21
+	start = -330, 182
+	delta = .6714285,1
+	mask  = 1
+
+;----
+[BG 0] ;îwåiÉLÉÉÉâÇR
+	type  = anim
+	actionno = 11
+	start = 260, 180
+	delta = .6714285,1
+	mask  = 1
+[BG 0] ;îwåiÉLÉÉÉâîΩâeÇR
+	type  = anim
+	actionno = 21
+	start = 260, 182
+	delta = .6714285,1
+	mask  = 1
+
+;----
+[BG 0] ;îwåiÉLÉÉÉâÇS
+	type  = anim
+	actionno = 12
+	start = 232, 199
+	delta = .85152, 1
+	mask  = 1
+[BG 0] ;îwåiÉLÉÉÉâîΩâeÇS
+	type  = anim
+	actionno = 22
+	start = 232, 197
+	delta = .85152, 1
+	mask  = 1
+
+
+;------------------
+;mics
+[BG 0] ;ê·ÇPÇO
+	type  = normal
+	spriteno = 4, 1
+	ID = 49
+	start = 110, 0
+	tile = 1,1
+	tilespacing = 220,210
+	mask = 1
+	delta = 0.85, 0.85
+	sin.x = 3.0, 60, 1
+	layerno = 1
+	trans = add
+
+[BG 0] ;ê·ÇPÇP
+	type  = normal
+	spriteno = 4, 1
+	ID = 50
+	start = 0, 110
+	tile = 1,1
+	tilespacing = 260,220
+	mask = 1
+	delta = 0.95, 0.95
+	sin.x = 6.0, 100, 1
+	layerno = 1
+	trans = add
+
+[BG 0] ;ê·ÇPÇQ
+	type  = normal
+	spriteno = 4, 0
+	ID = 51
+	start = 140, 120
+	tile = 1,1
+	tilespacing = 280,240
+	mask = 1
+	delta = 1.15, 1.15
+	sin.x = 10.0, 140, 1
+;;	sin.y = 1.25, 60, 1
+;;	positionlink = 1
+	layerno = 1
+	trans = add
+
+
+
+
+
+;------------------------
+
+;------------------------
+[BGCtrlDef Sky]
+looptime = 8000
+ctrlID = 100
+
+[BGCtrl 0]
+	type = velset
+	time = 1800
+	x = 0.0010  ;0.10
+[BGCtrl 0]
+	type = veladd
+	time = 1800,1900
+	x = 0.0010
+[BGCtrl 0]
+	type = veladd
+	time = 5800,5900
+	x = -0.0010
+[BGCtrl 0]
+	type = velset
+	time = 5900
+	x = 0
+
+;-------
+[BGCtrlDef Buildings]
+looptime = 8000
+ctrlID = 101
+
+[BGCtrl 0]
+	type = velset
+	time = 1800
+	x = 0.00125  ;0.125
+[BGCtrl 0]
+	type = veladd
+	time = 1800,1900
+	x = 0.00125
+[BGCtrl 0]
+	type = veladd
+	time = 5800,5900
+	x = -0.00125
+[BGCtrl 0]
+	type = velset
+	time = 5900
+	x = 0
+
+;-------
+[BGCtrlDef B2]
+looptime = 8000
+ctrlID = 102
+
+[BGCtrl 0]
+	type = velset
+	time = 1800
+	x = 0.00150  ;0.150
+[BGCtrl 0]
+	type = veladd
+	time = 1800,1900
+	x = 0.00150
+[BGCtrl 0]
+	type = veladd
+	time = 5800,5900
+	x = -0.00150
+[BGCtrl 0]
+	type = velset
+	time = 5900
+	x = 0
+
+;-------
+[BGCtrlDef B3]
+looptime = 8000
+ctrlID = 104
+
+[BGCtrl 0]
+	type = velset
+	time = 1800
+	x = 0.00350  ;0.350
+[BGCtrl 0]
+	type = veladd
+	time = 1800,1900
+	x = 0.00350
+[BGCtrl 0]
+	type = veladd
+	time = 5800,5900
+	x = -0.00350
+[BGCtrl 0]
+	type = velset
+	time = 5900
+	x = 0
+
+;-------
+[BGCtrlDef kiri2]
+looptime = 8000
+ctrlID = 105
+
+[BGCtrl 0]
+	type = velset
+	time = 1800
+	x = 0.00750  ;0.750
+[BGCtrl 0]
+	type = veladd
+	time = 1800,1900
+	x = 0.00750
+[BGCtrl 0]
+	type = veladd
+	time = 5800,5900
+	x = -0.00750
+[BGCtrl 0]
+	type = velset
+	time = 5900
+	x = 0
+
+
+
+
+;------------------------
+; 0	velocity = 0.04, 0.06
+; 1	velocity = 0.052, 0.08
+; 2	velocity = 0.06, 0.09
+; 3	velocity = 0.08, 0.12
+; 4	velocity = 0.12, 0.18
+; 5	velocity = 0.13, 0.20
+; 6	velocity = 0.15, 0.23
+; 7	velocity = 0.62, 0.62
+; 8	velocity = 0.22, 0.33
+; 9	velocity = 0.34, 0.51
+; 0	velocity = 0.41, 0.62
+; 1	velocity = 0.50, 0.75
+
+;------------------------
+[BGCtrlDef mics]
+looptime = 8000
+ctrlID = 40
+
+[BGCtrl 0]
+	type = velset
+	time = 0
+	x = 0.0008
+	y = 0.14
+[BGCtrl 0]
+	type = veladd
+	time = 1800,1900
+	x = 0.0014
+[BGCtrl 0]
+	type = veladd
+	time = 5800,5900
+	x = -0.0014
+[BGCtrl 0]
+	type = velset
+	time = 5900
+	x = 0.0014
+
+;-------
+[BGCtrlDef mics]
+looptime = 8000
+ctrlID = 41
+
+[BGCtrl 0]
+	type = velset
+	time = 0
+	x = 0.001
+	y = 0.16
+[BGCtrl 0]
+	type = veladd
+	time = 1800,1900
+	x = 0.0016
+[BGCtrl 0]
+	type = veladd
+	time = 5800,5900
+	x = -0.0016
+[BGCtrl 0]
+	type = velset
+	time = 5900
+	x = 0.0016
+
+;-------
+[BGCtrlDef mics]
+looptime = 8000
+ctrlID = 42
+
+[BGCtrl 0]
+	type = velset
+	time = 0
+	x = 0.0014
+	y = 0.20
+[BGCtrl 0]
+	type = veladd
+	time = 1800,1900
+	x = 0.0020
+[BGCtrl 0]
+	type = veladd
+	time = 5800,5900
+	x = -0.0020
+[BGCtrl 0]
+	type = velset
+	time = 5900
+	x = 0.0020
+
+;-------
+[BGCtrlDef mics]
+looptime = 8000
+ctrlID = 43
+
+[BGCtrl 0]
+	type = velset
+	time = 0
+	x = 0.00017
+	y = 0.26
+[BGCtrl 0]
+	type = veladd
+	time = 1800,1900
+	x = 0.0026
+[BGCtrl 0]
+	type = veladd
+	time = 5800,5900
+	x = -0.0026
+[BGCtrl 0]
+	type = velset
+	time = 5900
+	x = 0.0026
+
+;-------
+[BGCtrlDef mics]
+looptime = 8000
+ctrlID = 44
+
+[BGCtrl 0]
+	type = velset
+	time = 0
+	x = 0.002
+	y = 0.32
+[BGCtrl 0]
+	type = veladd
+	time = 1800,1900
+	x = 0.0032
+[BGCtrl 0]
+	type = veladd
+	time = 5800,5900
+	x = -0.0032
+[BGCtrl 0]
+	type = velset
+	time = 5900
+	x = 0.0032
+
+;-------
+[BGCtrlDef mics]
+looptime = 8000
+ctrlID = 45
+
+[BGCtrl 0]
+	type = velset
+	time = 0
+	x = 0.003
+	y = 0.40
+[BGCtrl 0]
+	type = veladd
+	time = 1800,1900
+	x = 0.004
+[BGCtrl 0]
+	type = veladd
+	time = 5800,5900
+	x = -0.004
+[BGCtrl 0]
+	type = velset
+	time = 5900
+	x = 0.004
+
+;-------
+[BGCtrlDef mics]
+looptime = 8000
+ctrlID = 46
+
+[BGCtrl 0]
+	type = velset
+	time = 0
+	x = 0.004
+	y = 0.52
+[BGCtrl 0]
+	type = veladd
+	time = 1800,1900
+	x = 0.0052
+[BGCtrl 0]
+	type = veladd
+	time = 5800,5900
+	x = -0.0052
+[BGCtrl 0]
+	type = velset
+	time = 5900
+	x = 0.0052
+
+;-------
+[BGCtrlDef mics]
+looptime = 8000
+ctrlID = 47
+
+[BGCtrl 0]
+	type = velset
+	time = 0
+	x = 0.005
+	y = 0.65
+[BGCtrl 0]
+	type = veladd
+	time = 1800,1900
+	x = 0.0065
+[BGCtrl 0]
+	type = veladd
+	time = 5800,5900
+	x = -0.0065
+[BGCtrl 0]
+	type = velset
+	time = 5900
+	x = 0.0065
+
+;-------
+[BGCtrlDef mics]
+looptime = 8000
+ctrlID = 48
+
+[BGCtrl 0]
+	type = velset
+	time = 0
+	x = 0.006
+	y = 0.78
+[BGCtrl 0]
+	type = veladd
+	time = 1800,1900
+	x = 0.0078
+[BGCtrl 0]
+	type = veladd
+	time = 5800,5900
+	x = -0.0078
+[BGCtrl 0]
+	type = velset
+	time = 5900
+	x = 0.0078
+
+;-------
+[BGCtrlDef mics]
+looptime = 8000
+ctrlID = 49
+
+[BGCtrl 0]
+	type = velset
+	time = 0
+	x = 0.0075
+	y = 0.9
+[BGCtrl 0]
+	type = veladd
+	time = 1800,1900
+	x = 0.009
+[BGCtrl 0]
+	type = veladd
+	time = 5800,5900
+	x = -0.009
+[BGCtrl 0]
+	type = velset
+	time = 5900
+	x = 0.009
+
+;-------
+[BGCtrlDef mics]
+looptime = 8000
+ctrlID = 50
+
+[BGCtrl 0]
+	type = velset
+	time = 0
+	x = 0.009
+	y = 1.1
+[BGCtrl 0]
+	type = veladd
+	time = 1800,1900
+	x = 0.011
+[BGCtrl 0]
+	type = veladd
+	time = 5800,5900
+	x = -0.011
+[BGCtrl 0]
+	type = velset
+	time = 5900
+	x = 0.011
+
+;-------
+[BGCtrlDef mics]
+looptime = 8000
+ctrlID = 51
+
+[BGCtrl 0]
+	type = velset
+	time = 0
+	x = 0.011
+	y = 1.50
+[BGCtrl 0]
+	type = veladd
+	time = 1800,1900
+	x = 0.015
+[BGCtrl 0]
+	type = veladd
+	time = 5800,5900
+	x = -0.015
+[BGCtrl 0]
+	type = velset
+	time = 5900
+	x = 0.015
+
+
+
+
+
+
+
+
+;------------------------
+
+;------------------------
+[Begin Action 1]
+0,1,0,0,-1
+
+
+[Begin Action 2]
+0,1,0,0,-1,V, AS045D210
+
+; for DOS ver.
+;[Begin Action 2]
+;0,1,0,0,-1,V, A1
+
+
+[Begin Action 10]
+2,0,0,0,-1
+[Begin Action 20]
+2,0,0,0,-1,V, AS045D210
+
+; for DOS ver.
+;[Begin Action 20]
+;2,0,0,0,-1,V, A1
+
+[Begin Action 11]
+2,1,0,0,-1
+
+[Begin Action 21]
+2,1,0,0,-1,V, AS045D210
+
+; for DOS ver.
+;[Begin Action 21]
+;2,1,0,0,-1,V, A1
+
+
+[Begin Action 12]
+3,1,0,0,8
+3,2,0,0,8
+3,3,0,0,8
+3,2,0,0,8
+
+[Begin Action 22]
+3,1,0,0,8,V, AS075D180
+3,2,0,0,8,V, AS075D180
+3,3,0,0,8,V, AS075D180
+3,2,0,0,8,V, AS075D180
+
+; for DOS ver.
+;[Begin Action 22]
+;3,1,0,0,8,V, A1
+;3,2,0,0,8,V, A1
+;3,3,0,0,8,V, A1
+;3,2,0,0,8,V, A1
+
+
+;buildings lights
+[Begin Action 30]
+0,-1,0,0,28
+4,3,0,0,8,,A
+4,2,0,0,7,,A
+4,1,0,0,6,,A
+4,0,0,0,5,,A
+4,1,0,0,6,,A
+4,2,0,0,7,,A
+4,3,0,0,8,,A
+
+[Begin Action 31]
+0,-1,0,0,48
+4,3,0,0,9,,A
+4,2,0,0,6,,A
+4,1,0,0,3,,A
+4,0,0,0,3,,A
+4,1,0,0,3,,A
+4,2,0,0,6,,A
+4,3,0,0,9,,A
+
+[Begin Action 32]
+4,3,0,0,48,,A
+4,2,0,0,6,,A
+4,1,0,0,5,,A
+4,0,0,0,4,,A
+4,1,0,0,5,,A
+4,2,0,0,6,,A
+
+[Begin Action 33]
+0,-1,0,0,28
+4,3,0,0,5,,A
+4,2,0,0,4,,A
+4,1,0,0,3,,A
+4,2,0,0,4,,A
+4,3,0,0,5,,A
+
+[Begin Action 34]
+0,-1,0,0,32
+4,3,0,0,6,,A
+4,2,0,0,4,,A
+4,1,0,0,2,,A
+4,2,0,0,4,,A
+4,3,0,0,6,,A
+
+
+;ships lights
+[Begin Action 40]
+0,-1,0,0,28
+4,3,0,0,2,,A
+4,2,0,0,2,,A
+4,1,0,0,2,,A
+4,0,0,0,5,,A
+4,1,0,0,6,,A
+4,2,0,0,7,,A
+4,3,0,0,8,,A
+
+
+
+
+;[EOF]

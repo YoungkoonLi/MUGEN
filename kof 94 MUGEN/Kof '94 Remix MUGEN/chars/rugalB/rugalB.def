@@ -1,0 +1,19 @@
+; ここにキャラ情報を書いてください
+[Info]
+name = "rugal B"        ;キャラの名前
+displayname = "rugal B" ;表示されるキャラの名前
+versiondate = 11,22,2000    ;キャラの更新情報
+mugenversion = 11,22,2000   ;キャラが動くmugenのバージョン
+author = "bad darkness"         ;キャラの製作者名
+pal.defaults = 6,3,4,2      ;敵としてでるキャラのパレット
+
+; Files for the player
+[Files]
+cmd     = rugalB.cmd   ;キャラのコマンド
+cns     = rugalB.cns   ;キャラのプログラム
+st      = rugalB.cns   ;キャラのプログラム
+stcommon = common1.cns 
+sprite  = rugalB.sff   ;キャラの絵
+anim    = rugalB.air   ;キャラの動き
+sound   = rugalB.snd   ;キャラの音
+pal1    = rugalB.act  ;キャラの色（最大１２個）

@@ -1,0 +1,31 @@
+;LAST UP DATA- 2006.10.07	Version=I-2
+[Info]
+Name="Andy Bogard"
+DisplayName="Andy Bogard"
+VersionDate=04,14,2001
+MugenVersion=04,14,2001
+Author="zzzasd" ;"zzzasd13@yahoo.co.kr" "www.neo-eye.com" "http://conversion.wo.to/"
+Pal.Defaults=1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+cmd=Andy.cmd
+cns=Andy.cns
+st=Andy.cns
+st1= Andya.cns
+st2= Andyb.cns
+st3= Andyc.cns
+stcommon=common1.cns
+sprite=Andy.sff
+anim=Andy.air
+sound=Andy.snd
+pal1=Andy02-B.act
+pal2=Andy02-D.act
+pal3=Negro.act
+pal4=Andy02-A.act
+pal5=Andy02-C.act
+pal6=Turquesa.act
+pal7=Azul.act
+pal8=Rosa.act
+pal10=Celeste.act
+pal11=Rojo.act
+pal12=Violeta.act

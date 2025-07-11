@@ -1,0 +1,33 @@
+; Player information
+[Info]
+name ="HEAVY D!"
+displayname ="Heavy D!"
+versiondate =02,18,2001
+mugenversion =11,29,2000
+author ="3ha"
+pal.defaults =1,2,3,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+cmd     =D.cmd
+cns     =Data.cns
+st      =D.cns
+stcommon =common1.cns
+sprite  =D.sff
+anim    =D.air
+sound   =D.snd
+pal1=D.act
+pal2=D2.act
+pal3=D3.act
+pal4=D4.act
+pal5=D5.act
+pal6=D6.act
+pal7=D7Blanco.act
+pal8=D'.act
+pal9=D''.act
+pal10=D8Blanco.act
+pal11=Albino.act
+pal12=Albino2.act
+st1=D'.cns
+[Arcade]
+intro.storyboard=
+ending.storyboard=

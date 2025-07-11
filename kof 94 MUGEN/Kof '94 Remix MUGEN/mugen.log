@@ -1,0 +1,287 @@
+------------------------------------------
+M.U.G.E.N ver 1.00 (2011.01.18) status log
+------------------------------------------
+Parsing command line...
+Command line: D:\Games\KOF\kof 94 MUGEN\Kof '94 Remix MUGEN\mugen.exe
+Parse command line OK
+Initializing...
+Allocating game variables
+Reading configuration file...OK
+Initializing timer...performance timer enabled...frequency 10000000...OK
+Initializing keyboard...configuring...OK
+Initializing input engine...OK
+Initializing sound...Using SDL audio driver: dsound
+Requesting mixer parameters (44100, 16, 2, 2048)...
+Opened mixer with parameters (44100, 16, 2, 2048)...
+OK
+Initializing BGM...BGMThreadInit returned 0
+OK
+Initializing graphics...gameCoord 640x480...render mode 0_0...trying 640x480x16 mode 0x0...success...OK
+Setting callbacks...OK
+Initializing font...OK
+Initializing game variables...OK
+Loading system fonts...OK
+Loading options...
+Initializing pads...failed
+Reinitializing input engine...OK
+Remapping keys...OK
+Reinitializing input engine...OK
+Options loaded OK
+Loading system...
+  Load system file system.def...OK
+  Load system spr...OK
+  Load system snd...OK
+  Load system fonts...OK
+  Load [Title Info]...OK
+  Load [Option Info]...OK
+  Load [Select Info]...OK
+  Load [VS Screen]...OK
+  Load [Victory Screen]...Couldn't load
+  Load [Demo Mode]...OK
+  Load [Continue Screen]...OK
+  Load [Game Over Screen]...OK
+  Load [Win Screen]...OK
+  Load [Default Ending]...OK
+  Load [End Credits]...OK
+  Load TitleBG...VersusBG...VictoryBG...Error loading VictoryBG
+SelectBG...OptionBG...OK
+  Loading fight data
+    Opening fight data file data/kof94/fight.def...OK
+    Reading [Files]...OK
+    Loading fonts...OK
+    Load fight anim...OK
+    Reading [Lifebar]...[Turns Lifebar]...[Simul Lifebar]...[Powerbar]...
+    [Face]...[Simul Face]...[Turns Face]...
+    [Name]...[Simul Name]...[Turns Name]...
+    [Time]...[Combo]...[Round]...[WinIcon]...OK
+    Allocating explods...OK
+  Fight data loaded OK
+System loaded OK
+Initialize OK
+Set up graphics...timer...OK
+Playing storyboard neogeo.def: scene
+attempting load and start...attempting load of data/kof94/mp3/kof94-sb-logo.mp3...hooking mixer callback...
+success!
+starting BGM...
+Storyboard playback finished OK
+Finished playing storyboard neogeo.def: scene
+Initializing character info...OK
+Initializing select screen...finding characters...OK
+
+Entering main loop
+Playing storyboard kof94intro.sce: scene
+attempting load and start...attempting load of data/kof94/ouei.mp3...success!
+starting BGM...
+attempting load and start...attempting load of data/kof94/tadam.mp3...success!
+starting BGM...
+Storyboard playback finished OK
+Finished playing storyboard kof94intro.sce: scene
+Entering character select.
+attempting load and start...attempting load of data/kof94/ouei.mp3...success!
+starting BGM...
+Initializing stage...
+  Loading BG...OK
+  Allocating helpers...OK
+Stage initialized OK
+Loading character chars/robert94/robert94.def...
+  Loading info...OK
+  Loading cmd command set robert94.cmd...OK
+  Loading cns robert94.cns...OK
+  Loading cns aof.st...OK
+  Loading cns special.st...OK
+  Loading cmd state entry robert94.cmd...OK
+  Loading common states common1.cns...OK
+  Unloading command names...OK
+  Loading sff robert.sff...OK
+  Loading anim robert94.air...OK
+  Loading snd robert.snd...OK
+  Loading pals...(1,1)(1,2)(1,3)(1,4)(1,5)(1,6)(1,7)(1,8)(1,9)(1,10)(1,11)(1,12)OK
+  SFF v1.01 palette hack engaged.
+  4180 expressions (1256 on trigger lines)
+Character robert94.def loaded OK
+Loading character chars/95king/95king.def...
+  Loading info...OK
+  Loading cmd command set 95king.cmd...OK
+  Loading cns 95king.cns...OK
+  Loading cmd state entry 95king.cmd...OK
+  Loading common states common1.cns...OK
+  Unloading command names...OK
+  Loading sff 95king.sff...OK
+  Loading anim 95king.air...OK
+  Loading snd 95king.snd...OK
+  Loading pals...(1,1)(1,2)(1,3)(1,4)(1,5)(1,6)(1,7)(1,8)(1,9)OK
+  SFF v1.01 palette hack engaged.
+  5072 expressions (1719 on trigger lines)
+Character 95king.def loaded OK
+Start of game loop
+End of game loop
+Total time: 29.25s
+Total frames: 1756 	Skipped frames: 0
+Avg game rate: 60.03
+Avg frame rate: 60.03
+
+Entering character select.
+attempting load and start...nothing to do!
+attempting load and start...attempting load of data/kof94/tumdum.mp3...success!
+starting BGM...
+Loading character chars/rugal94/rugal94.def...
+  Loading info...OK
+  Loading cmd command set rugal94.cmd...OK
+  Loading cns rugal94.cns...OK
+  Loading cmd state entry rugal94.cmd...OK
+  Loading common states common1.cns...OK
+  Unloading command names...OK
+  Loading sff rugal94.sff...OK
+  Loading anim rugal94.air...OK
+  Loading snd rugal94.snd...OK
+  Loading pals...(1,1)attempting load and start...no BGM...(1,2)(1,3)(1,4)(1,5)OK
+  SFF v1.01 palette hack engaged.
+  7794 expressions (2598 on trigger lines)
+Character rugal94.def loaded OK
+Loading character chars/kyo94&95/kyo94.def...
+  Loading info...OK
+  Loading cmd command set kyo'94.cmd...OK
+  Loading cns kyo94&95.cns...OK
+  Loading cns kyo94_NA.cns...OK
+  Loading cns kyo94_Sp.cns...OK
+  Loading cmd state entry kyo'94.cmd...OK
+  Loading common states common1.cns...OK
+  Unloading command names...OK
+  Loading sff kyo'94.sff...OK
+  Loading anim kyo'94.air...OK
+  Loading snd kyo'94.snd...OK
+  Loading pals...(1,1)(1,2)(1,3)(1,4)(1,5)(1,6)OK
+  SFF v1.01 palette hack engaged.
+  3825 expressions (1131 on trigger lines)
+Character kyo94.def loaded OK
+Initializing stage...
+  Loading BG...OK
+  Allocating helpers...OK
+Stage initialized OK
+Start of game loop
+attempting load of stages/-10-esaka-japan-stage-.mp3...success!
+prebuffering BGM...
+Loading character chars/daimon41/daimon41.def...
+  Loading info...OK
+  Loading cmd command set daimon_cmd.cns...OK
+  Loading cns daimon.cns...OK
+  Loading cns STAND.cns...OK
+  Loading cns helpers.cns...OK
+  Loading cmd state entry daimon_cmd.cns...OK
+  Loading common states common1.cns...OK
+  Unloading command names...OK
+  Loading sff daimon.sff...OK
+  Loading anim daimon.air...OK
+  Loading snd daimon.snd...OK
+  Loading pals...OK
+  2891 expressions (1408 on trigger lines)
+Character daimon41.def loaded OK
+End of game loop
+Total time: 71.96s
+Total frames: 4320 	Skipped frames: 0
+Avg game rate: 60.03
+Avg frame rate: 60.03
+
+Initializing stage...
+  Loading BG...attempting load and start...no BGM...attempting load of stages/-10-esaka-japan-stage-.mp3...success!
+OK
+  Allocating helpers...OK
+Stage initialized OK
+Start of game loop
+prebuffering BGM...
+End of game loop
+Total time: 36.82s
+Total frames: 2210 	Skipped frames: 0
+Avg game rate: 60.02
+Avg frame rate: 60.02
+
+Entering character select.
+attempting load and start...attempting load of data/kof94/ouei.mp3...success!
+starting BGM...
+attempting load and start...attempting load of data/kof94/tumdum.mp3...success!
+starting BGM...
+Initializing stage...
+attempting load and start...no BGM...  Loading BG...OK
+  Allocating helpers...OK
+Stage initialized OK
+Start of game loop
+attempting load of stages/-11-yuu-korea-stage-.mp3...success!
+prebuffering BGM...
+End of game loop
+Total time: 34.75s
+Total frames: 2086 	Skipped frames: 0
+Avg game rate: 60.03
+Avg frame rate: 60.03
+
+attempting load and start...attempting load of data/kof94/tumdum.mp3...success!
+starting BGM...
+Entering character select.
+attempting load and start...attempting load of data/kof94/ouei.mp3...success!
+starting BGM...
+attempting load and start...attempting load of data/kof94/tumdum.mp3...success!
+starting BGM...
+Loading character chars/rugalB/rugalB.def...
+  Loading info...OK
+  Loading cmd command set rugalB.cmd...OK
+  Loading cns rugalB.cns...OK
+  Loading cmd state entry rugalB.cmd...OK
+  Loading common states common1.cns...OK
+  Unloading command names...OK
+  Loading sff rugalB.sff...OK
+  Loading anim rugalB.air...OK
+  Loading snd rugalB.snd...OK
+  Loading pals...(1,1)OK
+  SFF v1.01 palette hack engaged.
+  1557 expressions (616 on trigger lines)
+Character rugalB.def loaded OK
+Entering character select.
+attempting load and start...attempting load of data/kof94/ouei.mp3...success!
+starting BGM...
+attempting load and start...attempting load of data/kof94/tumdum.mp3...success!
+starting BGM...
+Initializing stage...
+  Loading BG...OK
+  Allocating helpers...OK
+Stage initialized OK
+Start of game loop
+attempting load and start...no BGM...attempting load of stages/-10-esaka-japan-stage-.mp3...success!
+prebuffering BGM...
+End of game loop
+Total time: 221.77s
+Total frames: 13307 	Skipped frames: 0
+Avg game rate: 60.00
+Avg frame rate: 60.00
+
+attempting load and start...attempting load of data/kof94/tumdum.mp3...success!
+starting BGM...
+Entering character select.
+attempting load and start...attempting load of data/kof94/ouei.mp3...success!
+starting BGM...
+Returned from main loop
+Deinitializing...
+Frames      : 23679
+Time elapsed: 489.990 sec
+ticks: 48999, tps: 100, start 53, end 49052
+
+Clearing player cache...OK
+Freeing character info...OK
+Freeing select screen...OK
+Freeing fight data...OK
+Freeing system data...OK
+Freeing game variables...OK
+Deinitializing input...pad...keyboard...OK
+Removing callbacks...OK
+Deintializing timer...OK
+Deinitializing graphics...OK
+Deinitializing BGM...Cleaning up mixer callback...unhooking mixer callback...
+
+Mixer callback was entered 10551 times
+Mixer callback timing stats (last 10551 calls):
+	16.000000 median, 18.442423 avg, 15.082424 sample std. dev.
+Top 10 slowest times:	722 (1), 526 (1), 466 (1), 399 (1), 310 (1), 289 (1), 214 (1), 212 (1), 210 (1), 197 (1)
+Top 10 fastest times:	4 (2), 5 (25), 6 (36), 7 (47), 8 (63), 9 (144), 10 (301), 11 (470), 12 (708), 13 (897)
+OK
+Deinitializing sound...OK
+Successful program termination.
+
+Log file successfully closed.

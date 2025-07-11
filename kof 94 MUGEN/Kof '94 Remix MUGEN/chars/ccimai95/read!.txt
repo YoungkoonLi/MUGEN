@@ -1,0 +1,150 @@
+MAI SHIRANUI ~ the beautiful Ninja babe
+King of fighters 1995
+By CCIRocky aka Ironmugen aka David D.
+http://deltapark.i-xcell.com
+
+
+Beta release 1 - PRIVATE!
+
+WARNING: This char may have bugs. Thanks for reporting any bugs you find.
+
+
+What's done?
+-----------
+
+* Time over lose pose
+* Basics + requireds
+* Taunt
+* 1 Intro
+* 2 Win poses
+* All basic attacks
+* Command moves
+* 3 Throw (1 aerial)
+* Ka Cho Sen
+* Ryu En Bu
+* Hissatsu Shinobi Bachi
+* Musasabi No Mai
+* Hisho Ryu En Jin
+* Cho Hissatsu Shinobi Bachi
+* Shiranui Hiohgi
+* Sexy KO
+
+
+What's left?
+-----------
+
+
+
+NOTE for beta testers:
+----
+
+
+Might have bugs. Well, you know what to do if you find any :P
+
+
+
+Special moves
+-------------
+
+
+-O + A  (Double kick)
+
+| + Y (in air - double punch)
+O
+
+Roll = A+X (hold back to roll backward)
+Charge power = A+Y
+Knockdown attack = Y+B
+Throws = at close distance, hold back or forward and press Y or B (B version can be done in air)
+
+
+
+Ka Cho Sen:
+
+| \ -O + X/Y
+O  O
+
+
+Ryu En Bu:
+
+|  / O- + X/Y
+O O
+
+
+Hissatsu Shinobi Bachi:
+
+O- / | \ -O + A/B
+  O  O  O
+
+
+Musasabi No Mai:
+
+| hold then O + X/Y (hold button)
+O           |
+
+or
+
+|  / O- + X/Y (in air)
+O O
+
+
+Hisho Ryu En Jin:
+
+-O | \  + A/B
+   O  O
+
+
+Cho Hissatsu Shinobi Bachi (requires 1 power bar):
+
+-O  / -O + X/Y
+   O
+
+Shiranui Hiohgi (requires 2 power bars):
+
+-O  / -O + X+Y
+   O
+
+
+Profile of Mai:
+---------------
+
+(Taken from www.kof10th.com)
+
+Fighting style: Shiranui style of ninja arts.
+Birthday: 1 of January.
+Height: 165cm
+Weight: 48kg
+Blood type: B
+Birthplace: Japan.
+Hobby: Cooking.
+Personal Treasures: Ornamental hairpin that's her grandmother's keepsake.
+Fav food: Rice cake soup, sweet-red-bean-covered rice balls.
+Hates: Spiders.
+
+
+Special Thanks:
+--------------
+
+Bug repport: Dark Saviour
+
+Dark Saviour for his usefull progs.
+Neogouki (his Joe made me like MUGEN)
+Sander for the Counter system coding.
+Orochi KOf97 for helping out on timings years ago.
+Rumiko for the Andy review which was helpfull.
+Big Eli King, Dreamslayer, @ndroide for hostings.
+Chloe and Smogon for unknown reasons.
+Shin Dio, Walter, UltraJP/Kami.
+O Experto, Ice, DeeJack.
+
+Sion for installing my new UG forum.
+
+
+SNK for creating the KOF saga and that ninja girl. RIP.
+Elecbyte for Mugen.
+
+Special Fucks:
+-------------
+
+Pacific Angra.
+AznMystik.

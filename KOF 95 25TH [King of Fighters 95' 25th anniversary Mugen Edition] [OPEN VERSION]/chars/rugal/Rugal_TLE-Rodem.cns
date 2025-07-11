@@ -1,0 +1,236 @@
+;=====================================================================
+;  CNS File For "Rodem"
+;=====================================================================
+; ロデム・待機
+[Statedef 7000]
+type     = S
+physics  = N
+movetype = I
+VelSet = 0,0
+ctrl = 0
+anim = 7000
+sprpriority = -5
+
+[State 7000, 1]
+type = ChangeState
+trigger1 = p2dist X < 0
+value = 7005
+
+[State 7000, 2]
+type = ChangeState
+triggerall = Roundstate = 2
+trigger1 = AnimElem = 1,>= 30 && AnimElem = 2,< 0
+trigger1 = p2dist X > 160
+value = 7020
+
+
+[State 7000, DestroySelf]; 勝利画面へ
+type = DestroySelf
+trigger1 = Matchover = 1
+trigger1 = Root, stateno = 9000
+
+
+[State 7000, 3]
+type = ChangeState
+triggerall = Roundstate = 4
+trigger1 = Root, stateno = [170,189]
+value = 7180
+
+[State 7000, 3]
+type = ChangeState
+triggerall = AnimElem = 1,>= 0
+trigger1 = Root, stateno = 195
+value = 7195
+
+[State 7000, 3]
+type = ChangeState
+triggerall = Roundstate = 4
+trigger1 = Root, stateno = [5000,5999]
+value = 7170
+
+;============================
+; ロデム・振り向き
+[Statedef 7005]
+type     = S
+physics  = N
+movetype = I
+VelSet = 0,0
+ctrl = 0
+anim = 7005
+sprpriority = -5
+
+[State 7005, 1]
+type = Turn
+trigger1 = time = 0
+
+[State 7005, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 7000
+
+
+;============================
+; ロデム・移動（開始）
+[Statedef 7020]
+type     = S
+physics  = N
+movetype = I
+ctrl = 0
+anim = 7020
+sprpriority = -5
+
+[State 7020, 2]
+type = VelSet
+trigger1 = AnimElem = 3,>=0
+x = 2.46
+
+[State 7020, ChangeState]
+type = ChangeState
+trigger1 = p2dist X <= 75
+value = 7021
+
+;---------------------------------
+; ロデム・移動（終了）
+[Statedef 7021]
+type     = S
+physics  = N
+movetype = I
+ctrl = 0
+anim = 7021
+sprpriority = -5
+
+[State 7021, 2]
+type = VelSet
+trigger1 = AnimElem = 2,>=0
+x = 0
+
+[State 7021, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 7000
+
+;============================
+; ロデム・敗北時（移動）
+[Statedef 7170]
+type     = S
+physics  = N
+movetype = I
+ctrl = 0
+anim = 7170
+sprpriority = -5
+
+[State 7170, 2]
+type = VelSet
+trigger1 = AnimElem = 3,>=0
+x = 4.46
+
+[State 7170, ChangeState]
+type = ChangeState
+trigger1 = p2dist X <= 85
+value = 7171
+
+;---------------------------------
+; ロデム・敗北（威嚇）
+[Statedef 7171]
+type     = S
+physics  = S
+movetype = I
+ctrl = 0
+anim = 7171
+sprpriority = -5
+
+[State 7171, 2]
+type = VelSet
+trigger1 = AnimElem = 2,>=0
+x = 0
+
+[State -2, PlaySnd]; 『グルルルルッッ！！』
+type = PlaySnd
+trigger1 = AnimElem = 11,=0
+value = 9, 1
+
+
+;============================
+; ロデム・勝利時（移動）
+[Statedef 7180]
+type     = S
+physics  = N
+movetype = I
+ctrl = 0
+anim = 7020
+sprpriority = -5
+
+[State 7180, 1]; 主人の方に向く
+type = Turn
+trigger1 = time = 0
+trigger1 = Rootdist X < 0
+
+[State 7170, 2]
+type = VelSet
+trigger1 = AnimElem = 3,>=0
+x = 3.46
+
+[State 7170, ChangeState]
+type = ChangeState
+trigger1 = Rootdist X <= 45
+value = 7181
+
+;---------------------------------
+; ロデム・勝利
+[Statedef 7181]
+type     = S
+physics  = S
+movetype = I
+VelSet = 0,0
+ctrl = 0
+anim = 7181
+sprpriority = -5
+
+[State 6000, DestroySelf]; 勝利画面へ
+type = DestroySelf
+trigger1 = Matchover = 1
+trigger1 = Root, stateno = 9000
+
+
+;============================
+; ロデム・挑発（開始）
+[Statedef 7195]
+type     = S
+physics  = S
+movetype = I
+ctrl = 0
+anim = 7195
+sprpriority = -5
+
+[State -2, PlaySnd]; 『グルルルルッッ！！』
+type = PlaySnd
+trigger1 = AnimElem = 2,=0
+value = 9, 0
+channel = 3
+
+[State 7195, ChangeState]
+type = ChangeState
+triggerall = AnimElem = 1,>= 0
+trigger1 = Root, stateno != 195
+value = 7196
+
+;---------------------------------
+; ロデム・挑発（終了）
+[Statedef 7196]
+type     = S
+physics  = S
+movetype = I
+ctrl = 0
+anim = 7196
+sprpriority = -5
+
+[State -2, StopSnd]
+type = StopSnd
+trigger1 = Time = 0
+channel = 3
+
+[State 7196, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 7000
+

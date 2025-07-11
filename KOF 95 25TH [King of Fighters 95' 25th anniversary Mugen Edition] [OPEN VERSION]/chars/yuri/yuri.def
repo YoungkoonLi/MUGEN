@@ -1,0 +1,34 @@
+; Definition file for Kung Fu Man
+; Contains all the filenames needed for the character
+; original creator  'Pji111' & 96ver edit creator 'rgjoh0'
+; Special Thanks 'H' & 'JUKE KISARAGI'
+; Player information
+[Info]
+name = "Yuri Sakazaki"
+displayname = "Yuri Sakazaki"
+versiondate = 04,14,2001    ;Version date of character
+mugenversion = 04,01,2001
+author = "yuri"
+pal.defaults = 1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+cmd     = yuri96.cmd
+cns     = yuri96.cns   ;Constants
+st      = yuri96.cns   ;States
+st1     = hsdm.cns ;ai.cns
+stcommon = common1.cns ;Common states
+sprite  = yuri96.sff   ;Sprite
+anim    = yuri96.air   ;Animation
+sound   = yuri.snd   ;Sound
+pal1    = yuri96-004.act
+pal2    = yuri96-002.act
+pal3    = yuri96-003.act
+pal4    = verde2.act
+pal5    = yuri96-005.act
+pal6    = yuri96-006.act
+pal7    = turquesa.act
+pal8    = jorrosa.act
+pal9    = remeradorada.act
+pal10   = jor.act
+pal11   = Negra.act
+pal12   = lila.act

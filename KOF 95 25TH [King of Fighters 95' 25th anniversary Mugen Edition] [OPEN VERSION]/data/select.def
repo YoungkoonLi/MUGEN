@@ -1,0 +1,120 @@
+; The King of Fighters 95 (C) SNK/SNK Playmore 
+; Select screen
+; Version 1.0
+; Converted for Mugen by Dark Saviour
+
+;---------------------------------------------------------------------
+[Characters]
+; Row 1 (11 slots)
+kyo, stages/kofkyopark.def, order=3
+benimaru, stages/kofkyopark.def, order=3
+daimon, stages/kofkyopark.def, order=3
+char[xx]
+ryo, stages/ug_kasumi.def, order=1
+takuma, stages/ug_kasumi.def, order=1
+robert, stages/ug_kasumi.def, order=1
+char[xx]
+andy, stages/porto.def, order=3
+kof_joe, stages/porto.def, order=3
+terry, stages/porto.def, order=3
+
+; Row 2 (11 slots)
+heidern, stages/CvSr_Base.def, order=1
+ralf, stages/CvSr_Base.def, order=1
+clark, stages/CvSr_Base.def, order=1
+char[xx]
+athena, stages/kiri-red.def, order=2
+kensou, stages/kiri-red.def, order=2
+chin, stages/kiri-red.def, order=2
+char[xx]
+kim, stages/Dead_Forest.def, order=3
+chang, stages/Dead_Forest.def, order=3
+choi, stages/Dead_Forest.def, order=3
+
+; Row 3 (11 slots)
+king, stages/Moonlitcity.def, order=2
+mai, stages/Moonlitcity.def, order=2
+yuri, stages/Moonlitcity.def, order=2
+char[xx]
+Lucky, stages/ship-night.def, order=2
+Heavy D, stages/ship-night.def, order=2
+Brian, stages/ship-night.def, order=7
+char[xx]
+billy, stages/YagamiNight.def, order=2
+Eiji, stages/YagamiNight.def, order=2
+iori, stages/YagamiNight.def, order=2
+
+; Row 4 (11 slots)
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+saisyu, stages/drive2014.def, order=4
+omegarugal,stages/drive2014.def, order=6
+Geese, stages/drive2014.def, order=4
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+
+; Row 5 (3 slots)
+EMPTY
+EMPTY
+EMPTY
+EMPTY
+omega_rugal95, stages/drive2014.def, order=5
+RANDOMSELECT
+ccirugal95, stages/drive2014.def, order=5
+EMPTY
+EMPTY
+EMPTY
+EMPTY
+
+; Row 6 (3 slots)
+EMPTY
+EMPTY
+EMPTY
+EMPTY
+char[xx]
+
+char[xx]
+EMPTY
+EMPTY
+EMPTY
+EMPTY
+
+; Row 7 (3 slots)
+EMPTY
+EMPTY
+EMPTY
+EMPTY
+char[xx]
+char[xx]
+char[xx]
+EMPTY
+EMPTY
+EMPTY
+EMPTY
+
+; Row 8 (3 slots)
+EMPTY
+EMPTY
+EMPTY
+EMPTY
+char[xx]
+char[xx]
+char[xx]
+EMPTY
+EMPTY
+EMPTY
+EMPTY
+
+
+;---------------------------------------------------------------------
+[ExtraStages]
+stages/stage0.def
+
+;---------------------------------------------------------------------
+[Options]
+arcade.maxmatches = 2,3,3,2,1,1
+team.maxmatches = 2,2,2,1

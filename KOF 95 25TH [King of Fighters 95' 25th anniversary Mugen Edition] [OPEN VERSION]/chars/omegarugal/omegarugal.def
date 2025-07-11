@@ -1,0 +1,31 @@
+; ここにキャラ情報を書いてください
+[Info]
+name = "Omega Rugal"        ;キャラの名前
+displayname = "Orichi Rugal" ;表示されるキャラの名前
+versiondate = 11,22,2000    ;キャラの更新情報
+mugenversion = 11,22,2000   ;キャラが動くmugenのバージョン
+author = "bad darkness"         ;キャラの製作者名
+pal.defaults = pal7,pal8,pal9,pal10      ;敵としてでるキャラのパレット
+
+; Files for the player
+[Files]
+cmd     = omegarugal.cmd   ;キャラのコマンド
+cns     = omegarugal.cns   ;キャラのプログラム
+st1     = orochi.cns   ;キャラのプログラム
+st      = omegarugal.cns   ;キャラのプログラム
+stcommon = common1.cns 
+sprite  = omegarugal.sff   ;キャラの絵
+anim    = omegarugal.air   ;キャラの動き
+sound   = omegarugal.snd   ;キャラの音
+pal1    = omegarugal1.act  ;キャラの色（最大１２個）
+pal2    = omegarugal2.act  
+pal3    = omegarugal3.act  
+pal4    = omegarugal4.act  
+pal5    = omegarugal5.act  
+pal6    = omegarugal6.act  
+pal7    = omegarugal7.act  
+pal8    = omegarugal8.act
+pal9    = omegarugal7.act  
+pal10    = omegarugal8.act  
+pal11    = omegarugal7.act  
+pal12    = omegarugal8.act  

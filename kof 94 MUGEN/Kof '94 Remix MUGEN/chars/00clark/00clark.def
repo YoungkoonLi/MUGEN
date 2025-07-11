@@ -1,0 +1,30 @@
+; Player information
+[Info]
+name = "Tin's Clark"        
+displayname = "Clark" 
+versiondate = 08,03,2003   
+mugenversion = 04,14,2001  
+author = "Tin"      
+pal.defaults = 1
+
+; Files for the player
+[Files]
+cmd     = 00clark.cmd  
+cns     = 00clark.cns   
+st      = 00clark.cns   
+st2     = 3.cns
+stcommon = common.st 
+sprite  = 00clark.sff   
+anim    = 00clark.air  
+sound   = 00clark.snd  
+pal1    = pal/00clark.ACT
+pal2    = pal/01clark.act
+pal3    = pal/02clark.act
+pal4    = pal/03clark.act
+pal5    = pal/01clark.act
+pal6    = pal/02clark.act
+
+; Arcade mode
+;[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def

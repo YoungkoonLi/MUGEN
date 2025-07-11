@@ -1,0 +1,42 @@
+;[mugen-WIN-only-def]
+[Info] 
+name="Takuma945"
+DisplayName  ="Takuma945"
+versiondate = 19**,2,4;—š—ğQÆ
+mugenversion = 04,14,2002
+author ="sekirei"
+pal.defaults =1,2,3,4,5,6;,7,8,9,10,11,12
+;localcoord = 320,240
+;localcoord = 400,240
+
+[Files]
+cmd     = taku945-cmd.cns
+cns     = taku945-D.cns
+st      = taku945-N.cns
+st1     = taku945-S.cns
+st2     = taku945-H.cns
+st3     = taku945-E.cns
+st4     = taku945-3.cns
+st5     = taku945-2.cns
+st6     = taku945-sys.cns
+st7     = !!!config.txt
+stcommon= taku945-C.cns
+sprite  = taku945.sff
+anim    = taku945.air
+sound   = taku945.snd
+pal1    = act/taku945-01.act
+pal2    = act/taku945-02.act
+pal3    = act/taku945-11.act
+pal4    = act/taku945-09.act
+pal5    = act/taku945-10.act
+pal6    = act/taku945-12.act
+pal7    = act/taku945-07.act
+pal8    = act/taku945-08.act
+pal9    = act/taku945-04.act
+pal10   = act/taku945-05.act
+pal11   = act/taku945-03.act
+pal12   = act/taku945-06.act
+
+;[Arcade]
+;intro.storyboard=
+;ending.storyboard=

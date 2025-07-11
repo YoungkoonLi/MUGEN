@@ -1,0 +1,1243 @@
+;removeongethit = 1
+;persistent = 0
+;ignorehitpause = 1
+;supermovetime = 999
+;pausemovetime = 999
+;===============================================================================
+;敵の喰らいステート
+
+;声は voice で検索
+;===============================================================================
+;投げ・前・相手動作
+[Statedef 722]
+type = A
+movetype = H
+physics = N
+ctrl = 0
+sprpriority = 2
+
+[State 1]
+type = turn
+trigger1 = animelem = 8
+
+[State 1]
+type = width
+trigger1 = animelem=5,>=0&&animelem=8,<0
+edge = 35,35
+
+[State 1]
+type = ScreenBound
+trigger1 = animelem=5,<0
+value = 0
+movecamera = 0,0
+
+[State 1]
+type = ChangeAnim2
+trigger1 = time=0
+value = 722
+
+;10000加算
+[State 1]
+type = ChangeAnim2
+triggerall = time=0
+trigger1 = (name="yagami_if"&&authorname="sekirei"&&var(57))
+value = 10722
+
+;◆◆◆◆◆◆◆◆◆◆voice◆◆◆◆◆◆◆◆◆◆
+;悲鳴出し
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=5
+trigger1 = !((name="yagami_if"||name="Kyo-XI_mi"||name="Kyo_99XI"||name="Kyoko_typeC")&&authorname="sekirei")
+value = s5000,0+(random%3*10)
+persistent = 0
+;悲鳴出し・10000
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=5
+trigger1 = ((name="yagami_if"||name="Kyo-XI_mi"||name="Kyo_99XI")&&authorname="sekirei")
+value = s5000,var(57)*10000+(random%3*10)
+persistent = 0
+;悲鳴出し・10000
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=5
+trigger1 = ((name="Kyoko_typeC")&&authorname="sekirei")
+value = s5000,10000+(random%3*10)
+persistent = 0
+
+[State 1]
+type = posadd
+trigger1 = animelem = 8
+x = (const(size.mid.pos.y)-const(size.head.pos.y))
+
+[State 1]
+type = velset
+trigger1 = animelem = 8
+x = 3
+y = -4
+
+[State 1]
+type = veladd
+trigger1 = animelem = 8,>0
+y = .5
+
+[State 1]
+type = selfstate
+trigger1 = vel Y > 0 && pos Y >= 0
+value = 5100
+;===============================================================================
+;投げ・後・相手動作
+[Statedef 732]
+type = A
+movetype = H
+physics = N
+ctrl = 0
+sprpriority = 2
+
+[State 1]
+type = ScreenBound
+trigger1 = animelem=5,<0
+value = 0
+movecamera = 0,0
+
+[State 1]
+type = width
+trigger1 = animelem=5,>=0&&animelem=8,<0
+edge = 35,35
+
+[State 1]
+type = ChangeAnim2
+trigger1 = time=0
+value = 732
+
+;10000加算
+[State 1]
+type = ChangeAnim2
+triggerall = time=0
+trigger1 = (name="yagami_if"&&authorname="sekirei"&&var(57))
+value = 10732
+
+;◆◆◆◆◆◆◆◆◆◆voice◆◆◆◆◆◆◆◆◆◆
+;悲鳴出し
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=5
+trigger1 = !((name="yagami_if"||name="Kyo-XI_mi"||name="Kyo_99XI"||name="Kyoko_typeC")&&authorname="sekirei")
+value = s5000,0+(random%3*10)
+persistent = 0
+;悲鳴出し・10000
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=5
+trigger1 = ((name="yagami_if"||name="Kyo-XI_mi"||name="Kyo_99XI")&&authorname="sekirei")
+value = s5000,var(57)*10000+(random%3*10)
+persistent = 0
+;悲鳴出し・10000
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=5
+trigger1 = ((name="Kyoko_typeC")&&authorname="sekirei")
+value = s5000,10000+(random%3*10)
+persistent = 0
+
+[State 1]
+type = posadd
+trigger1 = animelem = 8
+x = (const(size.mid.pos.y)-const(size.head.pos.y))
+
+[State 1]
+type = velset
+trigger1 = animelem = 8
+x = 3
+y = -4
+
+[State 1]
+type = veladd
+trigger1 = animelem = 8,>0
+y = .5
+
+[State 1]
+type = selfstate
+trigger1 = vel Y > 0 && pos Y >= 0
+value = 5100
+;===============================================================================
+;翔乱脚・成立-初段相手
+[Statedef 1482]
+type = S
+movetype = H
+physics = N
+velset = 0,0
+ctrl = 0
+
+[State 1]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[State 1]
+type = playerpush
+trigger1 = 1
+value = 0
+
+[State 1]
+type = nothitby
+trigger1 = 1
+value = SCA
+
+[State 1]
+type = posadd
+trigger1 = Prevstateno=1482
+trigger1 = time<=4
+trigger1 = time%2=0
+x = -1
+
+[State 1]
+type = posadd
+trigger1 = Prevstateno=1482
+trigger1 = time<=5
+trigger1 = time%2=1
+x = 1
+
+[State 1]
+type = ChangeAnim
+trigger1 = time=[0,22-(Prevstateno=1482)*22]
+value = 5002
+
+;10000加算
+[State 1]
+type = ChangeAnim
+triggerall = time=[0,22-(Prevstateno=1482)*22]
+trigger1 = (name="yagami_if"&&authorname="sekirei"&&var(57))
+value = 15002
+
+[State 1]
+type = ChangeAnim
+triggerall = anim=5002||anim=15002
+trigger1 = animtime=0
+value = 5007+(anim)-5002
+
+[State 1]
+type = selfstate
+trigger1 = time > 50
+value = 5050
+;=======================================================================================
+;翔乱脚・成立-トドメ相手
+[Statedef 1483]
+type = S
+movetype = H
+physics = N
+velset = 0,0
+ctrl = 0
+
+[State 1]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[State 1]
+type = playerpush
+trigger1 = 1
+value = 0
+
+[State 1]
+type = nothitby
+trigger1 = time<8
+value = SCA
+
+[State 1]
+type = posadd
+trigger1 = time<=4
+trigger1 = time%2=0
+x = -1
+
+[State 1]
+type = posadd
+trigger1 = time<=5
+trigger1 = time%2=1
+x = 1
+
+[State 1]
+type = ChangeAnim
+trigger1 = time=0
+value = 5002
+
+;10000加算
+[State 1]
+type = ChangeAnim
+triggerall = time=0
+trigger1 = (name="yagami_if"&&authorname="sekirei"&&var(57))
+value = 15002
+
+[State 1]
+type = ChangeAnim
+trigger1 = anim=5002||anim=15002
+trigger1 = animtime=0
+value = 5007+(anim)-5002
+
+[State 1]
+type = selfstate
+trigger1 = time > 50
+value = 5050
+;===============================================================================
+;暫烈拳・成立-相手・Y=0基点
+[Statedef 1480]
+type = A
+movetype = H
+physics = N
+velset = 0,0
+ctrl = 0
+
+[State 1]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[State 1]
+type = playerpush
+trigger1 = 1
+value = 0
+
+;トドメ外
+[State 1]
+type = nothitby
+trigger1 = 1
+value = SCA
+
+;トドメ
+[State 1]
+type = posadd
+trigger1 = Prevstateno=1481
+trigger1 = time=0
+x = 5
+y = -const(size.mid.pos.y)
+
+;トドメ
+[State 1]
+type = hitby
+trigger1 = Prevstateno=1481
+trigger1 = time>10
+value = S,SA
+
+[State 1]
+type = posadd
+trigger1 = time<=4
+trigger1 = time%2=0
+x = -1
+
+[State 1]
+type = posadd
+trigger1 = time<=4
+trigger1 = time%2=1
+x = 1
+
+[State 1]
+type = ChangeAnim2
+trigger1 = time=0
+value = 3071
+
+;10000加算
+[State 1]
+type = ChangeAnim2
+triggerall = time=0
+trigger1 = (name="yagami_if"&&authorname="sekirei"&&var(57))
+value = 13071
+
+;◆◆◆◆◆◆◆◆◆◆voice◆◆◆◆◆◆◆◆◆◆
+;悲鳴出し
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=2
+triggerall = random<300
+trigger1 = !((name="yagami_if"||name="Kyo-XI_mi"||name="Kyo_99XI"||name="Kyoko_typeC")&&authorname="sekirei")
+value = s5000,0+(random%3*10)
+persistent = 0
+;悲鳴出し・10000
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=2
+triggerall = random<300
+trigger1 = ((name="yagami_if"||name="Kyo-XI_mi"||name="Kyo_99XI")&&authorname="sekirei")
+value = s5000,var(57)*10000+(random%3*10)
+persistent = 0
+;悲鳴出し・10000
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=2
+triggerall = random<300
+trigger1 = ((name="Kyoko_typeC")&&authorname="sekirei")
+value = s5000,10000+(random%3*10)
+persistent = 0
+
+[State 1]
+type = selfstate
+trigger1 = time > 50
+value = 5050
+;=======================================================================================
+;暫烈拳・成立-相手・腹基点
+[Statedef 1481]
+type = A
+movetype = H
+physics = N
+velset = 0,0
+ctrl = 0
+
+[State 1]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[State 1]
+type = playerpush
+trigger1 = 1
+value = 0
+
+[State 1]
+type = posadd
+trigger1 = time<=4
+trigger1 = time%2=0
+x = -1
+
+[State 1]
+type = posadd
+trigger1 = time<=4
+trigger1 = time%2=1
+x = 1
+
+[State 1]
+type = nothitby
+trigger1 = 1
+value = SCA
+
+[State 1]
+type = ChangeAnim2
+trigger1 = time=0
+value = 1481
+
+;10000加算
+[State 1]
+type = ChangeAnim2
+triggerall = time=0
+trigger1 = (name="yagami_if"&&authorname="sekirei"&&var(57))
+value = 11481
+
+;◆◆◆◆◆◆◆◆◆◆voice◆◆◆◆◆◆◆◆◆◆
+;悲鳴出し
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=2
+triggerall = random<300
+trigger1 = !((name="yagami_if"||name="Kyo-XI_mi"||name="Kyo_99XI"||name="Kyoko_typeC")&&authorname="sekirei")
+value = s5000,0+(random%3*10)
+persistent = 0
+;悲鳴出し・10000
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=2
+triggerall = random<300
+trigger1 = ((name="yagami_if"||name="Kyo-XI_mi"||name="Kyo_99XI")&&authorname="sekirei")
+value = s5000,var(57)*10000+(random%3*10)
+persistent = 0
+;悲鳴出し・10000
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=2
+triggerall = random<300
+trigger1 = ((name="Kyoko_typeC")&&authorname="sekirei")
+value = s5000,10000+(random%3*10)
+persistent = 0
+
+[State 1]
+type = selfstate
+trigger1 = time > 50
+value = 5050
+;===============================================================================
+;龍虎乱舞・成立-相手・上段
+[Statedef 3070]
+type = S
+movetype = H
+physics = S
+velset = 0,0
+ctrl = 0
+
+[State 1]
+type = width
+trigger1 = 1
+value = 0,10
+
+[State 1]
+type = playerpush
+trigger1 = 1
+value = 0
+
+[State 1]
+type = posadd
+trigger1 = time<=4
+trigger1 = time%2=0
+x = -1
+
+[State 1]
+type = posadd
+trigger1 = time<=5
+trigger1 = time%2=1
+x = 1
+
+
+;通常
+[State 7]
+type = ChangeAnim2
+trigger1 = time=0
+value = 3070
+
+;10000加算
+[State 3]
+type = ChangeAnim2
+triggerall = time=0
+trigger1 = (name="yagami_if"&&authorname="sekirei"&&var(57))
+value = 13070
+
+[State 1]
+type = Hitfallset
+trigger1 = 1
+value = 0
+
+[State 1]
+type = nothitby
+trigger1 = 1
+value = SCA
+
+;◆◆◆◆◆◆◆◆◆◆voice◆◆◆◆◆◆◆◆◆◆
+;悲鳴出し
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=2
+triggerall = random<300
+trigger1 = !((name="yagami_if"||name="Kyo-XI_mi"||name="Kyo_99XI"||name="Kyoko_typeC")&&authorname="sekirei")
+value = s5000,0+(random%3*10)
+persistent = 0
+;悲鳴出し・10000
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=2
+triggerall = random<300
+trigger1 = ((name="yagami_if"||name="Kyo-XI_mi"||name="Kyo_99XI")&&authorname="sekirei")
+value = s5000,var(57)*10000+(random%3*10)
+persistent = 0
+;悲鳴出し・10000
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=2
+triggerall = random<300
+trigger1 = ((name="Kyoko_typeC")&&authorname="sekirei")
+value = s5000,10000+(random%3*10)
+persistent = 0
+
+[State 1]
+type = selfstate
+trigger1 = time > 30
+value = 0
+ctrl = 1
+;=======================================================================================
+;龍虎乱舞・成立-相手・下段
+[Statedef 3071]
+type = S
+movetype = H
+physics = S
+velset = 0,0
+ctrl = 0
+
+[State 1]
+type = width
+trigger1 = 1
+value = 0,10
+
+[State 1]
+type = playerpush
+trigger1 = 1
+value = 0
+
+[State 1]
+type = posadd
+trigger1 = time<=4
+trigger1 = time%2=0
+x = -1
+
+[State 1]
+type = posadd
+trigger1 = time<=5
+trigger1 = time%2=1
+x = 1
+
+;通常
+[State 7]
+type = ChangeAnim2
+trigger1 = time=0
+value = 3071
+
+;10000加算
+[State 3]
+type = ChangeAnim2
+triggerall = time=0
+trigger1 = (name="yagami_if"&&authorname="sekirei"&&var(57))
+value = 13071
+
+[State 1]
+type = Hitfallset
+trigger1 = 1
+value = 0
+
+[State 1]
+type = nothitby
+trigger1 = 1
+value = SCA
+
+;◆◆◆◆◆◆◆◆◆◆voice◆◆◆◆◆◆◆◆◆◆
+;悲鳴出し
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=2
+triggerall = random<300
+trigger1 = !((name="yagami_if"||name="Kyo-XI_mi"||name="Kyo_99XI"||name="Kyoko_typeC")&&authorname="sekirei")
+value = s5000,0+(random%3*10)
+persistent = 0
+;悲鳴出し・10000
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=2
+triggerall = random<300
+trigger1 = ((name="yagami_if"||name="Kyo-XI_mi"||name="Kyo_99XI")&&authorname="sekirei")
+value = s5000,var(57)*10000+(random%3*10)
+persistent = 0
+;悲鳴出し・10000
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=2
+triggerall = random<300
+trigger1 = ((name="Kyoko_typeC")&&authorname="sekirei")
+value = s5000,10000+(random%3*10)
+persistent = 0
+
+[State 1]
+type = selfstate
+trigger1 = time > 30
+value = 0
+ctrl = 1
+;===============================================================================
+;龍虎乱舞・成立-相手・トドメ/hitby付与
+[Statedef 3072]
+type = S
+movetype = H
+physics = S
+velset = 0,0
+ctrl = 0
+
+[State 1]
+type = playerpush
+trigger1 = 1
+value = 0
+
+[State 1]
+type = posadd
+trigger1 = time<=4
+trigger1 = time%2=0
+x = -1
+
+[State 1]
+type = posadd
+trigger1 = time<=4
+trigger1 = time%2=1
+x = 1
+
+;通常
+[State 7]
+type = ChangeAnim2
+trigger1 = time=0
+value = 3070
+
+;10000加算
+[State 3]
+type = ChangeAnim2
+triggerall = time=0
+trigger1 = (name="yagami_if"&&authorname="sekirei"&&var(57))
+value = 13070
+
+[State 1]
+type = nothitby
+trigger1 = time<20
+value = SCA
+
+[State 1]
+type = hitby
+trigger1 = time>=20
+value = C,HP
+
+[State 1]
+type = posset
+trigger1 = time=0
+y = 0
+
+[State 1]
+type = Hitfallset
+trigger1 = 1
+value = 0
+
+;オリの気絶ペナルティ
+[State 1]
+type = varrangeset
+triggerall = authorname="sekirei"
+triggerall = name="s_crea-f"||name="s_sayia-f"||name="s_cless-f"
+trigger1 = anim=5300
+trigger1 = animelem=1,=1
+first = 51
+last = 52
+value = 0
+
+[State 1]
+type = changeanim
+trigger1 = time = 20
+trigger1 = anim=3070||anim=13070
+value = 5300+(anim)-3070
+
+[State 1]
+type = changeanim
+trigger1 = time = 20
+trigger1 = anim=43070
+value = 6300
+
+;◆◆◆◆◆◆◆◆◆◆voice◆◆◆◆◆◆◆◆◆◆
+;悲鳴出し
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=2
+triggerall = random<300
+trigger1 = !((name="yagami_if"||name="Kyo-XI_mi"||name="Kyo_99XI"||name="Kyoko_typeC")&&authorname="sekirei")
+value = s5000,0+(random%3*10)
+persistent = 0
+;悲鳴出し・10000
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=2
+triggerall = random<300
+trigger1 = ((name="yagami_if"||name="Kyo-XI_mi"||name="Kyo_99XI")&&authorname="sekirei")
+value = s5000,var(57)*10000+(random%3*10)
+persistent = 0
+;悲鳴出し・10000
+[State 1]
+type = playsnd
+triggerall = alive
+triggerall = animelem=2
+triggerall = random<300
+trigger1 = ((name="Kyoko_typeC")&&authorname="sekirei")
+value = s5000,10000+(random%3*10)
+persistent = 0
+
+[State 1]
+type = selfstate
+trigger1 = time > 100
+value = 0
+ctrl = 1
+;===============================================================================
+;敵気絶・チビキャラ用※変身処理要らない
+;ピヨリ・吹っ飛び～落下
+[Statedef 3073]
+type = A
+movetype = H
+physics = N
+ctrl = 0
+
+[State 5500, 1]
+type = posadd
+trigger1 = time<=8
+trigger1 = time%2=0
+x = -1
+[State 5500, 1]
+type = posadd
+trigger1 = time<=8
+trigger1 = time%2=1
+x = 1
+
+[State 3]
+type = velset
+trigger1 = time=8
+x = ifelse(facing=(enemy,facing),7,-7)
+y = -9
+
+[State 5500, 1]
+type = veladd
+trigger1 = time > 8
+y = 1
+
+[State 3]
+type = ChangeAnim2
+trigger1 = Time = [0,8]
+value = 5310
+
+[State 5500, 1]
+type = nothitby
+trigger1 = 1
+value = SCA
+
+[State 5500, 1]
+type = changestate
+trigger1 = alive
+trigger1 = vel Y > 0 && pos Y >= 25
+value = 3074
+
+[State 5500, 1]
+type = selfstate
+trigger1 = !alive
+trigger1 = vel Y > 0 && pos Y >= 25
+value = 5100
+;===============================================================================
+;ピヨリ・落下ダウン～起き上がり・チビキャラ用※変身処理要らない
+[Statedef 3074]
+type = L
+movetype = H
+physics = N
+ctrl = 0
+
+[State 1]
+type = ChangeAnim2
+trigger1 = time=0
+value = 5315
+
+[State 5500, 1]
+type = posfreeze
+trigger1 = animelem=1,>=0&&animelem=2,<0
+trigger2 = anim=5100
+y = 0
+
+[State 5500, 1]
+type = posset
+trigger1 = time=0
+trigger2 = anim=5100
+y = 0
+
+[state 1]
+type = EnvShake
+triggerall = animelem = 1,=1
+trigger1 = anim=5100
+trigger2 = anim=5315
+time = 5
+ampl = 2
+freq = 60
+phase = 1
+
+[State 5100, 8]
+type = GameMakeAnim
+trigger1 = anim=5100||anim=5315
+trigger1 = animelem = 1,=1
+value = 61
+pos = 0, 0
+under = -2
+
+[State 5100, 10]
+type = PlaySnd
+trigger1 = anim=5100||anim=5315
+trigger1 = animelem = 1,=1
+value = F7,1
+
+[State 5500, 1]
+type = nothitby
+trigger1 = statetype!=S
+value = SCA
+
+[State 5500, 1]
+type = hitby
+trigger1 = statetype=S
+value = C,HP
+
+[State 5500, 1]
+type = velset
+trigger1 = animelem = 2
+x = ifelse(facing=(enemy,facing),2,-2)
+y = -3
+
+[State 5500, 1]
+type = veladd
+trigger1 = animelem = 2,>0
+y = .5
+
+[State 5500, 1]
+type = velset
+trigger1 = anim!=5315
+x = 0
+y = 0
+
+;バウンド終了
+[State 5500, 1]
+type = changeanim
+trigger1 = anim=5315
+trigger1 = animelem = 2,>0
+trigger1 = pos Y >= 0 && vel Y > 0
+value = 5100
+
+;寝そべり
+[State 5500, 1]
+type = changeanim
+trigger1 = anim=5100
+trigger1 = animtime=0
+value = 5110
+
+;起き上がり
+[State 5500, 1]
+type = changeanim
+trigger1 = anim=5110
+trigger1 = time>20
+value = 5120
+
+[State 5500, 1]
+type = statetypeset
+trigger1 = anim=5120
+statetype = S
+movetype = I
+physics = S
+
+;ピヨリへ
+[State 5500, 1]
+type = changestate
+trigger1 = anim=5120
+trigger1 = animtime=0
+value = 6320
+;===============================================================================
+;敵気絶・無敵
+;ピヨリ・吹っ飛び～落下
+[Statedef 6310]
+type = A
+movetype = H
+physics = N
+velset = ifelse(facing=(enemy,facing),5+(Prevstateno=3071)*2,-5-(Prevstateno=3071)*2),ifelse(gethitvar(yvel),gethitvar(yvel),-9)
+ctrl = 0
+
+;普通
+[State 3]
+type = ChangeAnim2
+trigger1 = time=0
+value = 5310
+
+;10000加算
+[State 3]
+type = ChangeAnim2
+triggerall = time=0
+trigger1 = (name="yagami_if"&&authorname="sekirei"&&var(57))
+value = 15310
+
+[State 1]
+type = Pause
+trigger1 = timemod=2,=0
+trigger1 = time <= 4
+time = 2
+
+[State 5500, 1]
+type = nothitby
+trigger1 = 1
+value = SCA
+
+[State 5500, 1]
+type = veladd
+trigger1 = time > 0
+y = ifelse(gethitvar(yaccel)>.5,gethitvar(yaccel),.5)+(Prevstateno=3071)
+
+[State 5500, 1]
+type = changestate
+trigger1 = alive
+trigger1 = vel Y > 0 && pos Y >= 25
+value = 6315
+
+[State 5500, 1]
+type = selfstate
+trigger1 = !alive
+trigger1 = vel Y > 0 && pos Y >= 25
+value = 5100
+;===============================================================================
+;敵気絶・非無敵
+;ピヨリ・吹っ飛び～落下
+[Statedef 6311]
+type = A
+movetype = H
+physics = N
+velset = ifelse(facing=(enemy,facing),3,-3),ifelse(gethitvar(yvel),gethitvar(yvel),-9)
+ctrl = 0
+
+;普通
+[State 3]
+type = ChangeAnim2
+trigger1 = time=0
+value = 5310
+
+;10000加算
+[State 3]
+type = ChangeAnim2
+triggerall = time=0
+trigger1 = (name="yagami_if"&&authorname="sekirei"&&var(57))
+value = 15310
+
+[State 1]
+type = Pause
+trigger1 = timemod=2,=0
+trigger1 = time <= 4
+time = 2
+
+[State 5500, 1]
+type = veladd
+trigger1 = time > 0
+y = ifelse(gethitvar(yaccel)>.5,gethitvar(yaccel),.5)+(Prevstateno=3071)
+
+[State 5500, 1]
+type = changestate
+trigger1 = alive
+trigger1 = vel Y > 0 && pos Y >= 25
+value = 6315
+
+[State 5500, 1]
+type = selfstate
+trigger1 = !alive
+trigger1 = vel Y > 0 && pos Y >= 25
+value = 5100
+;===============================================================================
+;ピヨリ・落下ダウン～起き上がり
+[Statedef 6315]
+type = L
+movetype = H
+physics = N
+ctrl = 0
+
+[State 3]
+type = HitFallSet
+trigger1 = time=0
+value = 0
+
+[State 1]
+type = ChangeAnim2
+trigger1 = time=0
+value = 5315
+
+;10000加算
+[State 1]
+type = ChangeAnim2
+triggerall = time=0
+trigger1 = (name="yagami_if"&&authorname="sekirei"&&var(57))
+value = 15315
+
+[State 5500, 1]
+type = posfreeze
+trigger1 = animelem=1,>=0&&animelem=2,<0
+trigger2 = anim=5100||anim=15100
+y = 0
+
+[State 5500, 1]
+type = posset
+trigger1 = time=0
+trigger2 = anim=5100||anim=15100
+y = 0
+
+[State 1]
+type = VarSet
+triggerall = Authorname="sekirei"
+trigger1 = time=0
+sysvar(1) = floor(vel y)
+
+[state 1]
+type = EnvShake
+triggerall = animelem = 1,=1
+trigger1 = anim=5100||anim=15100
+trigger2 = anim=5315||anim=15315
+time = 5
+ampl = 2
+freq = 60
+phase = 1
+
+[State 5100, 8]
+type = GameMakeAnim
+triggerall = !Authorname="sekirei"
+triggerall = animelem = 1,=1
+trigger1 = anim=5100||anim=15100
+trigger2 = anim=5315||anim=15315
+value = 60 + (gethitvar(yvel)>5)+(gethitvar(yvel)>14)
+pos = 0, 0
+under = gethitvar(yvel)<= 14
+
+[State 5100, 10]
+type = PlaySnd
+triggerall = !Authorname="sekirei"
+triggerall = animelem = 1,=1
+trigger1 = anim=5100||anim=15100
+trigger2 = anim=5315||anim=15315
+value = F7, (gethitvar(yvel)>5)+(gethitvar(yvel)>14)
+
+;ダウン効果一括ヘルパ
+[State 1]
+type = helper
+triggerall = selfanimexist(1374365)
+triggerall = Numhelper(870)=0
+triggerall = anim=5100||anim=15100||anim=5315||anim=15315
+triggerall = animelem = 1,=1
+trigger1 = Authorname="sekirei"
+name = "down"
+id = 870
+postype = P1
+pos = 0,0
+stateno = 870
+helpertype = normal
+ownpal = 1
+keyctrl = 0
+size.xscale = 1
+size.yscale = 1
+
+[State 5500, 1]
+type = nothitby
+trigger1 = 1
+value = SCA
+
+[State 5500, 1]
+type = velset
+trigger1 = animelem = 2
+y = -3
+
+[State 5500, 1]
+type = veladd
+trigger1 = animelem = 2,>0
+y = .5
+
+[State 5500, 1]
+type = velset
+trigger1 = anim!=5315&&anim!=15315
+x = 0
+y = 0
+
+;バウンド終了
+[State 5500, 1]
+type = changeanim
+trigger1 = anim=5315||anim=15315
+trigger1 = animelem = 2,>0
+trigger1 = pos Y >= 0 && vel Y > 0
+value = 5100+(anim)-5315
+
+;寝そべり
+[State 5500, 1]
+type = changeanim
+trigger1 = anim=5100||anim=15100
+trigger1 = animtime=0
+value = 5110+(anim)-5100
+
+;起き上がり
+[State 5500, 1]
+type = changeanim
+trigger1 = anim=5110||anim=15110
+trigger1 = time>40
+value = 5120+(anim)-5110
+
+[State 5500, 1]
+type = statetypeset
+trigger1 = anim=5120||anim=15120
+movetype = I;補正切り
+physics = S
+
+;ピヨリへ
+[State 5500, 1]
+type = changestate
+trigger1 = anim=5120||anim=15120
+trigger1 = animtime=0
+value = 6320
+;===============================================================================
+;ピヨリ・（乱舞気絶は別ステート
+[Statedef 6320]
+type = S
+movetype = I
+physics = S
+velset = 0,0
+ctrl = 0
+
+[State 1]
+type = changeanim
+trigger1 = time=0
+value = 5300+(anim)-5120
+
+;スタン音
+[State 1]
+type = playsnd
+triggerall = authorname="sekirei"
+trigger1 = time=0
+value = s5300,0
+
+;スタンヘルパ呼出
+[State -2]
+type = helper
+triggerall = authorname="sekirei"
+triggerall = Numhelper(21101)=0
+triggerall = time=0
+trigger1 = selfanimexist(6358515)
+trigger1 = selfanimexist(1812236);オリ判定
+name="stun"
+id = 21101
+pos = 0,0
+postype = back
+stateno = 21101
+helpertype = normal
+ownpal = 1
+keyctrl = 0
+size.xscale = 1
+size.yscale = 1
+persistent = 0
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+;スタンヘルパ呼出
+[State -2]
+type = helper
+triggerall = authorname="sekirei"
+triggerall = Numhelper(76)=0
+triggerall = time=0
+trigger1 = selfanimexist(6358515)
+trigger1 = !selfanimexist(1812236);オリ判定
+name="stun"
+id = 76
+pos = 0,0
+postype = back
+stateno = 76
+helpertype = normal
+ownpal = 1
+keyctrl = 0
+size.xscale = 1
+size.yscale = 1
+persistent = 0
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+[State 5500, 1]
+type = posset
+trigger1 = time=0
+y = 0
+
+[State 5500, 1]
+type = selfstate
+trigger1 = time>70
+trigger2 = roundstate>2
+value = 0
+ctrl = 1

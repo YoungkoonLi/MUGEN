@@ -1,0 +1,1212 @@
+;removeongethit = 1
+;persistent = 0
+;ignorehitpause = 1
+;supermovetime = 999
+;pausemovetime = 999
+;〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓
+[Statedef -2]
+;〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓
+;-----地上・簡易コマンド-----
+[State -2,debug]
+type = changestate
+trigger1 = !var(59)&&statetype!=A&&fvar(11)
+trigger1 = command="z"
+trigger1 = ctrl||movecontact=1
+value = ifelse(command="holdfwd",1000,ifelse(command="holdback",1250,ifelse(command="holddown",3000,1350)))
+;===========================================================================
+;■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+;【以下は弄らない】
+
+;===========================================================================
+;KOキャラ無視
+[State -2,v47]
+type = varset
+trigger1 = enemy,teammode = simul
+trigger1 = !enemynear,alive
+var(47) = 1
+
+[State -2,v47]
+type = varset
+trigger1 = enemy,teammode = simul
+trigger1 = enemynear,alive
+trigger2 = enemy,teammode = single || enemy,teammode = turns
+trigger2 = 1
+var(47) = 0
+;==============================================================================
+;起き上がり時間制御
+[State -2,fv33]
+type = null
+trigger1 = movetype=I
+trigger1 = fvar(33):=const(data.liedown.time)
+trigger2 = statetype=L && gethitvar(damage)
+trigger2 = fvar(33):=ceil(ifelse(fvar(33)=const(data.liedown.time),const(data.liedown.time)/2,const(data.liedown.time)/4))
+ignorehitpause = 1
+;===========================================================================
+;飛び道具のＹ座標を発信
+;リフレクの座標感知用／AIにもまぁ使える
+[State 1]
+type = varset
+trigger1 = Numhelper(1000)
+sysvar(4) = ceil(helper(1000),pos Y)
+[State 1]
+type = varset
+trigger1 = Numhelper(1500)
+sysvar(4) = ceil(helper(1500),pos Y)
+[State 1]
+type = varset
+trigger1 = !Numhelper(1000)&&!Numhelper(1500)
+sysvar(4) = 0
+
+;リフレク系でのヒットスパーク除去
+[State 1]
+type = varset
+triggerall = !Teammode = simul && !enemy,Teammode = simul
+triggerall = Projhit=1,<2;飛び道具がヒットした
+triggerall = !Numtarget  ;ヘルパーに被ダメしてターゲットが得られない
+trigger1 = enemy,Authorname="sekirei"&&enemy,name="Athena945"&&enemy,Numhelper(1200)
+trigger2 = enemy,Authorname="sekirei"&&(enemy,name="Athena99"||enemy,name="Athena00"||enemy,name="Athena01")&&(enemy,Numhelper(1200)||enemy,Numhelper(1250))
+trigger3 = enemy,Authorname="Warusaki3"&&enemy,name="Athena Asamiya"&&(enemy,Numhelper(7200)||enemy,Numhelper(7210))
+trigger4 = enemy,Authorname="Warusaki3"&&enemy,name="cvsathena"&&enemy,Numhelper(1205)
+trigger5 = (enemy,Authorname="ahuron"||enemy,Authorname="choiyer")&&enemy,name="Athena Asamiya"&&enemy,Numhelper(1200)
+trigger6 = (enemy,Authorname="KoopaKoot")&&(enemy,name="Athena Asamiya 2002"||enemy,name="Athena Asamiya XI")&&enemy,Numhelper(10021)
+trigger7 = (enemy,Authorname="Aomura")&&enemy,name="Athena"&&enemy,Numhelper(1310)
+trigger8 = (enemy,Authorname="Ainotenshi")&&enemy,name="Athena Asamiya"&&enemy,numhelper(1240)
+trigger9 = (enemy,Authorname="ActJapan")&&enemy,name="Athena Asamiya"&&enemy,numhelper(1110)
+trigger10 = (enemy,Authorname="Man")&&enemy,name="Athena WP"&&(enemy,numhelper(1420)||enemy,numhelper(1430)||enemy,numhelper(1470)||enemy,numhelper(1480))
+fvar(32) = 1
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+[State 1]
+type = varset
+trigger1 = !Numhelper(1000)&&!Numhelper(1500)
+fvar(32) = 0
+;===========================================================================
+;スタン管理
+
+;スタン----------------------
+;スタン基本耐久値
+[State -2,fv14]
+type = varset
+triggerall = Numhelper(8888)
+triggerall = helper(8888),var(7)
+trigger1 = roundstate = [0,1]
+trigger2 = fvar(13)=500
+trigger3 = stateno=0&&fvar(14)<0&&time=1
+fvar(14) = 100+(stateno=0&&fvar(14)<0&&time=1)*-99
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+;スタン耐久値回復
+[State -2]
+type = varadd
+triggerall = roundstate = 2
+triggerall = Numhelper(8888)
+triggerall = helper(8888),var(7)
+triggerall = stateno!=[5310,5320]
+triggerall = gametime%2=0
+trigger1 = fvar(14) =[0,100)
+trigger1 = gethitvar(hitshaketime)<=0
+fvar(14) = .1
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+;スタン耐久値減少／打撃用
+[State -2]
+type = varadd
+triggerall = roundstate = 2
+triggerall = Numhelper(8888)
+triggerall = helper(8888),var(7)
+triggerall = fvar(14) =[0,101]
+triggerall = stateno!=[150,155]
+triggerall = enemy,hitdefattr=SCA,NA,SA
+triggerall = enemy,movehit
+trigger1 = gethitvar(damage)>0
+fvar(14) = (-1 -gethitvar(animtype) -random%2 -(gethitvar(yvel)>4)*2)
+
+;スタン耐久値減少／飛び道具用
+;triggerall = !enemy,hitdefattr=SCA,AA,AP,AT
+;で、本体攻撃じゃない被ダメを入れても、
+;認識する物と認識しない物がある。
+[State -2]
+type = varadd
+triggerall = roundstate = 2
+triggerall = Numhelper(8888)
+triggerall = helper(8888),var(7)
+triggerall = fvar(14) =[0,101]
+triggerall = stateno!=[150,155]
+triggerall = !enemy,movecontact
+trigger1 = gethitvar(damage)>0
+fvar(14) = -1
+
+;スタン時間
+[State -2,fv13]
+type = varadd
+triggerall = Numhelper(8888)
+triggerall = helper(8888),var(7)
+trigger1 = fvar(13)=[0,500]
+trigger1 = fvar(14)=200
+trigger2 = fvar(13)=[301,500]
+fvar(13) = 1
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+;自己スタン以外の気絶で蓄積解除-----
+[State -2]
+type = null
+triggerall = Numhelper(8888)
+triggerall = helper(8888),var(7)
+trigger1 = stateno!=5320
+trigger1 = anim = 5300
+trigger1 = animelem=1,=1
+trigger1 = fvar(13):=0||1
+trigger1 = fvar(14):=200
+
+;気絶後の防御補正
+[State -2,fv12]
+type = varset
+triggerall = Numhelper(8888)
+triggerall = helper(8888),var(7)
+trigger1 = fvar(12)>0
+trigger1 = statetype=L||stateno=0||stateno=5120
+fvar(12) = 0
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+[State -2]
+type = defencemulset
+triggerall = Numhelper(8888)
+triggerall = helper(8888),var(7)
+trigger1 = fvar(12)>0
+value = 0.85
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+;スタン----------------------
+
+
+;ガークラ----------------------
+;ガークラ基本耐久値
+[State -2,fv16]
+type = varset
+triggerall = Numhelper(8888)
+triggerall = helper(8888),var(7)
+trigger1 = roundstate=[0,1]
+trigger2 = stateno=5320
+trigger3 = fvar(16)<=-1 && movetype=H
+trigger4 = fvar(16)>100.0
+trigger5 = (anim=5910||anim=5911)&&fvar(16)>0;自己ガークラ以外
+fvar(16)=100
+ignorehitpause = 1
+
+;ガークラ耐久値回復
+[State -2]
+type = varadd
+triggerall = roundstate = 2
+triggerall = Numhelper(8888)
+triggerall = helper(8888),var(7)
+triggerall = stateno!=[5910,5911]
+triggerall = stateno!=[5915,5916]
+triggerall = gametime%2=0
+trigger1 = fvar(16) =[0,100)
+trigger1 = movetype != H
+fvar(16)=.1
+ignorehitpause = 1
+;===========================================================================
+;擬似トレモ
+[State -2]
+type = AssertSpecial
+triggerall = !Ishelper
+trigger1 = fvar(11) && roundno=1
+flag = noko
+;復活
+[State -2]
+type = changestate
+triggerall = !Ishelper
+trigger1 = fvar(11) && roundno=1
+trigger1 = stateno=5150 && time > 15
+value = 5120
+;ライフ回復(トレモ用
+[State -2]
+type = lifeset
+trigger1 = fvar(11)=1 && roundno=1
+trigger1 = stateno=0&&time>30||stateno=5120||P2stateno=5120||life<=1&&gethitvar(hitshaketime)
+value = LifeMax
+ignorehitpause = 1
+;パワー回復(トレモ用
+[State -2]
+type = powerset
+trigger1 = fvar(11)=1 && roundno=1
+trigger1 = stateno=0&&time>30||stateno=5120||P2stateno=5120
+value = PowerMax
+;===========================================================================
+;体力２８０固定
+[State -2]
+type = lifeset
+trigger1 = Numhelper(8888)
+trigger1 = !var(59)&&helper(8888),var(4)
+value = 280
+ignorehitpause = 1
+;===========================================================================
+;ゲージ
+;-----------------
+;パワーMAX時間
+;var(34)=128で、var(35)での制限時間設定。
+;制限時間過ぎると、ゲージバーが減少するので、
+;専用explodでＭＡＸ化した事を保持
+[State 1,v34]
+type = Explod
+triggerall = !Numexplod(89263)
+triggerall = roundstate = 2
+triggerall = !var(34)
+trigger1 = var(35)>=128
+trigger1 = var(34):=ifelse(movetype=H,320,600)
+Anim = 9999
+ID = 89263
+pos = 0,-500
+postype = p1
+scale = 1,1
+ownpal = 1
+bindtime = -1
+sprpriority = -5
+
+;MAX時間減少
+[State -2,v34]
+type = varadd
+trigger1 = var(34)>0
+var(34) = -1
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+;ＭＡＸ時間切れでのパワー減少(原作は60F
+[State 1]
+type = varadd
+trigger1 = Numexplod(89263)
+trigger1 = var(35)>0
+trigger1 = !var(34)
+var(35) = -2
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+[State 1];ＭＡＸ保持解除
+type = RemoveExplod
+trigger1 = !var(34)&&!var(35)
+ID = 89263
+ignorehitpause = 1
+
+;挑発で減る
+[State -2,v35]
+type = varadd
+triggerall = roundstate = 2
+triggerall = !var(34)
+trigger1 = enemynear(var(47)),stateno=195&&enemynear(var(47)),time=1
+var(35) = -16
+
+;MAX点滅
+[State 1]
+type = PalFX
+trigger1 = roundstate = 2
+trigger1 = movetype!=H||stateno=[150,155]
+trigger1 = var(34)>0
+trigger1 = var(34)%5=0
+time = 1
+add = 90,90,90
+ignorehitpause = 1
+
+;パワー獲得：94：MAX128・ヒット4・ガード8
+;94:HIT32回ガード16回でゲージMAX化／95:HIT22回ガード11回でゲージMAX化
+;ダメージ問わず一定値
+[State 1]
+type = varadd
+triggerall = !enemy,hitdefattr=SCA,AT
+triggerall = !Numexplod(89263);これ無いと減少中の被ダメでゲージが一瞬おかしくなる
+triggerall = movetype=H && time = 0
+trigger1 = stateno=5000||stateno=5010||stateno=5020||stateno=5070||stateno=5080
+trigger2 = stateno=150||stateno=152||stateno=154
+trigger3 = (stateno!=[120,155])&&(stateno!=[5000,5120])
+trigger3 = gethitvar(damage)
+var(35) = ifelse((stateno=150||stateno=152||stateno=154),8,4)
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+;パワー獲得／自作キャラの無判定乱舞
+[State -2]
+type = varadd
+triggerall = roundstate = 2
+triggerall = !Teammode = simul && !enemy,Teammode = simul
+triggerall = !Numexplod(89263);これ無いと減少中の被ダメでゲージが一瞬おかしくなる
+triggerall = movetype = H
+trigger1 = enemy,authorname="sekirei"
+trigger1 = enemy,Numexplod(46495963);hitaddのタイミング
+var(35) = 4
+
+[State 1,v35]
+type = varset
+trigger1 = var(35)<=0 || var(35)>=128
+var(35) = ifelse(var(35)>=128,128,0)
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+;GC
+[State -2,GC]
+type = varadd
+trigger1 = time = 0
+trigger1 = stateno=150||stateno= 152
+fvar(5) = 1+(var(35)>=128)*5
+
+[State -2,GC]
+type = varset
+trigger1 = stateno!=[150,155]
+trigger1 = time>1
+fvar(5) = 0
+
+;HIT音ランダム
+[State 1,19]
+type = varrandom
+triggerall = time = 1 || movehit=1
+trigger1 = stateno != 245
+trigger1 = stateno = [200,640]
+v = 19
+range = 0,5
+
+[State -2]
+type = varset
+trigger1 = enemynear(var(47)),stateno=[5100,5120]
+var(1) = 0
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+;===========================================================================
+;血反吐
+[State -2]
+type = Explod
+triggerall = Numexplod(80)=0
+triggerall = NumTarget>0
+triggerall = movehit||ProjHit=1,<12
+triggerall = Target,time=1
+triggerall = random<300+(Numtarget(1500)>0)*200+enemynear(var(47)),GetHitVar(hitcount)*5
+trigger1 = Target,anim=[5000,5002]
+trigger2 = Target,anim=[5010,5012]
+trigger3 = Target,anim=5020
+postype = P2
+pos = enemynear(var(47)),Const(size.head.pos.x),enemynear(var(47)),Const(size.head.pos.y)+10
+bindtime = 2
+anim = ifelse(random<150,81,ifelse(random>700+(Numtarget(1500)>0)*-200,82,80))
+ID = 80
+sprpriority = 9
+ontop = 1
+ownpal = 1
+facing = -1
+velocity = 0,0
+shadow = 10,10,10
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+;===========================================================================
+;ポーズ
+[state -2,pause]
+type = pause
+triggerall = gametime%2
+triggerall = Numtarget
+trigger1 = ProjHit=1,<10
+persistent = 0
+ignorehitpause = 1
+time = 1
+;===========================================================================
+;死亡時は無敵
+;タッグ時の死体殴り反応緩和
+[State -2]
+type = nothitby
+trigger1 = Teammode = simul
+trigger1 = !alive
+trigger1 = gethitvar(hitshaketime)=0
+value = SCA
+;===========================================================================
+;敵対空迎撃頻度
+[State -2,v48]
+type = varadd
+triggerall = enemy,TeamMode = single ||enemy,TeamMode = turns
+triggerall = roundstate = 2
+triggerall = (stateno = [5000,5300]) || !ctrl&&(stateno!=[150,155])&&movetype=H
+triggerall = statetype = A && time = 0
+trigger1 = (Prevstateno = [600,640]) || (Prevstateno=[120,155])
+var(48) = 1+(Prevstateno=[120,155])
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+[State -2,v48-off]
+type = varset
+trigger1 = enemy,roundsexisted=0
+trigger1 = roundstate=0
+var(48) = 0
+;===========================================================================
+;チャージの消去
+[State -2]
+type = RemoveExplod
+trigger1 = anim != 290
+ID = 89
+;===========================================================================
+;ダメージボイス
+[State -2,voice]
+type = PlaySnd
+triggerall = RoundState = 2
+triggerall = alive
+triggerall = Random < 300 + (gethitvar(animtype)>=3)*100
+trigger1 = time=1 && stateno!=5001 && (anim=[5000,5002]) && statetype!=A
+trigger2 = time=1 && stateno!=5001 && (anim=[5010,5012]) && statetype!=A
+trigger3 = time=1 && stateno!=5011 && (anim=[5020,5022]) && statetype!=A
+trigger4 = statetype=A
+trigger4 = gethitvar(damage)
+trigger4 = stateno!=[150,155]
+value = s5000,0+random%3*10
+ignorehitpause = 1
+
+;ダメージボイス（ブリジット
+[State -2,voice]
+type = PlaySnd
+triggerall = RoundState<2
+trigger1 = P2name="BRIDGET"&&enemy,authorname="EL"
+trigger1 = stateno=5771||stateno=5785
+trigger1 = time=1
+value = s5000,0+random%3*10
+ignorehitpause = 1
+;===========================================================================
+;投げ抜けボイス
+[state -2,voice]
+type = playsnd
+triggerall = time =1
+trigger1 = anim = 5940
+value = s0,1
+;===========================================================================
+;九龍の読みボイス
+[State -2,voice]
+type = PlaySnd
+triggerall = RoundState = 2
+triggerall = alive
+trigger1 = anim=5980 && (animelem=1,=1||animelem=6,=1||animelem=11,=1||animelem=15,=1)
+value = s0,0+random%2
+;===========================================================================
+;暫烈音消去
+[state -2]
+type = stopsnd
+trigger1 = movetype!=A&&stateno!=1400
+trigger2 = movetype!=A&&stateno!=1450
+channel = 1
+;-------------------------
+;イントロ音消去
+[state -2]
+type = stopsnd
+trigger1 = roundstate=2
+channel = 3
+;-------------------------
+;溜め声消去
+[State -2,sndStop-2]
+type = StopSnd
+trigger1 = anim!=[290,291]
+channel = 4
+;-------------------------
+;ゲージ音消去
+[State -2,sndStop-2]
+type = StopSnd
+trigger1 = anim!=[290,291]
+channel = 8
+;-------------------------
+;挑発音消去
+[State -2,sndStop-2]
+type = StopSnd
+trigger1 = anim != 195
+channel = 6
+;===========================================================================
+;避け攻撃猶予
+[State 1,v15]
+type = varadd
+trigger1 = var(15)>0
+var(15) = -1
+;===========================================================================
+;95乱舞解除
+[State 1]
+type = varset
+trigger1 = movetype=H
+var(8) = 0
+ignorehitpause = 1
+
+;暫烈半減・飛燕jug解除
+[State 1]
+type = varset
+trigger1 = movetype=H||(enemynear(var(47)),stateno=[5100,5120])||enemynear(var(47)),movetype!=H
+var(11) = 0
+ignorehitpause = 1
+
+;追撃系var解除
+[State -2,v5-off]
+type = VarSet
+trigger1 = movetype=H||(enemynear(var(47)),stateno=[5100,5120])||enemynear(var(47)),movetype!=H
+trigger2 = Teammode=simul
+trigger2 = enemynear(var(47)),gethitvar(damage)>0 && movetype!=A
+var(36) = 0
+
+[State -2]
+type = Varset
+trigger1 = movetype=H
+var(5) = 0
+ignorehitpause = 1
+;===========================================================================
+;体力監視
+[State -2,v6]
+type = Varset
+triggerall = roundstate=2
+trigger1 = (100*life/const(data.life))= [76,100]
+var(6) = 0
+
+[State -2,v6]
+type = null
+triggerall = roundstate=2
+trigger1 = (100*life/const(data.life))= [51,75]
+trigger1 = var(6):=200
+trigger2 = (100*life/const(data.life))= [29,50]
+trigger2 = var(6):=300
+trigger3 = (100*life/const(data.life))= [0,28]
+trigger3 = var(6):=400
+;===========================================================================
+;敵のダウン回避ステートNO記憶
+[State -2,v37-1]
+type = varset
+triggerall = roundstate < 2
+trigger1 = enemy,Teammode = simul || enemy,Teammode = turns
+trigger2 = enemy,Teammode = single && RoundsExisted = 0 && RoundNo = 1
+var(37) = -1
+
+;敵のダウン回避ステートNO確定①
+[State -2,v37-on]
+type = varset
+triggerall = var(59)=0 || (var(59)=[8,10])
+triggerall = var(37) = -1
+triggerall = enemy,Teammode = single || enemy,Teammode = turns
+trigger1 = enemynear(var(47)),Prevstateno = 5050 && (enemynear(var(47)),statetype = S || enemynear(var(47)),statetype = C)
+trigger1 = enemynear(var(47)),stateno != 5100 && enemynear(var(47)),stateno != 5200
+var(37) = enemynear(var(47)),stateno
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+;===========================================================================
+;中段記憶
+[State 1,v53]
+type = varset
+triggerall = roundstate < 2
+trigger1 = enemy,Teammode = single && RoundsExisted = 0 && RoundNo = 1
+trigger2 = enemy,Teammode = turns && enemy,RoundsExisted = 0
+var(53) = -1
+;タッグ封印
+[State 1]
+type = varset
+trigger1 = Teammode = simul
+var(53) = -2
+;記憶
+[State 1]
+type = varset
+triggerall = var(59)=[8,10]
+triggerall = var(53)=-1
+triggerall = Prevstateno=130||(Prevstateno=[150,151])
+triggerall = movetype=H&&time=1
+triggerall = stateno!=[150,155]
+trigger1 = enemynear(var(47)),statetype=S
+var(53) = enemynear(var(47)),stateno
+ignorehitpause = 1
+;===========================================================================
+;空ガ自分不可能
+[State -2]
+type = AssertSpecial
+trigger1 = 1
+flag = noairguard
+;===========================================================================
+;残像消去
+[State -2]
+type = AfterImage
+trigger1 = movetype=H && time=0
+time = 0
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+;===========================================================================
+;ダメージ補正
+;※94の計算式不明なのでザックリ
+;95はみっかったが…どうしよう…
+
+;ダメージ補正式：倍率
+[state -2,fv3]
+type = varset
+trigger1 = roundstate=2
+fvar(3) = 1+((random%8-4)*.01)
+[state -2,fv3]
+type = varset
+trigger1 = roundstate=2
+trigger1 = fvar(3)>=1.04
+fvar(3) = 1.04
+[state -2,fv3]
+type = varset
+trigger1 = roundstate=2
+trigger1 = fvar(3)<=.96
+fvar(3) = .96
+
+;粘り補正
+[state -2,fv21]
+type = null
+trigger1 = (100*enemynear(var(47)),life/enemynear(var(47)),const(data.life))>=40
+trigger1 = fvar(21):=1
+trigger2 = (100*enemynear(var(47)),life/enemynear(var(47)),const(data.life))=[15,39]
+trigger2 = fvar(21):=.6
+trigger3 = (100*enemynear(var(47)),life/enemynear(var(47)),const(data.life))=[0,14]
+trigger3 = fvar(21):=.4
+
+;最終値／龍虎乱舞を除き適用
+[state -2,fv22]
+type = varset
+trigger1 = alive;                 ↓体力減少／基本         ;↓残り僅かの異常ＵＰ                          ;↓粘り補正;↓特殊補正;  ;↓ＭＡＸ補正
+fvar(22)=(1.0+((10.0-(10*life/const(data.life)))/40))*ifelse(((100*life/const(data.life))=[0,0.5]),1.4,1)*fvar(21)*fvar(3)*ifelse(var(35)>=128,1.5,1)*ifelse(var(29)>0,.7,1)
+;===========================================================================
+;画面外アイコン
+[State -2,8900]
+type = helper
+trigger1 = roundstate=2 && alive
+trigger1 = Screenpos Y<0||Screenpos Y>330-ceil(fvar(37))
+name="icon"
+id = 8900
+pos = 0,0
+postype = back
+stateno = 8900
+helpertype = normal
+ownpal = 1
+keyctrl = 0
+size.xscale = 1
+size.yscale = 1
+persistent = 0
+ignorehitpause = 1
+supermovetime = 9999999
+pausemovetime = 9999999
+;===========================================================================
+;死亡時の接近幅消去
+[State -2]
+type = width
+trigger1 = Teammode = simul
+trigger1 = !alive
+value = -16,-18
+;===========================================================================
+;全var解除
+[State -2, v-all-0]
+type = VarRangeSet
+trigger1 = Teammode = turns
+trigger1 = lose
+trigger1 = roundstate = 4
+value = 0
+[State 2, fv-all-0]
+type = VarRangeSet
+trigger1 = Teammode = turns
+trigger1 = lose
+trigger1 = roundstate = 4
+fvalue = 0
+;===========================================================================
+;■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+;キャラ別処理①（キャラ作者処理
+
+;基本的に、暗転中の処理封印しとく。
+;纏まった時間の暗転中に重なると、過剰に機能して数倍規模で機能する
+;例えばDIOの時止めに重なるとすんごい事になる
+
+;⑨氏ＭＢキャラ／サイア
+;は発動側で処理してるので暗転封印は不要
+;他のキャラは確認し辛くて不明瞭
+;triggerall = !Numhelper(950);暗転中封印
+;■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+;===========================================================================
+;【⑨氏－赤主秋葉-AA】「略奪/獣を焦がす/獣を窮める」
+[State -2]
+type = LifeAdd
+triggerall = Alive&&enemy,authorname="⑨"&&enemy,name="Akiha_Vermilion"
+trigger1 = enemy,var(47)=1||enemy,var(48)=1 && enemy,NumExplod(4005)
+value = -7
+Absolute = 1
+Kill = 0
+[State -2]
+type = PowerAdd
+triggerall = Alive&&enemy,authorname="⑨"&&enemy,name="Akiha_Vermilion"
+trigger1 = enemy,var(47)=1
+value = -26
+;===========================================================================
+;【⑨氏－レン-AA】「パウダースノウ」
+[State -2]
+type = LifeAdd
+triggerall = Alive&&enemy,authorname="⑨"&&enemy,name="Len"
+trigger1 = enemy,var(47)=1 || enemy,var(48)=1
+value = -enemy,var(47)*4-enemy,var(48)*4
+Absolute = 1
+Kill = 0
+;===========================================================================
+;【⑨氏－翡翠-AA】「じょうろ：var(47)」／「超がんばりました：var(48)」
+[State -2]
+type = LifeAdd
+triggerall = Alive&&enemy,authorname="⑨"&&enemy,name="Hisui"
+trigger1 = enemy,var(47)=1 || enemy,var(48)=1
+Value = ifelse(enemy,var(47)=1,-10,ifelse(gametime%2=0,-3,-4))
+Absolute = 1
+Kill = 0
+[State -2]
+type = PowerAdd
+triggerall = Alive&&enemy,authorname="⑨"&&enemy,name="Hisui"
+trigger1 = enemy,var(47)=1
+Value = -135
+;===========================================================================
+;【⑨氏－ワラキア-AA】「ブラック・クラック」
+[State -2]
+type = LifeAdd
+triggerall = Alive&&enemy,authorname="⑨"&&enemy,name="Warachia"
+trigger1 = enemy,var(47)=[1,4]
+value = ifelse(enemy,var(47)=1,-10,ifelse(enemy,var(47)=3,-30,-15))
+Absolute = 1
+Kill = 0
+[State -2]
+type = PowerAdd
+triggerall = Alive&&enemy,authorname="⑨"&&enemy,name="Warachia"
+trigger1 = enemy,var(47)=[1,4]
+value = ifelse(enemy,var(47)=1,6,15)
+;===========================================================================
+;【⑨氏－琥珀-AA】「現代医学の犠牲者です。」
+[State -2]
+type = LifeAdd
+triggerall = Alive&&enemy,authorname="⑨"&&enemy,name="Kohaku"
+trigger1 = enemy,var(47)=1
+value = IfElse(GameTime%2=0,-3,-4)
+Absolute = 1
+Kill = 0
+;===========================================================================
+;【tukemon&HAL氏-黒秋葉】「獣を焦がす」
+[State -2]
+type = LifeAdd
+triggerall = Alive&&enemy,authorname="tukemon&HAL" && enemy,name="Akiha"
+trigger1 = enemy,var(56)=1
+value = -8
+Kill = 0
+[State -2]
+type = PowerAdd
+triggerall = Alive&&enemy,authorname="tukemon&HAL" && enemy,name="Akiha"
+trigger1 = enemy,var(51)%10=2&&enemy,var(56)=1
+value = -33
+;===========================================================================
+;【chikuchikugonzalez氏-制服秋葉】「獣を焦がす」
+[State -2]
+type = LifeAdd
+triggerall = !Numhelper(950);暗転中封印
+triggerall = !IsHelper&&RoundState=2&&Alive&&Statetype!=A&&GameTime%3=0&&Numenemy
+trigger1 = enemy(0),authorname="chikuchikugonzalez" && enemy(0),name="Tohno Akiha"
+trigger1 = enemy(0),var(39)>=0&&PlayerIDExist(enemy(0),var(39))
+trigger1 = Abs(PlayerID(enemy(0),var(39)),Pos X - Pos X) < (85 * PlayerID(enemy(0),var(39)),const(size.xscale))
+trigger2 = Numenemy > 1
+trigger2 = enemy(1),authorname="chikuchikugonzalez" && enemy(1),name="Tohno Akiha"
+trigger2 = enemy(1),var(39)>=0&&PlayerIDExist(enemy(1),var(39))
+trigger2 = Abs(PlayerID(enemy(1),var(39)),Pos X - Pos X) < (85 * PlayerID(enemy(1),var(39)),const(size.xscale))
+value = -1
+kill = 0
+[State -2]
+type = PowerAdd
+triggerall = !Numhelper(950);暗転中封印
+triggerall = !IsHelper&&RoundState=2&&Alive&&Statetype!=A&&GameTime%2=0&&Numenemy
+trigger1 = enemy(0),authorname="chikuchikugonzalez" && enemy(0),name="Tohno Akiha"
+trigger1 = enemy(0),var(39)>=0&&PlayerIDExist(enemy(0),var(39))
+trigger1 = Abs(PlayerID(enemy(0),var(39)),Pos X - Pos X) < (85 * PlayerID(enemy(0),var(39)),const(size.xscale))
+trigger2 = Numenemy > 1
+trigger2 = enemy(1),authorname="chikuchikugonzalez" && enemy(1),name="Tohno Akiha"
+trigger2 = enemy(1),var(39)>=0&&PlayerIDExist(enemy(1),var(39))
+trigger2 = Abs(PlayerID(enemy(1),var(39)),Pos X - Pos X) < (85 * PlayerID(enemy(1),var(39)),const(size.xscale))
+value = Floor(-1 * (PowerMax * 0.001))
+;===========================================================================
+;【586氏－神尾観鈴】「不幸の塊」「観鈴ちんピンチ！」
+[State -2, LifeAdd]
+type = LifeAdd
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&& !enemy,TeamMode = Simul && !TeamMode = Simul &&Numenemy
+triggerall = enemy,authorname="586"&&enemy,name="Misuzu Kamio"&&enemy,var(39) > 0
+trigger1 = enemy,var(13)=1&&GameTime%13=0||enemy,var(13)=2&&GameTime%11=0||enemy,var(13)=3&&GameTime%8=0
+trigger2 = enemy,var(13)=4&&GameTime%6=0||enemy,var(13)=5&&GameTime%3=0
+value = -1
+kill = 0
+ignorehitpause = 1
+[State -2, PalFX]
+type = PalFX
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&& !enemy,TeamMode = Simul && !TeamMode = Simul &&Numenemy
+triggerall = enemy,authorname="586"&&enemy,name="Misuzu Kamio"
+trigger1 = enemy,var(39) > 0
+add = -50,150,150
+time = 1
+ignorehitpause = 1
+;===========================================================================
+;【奏貴氏‐幽々子】「无寿の夢」「无寿国への約束手形」
+[State -2, LifeAdd]
+type = LifeAdd
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&enemy,authorname="Souki"&&enemy,name="Yuyuko Saigyouji"&&Numenemy>=1
+trigger1 = GameTime%6=0&&enemy,var(3)=[1,2]
+value = IfElse(enemy,var(3)=1,-2,-3)
+Kill = 0
+;===========================================================================
+;【水影氏‐小町】「脱魂の儀」
+;振り向き抑制
+[State pos moving]
+type = AssertSpecial
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&(enemynear,name="Komachi Onoduka")*(enemynear,authorname="mikage_th")*(TeamMode = single)
+trigger1 = (enemynear,stateno=820)*(enemynear,anim=823)*(enemynear,animelem=6,13)
+trigger2 = (enemynear,stateno=821)*(enemynear,anim=823)*(enemynear,animelem=6,43)
+flag = noautoturn
+;移動
+[State pos moving]
+type = Posadd
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&(enemynear,name="Komachi Onoduka")*(enemynear,authorname="mikage_th")*(TeamMode = single)
+trigger1 = (enemynear,stateno=820)*(enemynear,anim=823)*(enemynear,animelem=6,13)
+trigger2 = (enemynear,stateno=821)*(enemynear,anim=823)*(enemynear,animelem=6,43)
+x = -ceil(enemynear,fvar(36))*facing*enemynear,facing
+y = -ceil(enemynear,fvar(37))*(statetype!=L)
+;statetype!=A+statetype!=Lの場合強制落下stateへ
+[State pos moving]
+type = Changestate
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&(enemynear,name="Komachi Onoduka")*(enemynear,authorname="mikage_th")*(TeamMode = single)
+triggerall = (statetype != A)*(pos y!=0)*(statetype!=L)
+trigger1 = (enemynear,stateno=820)*(enemynear,anim=823)*(enemynear,animelem=6,13)
+trigger2 = (enemynear,stateno=821)*(enemynear,anim=823)*(enemynear,animelem=6,43)
+value = 50
+;振り向き抑制
+[State pos moving]
+type = AssertSpecial
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&(enemynear,name="Komachi Onoduka")*(enemynear,authorname="mikage_th105")*(TeamMode = single)
+trigger1 = (enemynear,stateno=820)*(enemynear,anim=823)*(enemynear,animelem=6,13)
+trigger2 = (enemynear,stateno=821)*(enemynear,anim=823)*(enemynear,animelem=6,43)
+flag = noautoturn
+;移動
+[State pos moving]
+type = Posadd
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&(enemynear,name="Komachi Onoduka")*(enemynear,authorname="mikage_th105")*(TeamMode = single)
+trigger1 = (enemynear,stateno=820)*(enemynear,anim=823)*(enemynear,animelem=6,13)
+trigger2 = (enemynear,stateno=821)*(enemynear,anim=823)*(enemynear,animelem=6,43)
+x = -ceil(enemynear,fvar(24))*facing*enemynear,facing
+y = -ceil(enemynear,fvar(25))*(statetype!=L)
+;statetype!=A+statetype!=Lの場合強制落下stateへ
+[State pos moving]
+type = Changestate
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&(enemynear,name="Komachi Onoduka")*(enemynear,authorname="mikage_th105")*(TeamMode = single)
+triggerall = (statetype != A)*(pos y!=0)*(statetype!=L)
+trigger1 = (enemynear,stateno=820)*(enemynear,anim=823)*(enemynear,animelem=6,13)
+trigger2 = (enemynear,stateno=821)*(enemynear,anim=823)*(enemynear,animelem=6,43)
+value = 50
+;===========================================================================
+;【水影氏‐優曇華】「瓦斯織物の玉」
+[State lifeadd]
+type = lifeadd
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&numenemy=1&&Pos y>-240
+trigger1 = (enemy(0),name="Reisen Udongein Inaba")*(enemy(0),authorname="mikage_th105")*(enemy(0),fvar(21))
+value = -floor(enemy(0),fvar(21))*2
+ignorehitpause = 1
+absolute = 1
+kill = 0
+[State lifeadd]
+type = lifeadd
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&numenemy=2&&Pos y > -240
+trigger1 = (enemy(0),name="Reisen Udongein Inaba")*(enemy(0),authorname="mikage_th105")*(enemy(0),fvar(21))
+trigger2 = (enemy(1),name="Reisen Udongein Inaba")*(enemy(1),authorname="mikage_th105")*(enemy(1),fvar(21))
+value = -floor(enemy(0),fvar(21))*2-floor(enemy(1),fvar(21))*2
+ignorehitpause = 1
+absolute = 1
+kill = 0
+[State lifeadd]
+type = lifeadd
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&numenemy=1&&Pos y>-240
+trigger1 = (enemy(0),name="Reisen Udongein Inaba")*(enemy(0),authorname="mikage_th")*(enemy(0),fvar(35))
+value = -floor(enemy(0),fvar(35))*2
+ignorehitpause = 1
+absolute = 1
+kill = 0
+[State lifeadd]
+type = lifeadd
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&numenemy=2&&Pos y>-240
+trigger1 = (enemy(0),name="Reisen Udongein Inaba")*(enemy(0),authorname="mikage_th")*(enemy(0),fvar(35))
+trigger2 = (enemy(1),name="Reisen Udongein Inaba")*(enemy(1),authorname="mikage_th")*(enemy(1),fvar(35))
+value = -floor(enemy(0),fvar(35))*2-floor(enemy(1),fvar(35))*2
+ignorehitpause = 1
+absolute = 1
+kill = 0
+;===========================================================================
+;【水影氏‐諏訪子】「土着神の祟り & ミシャグジさまの祟り」
+;土着神の祟り
+[State lifeadd]
+type = lifeadd
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&numenemy&&(enemynear,name="Suwako Moriya")*(enemynear,authorname="mikage_th")*(TeamMode = single)
+trigger1 = floor((enemynear,var(42)%100)*0.1)=[0,1]
+trigger1 = (floor(enemynear,fvar(38)))%1000>0&&floor(enemynear,fvar(38)*0.001)=2
+value = floor(enemynear,fvar(36)*(LifeMax/10000.000000))
+ignorehitpause = 1
+absolute = 1
+kill = 0
+;ミシャグジさまの祟り
+[State lifeadd]
+type = lifeadd
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&numenemy&&(enemynear,name="Suwako Moriya")*(enemynear,authorname="mikage_th")*(TeamMode = single)
+trigger1 = floor(enemynear,fvar(35))=1&&movetype=H&&stateno!=[150,155]
+trigger2 = floor(enemynear,fvar(35))=2&&movetype=H&&stateno=[150,155]
+value = floor(enemynear,fvar(33))
+ignorehitpause = 1
+absolute = 1
+kill = 0
+;===========================================================================
+;【ドロウィン氏－アルカナキャラ】「毒効果」
+[state -2, 0]
+type = poweradd
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&enemy,authorname="Drowin arcana"&&enemy,fvar(20)>0
+trigger1 = power>0
+value = -1
+[state -2, 0]
+type = lifeadd
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&enemy,authorname="Drowin arcana"&&enemy,fvar(20)>0
+trigger1 = gametime%7=0
+value = -1
+kill = 0
+[State -2,0]
+type = Palfx
+triggerall = !Numhelper(950);暗転中封印
+trigger1 = Alive&&enemy,authorname="Drowin arcana"&&enemy,fvar(20)>0
+add = 100,0,110
+mul = 220,220,220
+time = 5
+ignorehitpause = 1
+;===========================================================================
+;【SAIKEI氏－ユダ】「イチコロ毒」
+[state -2]
+type = lifeadd
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&enemy,name="JUDA"&&enemy,authorname="SAIKEI"
+trigger1 = enemy,fvar(23)>0&&floor(enemy,fvar(23))%4=0&&enemy,var(0)<=0
+trigger1 = enemy,movetype!=H||enemy,movetype=H&&enemy,hitshakeover
+value = -1
+kill = 0
+[state -2]
+type = palfx
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&enemy,name="JUDA"&&enemy,authorname="SAIKEI"
+triggerall = gametime%20=0
+trigger1 = enemy,fvar(23)>0
+time = 8
+add = 255,0,0
+;===========================================================================
+;【霊柩なき者氏－夢瑠】「オートアイテム」
+[State -2,オートアイテム パートナー用①]
+type = LifeAdd
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&TeamMode = Simul
+triggerall = Partner,authorname="霊柩なき者"
+trigger1 = Partner,stateno=16001&&Partner,Time = 85
+value = Ceil(LifeMax*0.5)
+[State -2,オートアイテム パートナー用②]
+type = PalFX
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&TeamMode = Simul
+triggerall = Partner,authorname="霊柩なき者"
+trigger1 = Partner,stateno=16001&&Partner,Time = 85
+Color = 0
+Add = -112,32,-112
+Time = 20
+[State -2,オートアイテム パートナー用③]
+type = AfterImage
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&TeamMode = Simul
+triggerall = Partner,authorname="霊柩なき者"
+trigger1 = Partner,stateno=16001&&Partner,Time >= 85
+PalColor = 0
+PalBright = -112,32,-112
+Time = 10
+;===========================================================================
+;【IF氏－永峰希美】「ウィッシュプライヤー」
+[State -2]
+type = LifeAdd
+triggerall = !Numhelper(950);暗転中封印
+triggerall = Alive&&numpartner=1
+trigger1 = partner,authorname="IF"&&partner,name="Nozomi Nagamine"
+trigger1 = partner,var(44)=1
+value = ceil(lifemax*.9)
+;===========================================================================
+;【お家氏－アグリアス】「モーグリ」
+[State -2]
+type = PalFX
+triggerall = !Numhelper(950);暗転中封印
+triggerall = !ishelper
+trigger1 = roundstate=2
+Trigger1 = numpartner=1
+Trigger1 = partner,AuthorName="ouchi"&&partner,Name="Agrias_Oaks"
+trigger1 = partner,var(25)%100=7
+Trigger1 = alive=1
+trigger1 = partner,var(10)=100
+time = 50
+add = 0,0,54
+mul = 256,256,256
+sinadd = 0,0,108,100
+[State -2]
+Type = LifeAdd
+triggerall = !Numhelper(950);暗転中封印
+triggerall = !ishelper
+trigger1 = roundstate=2
+Trigger1 = numpartner=1
+Trigger1 = partner,AuthorName="ouchi"&&partner,Name="Agrias_Oaks"
+trigger1 = partner,var(25)%100=7
+trigger1 = partner,var(10)>0
+Trigger1 = alive=1
+Value = 1
+ignorehitpause = 1
+;===========================================================================
+;【Songfu氏－宮里絵梨花】「Bストーン対応」
+[State -2]
+type = PowerAdd
+triggerall = !Numhelper(950);暗転中封印
+triggerall = numenemy
+triggerall = enemy,authorname = "Songfu"
+triggerall = enemy,var(36)/10%10 = 1
+triggerall = enemy,var(34)/10000 > 0
+trigger1 = !numpartner
+trigger2 = numpartner
+trigger2 = ID < partner,ID
+value = 10*(enemy,var(34)/10000)
+[State -2]
+type = PowerAdd
+triggerall = !Numhelper(950);暗転中封印
+triggerall = numenemy = 2
+triggerall = enemy(1),authorname = "Songfu"
+triggerall = enemy(1),var(36)/10%10 = 1
+triggerall = enemy(1),var(34)/10000 > 0
+trigger1 = !numpartner
+trigger2 = numpartner
+trigger2 = ID < partner,ID
+value = 10*(enemy(1),var(34)/10000)
+;===========================================================================
+;【サイア】「癒し」
+[State -2,Heal];ライフ
+type = Lifeadd
+triggerall = RoundState=2&&alive&&TeamMode = simul
+triggerall = Numpartner>0&&partner,name="s_sayia-f"&&partner,authorname="sekirei"
+trigger1 = partner,var(3)=1
+value = floor(5*(partner,fvar(20)))
+ignorehitpause = 1
+[State -2,Heal-2];点滅
+type = Palfx
+triggerall = RoundState=2&&alive&&TeamMode = simul
+triggerall = Numpartner>0&&partner,name="s_sayia-f"&&partner,authorname="sekirei"
+trigger1 = partner,var(3)=1
+add = 150,130,120
+sinadd = 40,40,50,5
+time = 1
+ignorehitpause = 1
+;===========================================================================
+;アッシュ・神楽の封印技
+;青黒く
+[State -2]
+type = Palfx
+triggerall = Alive
+triggerall = stateno!=5150
+trigger1 = helper(8888),var(28)
+add = 50,50,170
+mul = 165,165,165
+sinadd = 95,95,95,17
+time = 1
+color = 0
+invertall = 0
+ignorehitpause = 1
+;===========================================================================
+;【練り茶氏－ユダ】「イチコロ毒」※更新履歴2008.8月18日版
+;ヒット後に600Fのexplodを自分で吐き、gametimeで減少。
+;ダメージはSAIKEI氏ユダに準拠
+;===========================================================================
+[State 1]
+type = Explod
+triggerall = Alive&&!Teammode = simul && !enemy,Teammode = simul
+trigger1 = enemynear(var(47)),name="JUDA-(NERICYA)"&&enemynear(var(47)),authorname="NERICYA"
+trigger1 = movetype=H&&Prevstateno=8210&&time=1
+trigger1 = !Numexplod(156)
+anim=4649
+ID = 156
+scale = 0,0
+postype = p1
+pos = 0,3000
+removetime = 600
+sprpriority = -4
+ownpal = 1
+[state -2]
+type = lifeadd
+triggerall = Alive&&!Teammode = simul && !enemy,Teammode = simul
+trigger1 = Numexplod(156)>0&&gametime%4=0
+value = -1
+kill = 0
+;==============================================================================
+;■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+;==============================================================================
+;==============================================================================
+;AI起動ヘルパー
+[State -3,AI]
+type = helper
+triggerall = Roundsexisted = 0
+trigger1 = NumHelper(10000)=0
+trigger1 = alive
+trigger1 = var(59)=0 && !fvar(11);トレモ以外
+trigger1 = roundstate=2
+trigger1 = !ctrl&&stateno=0
+helpertype = normal
+name = "AI"
+stateno = 10000
+ID = 10000
+pos = 0,-100
+keyctrl = 1
+pausemovetime = 2147483647
+supermovetime = 2147483647
+persistent = 0
+
+[State -3,10000]
+type = changestate
+trigger1 = ishelper(10000)
+trigger1 = stateno!=10000
+value = 10000
+
+;===========================================================================
+;反映を確認するなら最後に書く
+[State -2,debug]
+type = DisplayToClipboard
+trigger1 = Numhelper(8888)
+text = "(27)=%d v-Y=%0.1f P2distX=%0.1f P2distY=%0.1f Front=%d"
+params = var(27) , vel Y, P2bodydist X , P2bodydist Y ,frontedgedist
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+[State -2,debug]
+type = AppendToClipboard
+trigger1 = Numhelper(8888)
+text = "\n(59)=%d,(8)=%d,(5)=%d,(11)=%d,H(38)=%d"
+params = var(59),var(8),var(5),var(11),helper(8888),var(38)
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999

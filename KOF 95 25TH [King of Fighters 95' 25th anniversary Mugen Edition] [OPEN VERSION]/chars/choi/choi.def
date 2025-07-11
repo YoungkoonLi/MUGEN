@@ -1,0 +1,36 @@
+;=====================================================================
+;  DEF File For "CHOI BOUNGE"                               Made By H"        
+;=====================================================================
+; Player Information
+[Info]
+name    = "CHOI BOUNGE"
+displayname = "Choi"
+versiondate = 10,24,2004
+mugenversion = 04,14,2001
+author = "H"
+Pal.Defaults=1,2,3,4,5,6,7,8,9,10,11,12
+
+; Files for the Player
+[Files]
+cmd     = choi.cmd
+cns     = choi-N.cns    ;Constants
+st      = choi-N.cns    ;States (Normal)
+st1     = choi-S.cns    ;States (Special)
+st2     = choi-H.cns    ;States (Hyper)
+st3     = SNK-common.cns
+stcommon = common1.cns    ;Common states (in data/)
+sprite  = choi.sff      ;Sprite
+anim    = choi.air      ;Animation
+sound   = choi.snd      ;Sound
+pal1    = choi04.act    ;Palettes
+pal2    = choi05.act
+pal3    = choi06.act
+pal4    = choi01.act
+pal5    = choi02.act
+pal6    = choi03.act
+pal7    = choi10.act
+pal8    = choi11.act
+pal9    = choi12.act
+pal10   = choi07.act
+pal11   = choi08.act
+pal12   = choi09.act

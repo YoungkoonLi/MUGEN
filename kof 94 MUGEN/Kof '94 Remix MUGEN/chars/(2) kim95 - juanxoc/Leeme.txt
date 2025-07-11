@@ -1,0 +1,31 @@
+Hola a todos los Mugeneros:
+A los qu eno me conocen mi nombre es Juanxoc made in Chile.
+creador de este char "kim kof 95". 
+Debo mencionar que me esforze bastate en este personaje,ripie cada sprite
+y cada sonido, es uno de los primeros char que he construido,por ende debe presentar 
+algunos errores que ha medida que pase el tiempo ire mejorandolo
+Este Char es completamemte open sourse ( si deciden reeditar el char hagamenlo saber de todas maneras),lo decidí así porque tomé como base para su 
+construcción a kim del gran autor Mouser, intente dejarlo lo mas parecido al
+game original espero que les guste!!
+
+Agradecimientos: Primeramente agradesco a Díos el que me ha dado fuerza
+para seguir viviendo y vencer la enfermedad lo que me ha permitido construir este char.
+Agradesco al gran MOuser por ser un creador Open y por su char base lo que
+me permitio hacer mas facilmente este personaje, a mi gran amigo y maestro shammanalpha1
+ él me ha enseñado bastante sobre programación y optimización de los char y  por sus 
+palabras de aliento cuando lo he necesitado. Al gran Team K.M.C 
+(kof mugen chile; Mechkyo, GodRyu, Koffab y Ehnyd) el que me ha brindado su apoyo 
+incondicional.
+
+
+Cualquier consulta les dejo mi mail: juanxoc@hotmail.com
+o me envian un mp al foro kof.mugen chile : http://kofmugenchile.all-forum.net/index.htm
+
+Espero que Dios me de vida para poder entregarle mi próximo char,
+si no es así me conformo con haberles entregado este char.
+Que Dios me los bendiga y nos comunicamos ok?
+
+
+
+
+8 de enero del 2009 aniversario de la muerte de mi padre

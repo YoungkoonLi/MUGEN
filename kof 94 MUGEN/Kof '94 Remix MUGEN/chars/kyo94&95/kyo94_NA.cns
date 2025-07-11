@@ -1,0 +1,256 @@
+;---------------------------------------------------------------------------
+; WIN
+[Statedef 180]
+type = S
+
+[State 180, 1]
+type = ChangeState
+trigger1 = Time = 0
+value = 181
+
+;---------------------------------------------------------------------------
+; WIN1
+[Statedef 181]
+type = S
+ctrl = 0
+anim = 181
+velset = 0,0,0
+
+[State 181, 0]
+type = VarSet
+trigger1 = Time = 0
+v = 2
+value = 0
+
+[State 181, 1]
+type = NotHitBy
+trigger1 = Time >= 0
+value = SCA
+time = 1
+
+[State 181, 2]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = 10, 1
+
+[State 181, 3]
+type = PlaySnd
+trigger1 = AnimElem = 7
+value = 10, 2
+
+[State 181, 3]
+type = Explod
+trigger1 = AnimElem = 2
+anim = 182
+removetime = 16
+pos = 27, -97
+sprpriority = 2
+
+[State 181, 3]
+type = Explod
+trigger1 = AnimElem = 3
+anim = 182
+removetime = 5
+pos = 10, -98
+sprpriority = 2
+
+[State 181, 3]
+type = Explod
+trigger1 = AnimElem = 4
+anim = 182
+removetime = 5
+pos = 8, -96
+sprpriority = 2
+
+[State 181, 3]
+type = Explod
+trigger1 = AnimElem = 5
+anim = 183
+pos = 10, -98
+sprpriority = 2
+
+[State 181, 5]
+type = PowerAdd
+trigger1 = Var(0) >= 1
+value = -3000
+
+; –P—Ó
+[Statedef 260]
+type = S
+movetype = A
+physics = S
+ctrl = 0
+juggle = 2
+anim = 260
+
+[State 260, move]
+type = PosAdd
+trigger1 = AnimElem = 4
+x = 4
+
+[State 260, Snd]
+type = playsnd
+trigger1 = time = 0
+value = 21, 2
+
+[State 260, Snd]
+type = playsnd
+trigger1 = time = 0
+value = 11, 1
+
+[State 260, end]
+type = Changestate
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[State 260, hitdef]
+type = hitdef
+trigger1 = time = 0
+trigger1 = Var(0) = 0
+attr = S, NA
+damage = 155
+hitflag = MA
+Guadflag = MA
+pausetime = 15, 15
+sparkno = 1
+sparkxy = -10, -63
+hitsound = S22, 3
+guardsound = S23, 0
+animtype = Back
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -4, -4
+air.velocity = -4, -4
+fall = 1
+fall.recover = 0
+
+[State 260, hitdef]
+type = hitdef
+trigger1 = time = 0
+trigger1 = Var(0) > 0
+attr = S, NA
+damage = 232
+hitflag = MA
+Guadflag = MA
+pausetime = 15, 15
+sparkno = 1
+sparkxy = -10, -63
+hitsound = S22, 3
+guardsound = S23, 0
+animtype = Back
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -4, -4
+air.velocity = -4, -4
+fall = 1
+fall.recover = 0
+
+;‚µ‚á‚ª‚Ý‹­ƒLƒbƒN
+[Statedef 430]
+type    = C
+movetype= A
+physics = C
+ctrl = 0
+anim = 430
+
+[State 430, 2]
+type = PlaySnd
+trigger1 = Time = 0
+value = 11, 1
+
+[State 430, 3]
+type = PlaySnd
+trigger1 = Time = 0
+value = 21, 1
+
+[State 430, 4]
+type = HitDef
+triggerall = Var(0) = 0
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 6
+attr = C, NA
+damage    = 120
+getpower  = 40
+givepower = 40
+HitFlag = MA
+guardflag = L
+pausetime = 15,15
+sparkxy = -5,-10
+sparkno = 1
+hitsound   = S22,2
+guardsound = S23,0
+ground.type = Trip
+ground.slidetime = 10
+ground.hittime  = 15
+ground.velocity = -2,-6.5
+air.velocity = -1.2,-3
+guard.velocity = -5
+fall = 1
+
+[State 430, 5]
+type = HitDef
+triggerall = Var(0) > 0
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 6
+attr = C, NA
+damage    = 180, 18
+getpower  = 40
+givepower = 40
+HitFlag = MA
+guardflag = L
+pausetime = 15,15
+sparkxy = -5,-10
+sparkno = 1
+hitsound   = S22,2
+guardsound = S23,0
+ground.type = Trip
+ground.slidetime = 10
+ground.hittime  = 15
+ground.velocity = -3,-6.5
+air.velocity = -1.2,-3
+guard.velocity = -5
+fall = 1
+
+[State 430, 6]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl = 1
+
+;# UŒ‚”ð‚¯ ################################################################
+[Statedef 830]
+type = S
+movetype = I
+physics = S
+velset = 0, 0
+anim = 830
+ctrl = 0
+
+[State 830, snd]
+type = Playsnd
+trigger1 = time = 0
+value = 11, 5
+
+[State 830, HitBy]
+type = HitBy
+trigger1 = Time >= 0
+value = SCA, AT
+
+[State 830, sprpriority]
+type = SprPriority
+trigger1 = Time >= 0
+value = -1
+
+[State 830, playerpush]
+type = PlayerPush
+trigger1 = time >= 0
+value = 0
+
+[State 830, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1

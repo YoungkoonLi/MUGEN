@@ -1,0 +1,51 @@
+[Info]
+name = "Robert Garcia"    ;Name of character
+displayname = "Robert Garcia"    ;Name of character to display
+versiondate = 4,14,2001   ;Version date of character
+mugenversion = 4,14,2001  ;Version of M.U.G.E.N character works on
+author = "CIRIO"          ;Character author name
+Pal.Defaults=1,2,3,4,5,6,7,8,9,10,11,12          ;Default palettes in order of preference
+
+; Files for the player
+[Files]
+cmd     = Robert.cmd   ;Command set
+cns     = Robert.cns   ;Constants
+st      = Robert.cns   ;States
+stcommon = common1.cns ;Common states
+sprite  = Robert.sff   ;Sprite
+anim    = Robert.air   ;Animation
+sound   = Robert.snd   ;Sound
+pal1    = Robert1.act  ;Palettes (can have up to 12)
+pal2    = azul.act
+pal3    = rojo.act
+pal4    = rosa.act
+pal5    = violeta.act
+pal6    = boca.act
+pal7    = negro.act
+pal8    = Robert8.act
+pal9    = Verde.act
+pal10    = Robert10.act
+pal11    = RobertGold.act
+pal12    = blanco.act
+
+;____________________________________________________________________
+;Estandares
+;____________________________________________________________________
+
+;Equilibrar daños
+;Poner explods de golpes y super
+;Poner sonidos de golpes, movimientos
+;Hacer combos super cancel y dream cancel
+;Hacer supers, ultras o ultras escondidas si hacen falta
+;Esquivadas
+;Golpes explosivos
+;Cargar poder
+;Dizzy
+
+------------------
+;Detalles
+------------------
+;Hacer paletas
+;Transparencias
+;Counter
+;Cargar vida mientras provoca

@@ -1,0 +1,44 @@
+;---------------------------------;
+; Chin Gentsai ver 1.00. = 80,9%   ;
+; By      -zelgadis-              ;
+;---------------------------------;
+[Info]
+Name         ="Chin Gentsai"
+DisplayName  ="Chin Gentsai"
+VersionDate  =21,3,2007
+FinalUpdate  = 21,3,2007
+MugenVersion =06,14,2003
+Author       ="Zelgadis"
+Pal.Defaults =1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+Cmd          =Chin-KOFM.cmd
+Cns          =Chin-KOFM.cns
+St           =Chin-KOFM.cns
+StCommon     =common1.cns
+Sprite       =Chin-KOFM.sff
+Anim         =Chin-KOFM.air
+Sound        =Chin-KOFM.snd
+pal1=Chin-KOFM-Original.act
+pal2=Chin-KOFM-2.act
+pal3=Chin-KOFM-3.act
+pal4=Celeste.act
+pal5=Chin-KOFM-5.act
+pal6=Chin-KOFM-6.act
+pal7=Amarillo2.act
+pal8=Blanco.act
+pal9=Bordo.act
+pal10=Blanco.act
+pal11=Naranja.act
+pal12=Negro.act
+st1=Chin-KOFM-N.cns
+st2=Chin-KOFM-S.cns
+st3=Chin-KOFM-H.cns
+st4=Chin-KOFM-2-3.cns
+
+;---Intro and Ending---
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

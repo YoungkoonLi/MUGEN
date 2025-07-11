@@ -1,0 +1,28 @@
+[Info]
+name = "Ryo"        ;Name of character
+displayname = "Ryo Sakazaki" ;Name of character to display
+versiondate = 4,14,2001   ;Version date of character
+mugenversion = 4,14,2001   ;Version of M.U.G.E.N character works on
+author = "CIRIO"         ;Character author name
+Pal.Defaults=1,2,3,4,5,6,7,8,9,10,11,12 ;Default palettes in order of preference
+
+; Files for the player
+[Files]
+cmd     = Ryo.cmd   ;Command set
+cns     = Ryo.cns   ;Constants
+st      = Ryo.cns   ;States
+stcommon = common1.cns ;Common states
+sprite  = Ryo.sff   ;Sprite
+anim    = Ryo.air   ;Animation
+sound   = Ryo.snd   ;Sound
+pal1    = projdark.act  ;Palettes (can have up to 12)
+pal2    = 5050250.act
+pal3    = Ryo03.act
+pal4    = Ryo04.act
+pal5    = Ryo05.act
+pal6    = Ryo06.act
+pal7    = Ryo07.act
+pal8    = Ryo08.act
+pal9	= Ryo09.act
+pal10	= Ryo10.act
+pal11	= Ryo11.act

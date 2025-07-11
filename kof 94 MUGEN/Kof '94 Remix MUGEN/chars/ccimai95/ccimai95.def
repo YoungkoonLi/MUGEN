@@ -1,0 +1,40 @@
+;==========================================================
+; Definition file for CCI Mai 95
+; For Winmugen
+; Ironmugen
+;==========================================================
+
+; Player information
+[Info]
+name = "Mai Shiranui"
+displayname = "CCI Mai"
+versiondate = 16,10,2006 ;Started
+mugenversion = 04,01,2001
+author = "David Demianoff"
+pal.defaults = 1,2,3,4
+
+; Files for the player
+[Files]
+cmd      = mai95.cmd        ;Other config
+cns      = mai95.cns        ;Constants
+st       = mai95.cns        ;States
+st1      = attacks.cns        ;States
+st2      = specials.cns       ;States
+st3      = hypers.cns         ;States
+st4      = misc.cns           ;States
+stcommon = common1.cns        ;Common states
+sprite   = mai95.sff        ;Sprite
+anim     = mai95.air        ;Animation
+sound    = mai95.snd        ;Sound
+pal1     = mai95.act     ;Normal palette
+pal2     = mai2.act
+pal3     = mai3.act
+pal4     = mai4.act
+pal5	 = mai5.act
+pal6	 = maibr.act
+;pal7	 = terryff1.act
+;pal8	 = terry97_adv2.act
+;pal9	 = terrycthd.act
+;pal10	 = terry2k1_01.act
+;pal11	 = terry2k2_d.act
+;pal12	 = terry2k3_01.act

@@ -1,0 +1,60 @@
+ -----------------------------------------------------
+ Andy Bogard '94                               [v0.97]
+ by Duende Macabro
+ Email: weaponx_nirvana@yahoo.com.br
+ HP: http://www.rickiecreations.paodemugen.com.br
+     http://www.paodemugen.com.br
+ -----------------------------------------------------
+
+ ----------------
+ - Random notes -
+ ----------------
+ * All the code in this char is open-source, except the ones that aren't made by me, as always.
+ * Well, I made this char for myself, and I decide to share him with everyone, so, if you don't like him, I'don't care.
+ * If you find any bug or want give-me feedbacks about this char, you know what to do: send-me an email.
+ * Attacks takes 20% more damage when in max mode. Also, MAX mode is unlocked when life < 20%.
+ * "100% accurate" are not my objective here.
+ * My english is terrible, you know? So, if you find any gramatical error, sorry. 
+
+ ------------------
+ - What's missing -
+ ------------------
+ * '94 voices
+ * Throw
+ * Close Strong Punch
+ * Some tweaking here and there
+
+ ------------
+ - Commands -
+ ------------
+
+ a: weak kick
+ b: strong kick
+ x: weak punch
+ y: strong punck
+
+ z or a + x: dodge/roll (during block requires 1 power bar)
+ c or b + y: knockdown attack (during block requires 1 power bar)
+
+ Power Up    : x + y
+
+ HishouKen        : D, DB, B, x/y 
+ ShouryuuDan      : D, DF, F, x/y
+ Zan'eiKen        : DB, F, x/y
+ Kuuha Dan        : B, DB, D, DF, F, a/b
+ Dam Breaker Punch: D, DB, B, a/b (3 times in a row) 
+
+ Chou Reppa Dan   : D, DB, B, DB, D, DF, F, c (in MAX mode)
+
+ -------------------------------------------
+ - Special Thanks (in no particular order) -
+ -------------------------------------------
+
+ * Elecbyte, for MUGEN.
+ * Sés, Aziz Vicentini, VirtuallTek: for MCM, ZCharCAD and Fighter Factory (respectively), very useful tools.
+ * Winame, for his AI activation code.
+ * PotS, Fervicante, Juke, Cirio, CCIron: for letting me use his things, thanks folks. ^_^
+ * PDM (http://www.paodemugen.com.br), for support and hosting. Thanks. :)
+ * GameFAQs, for the GameFAQs, obviously. ;)
+ * Anyone I forgot to mention, sorry, but thanks. :)
+ * You, for download this char. Thanks and enjoy him. :D

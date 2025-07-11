@@ -1,0 +1,31 @@
+; Player information
+[Info]
+name ="Kim Kaphwan"
+displayname ="Kim 95"
+versiondate =07,31,2000
+mugenversion =07,31,2000
+author ="Juanxoc"
+pal.defaults=1,2,3,4,5,6
+
+; Files for the player
+[Files]
+cmd     =Kim.cmd
+cns     =Kim.cns
+st      =Kim.cns
+stcommon =common1.cns
+sprite  =Kim.sff
+anim    =Kim.air
+sound   =Kim.snd
+pal1=Kim_01.act
+pal2=Kim_02.act
+pal3=Kim_03.act
+pal4=Kim_04.act
+pal5=Kim_05.act
+pal6=Kim_06.act
+st1=kim_Movespeciales.cns
+st2=kim95_super.cns
+st3=kim_-2-3.cns
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

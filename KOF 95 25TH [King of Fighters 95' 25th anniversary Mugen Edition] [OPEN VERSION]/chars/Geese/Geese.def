@@ -1,0 +1,35 @@
+[Info]
+Name         = "Geese"
+DisplayName  = "Geese Howard"
+VersionDate  = 03,09,2007
+MugenVersion = 06,14,2003
+Author       = "jin"
+Pal.Defaults = 1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+Cmd      = N-Geese.cmd
+Cns      = N-Geese.cns
+St       = N-Geese.cns
+St0      = N-Geese-N.cns
+St1      = N-Geese-S.cns
+St2      = N-Geese-H.cns
+St3      = N-Geese-2-3.cns
+StCommon = common1.cns
+Sprite   = N-Geese.sff
+Anim     = N-Geese.air
+Sound    = N-Geese.snd
+
+;---カラーパレット---
+
+Pal1 = N-Geese01.act
+Pal2 = N-Geese02.act
+Pal3 = N-Geese03.act
+Pal4 = Verde.act ;N-Geese04.act
+Pal5 = Violeta.act ;N-Geese05.act
+Pal6 = Mate.act ;N-Geese06.act
+Pal7 = Turquesa.act
+Pal8 = Dorado.act
+Pal9 = Marron.act
+Pal10 = Gris.act
+Pal11 = TurquesaRojo.act
+Pal12 = VioletaTurquesa.act

@@ -1,0 +1,214 @@
+;---------------------------------------------------------------------------
+
+;기본기로 이겼을때
+[Statedef 5650]
+ctrl = 0
+
+[State 5650, 1]
+type     = AssertSpecial
+trigger1 = Time = [0,14]
+flag     = nofg
+glag2        = nobg
+time = 2
+persistent = 0
+
+[state 5650, 2]
+type = BGPalFx
+trigger1 = time = 10
+add = 255,255,255
+sinadd = -255,-255,-255,50
+time  = 4
+ignorehitpause = 1
+persistent = 0
+
+[state 5650, 3]
+type  = EnvColor 
+trigger1 = Time= 10
+time = 2
+value = 0,0,0
+under = 1
+ignorehitpause = 1
+persistent = 0
+
+[state 5650, 4]
+type  = EnvColor 
+trigger1 = Time = 12
+time = 2
+value = 255,255,255
+under = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 5650, 5]
+type = DestroySelf
+trigger1 = RoundState = 0
+
+;----------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;승리대사와 일러스트
+[Statedef 5610]
+ctrl = 0
+
+;---------------------------------------------------------------------------
+;승리대사관련
+[State 5610, 0]
+type = VarSet
+trigger1 = p2name = "K`" || p4name = "K`"
+var(48) = 1
+
+[State 5610, 0];vs 여자같다
+type = VarSet
+trigger1 = p2name = "yuri" || p4name = "yuri"
+trigger2 = p2name = "leona" || p4name = "leona"
+trigger3 = p2name = "king" || p4name = "king"
+trigger4 = p2name = "mai" || p4name = "mai"
+trigger5 = p2name = "mary" || p4name = "mary"
+trigger6 = p2name = "athena" || p4name = "athena"
+trigger7 = p2name = "hinako" || p4name = "hinako"
+trigger8 = p2name = "whip" || p4name = "whip"
+trigger9 = p2name = "mature" || p4name = "mature"
+trigger10 = p2name = "vice" || p4name = "vice"
+trigger11 = p2name = "foxy" || p4name = "foxy"
+trigger12 = p2name = "angel" || p4name = "angel"
+trigger13 = p2name = "vanessa" || p4name = "vanessa"
+trigger14 = p2name = "kula" || p4name = "kula"
+trigger15 = p2name = "Shermie" || p4name = "Shermie"
+trigger16 = p2name = "kasumi" || p4name = "kasumi"
+trigger17 = p2name = "xiangfei" || p4name = "xiangfei"
+trigger18 = p2name = "Li Xiang Fei" || p4name = "Li Xiang Fei"
+trigger19 = p2name = "maylee" || p4name = "maylee"
+trigger20 = p2name = "May Lee" || p4name = "May Lee"
+trigger21 = p2name = "Chizuru" || p4name = "Chizuru"
+trigger22 = p2name = "Chizuru Kagura" || p4name = "Chizuru Kagura"
+trigger23 = p2name = "hiel" || p4name = "hiel"
+trigger24 = p2name = "Athena Asamiya" || p4name = "Athena Asamiya"
+trigger25 = p2name = "Blue Mary" || p4name = "Blue Mary"
+trigger26 = p2name = "Kasumi Todo" || p4name = "Kasumi Todo"
+trigger27 = p2name = "Shiranui Mai" || p4name = "Shiranui Mai"
+trigger28 = p2name = "Malin" || p4name = "Malin"
+trigger29 = p2name = "Shijyo Hinako" || p4name = "Shijyo Hinako"
+trigger30 = p2name = "Tin's May Lee" || p4name = "Tin's May Lee"
+trigger31 = p2name = "svcathena" || p4name = "svcathena"
+trigger32 = p2name = "MVCtabasa by ryokucha" || p4name = "MVCtabasa by ryokucha"
+trigger33 = p2name = "tabasa" || p4name = "tabasa"
+trigger34 = p2name = "shiki" || p4name = "shiki"
+trigger35 = p2name = "chun-li" || p4name = "chun-li"
+trigger36 = p2name = "Chun Li" || p4name = "Chun Li"
+trigger37 = p2name = "Tin's Shiki" || p4name = "Tin's Shiki"
+var(48) = 2
+
+[State 5610, 0]
+type = VarSet
+trigger1 = p2name = "BENIMARU NIKAIDO" || p4name = "BENIMARU NIKAIDO"
+trigger2 = p2name = "BENIMARU" || p4name = "BENIMARU"
+var(48) = 3
+
+[State 5610, 0];vs 꼬마같다
+type = VarSet
+trigger1 =  P2Name = "CHRIS" || P4Name = "CHRIS"
+trigger2 =  P2Name = "Kula Diamond" || P4Name = "Kula Diamond"
+trigger3 =  P2Name = "KULA" || P4Name = "KULA"
+var(48) = 4
+
+[State 5610, 0]
+type = VarSet
+trigger1 =  P2Name = "mat222222222222ure" || P4Name = "mat2222222222ure"
+trigger2 =  P2Name = "vi2222222222ce" || P4Name = "vice222222222"
+var(48) = 5
+
+[State 5610, 8]
+type = AssertSpecial
+trigger1 = time >= 30
+flag = NoBarDisplay
+flag2 = noFG
+;-----------------------------------------------------------------------------------------
+;ai설정
+
+[Statedef -2]
+
+[State -2, Stp Chrge Snd]
+type = StopSnd
+trigger1 = MoveType = H
+channel = 2
+value = f21,0
+
+[State -2, 0]
+type = Helper
+trigger1 = NumHelper(999) = 0
+trigger1 = RoundState = 2
+name = "AI Trigger"
+id = 999
+pos = 1000,1000
+stateno = 1234
+keyctrl = 1
+
+; AI helper
+[Statedef 1234]
+anim = 1234
+ctrl = 0
+
+[State 111, 1]
+type = Turn
+trigger1 = facing != parent, facing
+
+[State 112, 2]
+type = ParentVarSet
+triggerall = parent, RoundState = 2
+triggerall = time > 0 && parent,var(11) = 0
+triggerall = parent, movetype != H
+trigger1 = parent, command = "x"
+trigger2 = parent, command = "y"
+trigger3 = parent, command = "z"
+trigger4 = parent, command = "a"
+trigger5 = parent, command = "b"
+trigger6 = parent, command = "c"
+trigger7 = parent, command = "start"
+trigger8 = parent, command = "holdfwd"
+trigger9 = parent, command = "holdback"
+trigger10 = parent, command = "holdup"
+trigger11 = parent, command = "holddown"
+var(10) = 1
+
+[State 113, 3]
+type = ParentVarSet
+triggerall = parent, RoundState = 2
+triggerall = parent,var(11) = 0
+trigger1 = (command = "x" && parent, command = "x")
+trigger2 = (command = "y" && parent, command = "y")
+trigger3 = (command = "z" && parent, command = "z")
+trigger4 = (command = "a" && parent, command = "a")
+trigger5 = (command = "b" && parent, command = "b")
+trigger6 = (command = "c" && parent, command = "c")
+trigger7 = (command = "start" && parent, command = "start")
+trigger8 = (command = "holdfwd" && parent, command = "holdfwd")
+trigger9 = (command = "holdback" && parent, command = "holdback")
+trigger10 = (command = "holdup" && parent, command = "holdup")
+trigger11 = (command = "holddown" && parent, command = "holddown")
+var(10) = 0
+
+[State 112, 2]
+type = ParentVarSet
+triggerall = parent, RoundState = 2
+triggerall = time > 0
+trigger1 = parent, command = "x"
+trigger2 = parent, command = "y"
+trigger3 = parent, command = "z"
+trigger4 = parent, command = "a"
+trigger5 = parent, command = "b"
+trigger6 = parent, command = "c"
+trigger7 = parent, command = "start"
+trigger8 = parent, command = "holdfwd"
+trigger9 = parent, command = "holdback"
+trigger10 = parent, command = "holdup"
+trigger11 = parent, command = "holddown"
+var(11) = 1
+
+;--------------------------------------------------
+
+[State -2, Stp Chrge Snd]
+type = StopSnd
+trigger1 = MoveType = H
+channel = 3
+value = f21,0
+
+;--------------------------------------------------

@@ -1,0 +1,459 @@
+
+;-| Button Remapping |-----------------------------------------------------
+[Remap]
+x = x
+y = y
+z = z
+a = a
+b = b
+c = c
+s = s
+
+;-| Default Values |-------------------------------------------------------
+[Defaults]
+command.time = 15
+command.buffer.time = 1
+
+
+;-| 超必殺 |--------------------------------------------------------
+
+
+;-| 必殺 |------------------------------------------------------
+[Command]
+name = "地震"
+command = ~F,D,DF, x
+time = 12
+[Command]
+name = "地震"
+command = ~F,D,DF, y
+time = 12
+
+[Command]
+name = "弱受身"
+command = ~D,DB,B, a
+time = 12
+
+[Command]
+name = "強受身"
+command = ~D,DB,B, b
+time = 12
+
+[Command]
+name = "天地返し"
+command = ~z
+time = 5
+
+[Command]
+name = "天地返し"
+command = ~F,D,DB,B,F,y
+time = 22
+
+
+;-| ステップ |-----------------------------------------------------------
+[Command]
+name = "FF"
+command = F, F
+time = 12
+
+[Command]
+name = "BB"
+command = B, B
+time = 12
+
+
+;-| 同時押し |-----------------------------------------------
+[Command]
+name = "recovery"
+command = x+a
+time = 1
+
+[Command]
+name = "ふっ飛ばし"
+command = y+b
+time = 1
+
+
+;-| レバー+ボタン |---------------------------------------------------------
+[Command]
+name = "down_a"
+command = /$D,a
+time = 1
+
+[Command]
+name = "down_b"
+command = /$D,b
+time = 1
+
+
+;-| ボタン |---------------------------------------------------------
+[Command]
+name = "a"
+command = a
+time = 1
+
+[Command]
+name = "b"
+command = b
+time = 1
+
+[Command]
+name = "c"
+command = c
+time = 1
+
+[Command]
+name = "x"
+command = x
+time = 1
+
+[Command]
+name = "y"
+command = y
+time = 1
+
+[Command]
+name = "z"
+command = z
+time = 1
+
+[Command]
+name = "start"
+command = s
+time = 1
+
+
+;-| ボタン(押しっぱなし) |--------------------------------------------------------------
+[Command]
+name = "holdfwd";Required (do not remove)
+command = /$F
+time = 1
+
+[Command]
+name = "holdback";Required (do not remove)
+command = /$B
+time = 1
+
+[Command]
+name = "holdup" ;Required (do not remove)
+command = /$U
+time = 1
+
+[Command]
+name = "holddown";Required (do not remove)
+command = /$D
+time = 1
+
+
+
+
+
+
+
+;---------------------------------------------------------------------------
+[Statedef -1]
+
+;---------------------------------------------------------------------------
+; 必殺
+;---------------------------------------------------------------------------
+[State -1, 地雷震]
+type = ChangeState
+value = 1050
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype != A
+triggerall = command = "地震"
+trigger1 = ctrl
+trigger2 = stateno = 200 && movecontact
+trigger3 = stateno = 210 && movecontact
+trigger4 = stateno = 220 && movecontact
+trigger5 = stateno = 230 && movecontact
+trigger6 = stateno = 240 && movecontact
+trigger7 = stateno = 300 && movecontact
+trigger8 = stateno = 310 && movecontact
+trigger9 = stateno = 320 && movecontact
+
+[State -1, 天地返し(通常)]
+type = ChangeState
+value = 1100
+triggerall = !winko          ;共通トリガ
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype != A
+triggerall = command = "天地返し"
+triggerall = P2statetype != L
+triggerall = P2statetype != A
+triggerall = P2stateno != [5110,5120]
+triggerall = P2stateno != [1102,1104]
+triggerall = P2stateno != [120,155]
+triggerall = P2bodydist X <= 60
+trigger1 = ctrl
+trigger2 = stateno = 200 && movecontact
+trigger3 = stateno = 210 && movecontact
+trigger4 = stateno = 220 && movecontact
+trigger5 = stateno = 230 && movecontact
+trigger6 = stateno = 240 && movecontact
+trigger7 = stateno = 300 && movecontact
+trigger8 = stateno = 310 && movecontact
+trigger9 = stateno = 320 && movecontact
+
+[State -1, 天地返し先行入力フラグON]
+type = VarSet
+trigger1 = stateno = 100
+trigger1 = 1
+trigger1 = command = "天地返し"
+var(3) = 1
+persistent = 0
+
+[State -1, 天地返し(チート)]
+type = ChangeState
+value = 1100
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype != A
+triggerall = command = "天地返し"
+triggerall = P2stateno = [1102,1105]
+triggerall = P2bodydist X = [-35,70]
+triggerall = P2stateno != 5120
+triggerall = var(1)
+trigger1 = ctrl
+
+[State -1, 弱受身]
+type = ChangeState
+value = 1000
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype != A
+triggerall = command = "弱受身"
+trigger1 = ctrl
+trigger2 = stateno = 200 && movecontact
+trigger3 = stateno = 210 && movecontact
+trigger4 = stateno = 220 && movecontact
+trigger5 = stateno = 230 && movecontact
+trigger6 = stateno = 240 && movecontact
+trigger7 = stateno = 300 && movecontact
+trigger8 = stateno = 310 && movecontact
+trigger9 = stateno = 320 && movecontact
+trigger10 = stateno = 330 && movecontact
+
+[State -1, 強受身]
+type = ChangeState
+value = 1010
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype != A
+triggerall = command = "強受身"
+trigger1 = ctrl
+trigger2 = stateno = 200 && movecontact
+trigger3 = stateno = 210 && movecontact
+trigger4 = stateno = 220 && movecontact
+trigger5 = stateno = 230 && movecontact
+trigger6 = stateno = 240 && movecontact
+trigger7 = stateno = 300 && movecontact
+trigger8 = stateno = 310 && movecontact
+trigger9 = stateno = 320 && movecontact
+trigger10 = stateno = 330 && movecontact
+
+;---------------------------------------------------------------------------
+; 通常
+;---------------------------------------------------------------------------
+[State -1,挑発]
+type = ChangeState
+value = 195
+triggerall = !IsHelper ;共通トリガ
+triggerall = command = "start"
+triggerall = statetype != A
+trigger1 = ctrl
+
+[State -1, 避け]
+type = ChangeState
+value = 500
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype != A
+triggerall = command != "holddown"
+triggerall = command = "recovery"
+trigger1 = ctrl
+
+[State -1,フロントステップ]
+type = ChangeState
+value = 100
+triggerall = !IsHelper ;共通トリガ
+triggerall = command = "FF"
+trigger1 = ctrl
+trigger1 = statetype = S
+
+[State -1,バックステップ]
+type = ChangeState
+value = 105
+triggerall = !IsHelper ;共通トリガ
+triggerall = command = "BB"
+trigger1 = ctrl
+trigger1 = statetype = S
+
+[State -1, 襟締め]
+type = ChangeState
+value = 900
+triggerall = !winko          ;共通トリガ
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype != A
+triggerall = command = "holdfwd"
+triggerall = command = "y"
+triggerall = P2statetype != L
+triggerall = P2statetype != A
+triggerall = P2movetype != H
+triggerall = P2stateno != [5110,5120]
+triggerall = P2stateno != [120,155]
+triggerall = P2bodydist X <= 14
+trigger1 = ctrl
+
+[State -1, 立ちふっ飛ばし]
+type = ChangeState
+value = 270
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype = S
+triggerall = command = "ふっ飛ばし"
+trigger1 = ctrl
+
+[State -1, ジャンプふっ飛ばし]
+type = ChangeState
+value = 440
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype = A
+triggerall = command = "ふっ飛ばし"
+trigger1 = ctrl
+
+[State -1, 近距離立ち弱パンチ]
+type = ChangeState
+value = 200
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype != A
+triggerall = P2bodydist X <= 27
+triggerall = command = "x"
+triggerall = command != "holddown"
+trigger1 = ctrl
+trigger2 = stateno = 200 && movecontact
+
+[State -1, 遠距離立ち弱パンチ]
+type = ChangeState
+value = 210
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype != A
+triggerall = command = "x"
+triggerall = command != "holddown"
+trigger1 = ctrl
+trigger2 = stateno = 200 && movecontact
+trigger3 = P2bodydist X > 27
+trigger3 = stateno = 300 && movecontact
+
+[State -1, 近距離立ち弱キック]
+type = ChangeState
+value = 220
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype != A
+triggerall = P2bodydist X <= 31
+triggerall = command = "a"
+triggerall = command != "holddown"
+trigger1 = ctrl
+
+[State -1, 遠距離立ち弱キック]
+type = ChangeState
+value = 230
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype != A
+triggerall = command = "a"
+triggerall = command != "holddown"
+trigger1 = ctrl
+
+[State -1, 近距離立ち強パンチ]
+type = ChangeState
+value = 240
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype != A
+triggerall = P2bodydist X <= 35
+triggerall = command = "y"
+triggerall = command != "holddown"
+trigger1 = ctrl
+
+[State -1, 遠距離立ち強パンチ]
+type = ChangeState
+value = 250
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype != A
+triggerall = command = "y"
+triggerall = command != "holddown"
+trigger1 = ctrl
+
+[State -1, 立ち強キック]
+type = ChangeState
+value = 260
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype != A
+triggerall = command = "b"
+triggerall = command != "holddown"
+trigger1 = ctrl
+
+[State -1, しゃがみ弱パンチ]
+type = ChangeState
+value = 300
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype != A
+triggerall = command = "x"
+triggerall = command = "holddown"
+trigger1 = ctrl
+trigger2 = stateno = 300 && movecontact
+
+[State -1, しゃがみ弱キック]
+type = ChangeState
+value = 310
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype != A
+triggerall = command = "a"
+triggerall = command = "holddown"
+trigger1 = ctrl
+
+[State -1, しゃがみ強パンチ]
+type = ChangeState
+value = 320
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype != A
+triggerall = command = "y"
+triggerall = command = "holddown"
+trigger1 = ctrl
+
+[State -1, しゃがみ強キック]
+type = ChangeState
+value = 330
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype != A
+triggerall = command = "b"
+triggerall = command = "holddown"
+trigger1 = ctrl
+
+[State -1, ジャンプ弱パンチ]
+type = ChangeState
+value = 400
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype = A
+triggerall = command = "x"
+trigger1 = ctrl
+trigger2 = stateno = 300 && movecontact
+
+[State -1, ジャンプ弱キック]
+type = ChangeState
+value = 410
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype = A
+triggerall = command = "a"
+trigger1 = ctrl
+
+[State -1, ジャンプ強パンチ]
+type = ChangeState
+value = 420
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype = A
+triggerall = command = "y"
+trigger1 = ctrl
+
+[State -1, ジャンプ強キック]
+type = ChangeState
+value = 430
+triggerall = !IsHelper       ;共通トリガ
+triggerall = statetype = A
+triggerall = command = "b"
+trigger1 = ctrl
+
+

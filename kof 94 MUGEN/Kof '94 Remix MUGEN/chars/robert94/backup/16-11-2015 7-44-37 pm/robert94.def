@@ -1,0 +1,31 @@
+[Info]
+name = "Robert Garcia"
+displayname = "Robert Garcia"
+versiondate = 01,04,2002
+mugenversion = 04,14,2001
+author = "SMI"         
+pal.defaults = 1,2,3,4,5,6
+
+[Files]
+cmd     = robert94.cmd   
+cns     = robert94.cns   
+st      = robert94.cns
+st1	= aof.st
+st2	= special.st
+stcommon = common1.cns
+sprite  = robert.sff   
+anim    = robert94.air   
+sound   = robert.snd   
+pal1    = pal01.act  
+pal2    = pal02.act
+pal3    = pal03.act
+pal4    = pal04.act
+pal5    = pal05.act
+pal6    = pal06.act
+pal7    = pal01.act  
+pal8    = pal02.act
+pal9    = pal03.act
+pal10   = pal04.act
+pal11   = pal05.act
+pal12   = pal06.act
+

@@ -1,0 +1,53 @@
+; Definition file for Shin Iori
+;==============================
+;
+; ORIGINAL PLAYER INFORMATION
+; ===========================
+;
+;Name 		: Shin Iori
+;Team 		: Single Fighter
+;Place of Birth : Japan
+;Fighting Style : Yagami-style weapon fighting and his instinct
+;Birthday       : 3 / 25
+;Age            : 20
+;Blood Type     : O
+;Height         : 182cm
+;Weight         : 76kg
+;Hobby          : Band
+;Favorite Food  : Meat
+;Best Sport     : Any sport
+;Most Important : His new girlfriend
+;Dislikes       : Violence
+;Endquote       : "Do as you like.  It's not my job to kill you."
+
+;---------------------------------------------------------------
+; Player information
+[Info]
+name = "Iori"
+displayname = "Iori Yagami"
+versiondate = 07,31,2000    
+mugenversion = 07,31,2000  
+author = "YongMing"               
+Pal.Defaults=1,2,3,4,5,6,7,8,9,10,11,12
+
+; Files for the player
+[Files] 
+cmd     = Iori.cmd;Home style config,see below.    
+cns     = Iori.cns   
+st      = Iori.cns    
+stcommon = common1.cns     
+sprite  = Iori.sff   
+anim    = Iori.air   
+sound   = Iori.snd   
+pal1    = ShinIori1.act  
+pal2    = ShinIori5.act  
+pal3    = ShinIori6.act  
+pal4    = azulpuro.act  
+pal5    = ShinIori2.act  
+pal6    = ShinIori3.act
+pal7    = Verde.act
+pal8	= Violeta.act
+pal9	= Amarillo.act
+pal10	= Negro.act
+pal11	= rojopuro.act
+pal12	= Black.act

@@ -1,0 +1,40 @@
+;=====================================================================
+;  DEF File For "King"                                  Made By M.M.R.
+;                                       Ver. 1.0           2003.May.05
+;=====================================================================
+;-----------------------------
+; Player Information
+;-----------------------------
+[Info]
+name    = "King"
+displayname = "King"
+versiondate = 11,15,2003
+mugenversion = 04,14,2001
+author = "M.M.R."
+Pal.Defaults=1,2,3,4,5,6,7,8,9,10,11,12
+
+;-----------------------------
+; Files for the Player
+;-----------------------------
+[Files]
+cmd			= King.cmd				; Commands
+cns			= King-N.cns			; Constants
+st			= King-N.cns			; States (Normal)
+st1			= King-S.cns			; States (Special)
+st2			= King-H.cns			; States (Hyper)
+stcommon	= common1.cns			; Common states (in data/)
+sprite		= King.sff				; Sprite
+anim		= King.air				; Animation
+sound		= King.snd				; Sound
+pal1		= King01.act	; Palettes
+pal2		= King02.act
+pal3		= King03.act
+pal4		= King04.act
+pal5		= King05.act
+pal6		= King06.act
+pal7		= King07.act
+pal8		= King08.act
+pal9		= King09.act
+pal10		= King10.act
+pal11		= King11.act
+pal12		= King12.act

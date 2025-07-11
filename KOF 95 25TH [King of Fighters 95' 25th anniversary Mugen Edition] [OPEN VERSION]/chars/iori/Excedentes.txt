@@ -1,0 +1,3377 @@
+; Style No. 388 : Shadow slide(light)
+[Statedef 1400]
+type    = S
+physics = N
+movetype= I
+anim = 1400
+ctrl = 0
+velset = 0,0
+facep2 = 1
+
+[State 1400, 1.1]
+type = Playsnd
+trigger1 = Animelem = 1
+value = 0,13
+channel = 0
+volume = 0
+
+[State 1400, 1.2]
+type = Playsnd
+trigger1 = Animelem = 3
+value = 0,56
+volume = -80
+
+[State 1400, 2]
+type = ChangeState
+trigger1 = animtime = 0
+value = 1401
+
+;---------------------------------------------
+; Style No. 388 : Shadow slide(light) - appear
+[Statedef 1401]
+type    = S
+physics = N
+movetype= I
+anim = 1401
+ctrl = 0
+velset = 0,0
+facep2 = 1
+
+[State 1401, 1.1]
+type = posadd
+trigger1 = time = 0
+trigger1 = command = "holdback"
+x = -100
+
+[State 1401, 1.2]
+type = posadd
+trigger1 = time = 0
+trigger1 = command != "holdback"
+x = 100
+
+[State 1401, 2]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Style No. 388 : Shadow slide(heavy)
+[Statedef 1450]
+type    = S
+physics = N
+movetype= I
+anim = 1400
+ctrl = 0
+velset = 0,0
+facep2 = 1
+
+[State 1450, 1.1]
+type = Playsnd
+trigger1 = Animelem = 1
+value = 0,13
+channel = 0
+volume = 0
+
+[State 1450, 1.2]
+type = Playsnd
+trigger1 = Animelem = 3
+value = 0,56
+volume = -80
+
+[State 1450, 2]
+type = ChangeState
+trigger1 = animtime = 0
+value = 1451
+
+;---------------------------------------------
+; Style No. 388 : Shadow slide(heavy) - appear
+[Statedef 1451]
+type    = S
+physics = N
+movetype= I
+anim = 1401
+ctrl = 0
+velset = 0,0
+facep2 = 1
+
+[State 1451, 1.1]
+type = posadd
+trigger1 = time = 0
+trigger1 = command = "holdback"
+x = -200
+
+[State 1451, 1.2]
+type = posadd
+trigger1 = time = 0
+trigger1 = command != "holdback"
+x = 200
+
+[State 1451, 2]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+; Style No. 311: Claw Comb(Self-Striker)
+[Statedef 1500]
+type    = A
+physics = N
+movetype= A
+anim = 1500
+ctrl = 0
+velset = 0,0
+facep2 = 1
+
+[State 1500, 1.1]
+type = velset
+trigger1 = time = 4
+y = -10
+x = -6
+
+[State 1500, 1.2]
+type = veladd
+trigger1 = time >= 4
+y = -1
+
+[State 1500, 2];adjust the camera
+type = ScreenBound
+trigger1 = 1
+value = 1
+
+[State 1500, 3]
+type = Playsnd
+trigger1 = time = 2
+value = 0,3
+volume = -80
+
+[State 1500, 4]
+type = Changestate
+trigger1 = BackEdgeBodyDist <= 0
+trigger1 = Time >= 18
+value = 1501
+
+;-------------------------------------------------
+; Style No. 311: Claw Comb(Self-Striker) - Jump in
+[Statedef 1501]
+type    = A
+physics = N
+movetype= A
+anim = 1501
+ctrl = 0
+velset = 0,3
+
+[State 1501, 1.1]
+type = posset
+trigger1 = time = 10
+trigger1 = p2bodydist x > 50
+y = -30
+
+[State 1501, 1.2]
+type = posset
+trigger1 = time = 10
+trigger1 = p2bodydist x <= 50
+y = -20
+
+[State 1501, 2]
+type = posfreeze
+trigger1 = time <= 10
+
+[State 1501, 3.1]
+type = velset
+trigger1 = time = 0
+x = 30
+
+[State 1501, 3.2]
+type = Gravity
+trigger1 = time >= 10
+
+[State 1501, 4]
+type = Hitdef
+trigger1 = animelem = 2
+attr = A, SA
+hitflag = MAF
+guardflag = M
+animtype = Hard
+air.animtype = Back
+fall.animtype = Back
+priority = 4,Hit
+damage = 35, 0
+pausetime = 20, 30
+guard.pausetime = 20, 30
+sparkno = 3
+guard.sparkno = 41
+sparkxy = 0, -55
+hitsound = 5,4
+guardsound = 6,1
+ground.type = Low
+air.type = Low
+ground.slidetime = 18
+guard.slidetime = 18
+ground.hittime = 19
+guard.hittime = 19
+air.hittime = 0
+guard.ctrltime = 15
+ground.velocity = -3.5, -7
+guard.velocity = -12
+air.velocity = -3.5, -7
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+sprpriority = 1
+givepower = 100, 60
+fall = 1
+fall.recover = 0
+
+[State 1501, 5];adjust the camera
+type = ScreenBound
+trigger1 = 1
+value = 1
+
+[State 1501, 6.1]
+type = Playsnd
+trigger1 = time = 10
+value = 0,3
+volume = -80
+
+[State 1501, 6.2]
+type = Playsnd
+trigger1 = time = 12
+value = 0,20
+channel = 0
+volume = 0
+
+[State 1501, 7]
+type = Changestate
+trigger1 = pos y >= 0
+trigger1 = vel y > 0
+value = 1502
+
+;------------------------------------------------
+; Style No. 311: Claw Comb(Self-Striker) - Attack
+[Statedef 1502]
+type    = S
+physics = N
+movetype= A
+anim = 1502
+ctrl = 0
+velset = 0,0
+
+[State 1502, 1.1]
+type = SuperPause
+trigger1 = animelem = 3
+anim = -1
+time = 18
+movetime = 18
+
+[State 1502, 1.2]
+type = Explod
+trigger1 = animelem = 3, = 1
+anim = 8800
+pos = 4,-75
+postype = p1
+supermove = 1
+bindtime = 30
+ontop = 0
+ownpal = 1
+
+[State 1502, 1.3]
+type = Playsnd
+trigger1 = animelem = 3, = 1
+value = 0,64
+volume = -80
+
+[State 1502, 1.4]
+type = Playsnd
+trigger1 = time = 0
+value = 0,2
+volume = -80
+
+[State 1502, 1.5]
+type = Playsnd
+trigger1 = animelem = 10
+value = 0,30
+channel = 0
+volume = 0
+
+[State 1502, 2.1]
+type = posset
+trigger1 = time = 0
+y = 0
+
+[State 1502, 2.2]
+type = Posadd
+trigger1 = animelem = 6
+trigger2 = animelem = 7
+trigger3 = animelem = 8
+trigger4 = animelem = 9
+x = 15
+
+[State 1502, 2.3]
+type = Velset
+trigger1 = animelem = 10
+y = -4.3
+x = 3.8
+
+[State 1502, 2.4]
+type = gravity
+trigger1 = time >= 44
+
+[State 1502, 3]
+type = Nothitby
+trigger1 = time >= 4
+value = SCA
+
+[State 1502, 4]
+type = Statetypeset
+trigger1 = animelem = 10
+value = A
+
+[State 1502, 5]
+type = ChangeState
+trigger1 = pos y >= 0
+trigger1 = vel y > 0
+trigger1 = time > 45
+value = 1503
+
+;--------------------------------------------------
+; Style No. 311: Claw Comb(Self-Striker) - Attack 2
+[Statedef 1503]
+type    = S
+physics = S
+movetype= A
+anim = 1503
+ctrl = 0
+velset = 0,0
+
+[State 1503, 1]
+type = PlaySnd
+trigger1 = Time = 0
+value = 0,41
+volume = -80
+
+[State 1503, 2]
+type = Hitdef
+trigger1 = animelem = 2
+attr = S, SA
+hitflag = MAF
+guardflag = M
+animtype = Hard
+air.animtype = back
+priority = 4,Hit
+damage = 50, 5
+pausetime = 25, 25
+guard.pausetime = 25, 25
+sparkno = 2
+guard.sparkno = 42
+sparkxy = 0, -48
+hitsound = 5,2
+guardsound = 6,1
+ground.type = Low
+air.type = Low
+ground.slidetime = 18
+guard.slidetime = 18
+ground.hittime = 19
+guard.hittime = 19
+air.hittime = 0
+guard.ctrltime = 15
+ground.velocity = -12.5
+guard.velocity = -12.5
+air.velocity = -3.5, -7
+sprpriority = 3
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+getpower = 75, 75
+givepower = 30, 30
+palfx.time = 35
+palfx.sinadd = 20,5,20,16
+palfx.add = 36,10,140
+air.fall = 1
+fall.recover = 1
+yaccel = .6
+
+[State 1503, 3]
+type = Explod
+trigger1 = animelem = 1
+anim = 1305
+pos = 30, -122
+ontop = 1
+ownpal = 1
+
+[State 1503, 4]
+type = varset
+trigger1 = movehit
+var(15) = 20
+persistent = 0
+ignorehitpause = 1
+
+[State 1503, 5.1]
+type = Posset
+trigger1 = time = 0
+y = 0
+
+[State 1503, 5.2]
+type = Posadd
+trigger1 = animelem = 3
+x = 15
+
+[State 1503, 5.3]
+type = Posadd
+trigger1 = animelem = 1
+trigger2 = animelem = 4
+x = 13
+
+[State 1503, 6]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+; Hit by K' Violence Style No. 3200 : Demon Drive
+[Statedef 3010]
+type    = A
+physics = N
+movetype= H
+ctrl = 0
+
+[State 3010, 1]
+type = Changeanim2
+trigger1 = time = 0
+value = 3010
+
+[State 3010, 2.1]
+type = velset
+trigger1 = time = 0
+y = -15
+
+[State 3010, 2.2];gravity
+type = veladd
+trigger1 = 1
+y = .6
+
+[State 3010, 2.3]
+type = posadd
+trigger1 = animelem = 5
+y = -30
+
+[State 3010, 3]
+type = Nothitby
+trigger1 = 1
+value = SCA
+
+[State 3010, 4]
+type = changestate
+trigger1 = pos y >= -30
+trigger1 = vel y > 0
+value = 3011
+
+;---------------------------------------------------------------
+; Hit by K' Violence Style No. 3200 : Demon Drive - reach ground
+[Statedef 3011]
+type    = L
+physics = N
+movetype= H
+ctrl = 0
+
+[State 3011, 1.1]
+type = Changeanim2
+trigger1 = time <= 1
+value = 3011
+
+[State 3011, 1.2]
+type = posfreeze
+trigger1 = time <= 1
+
+[State 3011, 2];shaking effect
+type = Envshake
+trigger1 = time = 0
+time = 15
+freq = 70
+ampl = -7
+
+[State 3011, 3.1]
+type = velset
+trigger1 = time = 0
+y = -4
+
+[State 3011, 3.2]
+type = veladd
+trigger1 = 1
+y = .5
+
+[State 3011, 3.3]
+type = posset
+trigger1 = time = 0
+y = 0
+
+[State 3011, 3.4]
+type = posset
+trigger1 = time = 3
+y = -40
+
+[State 3011, 4]
+type = Nothitby
+trigger1 = 1
+value = SCA
+
+[State 3011, 5.1]
+type = Selfstate
+trigger1 = !SelfAnimExist(5111)
+value = 5100
+
+[State 3011, 5.2]
+type = changestate
+trigger1 = time >= 3
+trigger1 = pos y >= -20
+trigger1 = vel y > 0
+value = 3012
+
+;----------------------------------------------------------
+; Hit by K' Violence Style No. 3200 : Demon Drive - liedown
+[Statedef 3012]
+type    = L
+physics = N
+movetype= H
+ctrl = 0
+velset = 0,0
+
+[State 3012, 1]
+type = Changeanim
+trigger1 = time = 0
+value = 5111
+
+[State 3012, 2]
+type = posset
+trigger1 = time = 0
+y = 0
+
+[State 3012, 3]
+type = GameMakeAnim
+trigger1 = Time = 0
+value = 61
+pos = 0, 0
+under = 1
+
+[State 3012, 4]
+type = PlaySnd
+trigger1 = Time = 0
+value = F7, 0 ;Hit ground
+
+[State 3012, 5.1] ;If just died
+type = SelfState
+triggerall = !alive
+trigger1 = Time = 0
+value = 5110
+
+[State 3012, 5.2] ;If alive
+type = SelfState
+triggerall = alive
+trigger1 = Time = 25
+value = 5120
+
+; Hit by Moon Style No. 482 : Half Moon Crush - been attack
+[Statedef 3120]
+type    = S
+physics = N
+movetype= H
+ctrl = 0
+
+[State 3120, 1]
+type = changeanim2
+trigger1 = time = 0
+value = 3120
+
+[State 3120, 2]
+type = Width
+trigger1 = 1
+value = -30,-30
+
+;--------------------------------------------------------
+; Hit by Moon Style No. 482 : Half Moon Crush - attacking
+[Statedef 3121]
+type    = S
+physics = N
+movetype= H
+ctrl = 0
+
+[State 3121, 1]
+type = changeanim2
+trigger1 = time < 50
+value = 3121
+
+[State 3121, 2]
+type = Width
+trigger1 = 1
+value = -30,-30
+
+[State 3121, 3]
+type = PalFX
+trigger1 = time = 0
+time = 65
+sinadd = 20,5,20,16
+add = 36,10,140
+
+[State 3121, 4];shaking effect
+type = Envshake
+trigger1 = time = 0
+time = 65
+freq = 80
+ampl = 7
+
+[State 3121, 5];short flash
+type = Envcolor
+trigger1 = time = 0
+value = 248,248,248
+time = 2
+under = 1
+
+[State 3121, 6];damage
+type = lifeadd
+trigger1 = time = 0
+value = -50
+absolute = 1
+kill = 0
+
+;----------------------------------------------------------
+; Hit by Moon Style No. 482 : Half Moon Crush - attacking 2
+[Statedef 3122]
+type    = S
+physics = N
+movetype= H
+ctrl = 0
+
+[State 3122, 1]
+type = changeanim2
+trigger1 = time = 0
+value = 3121
+
+[State 3122, 2]
+type = Width
+trigger1 = 1
+value = -30,-30
+
+[State 3122, 3]
+type = PalFX
+trigger1 = time = 0
+time = 20
+sinadd = 20,5,20,16
+add = 36,10,140
+
+[State 3122, 4];shaking effect
+type = Envshake
+trigger1 = time = 0
+time = 20
+freq = 120
+ampl = 7
+
+[State 3122, 5];short flash
+type = Envcolor
+trigger1 = time = 0
+value = 248,248,248
+time = 2
+under = 1
+
+[State 3123, 6];damage
+type = lifeadd
+trigger1 = time = 0
+value = -25
+absolute = 1
+kill = 0
+
+;----------------------------------------------------------
+; Hit by Moon Style No. 482 : Half Moon Crush - being throw
+[Statedef 3123]
+type    = A
+physics = N
+movetype= H
+ctrl = 0
+
+[State 3123, 1]
+type = changeanim2
+trigger1 = time = 0
+value = 3122
+
+[State 3123, 2.1]
+type = sprpriority
+trigger1 = time <= 15
+value = 1
+
+[State 3123, 2.2]
+type = sprpriority
+trigger1 = time > 15
+value = 2
+
+[State 3123, 3]
+type = Width
+trigger1 = time <= 31
+value = -30,-30
+
+[State 3123, 4]
+type = turn
+trigger1 = animelem = 6
+
+[State 3123, 5]
+type = PalFX
+trigger1 = time = 0
+time = 20
+sinadd = 20,5,20,16
+add = 36,10,140
+
+[State 3123, 6];shaking effect
+type = Envshake
+trigger1 = time = 0
+time = 20
+freq = 120
+ampl = 7
+
+[State 3123, 7];short flash
+type = Envcolor
+trigger1 = time = 0
+value = 248,248,248
+time = 2
+under = 1
+
+[State 3123, 8.1]
+type = velset
+trigger1 = time = 31
+x = -4
+y = -10
+
+[State 3123, 8.2];gravity
+type = veladd
+trigger1 = time >= 31
+y = .55
+
+[State 3123, 9.1];damage
+type = lifeadd
+trigger1 = time = 0
+value = -25
+absolute = 1
+kill = 0
+
+[State 3123, 9.2];damage
+type = lifeadd
+trigger1 = time = 31
+value = -50
+absolute = 1
+
+[State 3123, 10]
+type = selfstate
+trigger1 = time > 32
+trigger1 = pos y >= -20
+trigger1 = vel y > 0
+value = 5100
+
+;---------------------------------------------------------------------------
+; Moon Style No. 482 : Full Moon Crush(max)
+[Statedef 4100]
+type    = S
+physics = N
+movetype= I
+anim = 3100
+poweradd = -1000
+ctrl = 0
+velset = 0,0
+facep2 = 1
+juggle = 15
+
+[State 4100, 1.1]
+type = SuperPause
+trigger1 = Time = 5
+trigger1 = var(10) = 0
+anim = -1
+time = 30
+
+[State 4100, 1.2];Kof 2000 superspark(Edit)
+type = Explod
+trigger1 = Time = 5
+anim = 8650
+pos = 4,-73
+postype = p1
+supermove = 1
+bindtime = 30
+ontop = 1
+ownpal = 1
+
+[State 4100, 1.3];chime snd
+type = playsnd
+trigger1 = Time = 5
+value = f20,0
+
+[State 4100, 2]
+type = Nothitby
+trigger1 = time <= 6
+value = SCA
+
+[State 4100, 3.1]
+type = Velset
+trigger1 = time = 16
+x = 8.5
+
+[State 4100, 3.2];Small friction
+type = Velmul
+trigger1 = time >= 50
+x = 0.89
+
+[State 4100, 4]
+type = Changeanim
+trigger1 = time = 50
+value = 1201
+
+[State 4100, 5]
+type = Playsnd
+trigger1 = time = 0
+value = 0,51
+volume = 0
+channel = 0
+freqmul = 1.08
+
+[State 4100, 6.1]
+type = Changestate
+trigger1 = time = [16,49]
+trigger1 = p2bodydist x <= 50
+value = 4101
+
+[State 4100, 6.2]
+type = Changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;-----------------------------------------------------------
+; Moon Style No. 482 : Full Moon Crush(max) - attack attempt
+[Statedef 4101]
+type    = S
+physics = N
+movetype= A
+anim = 3101
+ctrl = 0
+
+[State 4101, 1]
+type = Hitdef
+trigger1 = animelem = 2
+attr = S, HA
+hitflag = MA
+guardflag = M
+animtype = Hard
+priority = 4,Hit
+damage = 0, 0
+pausetime = 0, 0
+guard.pausetime = 0, 14
+sparkno = S8200
+guard.sparkno = 42
+sparkxy = 0, -89
+hitsound = 5,2
+guardsound = 6,1
+ground.type = Low
+air.type = Low
+guard.slidetime = 18
+guard.hittime = 19
+guard.ctrltime = 15
+guard.velocity = 0
+sprpriority = 3
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+p1stateno = 4102
+p2stateno = 4120
+p2getp1state = 1
+p2facing = 1
+hitonce = 1
+
+[State 4101, 2];friction
+type = velmul
+trigger1 = moveguarded
+trigger2 = time >= 8
+x = .82
+ignorehitpause = 1
+
+[State 4101, 3]
+type = Changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+[State 4101, 2]
+type = Nothitby
+trigger1 = time <= 8
+value = SCA
+
+;-----------------------------------------------------------
+; Moon Style No. 482 : Full Moon Crush(max) - attack succeed
+[Statedef 4102]
+type    = S
+physics = N
+movetype= A
+anim = 3102
+ctrl = 0
+
+[State 4102, 1]
+type = Changeanim
+trigger1 = frontedgedist <= 55
+value = 3102
+
+[State 4102, 2]
+type = Width
+trigger1 = 1
+edge = 50,10
+
+[State 4102, 3]
+type = sprpriority
+trigger1 = 1
+value = 2
+
+[State 4102, 4.1]
+type = TargetBind
+trigger1 = time <= 3
+pos = 57,-89
+
+[State 4102, 4.2]
+type = TargetBind
+trigger1 = time > 3
+pos = 16,-107
+
+[State 4102, 5.1]
+type = Targetstate
+trigger1 = frontedgedist = 50
+value = 4121
+
+[State 4102, 5.2]
+type = Changestate
+trigger1 = frontedgedist = 50
+value = 4103
+
+;------------------------------------------------------
+; Moon Style No. 482 : Full Moon Crush(max) - attacking
+[Statedef 4103]
+type    = S
+physics = N
+movetype= A
+anim = 4103
+ctrl = 0
+velset = 0,0
+
+[State 4103, 1.1]
+type = sprpriority
+trigger1 = time <= 15
+value = 2
+
+[State 4103, 1.2]
+type = sprpriority
+trigger1 = time > 15
+value = 1
+
+[State 4103, 2]
+type = Width
+trigger1 = 1
+edge = 50,10
+
+[State 4103, 3.1]
+type = Explod
+triggerall = random < 800
+trigger1 = time = 0
+trigger2 = time = 1
+trigger3 = time = 2
+trigger4 = time = 3
+anim = 8910
+pos = 20,0
+random = 50,120
+postype = p2
+ontop = 1
+ownpal = 1
+bindtime = 1
+ignorehitpause = 1
+
+[State 4103, 3.2]
+type = Explod
+triggerall = random < 800
+trigger1 = time = 0
+trigger2 = time = 1
+trigger3 = time = 2
+anim = 8911
+pos = 20,0
+random = 50,120
+postype = p2
+ontop = 1
+ownpal = 1
+bindtime = 1
+ignorehitpause = 1
+
+[State 4103, 3.3]
+type = Explod
+triggerall = random < 800
+trigger1 = time = 3
+trigger2 = time = 4
+anim = 8912
+pos = 20,0
+random = 50,120
+postype = p2
+ontop = 1
+ownpal = 1
+bindtime = 1
+ignorehitpause = 1
+
+[State 4103, 3.4]
+type = Explod
+trigger1 = time = 0
+anim = f3
+pos = 0,0
+postype = p2
+ontop = 1
+ownpal = 1
+bindtime = 1
+ignorehitpause = 1
+
+[State 4103, 4.1]
+type = TargetBind
+trigger1 = time <= 15
+pos = 57,-89
+
+[State 4103, 4.2]
+type = TargetBind
+trigger1 = time >= 16
+trigger1 = time <= 19
+pos = -33,0
+
+[State 4103, 4.3]
+type = TargetBind
+trigger1 = time >= 20
+trigger1 = time <= 23
+pos = -31,0
+
+[State 4103, 4.4]
+type = TargetBind
+trigger1 = time >= 24
+trigger1 = time <= 27
+pos = -28,0
+
+[State 4103, 4.5]
+type = TargetBind
+trigger1 = time >= 28
+trigger1 = time <= 31
+pos = -6,0
+
+[State 4103, 4.6]
+type = TargetBind
+trigger1 = time >= 32
+trigger1 = time <= 35
+pos = -5,0
+
+[State 4103, 4.7]
+type = TargetBind
+trigger1 = time = 36
+pos = 0,0
+
+[State 4103, 5]
+type = turn
+trigger1 = animelem = 2
+
+[State 4103, 6.1]
+type = playsnd
+trigger1 = time = 0
+value = 0,50
+volume = 0
+
+[State 4103, 6.2]
+type = playsnd
+trigger1 = time = 36
+value = 0,37
+volume = -80
+
+[State 4103, 7]
+type = Changestate
+trigger1 = animtime = 0
+value = 4104
+
+;----------------------------------------------------------
+; Moon Style No. 482 : Full Moon Crush(max) - Moon slashing
+[Statedef 4104]
+type    = S
+physics = N
+movetype= A
+anim = 4104
+ctrl = 0
+velset = 0,0
+facep2 = 1
+
+[State 4104, 1]
+type = Bindtotarget
+trigger1 = animelem = 4
+pos = 70,0,foot
+
+[State 4104, 2]
+type = sprpriority
+trigger1 = 1
+value = 1
+
+[State 4104, 3]
+type = Targetstate
+trigger1 = animelem = 12
+value = 4122
+
+[State 4104, 4.1]
+type = Explod
+trigger1 = animelem = 11, = 1
+anim = f3
+pos = 50,-64
+ontop = 1
+ownpal = 1
+
+[State 4104, 4.2]
+type = Explod
+trigger1 = animelem = 15, = 1
+anim = f3
+pos = 62,-63
+ontop = 1
+ownpal = 1
+
+[State 4104, 4.3]
+type = Explod
+trigger1 = animelem = 23, = 6
+anim = 8950
+pos = -2,-100
+sprpriority = 10
+ownpal = 1
+
+[State 4104, 4.4]
+type = Explod
+trigger1 = animelem = 23, = 1
+anim = f3
+pos = 80,-100
+ontop = 1
+ownpal = 1
+
+[State 4104, 4.5]
+type = Explod
+trigger1 = animelem = 29, = 6
+anim = 8951
+pos = -23,-39
+sprpriority = 10
+ownpal = 1
+
+[State 4104, 4.6]
+type = Explod
+trigger1 = animelem = 29, = 1
+anim = f3
+pos = 80,-40
+ontop = 1
+ownpal = 1
+
+[State 4104, 4.7]
+type = Explod
+trigger1 = animelem = 23, = 6
+trigger2 = animelem = 23, = 7
+trigger3 = animelem = 23, = 8
+anim = 8910
+pos = 80,-100
+random = 40,50
+postype = p1
+ontop = 1
+ownpal = 1
+bindtime = 1
+
+[State 4104, 4.8]
+type = Explod
+trigger1 = animelem = 23, = 6
+trigger2 = animelem = 23, = 7
+anim = 8911
+pos = 80,-100
+random = 40,50
+postype = p1
+ontop = 1
+ownpal = 1
+bindtime = 1
+
+[State 4104, 4.9]
+type = Explod
+trigger1 = animelem = 29, = 6
+trigger2 = animelem = 29, = 7
+trigger3 = animelem = 29, = 8
+anim = 8910
+pos = 80,-40
+random = 40,50
+postype = p1
+ontop = 1
+ownpal = 1
+bindtime = 1
+
+[State 4104, 4.10]
+type = Explod
+trigger1 = animelem = 29, = 6
+trigger2 = animelem = 29, = 7
+anim = 8911
+pos = 80,-40
+random = 40,50
+postype = p1
+ontop = 1
+ownpal = 1
+bindtime = 1
+
+[State 4104, 5]
+type = Width
+trigger1 = 1
+edge = 70,10
+
+[State 4104, 6];short flash
+type = Envcolor
+trigger1 = animelem = 23, = 6
+trigger2 = animelem = 29, = 6
+value = 248,248,248
+time = 3
+under = 1
+
+[State 4104, 7.1]
+type = playsnd
+trigger1 = animelem = 11, = 1
+trigger2 = animelem = 15, = 1
+value = 0,31
+volume = 0
+
+[State 4104, 7.2]
+type = playsnd
+trigger1 = animelem = 23, = 1
+trigger2 = animelem = 29, = 1
+value = 1,31
+volume = 0
+
+[State 4104, 7.3]
+type = playsnd
+trigger1 = animelem = 23, = 6
+trigger2 = animelem = 29, = 6
+value = 0,34
+volume = 0
+
+[State 4104, 7.4]
+type = playsnd
+trigger1 = animelem = 17, = 1
+trigger2 = animelem = 24, = 1
+value = 1,51
+channel = 0
+volume = 0
+freqmul = 1.08
+
+[State 4104, 7.5]
+type = playsnd
+trigger1 = animelem = 3
+trigger2 = animelem = 30
+value = 0,56
+volume = 0
+
+[State 4104, 8]
+type = Changestate
+trigger1 = animtime = 0
+value = 4105
+
+;-----------------------------------------------------------
+; Moon Style No. 482 : Full Moon Crush(max) - Assault attack
+[Statedef 4105]
+type    = S
+physics = N
+movetype= A
+anim = 4105
+ctrl = 0
+velset = 0,0
+
+[State 4105, 1]
+type = turn
+trigger1 = time = 0
+
+[State 4105, 2]
+type = Width
+trigger1 = 1
+edge = 70,10
+
+[State 4105, 3]
+type = Bindtotarget
+trigger1 = time = 0
+pos = -70,0,foot
+
+[State 4105, 4]
+type = Targetstate
+trigger1 = animelem = 9
+value = 4123
+
+[State 4105, 5.1]
+type = Explod
+trigger1 = animelem = 8, = 1
+anim = f3
+pos = 50,-64
+ontop = 1
+ownpal = 1
+
+[State 4105, 5.2]
+type = Explod
+trigger1 = animelem = 12, = 1
+anim = f3
+pos = 62,-63
+ontop = 1
+ownpal = 1
+
+[State 4105, 5.3]
+type = Explod
+trigger1 = animelem = 20, = 1
+anim = f3
+pos = 80,-100
+ontop = 1
+ownpal = 1
+
+[State 4105, 6.1]
+type = playsnd
+trigger1 = animelem = 8, = 1
+trigger2 = animelem = 12, = 1
+value = 0,31
+volume = 0
+
+[State 4105, 6.2]
+type = playsnd
+trigger1 = animelem = 20, = 1
+value = 1,31
+volume = 0
+
+[State 4105, 6.3]
+type = playsnd
+trigger1 = animelem = 21
+value = 0,56
+volume = 0
+
+[State 4105, 7]
+type = Changestate
+trigger1 = animtime = 0
+value = 4106
+
+;------------------------------------------------------------
+; Moon Style No. 482 : Full Moon Crush(max) - Exploding crush
+[Statedef 4106]
+type    = S
+physics = N
+movetype= A
+anim = 4106
+ctrl = 0
+velset = 0,0
+
+[State 4106, 1]
+type = turn
+trigger1 = time = 0
+
+[State 4106, 2]
+type = Width
+trigger1 = 1
+edge = 70,10
+
+[State 4106, 3]
+type = Bindtotarget
+trigger1 = time = 0
+pos = 70,0,foot
+
+[State 4106, 4.1]
+type = Targetstate
+trigger1 = animelem = 7
+value = 4124
+
+[State 4106, 4.2]
+type = Targetstate
+trigger1 = time = 280
+value = 4125
+
+[State 4106, 5]
+type = Targetbind
+trigger1 = time >= 74
+pos = 58,-89
+
+[State 4106, 6.1];shaking effect
+type = Envshake
+trigger1 = animelem = 5
+time = 50
+freq = 70
+ampl = -8
+
+[State 4106, 6.2];shaking effect
+type = Envshake
+trigger1 = time >= 74
+trigger1 = timemod = 10,4
+time = 10
+freq = 70
+ampl = -var(1)
+
+[State 4106, 7.1];purple flame
+type = Explod
+trigger1 = animelem = 5
+id = 4100
+anim = 3006
+pos = -8,-66
+ontop = 1
+ownpal = 1
+removetime = -1
+
+[State 4106, 7.2]
+type = RemoveExplod
+trigger1 = animelem = 6
+id = 4100
+
+[State 4106, 7.3];purple flame
+type = Explod
+trigger1 = animelem = 6
+id = 4101
+anim = 3006
+pos = 13,-103
+ontop = 1
+ownpal = 1
+removetime = -1
+
+[State 4106, 7.4]
+type = RemoveExplod
+trigger1 = animelem = 7
+id = 4101
+
+[State 4106, 7.5];purple flame
+type = Explod
+trigger1 = animelem = 6
+id = 4102
+anim = 3006
+pos = 53,-89
+ontop = 1
+ownpal = 1
+removetime = -1
+
+[State 4106, 7.6]
+type = RemoveExplod
+trigger1 = time = 280
+id = 4102
+
+[State 4106, 7.7]
+type = Explod
+trigger1 = time >= 74
+trigger1 = timemod = 2,0
+anim = 8913
+pos = 53,-89
+random = 40,60
+vel = 0,-1
+sprpriority = 10
+ownpal = 1
+
+[State 4106, 7.8]
+type = Explod
+trigger1 = time = [270,278]
+anim = 8910
+pos = 53,-89
+random = 60,60
+postype = p1
+ontop = 1
+ownpal = 1
+bindtime = 1
+
+[State 4106, 7.9]
+type = Explod
+trigger1 = time = [270,278]
+anim = 8911
+pos = 53,-89
+random = 60,60
+postype = p1
+ontop = 1
+ownpal = 1
+bindtime = 1
+
+[State 4106, 8.1]
+type = varset
+trigger1 = time = 0
+var(1) = 0
+
+[State 4106, 8.2]
+type = varadd
+trigger1 = time >= 74
+trigger1 = timemod = 10,4
+var(1) = 1
+
+[State 4106, 8.3]
+type = varset
+trigger1 = time = 280
+var(16) = 80
+
+[State 4106, 9.1]
+type = playsnd
+trigger1 = time = 74
+value = 0,25
+volume = 80
+
+[State 4106, 9.2]
+type = playsnd
+trigger1 = time = 270
+value = 2,51
+channel = 0
+volume = 0
+freqmul = 1.1
+
+[State 4106, 9.3]
+type = playsnd
+trigger1 = time = 31
+value = 3,51
+channel = 0
+volume = 0
+
+[State 4106, 9.4]
+type = Playsnd
+trigger1 = Time = 270
+value = 0,43
+volume = 0
+
+[State 4106, 9.5]
+type = Playsnd
+trigger1 = Time = 21
+trigger2 = Time = 100
+value = 0,53
+volume = 0
+
+[State 4106, 9.6]
+type = Playsnd
+trigger1 = Time = 150
+value = 0,54
+volume = 0
+channel = 0
+
+[State 4106, 10]
+type = Changestate
+trigger1 = time = 280
+value = 4107
+
+;----------------------------------------------------
+; Moon Style No. 482 : Full Moon Crush(max) - recover
+[Statedef 4107]
+type    = S
+physics = N
+movetype= I
+ctrl = 0
+velset = 0,0
+
+[State 4107, 1]
+type = Changeanim
+trigger1 = time = 15
+value = 4107
+
+[State 4107, 2]
+type = Changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------
+; Hit by Moon Style No. 482 : Full Moon Crush(max) - been attack
+[Statedef 4120]
+type    = S
+physics = N
+movetype= H
+ctrl = 0
+
+[State 4120, 1]
+type = changeanim2
+trigger1 = time = 0
+value = 3120
+
+[State 4120, 2]
+type = Width
+trigger1 = 1
+value = -30,-30
+
+;---------------------------------------------------------------
+; Hit by Moon Style No. 482 : Full Moon Crush(max) - being throw
+[Statedef 4121]
+type    = S
+physics = N
+movetype= H
+ctrl = 0
+
+[State 4121, 1]
+type = changeanim2
+trigger1 = time = 0
+value = 4121
+
+[State 4121, 2.1]
+type = sprpriority
+trigger1 = time <= 15
+trigger1 = time >= 40
+value = 1
+
+[State 4121, 2.2]
+type = sprpriority
+trigger1 = time > 15
+trigger1 = time < 40
+value = 2
+
+[State 4121, 3]
+type = Width
+trigger1 = 1
+value = -30,-30
+
+[State 4121, 4]
+type = turn
+trigger1 = animelem = 6
+
+[State 4121, 5];shaking effect
+type = Envshake
+trigger1 = time = 0
+time = 20
+freq = 120
+ampl = 7
+
+[State 4121, 6];short flash
+type = Envcolor
+trigger1 = time = 0
+value = 248,248,248
+time = 2
+under = 1
+
+[State 4121, 7.1]
+type = velset
+trigger1 = time = 36
+x = -25
+
+[State 4121, 7.2];friction
+type = velmul
+trigger1 = time >= 36
+x = .82
+
+[State 4121, 8];damage
+type = lifeadd
+trigger1 = time = 0
+value = -50
+absolute = 1
+kill = 0
+
+[State 4121, 9]
+type = selfstate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------
+; Hit by Moon Style No. 482 : Full Moon Crush(max) - hit by moon slash
+[Statedef 4122]
+type    = S
+physics = N
+movetype= H
+ctrl = 0
+
+[State 4122, 1]
+type = changeanim2
+trigger1 = time = 0
+value = 4122
+
+[State 4122, 2]
+type = sprpriority
+trigger1 = 1
+value = 1
+
+[State 4122, 3]
+type = Width
+trigger1 = 1
+value = -30,-30
+
+[State 4122, 4.1];damage
+type = lifeadd
+trigger1 = animelem = 1
+trigger2 = animelem = 4
+value = -20
+absolute = 1
+kill = 0
+
+[State 4122, 4.2];damage
+type = lifeadd
+trigger1 = animelem = 7
+trigger2 = animelem = 11
+value = -35
+absolute = 1
+kill = 0
+
+[State 4122, 5]
+type = selfstate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;-------------------------------------------------------------------------
+; Hit by Moon Style No. 482 : Full Moon Crush(max) - hit by assault attack
+[Statedef 4123]
+type    = S
+physics = N
+movetype= H
+ctrl = 0
+
+[State 4123, 1]
+type = changeanim2
+trigger1 = time = 0
+value = 4123
+
+[State 4123, 2]
+type = Width
+trigger1 = 1
+value = -30,-30
+
+[State 4123, 3.1];damage
+type = lifeadd
+trigger1 = animelem = 1
+trigger2 = animelem = 4
+value = -24
+absolute = 1
+kill = 0
+
+[State 4123, 3.2];damage
+type = lifeadd
+trigger1 = animelem = 7
+value = -30
+absolute = 1
+kill = 0
+
+[State 4123, 4]
+type = selfstate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;--------------------------------------------------------------------------
+; Hit by Moon Style No. 482 : Full Moon Crush(max) - hit by exploding crush
+[Statedef 4124]
+type    = S
+physics = N
+movetype= H
+ctrl = 0
+
+[State 4124, 1]
+type = changeanim2
+trigger1 = time = 0
+value = 4124
+
+[State 4124, 2];short flash
+type = Envcolor
+trigger1 = random < 100
+trigger2 = time = 0
+value = 248,248,248
+time = 2
+under = 1
+
+[State 4124, 3]
+type = Width
+trigger1 = 1
+value = -30,-30
+
+[State 4124, 4];damage
+type = lifeadd
+trigger1 = 1
+value = -1
+absolute = 1
+kill = 0
+
+[State 4124, 5]
+type = selfstate
+trigger1 = time = 300
+value = 0
+ctrl = 1
+
+;-----------------------------------------------------------
+; Hit by Moon Style No. 482 : Full Moon Crush(max) - fly off
+[Statedef 4125]
+type    = A
+physics = N
+movetype= H
+ctrl = 0
+velset = -5.5,-10.5
+
+[State 4125, 1.1]
+type = changeanim2
+trigger1 = SelfAnimExist(5111)
+trigger1 = time = 0
+value = 4125
+
+[State 4125, 1.2]
+type = changeanim2
+trigger1 = !SelfAnimExist(5111)
+trigger1 = time = 0
+value = 4126
+
+[State 4125, 2];gravity
+type = veladd
+trigger1 = 1
+y = .5
+
+[State 4125, 3]
+type = PalFX
+trigger1 = time = 0
+time = 65
+sinadd = 20,5,20,16
+add = 36,10,140
+
+[State 4125, 4];damage
+type = lifeadd
+trigger1 = animelem = 1
+value = -50
+absolute = 1
+
+[State 4125, 5.1]
+type = Changestate
+trigger1 = SelfAnimExist(5111)
+trigger1 = pos y >= -30
+trigger1 = vel y > 0
+value = 4126
+
+[State 4125, 5.2]
+type = Selfstate
+trigger1 = !SelfAnimExist(5111)
+trigger1 = pos y >= -20
+trigger1 = vel y > 0
+value = 5100
+
+;----------------------------------------------------------------
+; Hit by Moon Style No. 482 : Full Moon Crush(max) - reach ground
+[Statedef 4126]
+type    = L
+physics = N
+movetype= H
+ctrl = 0
+velset = -3,-5
+
+[State 4126, 1.1]
+type = Changeanim2
+trigger1 = time <= 1
+value = 3011
+
+[State 4126, 1.2]
+type = posfreeze
+trigger1 = time <= 1
+
+[State 4126, 2];shaking effect
+type = Envshake
+trigger1 = time = 0
+time = 15
+freq = 70
+ampl = -7
+
+[State 4126, 3.1]
+type = veladd
+trigger1 = 1
+y = .5
+
+[State 4126, 3.2]
+type = posset
+trigger1 = time = 0
+y = 0
+
+[State 4126, 3.3]
+type = posset
+trigger1 = time = 3
+y = -40
+
+[State 4126, 4]
+type = Nothitby
+trigger1 = 1
+value = SCA
+
+[State 4126, 5.1]
+type = changestate
+trigger1 = time >= 3
+trigger1 = pos y >= -20
+trigger1 = vel y > 0
+value = 3012
+
+; Forbidden Style No. 2888 : Maximum Iori(max)
+[Statedef 4500]
+type    = S
+physics = S
+movetype= A
+anim = 3500
+poweradd = -1000
+ctrl = 0
+juggle = 15
+velset = 0,0
+facep2 = 1
+
+[State 4500, 1.1];pause for miss
+type = SuperPause
+trigger1 = Time = 1
+trigger1 = var(10) = 0
+anim = -1
+time = 30
+movetime = 30
+
+[State 4500, 1.2];Kof 2000 superspark(Edit)
+type = Explod
+trigger1 = Time = 1
+anim = 8650
+pos = -10,-84
+postype = p1
+supermove = 1
+bindtime = 30
+ontop = 1
+ownpal = 1
+
+[State 4500, 1.3];chime snd
+type = playsnd
+trigger1 = Time = 1
+value = 0,47
+volume = -80
+
+[State 4500, 2]
+type = Hitdef
+trigger1 = time = 0
+trigger1 = p2stateno != 150 && 151 && 152 && 153 && 130 && 131 && 140;make sure opponent is not in guarding state
+attr = S, HT
+hitflag = M
+priority = 3, Miss
+sparkno = -1
+sprpriority = 2
+p2facing = 1
+p1stateno = 4501
+p2stateno = 4520
+p2getp1state = 1
+;nochainID = nochain_1, nochain_2 (int)
+numhits = 0
+givepower = 288
+persistent = 0
+ID = 4500
+
+[State 4500, 3]
+type = Nothitby
+trigger1 = time = 0
+value = SCA
+
+[State 4500, 4]
+type = playsnd
+trigger1 = animelem = 7
+value = 0,63
+channel = 0
+volume = 0
+
+[State 4500, 4]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;-------------------------------------------------------
+; Forbidden Style No. 2888 : Maximum Iori(max) - succeed
+[Statedef 4501]
+type    = S
+physics = N
+movetype= A
+anim = 4501
+ctrl = 0
+velset = 0,0
+
+[State 4501, 1]
+type = Width
+trigger1 = 1
+edge = 60,0
+
+[State 4501, 2.1]
+type = SuperPause
+trigger1 = Time = 0
+trigger1 = var(10) = 0
+anim = -1
+time = 30
+movetime = 30
+
+[State 4501, 2.2];Kof 2000 superspark(Edit)
+type = Explod
+trigger1 = Time = 0
+anim = 8650
+pos = -10,-84
+postype = p1
+supermove = 1
+bindtime = 30
+ontop = 1
+ownpal = 1
+
+[State 4501, 2.3];chime snd
+type = playsnd
+trigger1 = Time = 0
+value = 0,47
+volume = -80
+
+[State 4501, 3.1]
+type = Explod
+trigger1 = animelem = 7
+anim = 8200
+pos = 31,-76
+postype = p1
+bindtime = 1
+sprpriority = 2
+ownpal = 1
+
+[State 4501, 3.2]
+type = Explod
+trigger1 = animelem = 11
+anim = 3510
+pos = 0,0
+postype = p1
+bindtime = 1
+sprpriority = 2
+ownpal = 1
+removetime = 36
+
+[State 4501, 4]
+type = sprpriority
+trigger1 = 1
+value = 3
+
+[State 4501, 5.1]
+type = TargetBind
+trigger1 = time <= 30
+pos = 45,0
+
+[State 4501, 5.2]
+type = TargetBind
+trigger1 = time >= 31
+trigger1 = time <= 90
+pos = 34,0
+
+[State 4501, 6.1];play catch snd
+type = Playsnd
+trigger1 = Animelem = 7
+value = 0,36
+volume = -80
+
+[State 4501, 6.2]
+type = playsnd
+trigger1 = animelem = 11
+value = 0,62
+volume = 0
+
+[State 4501, 6.2]
+type = varset
+trigger1 = animtime = 0
+var(1) = 10
+
+[State 4501, 7]
+type = ChangeState
+trigger1 = animtime = 0
+value = 4502
+
+;--------------------------------------------------------
+; Forbidden Style No. 2888 : Maximum Iori(max) - slashing
+[Statedef 4502]
+type    = S
+physics = N
+movetype= A
+anim = 4502
+ctrl = 0
+velset = 0,0
+
+[State 4502, 1]
+type = Width
+trigger1 = 1
+edge = 60,0
+
+[State 4502, 2]
+type = sprpriority
+trigger1 = 1
+value = 2
+
+[State 4502, 3]
+type = TargetBind
+trigger1 = 1
+pos = 50,0
+
+[State 4502, 4]
+type = varadd
+trigger1 = time = 0
+var(1) = -1
+
+[State 4502, 5]
+type = Explod
+trigger1 = animelem = 4
+trigger2 = animelem = 8
+anim = f12
+pos = 57,-49
+ontop = 1
+ownpal = 1
+
+[State 4502, 6.1]
+type = TargetState
+trigger1 = animelem = 4
+value = 4522
+
+[State 4502, 6.2]
+type = TargetState
+trigger1 = animelem = 8
+value = 4521
+
+[State 4502, 7.1]
+type = playsnd
+trigger1 = animelem = 4
+value = 1,31
+volume = 0
+
+[State 4502, 7.2]
+type = playsnd
+trigger1 = animelem = 8
+value = 0,31
+volume = 0
+
+[State 4502, 8.1]
+type = ChangeState
+trigger1 = animtime = 0
+trigger1 = var(1) > 0
+value = 4502
+
+[State 4502, 8.21]
+type = Varset
+trigger1 = animtime = 0
+trigger1 = var(1) = 0
+var(2) = 10
+
+[State 4502, 8.22]
+type = ChangeState
+trigger1 = animtime = 0
+trigger1 = var(1) = 0
+value = 4503
+
+;---------------------------------------------------------
+; Forbidden Style No. 2888 : Maximum Iori(max) - attacking
+[Statedef 4503]
+type    = S
+physics = N
+movetype= A
+anim = 4503
+ctrl = 0
+velset = 0,0
+
+[State 4503, 1]
+type = Width
+trigger1 = 1
+edge = 60,0
+
+[State 4503, 2]
+type = sprpriority
+trigger1 = 1
+value = 2
+
+[State 4503, 3]
+type = TargetBind
+trigger1 = 1
+pos = 50,0
+
+[State 4503, 4]
+type = varadd
+trigger1 = time = 0
+var(2) = -1
+
+[State 4503, 5]
+type = Explod
+trigger1 = animelem = 3
+trigger2 = animelem = 7
+anim = 8020
+pos = 55,-65
+ontop = 1
+ownpal = 1
+
+[State 4503, 6.1]
+type = TargetState
+trigger1 = animelem = 3
+value = 4522
+
+[State 4503, 6.2]
+type = TargetState
+trigger1 = animelem = 7
+value = 4521
+
+[State 4503, 7.1]
+type = playsnd
+trigger1 = animelem = 3
+value = 0,23
+volume = 0
+
+[State 4503, 7.2]
+type = playsnd
+trigger1 = animelem = 7
+value = 0,24
+volume = 0
+
+[State 4503, 8.1]
+type = ChangeState
+trigger1 = animtime = 0
+trigger1 = var(2) > 0
+value = 4503
+
+[State 4503, 8.2]
+type = ChangeState
+trigger1 = animtime = 0
+trigger1 = var(2) = 0
+value = 4504
+
+;-----------------------------------------------------------
+; Forbidden Style No. 2888 : Maximum Iori(max) - attacking 2
+[Statedef 4504]
+type    = S
+physics = N
+movetype= A
+anim = 4504
+ctrl = 0
+velset = 0,0
+
+[State 4504, 1]
+type = Width
+trigger1 = 1
+edge = 60,0
+
+[State 4504, 2]
+type = sprpriority
+trigger1 = 1
+value = 2
+
+[State 4504, 3]
+type = Explod
+trigger1 = animelem = 5
+anim = f3
+pos = 47,-107
+ontop = 1
+ownpal = 1
+
+[State 4504, 4.1]
+type = TargetState
+trigger1 = animelem = 5
+value = 4523
+
+[State 4505, 4.2]
+type = TargetBind
+trigger1 = animelem = 6
+pos = 54,-68
+
+[State 4504, 5.1]
+type = velset
+trigger1 = animelem = 12
+x = 4.5
+y = -12
+
+[State 4504, 5.2];gravity
+type = veladd
+trigger1 = animelem = 13,>=0
+y = .9
+
+[State 4504, 6.1]
+type = playsnd
+trigger1 = animelem = 5
+value = 0,25
+volume = 0
+
+[State 4504, 6.2]
+type = playsnd
+trigger1 = animelem = 11
+value = 0,62
+volume = 0
+
+[State 4504, 7]
+type = ChangeState
+trigger1 = time = 125
+value = 4505
+
+;---------------------------------------------------------
+; Forbidden Style No. 2888 : Maximum Iori(max) - Grab Down
+[Statedef 4505]
+type    = A
+physics = N
+movetype= A
+anim = 4505
+ctrl = 0
+
+[State 4505, 1]
+type = Width
+trigger1 = 1
+edge = 60,0
+
+[State 4505, 2]
+type = sprpriority
+trigger1 = 1
+value = 2
+
+[State 4505, 3.1]
+type = veladd
+trigger1 = time = 0
+y = 15
+x = 4
+
+[State 4505, 3.2];gravity
+type = veladd
+trigger1 = 1
+y = 1
+
+[State 4505, 4.1]
+type = Targetstate
+trigger1 = time = 0
+value = 4524
+
+[State 4505, 4.2]
+type = TargetBind
+trigger1 = 1
+pos = 50,-35
+
+[State 4504, 5]
+type = Explod
+trigger1 = time = 0
+anim = f3
+pos = 47,-37
+ontop = 1
+ownpal = 1
+
+[State 4505, 6]
+type = playsnd
+trigger1 = animelem = 1
+value = 0,25
+volume = 0
+
+[State 4505, 7]
+type = ChangeState
+trigger1 = pos y >= 30
+trigger1 = vel y > 0
+value = 4506
+
+;------------------------------------------------------------
+; Forbidden Style No. 2888 : Maximum Iori(max) - reach ground
+[Statedef 4506]
+type    = S
+physics = N
+movetype= A
+anim = 4506
+ctrl = 0
+velset = 0,0
+
+[State 4506, 1]
+type = Width
+trigger1 = 1
+edge = 30,30
+
+[State 4506, 2]
+type = sprpriority
+trigger1 = 1
+value = 2
+
+[State 4506, 3]
+type = TargetState
+trigger1 = time = 0
+value = 4525
+
+[State 4506, 4];smash ground wave
+type = Explod
+trigger1 = animelem = 1
+trigger2 = animelem = 6
+anim = 8120
+pos = 50,-1
+postype = p1
+bindtime = 1
+ontop = 0
+ownpal = 1
+
+[State 4506, 5]
+type = turn
+trigger1 = animelem = 4
+
+[State 4506, 6]
+type = posset
+trigger1 = time = 0
+y = 0
+
+[State 4506, 7.1]
+type = velset
+trigger1 = time = 20
+x = 8
+y = -3
+
+[State 4506, 7.2];gravity
+type = veladd
+trigger1 = time >= 20
+y = .6
+
+[State 4506, 7.3]
+type = velset
+trigger1 = time >= 26
+x = 0
+y = 0
+
+[State 4506, 7.4]
+type = posset
+trigger1 = time = 26
+y = 0
+
+[State 4506, 7.5]
+type = posadd
+trigger1 = animelem = 7
+x = 30
+
+[State 4506, 8.1]
+type = TargetBind
+trigger1 = time <= 14
+pos = 50,-4
+
+[State 4506, 8.2]
+type = TargetBind
+trigger1 = time >= 15
+trigger1 = time <= 17
+pos = 64,0
+
+[State 4506, 8.3]
+type = TargetBind
+trigger1 = time >= 18
+trigger1 = time <= 19
+pos = 67,-57
+
+[State 4506, 8.4]
+type = TargetBind
+trigger1 = time >= 20
+trigger1 = time <= 23
+pos = 14,-107
+
+[State 4506, 8.5]
+type = TargetBind
+trigger1 = time >= 24
+trigger1 = time <= 25
+pos = 69,-52
+
+[State 4506, 8.6]
+type = TargetBind
+trigger1 = time >= 26
+trigger1 = time <= 50
+pos = 63,-2
+
+[State 4506, 9];shaking effect
+type = Envshake
+trigger1 = animelem = 1
+trigger2 = animelem = 6
+time = 15
+freq = 80
+ampl = -9
+
+[State 4506, 10]
+type = playsnd
+trigger1 = animelem = 1
+trigger2 = animelem = 6
+value = 0,39
+volume = 0
+
+[State 4506, 11]
+type = ChangeState
+trigger1 = animtime = 0
+value = 4507
+
+;---------------------------------------------------------
+; Forbidden Style No. 2888 : Maximum Iori(max) - hammering
+[Statedef 4507]
+type    = S
+physics = N
+movetype= A
+anim = 4507
+ctrl = 0
+velset = 0,0
+
+[State 4507, 1]
+type = Width
+trigger1 = 1
+edge = 20,20
+
+[State 4507, 2]
+type = sprpriority
+trigger1 = 1
+value = 3
+
+[State 4507, 3]
+type = BindToTarget
+trigger1 = time = 0
+pos = 0,0,Foot
+
+[State 4507, 4.1]
+type = Projectile
+trigger1 = animelem = 12
+ProjID = 4510
+projanim = 4510
+projpriority = 100
+projsprpriority = 2
+offset = 0, 0
+postype = p1
+projremovetime = 18
+
+[State 4507, 4.2]
+type = Projectile
+trigger1 = animelem = 12
+ProjID = 4510
+projanim = 4510
+projpriority = 100
+projsprpriority = 2
+offset = 0, 0
+postype = p1
+projremovetime = 18
+attr = S, HP
+hitflag = MAFD
+animtype = Dragup
+priority = 4,Hit
+damage = 50
+sparkno = -1
+hitsound = S0, 34
+ground.type = Low
+air.type = Low
+ground.slidetime = 18
+ground.hittime = 19
+air.hittime = 0
+ground.velocity = 0,-10
+air.velocity = 0, -10
+sprpriority = 3
+givepower = 10
+palfx.time = 50
+palfx.sinadd = 20,5,20,16
+palfx.add = 36,10,140
+fall = 1
+fall.recover = 0
+yaccel = .6
+numhits = 0
+ID = 4500
+ChainID = 4500
+
+[State 4507, 5.1]
+type = Explod
+trigger1 = ProjHit4510 = 1
+anim = 8910
+pos = 0,-50
+random = 50,120
+postype = p2
+ontop = 1
+ownpal = 1
+bindtime = 1
+ignorehitpause = 1
+
+[State 4507, 5.2]
+type = Explod
+trigger1 = ProjHit4510 = 1
+anim = 8911
+pos = 0,-50
+random = 50,120
+postype = p2
+ontop = 1
+ownpal = 1
+bindtime = 1
+ignorehitpause = 1
+
+[State 4507, 5.3]
+type = Explod
+trigger1 = ProjHit4510 = 1
+anim = 8910
+pos = 0,-50
+random = 50,120
+postype = p2
+ontop = 1
+ownpal = 1
+bindtime = 1
+ignorehitpause = 1
+
+[State 4507, 5.4]
+type = Explod
+trigger1 = ProjHit4510 = 1
+anim = 8911
+pos = 0,-50
+random = 50,120
+postype = p2
+ontop = 1
+ownpal = 1
+bindtime = 1
+ignorehitpause = 1
+
+[State 4507, 6];shaking effect
+type = Envshake
+trigger1 = animelem = 12
+time = 15
+freq = 80
+ampl = -9
+
+[State 4507, 7]
+type = varset
+trigger1 = animtime = 0
+var(1) = 30
+
+[State 4507, 8.1]
+type = playsnd
+trigger1 = animelem = 1
+value = 1,62
+volume = 0
+
+[State 4507, 8.2]
+type = playsnd
+trigger1 = animelem = 10
+value = 0,62
+volume = 0
+
+[State 4507, 8.3]
+type = playsnd
+trigger1 = animelem = 12
+value = 0,50
+volume = 0
+
+[State 4507, 9]
+type = ChangeState
+trigger1 = animtime = 0
+value = 4508
+
+;-----------------------------------------------------------
+; Forbidden Style No. 2888 : Maximum Iori(max) - hammering 2
+[Statedef 4508]
+type    = S
+physics = N
+movetype= A
+anim = 4508
+ctrl = 0
+velset = 0,0
+
+[State 4508, 1]
+type = Width
+trigger1 = 1
+edge = 20,20
+
+[State 4502, 2]
+type = sprpriority
+trigger1 = 1
+value = 3
+
+[State 4508, 3.1]
+type = Projectile
+trigger1 = animelem = 6
+ProjID = 4510
+projanim = 4510
+projpriority = 100
+projsprpriority = 2
+offset = 0, 0
+postype = p1
+projremovetime = 18
+
+[State 4508, 3.2]
+type = Projectile
+trigger1 = animelem = 6
+ProjID = 4510
+projanim = 4510
+projpriority = 100
+projsprpriority = 2
+offset = 0, 0
+postype = p1
+projremovetime = 18
+attr = S, HP
+hitflag = MAFD
+animtype = Dragup
+priority = 4,Hit
+damage = 10
+sparkno = -1
+hitsound = S0, 34
+ground.type = Low
+air.type = Low
+ground.slidetime = 18
+ground.hittime = 19
+air.hittime = 0
+ground.velocity = 0,-3
+air.velocity = 0, -3
+sprpriority = 3
+givepower = 10
+palfx.time = 50
+palfx.sinadd = 20,5,20,16
+palfx.add = 36,10,140
+fall = 1
+fall.recover = 0
+yaccel = .8
+numhits = 0
+ID = 4500
+ChainID = 4500
+
+[State 4508, 4.1]
+type = Explod
+trigger1 = ProjHit4510 = 1
+anim = 8910
+pos = 0,-50
+random = 50,120
+postype = p2
+ontop = 1
+ownpal = 1
+bindtime = 1
+ignorehitpause = 1
+
+[State 4508, 4.2]
+type = Explod
+trigger1 = ProjHit4510 = 1
+anim = 8911
+pos = 0,-50
+random = 50,120
+postype = p2
+ontop = 1
+ownpal = 1
+bindtime = 1
+ignorehitpause = 1
+
+[State 4508, 4.3]
+type = Explod
+trigger1 = ProjHit4510 = 1
+anim = 8910
+pos = 0,-50
+random = 50,120
+postype = p2
+ontop = 1
+ownpal = 1
+bindtime = 1
+ignorehitpause = 1
+
+[State 4508, 4.4]
+type = Explod
+trigger1 = ProjHit4510 = 1
+anim = 8911
+pos = 0,-50
+random = 50,120
+postype = p2
+ontop = 1
+ownpal = 1
+bindtime = 1
+ignorehitpause = 1
+
+[State 4508, 5]
+type = Varset
+trigger1 = ProjHit4510 = 1
+var(17) = 60
+ignorehitpause = 1
+
+[State 4508, 6];shaking effect
+type = Envshake
+trigger1 = animelem = 6
+time = 15
+freq = 80
+ampl = -10
+
+[State 4508, 7]
+type = varadd
+trigger1 = time = 0
+var(1) = -1
+
+[State 4508, 8]
+type = playsnd
+trigger1 = animelem = 6
+value = 0,50
+volume = 0
+
+[State 4508, 9.1]
+type = ChangeState
+trigger1 = animtime = 0
+trigger1 = var(1) > 0
+value = 4508
+
+[State 4508, 9.2]
+type = ChangeState
+trigger1 = animtime = 0
+trigger1 = var(1) = 0
+value = 4509
+
+;-----------------------------------------------------
+; Forbidden Style No. 2888 : Maximum Iori(max) - Taunt
+[Statedef 4509]
+type    = S
+physics = N
+movetype= A
+ctrl = 0
+anim = 4509
+velset = 0,0
+
+[State 4509, 1]
+type = turn
+trigger1 = animelem = 6
+
+[State 4509, 2]
+type = Nothitby
+trigger1 = 1
+value = SCA
+
+[State 4509, 3]
+type = playsnd
+trigger1 = animelem = 5
+value = 0,63
+channel = 0
+volume = 0
+
+[State 4509, 4]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;----------------------------------------------------
+; Hit by Forbidden Style No. 2888 : Maximum Iori(max)
+[Statedef 4520]
+type    = S
+physics = N
+movetype= H
+ctrl = 0
+velset = 0,0
+
+[State 4520, 1]
+type = Changeanim2
+trigger1 = time = 0
+value = 4520
+
+[State 4520, 2]
+type = sprpriority
+trigger1 = 1
+value = 1
+
+[State 4520, 3]
+type = Width
+trigger1 = 1
+value = -30,-30
+
+[State 4520, 4]
+type = Width
+trigger1 = 1
+value = -30,-30
+
+[State 4520, 5];reach here only when error occurs
+type = SelfState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------
+; Hit by Forbidden Style No. 2888 : Maximum Iori(max) - Been slash,high
+[Statedef 4521]
+type    = S
+physics = N
+movetype= H
+ctrl = 0
+velset = 0,0
+
+[State 4521, 1]
+type = Changeanim2
+trigger1 = time = 0
+value = 4521
+
+[State 4521, 2]
+type = sprpriority
+trigger1 = 1
+value = 1
+
+[State 4521, 3];short flash
+type = Envcolor
+trigger1 = time = 1
+value = 248,248,248
+time = 1
+under = 1
+
+[State 4521, 4];Damage
+type = Lifeadd
+trigger1 = time = 1
+value = -5
+kill = 0
+absolute = 1
+
+[State 4521, 5]
+type = Width
+trigger1 = 1
+value = -30,-30
+
+[State 4521, 6];reach here only when error occurs
+type = SelfState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------
+; Hit by Forbidden Style No. 2888 : Maximum Iori(max) - Been slash,low
+[Statedef 4522]
+type    = S
+physics = N
+movetype= H
+ctrl = 0
+velset = 0,0
+
+[State 4522, 1]
+type = Changeanim2
+trigger1 = time = 0
+value = 4522
+
+[State 4522, 2]
+type = sprpriority
+trigger1 = 1
+value = 1
+
+[State 4522, 3];short flash
+type = Envcolor
+trigger1 = time = 1
+value = 248,248,248
+time = 1
+under = 1
+
+[State 4522, 4];Damage
+type = Lifeadd
+trigger1 = time = 1
+value = -5
+kill = 0
+absolute = 1
+
+[State 4522, 5]
+type = Width
+trigger1 = 1
+value = -30,-30
+
+[State 4522, 6];reach here only when error occurs
+type = SelfState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;------------------------------------------------------------------
+; Hit by Forbidden Style No. 2888 : Maximum Iori(max) - Been attack
+[Statedef 4523]
+type    = A
+physics = N
+movetype= H
+ctrl = 0
+
+[State 4523, 1]
+type = Changeanim2
+trigger1 = time = 0
+value = 4523
+
+[State 4523, 2.1]
+type = Width
+trigger1 = time <= 11
+value = -30,-30
+
+[State 4523, 2.2]
+type = Width
+trigger1 = time >= 12
+value = 20,20
+
+[State 4523, 3]
+type = sprpriority
+trigger1 = 1
+value = 1
+
+[State 4523, 4]
+type = posfreeze
+trigger1 = time <= 11
+
+[State 4523, 5.1]
+type = veladd
+trigger1 = time = 12
+x = -4
+y = -12
+
+[State 4523, 5.2];gravity
+type = veladd
+triggerall = time >= 12
+trigger1 = time != [22,37]
+trigger1 = time != [40,55]
+trigger1 = time != [58,73]
+trigger1 = time != [76,91]
+trigger1 = time != [94,119]
+y = .5
+
+[State 4523, 6];short flash
+type = Envcolor
+trigger1 = time = 1
+value = 248,248,248
+time = 1
+under = 1
+
+[State 4523, 7];Damage
+type = Lifeadd
+trigger1 = time = 1
+value = -12
+kill = 0
+absolute = 1
+
+[State 4523, 8]
+type = posfreeze
+trigger1 = time = [22,37]
+trigger2 = time = [40,55]
+trigger3 = time = [58,73]
+trigger4 = time = [76,91]
+trigger5 = time = [94,119]
+
+[State 4523, 9];shaking effect
+type = Envshake
+trigger1 = time = 22
+trigger2 = time = 40
+trigger3 = time = 58
+trigger4 = time = 76
+trigger5 = time = 94
+time = 25
+freq = 80
+ampl = -9
+
+[State 4523, 10];reach here only when error occurs
+type = posset
+trigger1 = pos y >= -10
+trigger1 = vel y > 0
+trigger1 = time >= 15
+y = 0
+
+[State 4523, 11];reach here only when error occurs
+type = SelfState
+trigger1 = pos y >= -10
+trigger1 = vel y > 0
+trigger1 = time >= 15
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------
+; Hit by Forbidden Style No. 2888 : Maximum Iori(max) - Been Grab down
+[Statedef 4524]
+type    = A
+physics = N
+movetype= H
+ctrl = 0
+
+[State 4524, 1]
+type = changeanim2
+trigger1 = time = 0
+value = 4524
+
+[State 4524, 2]
+type = Width
+trigger1 =1
+value = -30,-30
+
+[State 4524, 3]
+type = sprpriority
+trigger1 = 1
+value = 1
+
+;-------------------------------------------------------------------
+; Hit by Forbidden Style No. 2888 : Maximum Iori(max) - reach ground
+[Statedef 4525]
+type    = S
+physics = N
+movetype= H
+ctrl = 0
+
+[State 4525, 1]
+type = changeanim2
+trigger1 = time = 0
+value = 4525
+
+[State 4525, 2]
+type = Width
+trigger1 =1
+value = -30,-30
+
+[State 4525, 3]
+type = turn
+trigger1 = animelem = 4
+
+[State 4525, 4]
+type = sprpriority
+trigger1 = 1
+value = 1
+
+[State 4525, 5];Damage
+type = Lifeadd
+trigger1 = animelem = 1
+trigger2 = animelem = 6
+value = -25
+kill = 0
+absolute = 1
+
+[State 4525, 6]
+type = changestate
+trigger1 = animtime = 0
+value = 4526
+
+;--------------------------------------------------------------
+; Hit by Forbidden Style No. 2888 : Maximum Iori(max) - Liedown
+[Statedef 4526]
+type    = L
+physics = N
+movetype= H
+ctrl = 0
+
+[State 4526, 1]
+type = changeanim2
+trigger1 = time = 0
+value = 4526
+
+[State 4526, 2]
+type = Width
+trigger1 = 1
+value = -30,-30
+
+[State 4526, 3]
+type = sprpriority
+trigger1 = 1
+value = 1
+
+[State 4526, 4]
+type = Nothitby
+trigger1 = time <= 41
+value = SCA
+
+[Command]
+name = "s.slide_1"
+command = ~D, D, a
+time = 15
+
+[Command]
+name = "s.slide_2"
+command = ~D, D, b
+time = 15
+
+; Do K' Violence Style No. 3200 : Demon Drive(heavy) - Unblockable version
+[State -1]
+type = ChangeState
+value = 3050
+triggerall = var(9) = 1;only AI can access
+triggerall = p2movetype != A;player not attacking
+triggerall = p2statetype != L;player not lying down
+triggerall = p2stateno != 5120;player is not in getup state
+triggerall = power >= 1000
+triggerall = life > 200
+triggerall = var(10) = 0
+triggerall = var(11) = 0
+triggerall = statetype != A
+trigger1 = ctrl
+trigger1 = random <= 1;Ultra Low percent
+trigger2 = movehit
+trigger2 = stateno = 200
+trigger2 = random <= 600;Very high percent
+trigger3 = movehit
+trigger3 = stateno = 210
+trigger3 = random <= 600;Very high percent
+trigger4 = movehit
+trigger4 = stateno = 220
+trigger4 = random <= 600;Very high percent
+trigger5 = movehit
+trigger5 = stateno = 213
+trigger5 = random <= 600;Very high percent
+trigger6 = movehit
+trigger6 = stateno = 221
+trigger6 = random <= 600;Very high percent
+trigger7 = movehit
+trigger7 = stateno = 202
+trigger7 = random <= 600;Very high percent
+trigger8 = movehit
+trigger8 = stateno = 203
+trigger8 = random <= 600;Very high percent
+trigger9 = movehit
+trigger9 = stateno = 420
+trigger9 = random <= 600;Very high percent
+[State -1];for counter mode
+type = ChangeState
+value = 3050
+triggerall = var(9) = 1;only AI can access
+triggerall = p2movetype != A;player not attacking
+triggerall = p2statetype != L;player not lying down
+triggerall = p2stateno != 5120;player is not in getup state
+triggerall = var(10) != 0
+triggerall = var(11) = 0
+triggerall = statetype != A
+trigger1 = ctrl
+trigger1 = random <= 1;Ultra Low percent
+trigger2 = movehit
+trigger2 = stateno = 200
+trigger2 = random <= 600;Very high percent
+trigger3 = movehit
+trigger3 = stateno = 210
+trigger3 = random <= 600;Very high percent
+trigger4 = movehit
+trigger4 = stateno = 220
+trigger4 = random <= 600;Very high percent
+trigger5 = movehit
+trigger5 = stateno = 213
+trigger5 = random <= 600;Very high percent
+trigger6 = movehit
+trigger6 = stateno = 221
+trigger6 = random <= 600;Very high percent
+trigger7 = movehit
+trigger7 = stateno = 202
+trigger7 = random <= 600;Very high percent
+trigger8 = movehit
+trigger8 = stateno = 203
+trigger8 = random <= 600;Very high percent
+trigger9 = movehit
+trigger9 = stateno = 420
+trigger9 = random <= 600;Very high percent
+
+
+; Do K' Violence Style No. 3200 : Demon Drive(Max)
+[State -1]
+type = ChangeState
+value = 4000
+triggerall = var(9) = 1;only AI can access
+triggerall = p2movetype != A;player not attacking
+triggerall = p2statetype != L;player not lying down
+triggerall = p2stateno != 5120;player is not in getup state
+triggerall = power >= 1000
+triggerall = life <= 200
+triggerall = var(10) = 0
+triggerall = var(11) = 0
+triggerall = statetype != A
+trigger1 = ctrl
+trigger1 = random <= 1;Ultra Low percent
+trigger2 = movehit
+trigger2 = stateno = 200
+trigger2 = random <= 600;Very high percent
+trigger3 = movehit
+trigger3 = stateno = 210
+trigger3 = random <= 600;Very high percent
+trigger4 = movehit
+trigger4 = stateno = 220
+trigger4 = random <= 600;Very high percent
+trigger5 = movehit
+trigger5 = stateno = 213
+trigger5 = random <= 600;Very high percent
+trigger6 = movehit
+trigger6 = stateno = 221
+trigger6 = random <= 600;Very high percent
+trigger7 = movehit
+trigger7 = stateno = 202
+trigger7 = random <= 600;Very high percent
+trigger8 = movehit
+trigger8 = stateno = 203
+trigger8 = random <= 600;Very high percent
+trigger9 = movehit
+trigger9 = stateno = 420
+trigger9 = random <= 600;Very high percent
+
+; Do Moon Style No. 482 : Half Moon Crush
+[State -1]
+type = ChangeState
+value = 3100
+triggerall = var(9) = 1;only AI can access
+triggerall = p2statetype != L;player not lying down
+triggerall = p2movetype != H
+triggerall = p2stateno != 5120;player is not in getup state
+triggerall = power >= 1000
+triggerall = life > 200
+triggerall = var(10) = 0
+triggerall = var(11) = 0
+triggerall = statetype != A
+trigger1 = ctrl
+trigger1 = random <= 500;Ultra Low percent
+trigger1 = p2bodydist x <= 80
+trigger1 = p2statetype = A
+[State -1];for counter mode
+type = ChangeState
+value = 3100
+triggerall = var(9) = 1;only AI can access
+triggerall = p2statetype != L;player not lying down
+triggerall = p2movetype != H
+triggerall = p2stateno != 5120;player is not in getup state
+triggerall = var(10) != 0
+triggerall = var(11) = 0
+triggerall = statetype != A
+triggerall = random <= 500;Medium percent
+trigger1 = ctrl
+trigger1 = p2bodydist x <= 80
+trigger1 = p2statetype = A
+trigger2 = (stateno = 1100 || stateno = 1110)
+trigger2 = statetype = S
+trigger2 = movecontact
+
+; Do Moon Style No. 482 : Full Moon Crush(max)
+[State -1]
+type = ChangeState
+value = 4100
+triggerall = var(9) = 1;only AI can access
+triggerall = p2statetype != L;player not lying down
+triggerall = p2movetype != H
+triggerall = p2stateno != 5120;player is not in getup state
+triggerall = power >= 1000
+triggerall = life <= 200
+triggerall = var(10) = 0
+triggerall = var(11) = 0
+triggerall = statetype != A
+trigger1 = ctrl
+trigger1 = random <= 500;Ultra Low percent
+trigger1 = p2bodydist x <= 80
+trigger1 = p2statetype = A
+
+; Do Style No. 311: Claw Comb(Self-Striker)
+[State -1]
+type = ChangeState
+value = 1500
+triggerall = var(9) = 1;Only AI can access
+triggerall = statetype != A
+triggerall = p2statetype != A
+triggerall = p2statetype != L;player not lying down
+triggerall = p2stateno != 5120;player is not in getup state
+triggerall = random < 100;low percent
+triggerall = NumHelper(9400) = 1
+trigger1 = ctrl
+
+; Style No. 388 : Shadow slide(light)
+[State -1]
+type = ChangeState
+value = 1400
+triggerall = var(9) = 0
+triggerall = command = "s.slide_1"
+triggerall = command != "hold_x";Kof style
+triggerall = command != "hold_z";Kof style
+triggerall = command != "hold_a";Kof style
+triggerall = statetype != A
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+; Style No. 388 : Shadow slide(heavy)
+[State -1]
+type = ChangeState
+value = 1450
+triggerall = var(9) = 0
+triggerall = command = "s.slide_2"
+triggerall = command != "hold_x";Kof style
+triggerall = command != "hold_y";Kof style
+triggerall = command != "hold_z";Kof style
+triggerall = statetype != A
+trigger1 = ctrl
+
+; Forbidden Style No. 2888 : Maximum Iori(max)
+[State -1]
+type = ChangeState
+value = 4500
+triggerall = var(9) = 1;only AI can access
+triggerall = p2statetype != L;player not lying down
+triggerall = p2stateno != 5120;player is not in getup state
+triggerall = power >= 2000
+triggerall = life <= 200
+triggerall = var(10) = 0
+triggerall = var(11) = 0
+triggerall = random <= 600;Very high percent
+triggerall = statetype != A
+triggerall = p2bodydist x <= 30
+triggerall = p2statetype != A
+trigger1 = ctrl
+trigger2 = movehit
+trigger2 = stateno = 200
+trigger3 = movehit
+trigger3 = stateno = 210
+trigger4 = movehit
+trigger4 = stateno = 220
+trigger5 = movehit
+trigger5 = stateno = 213
+trigger6 = movehit
+trigger6 = stateno = 221
+trigger7 = movehit
+trigger7 = stateno = 202
+trigger8 = movehit
+trigger8 = stateno = 203
+trigger9 = movehit
+trigger9 = stateno = 420
+trigger10 = random <= 50;Very Low percent
+trigger10 = stateno = 901
+trigger10 = animelem = 13,>= 0
+
+; Access Counter Mode
+[State -1]
+type = ChangeState
+value = 9200
+triggerall = var(9) = 1;Only AI can access
+triggerall = random < 20;Ultra low percent
+triggerall = var(10) = 0;make sure not in counter mode now
+triggerall = var(11) = 0;make sure not in armor mode now
+triggerall = statetype = S
+triggerall = power = 3000
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+; Access Armor Mode
+[State -1]
+type = ChangeState
+value = 9300
+triggerall = var(9) = 1;Only AI can access
+triggerall = random < 10;Ultra low percent
+triggerall = var(10) = 0;make sure not in counter mode now
+triggerall = var(11) = 0;make sure not in armor mode now
+triggerall = statetype = S
+triggerall = power = 3000
+trigger1 = ctrl

@@ -1,0 +1,42 @@
+; Definition file for Card Captor Iron Saisyu Kusanagi
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "Saisyu Kusanagi"
+displayname = "Saisyu Kusanagi"
+versiondate = 11,03,2005 ;Started
+mugenversion = 04,01,2001
+author = "David Demianoff"
+Pal.Defaults=1,2,3,4,5,6,7,8,9,10,11,12
+
+; Files for the player
+[Files]
+cmd      = saisyu.cmd        ;Other config
+cns      = saisyu.cns        ;Constants
+st       = saisyu.cns        ;States
+st1      = attacks.cns        ;States
+st2      = specials.cns        ;States
+st3      = hypers.cns        ;States
+st4      = misc.cns        ;States
+stcommon = common1.cns     ;Common states
+sprite   = saisyu.sff        ;Sprite
+anim     = saisyu.air        ;Animation
+sound    = saisyu.snd        ;Sound
+pal1     = saisyu98a.act        ;Normal palette
+pal2     = saisyu98b.act
+pal3     = saisyu98c.act
+pal4     = saisyu98d.act
+pal5	 = saisyuor1.act
+pal6	 = saisyuor2.act
+pal7	 = Negro.act
+pal8	 = Violet.act
+pal9	 = Verde.act
+pal10	 = Turquesa.act
+pal11	 = Blanco.act
+pal12	 = Violetita.act
+
+; Arcade mode
+[Arcade]
+;intro.storyboard = end.def
+;ending.storyboard = end.def

@@ -1,0 +1,308 @@
+======================================================================
+=                                 Ralf                               =    
+=                            Men of Ikari                            =
+======================================================================                             
+Info  = 
+=======
+
+Nome    : Ralf Jones  
+Style   : KOf´94
+Versão  : 1.1 (1.0 version only beta testers!)
+FAQ version : 1.1
+                               
+                             M. U. G. E. N
+                          version  04.14.2001 
+
+
+ 1.Introdução
+ 2.O que contém
+ 3.O que falta
+ 4.Golpes gerais
+ 5.Super Golpes 
+ 6.Especiais Attacks (Hypers Attacks)
+ 7.Combos
+ 8.Beta testers e bugs
+ 9.Próxima versão
+10.Adradecimentos Z
+11.Contato
+12.Outros Trabalhos
+13.MUGEN 3rd Strike... NOW !!
+==========================================================================
+= 1.Introdução                                                           =
+==========================================================================
+ 
+ Ralf na minha opinião era e é um dos melhores lutadores de todos os KOF´S
+tanto que fiz essa versão clássica para matar as saudades , está tudo 
+igual ao jogo do 94´ , sprites, animações , sons e golpes apenas mudei os
+comandos , ele está bem legal até em alguns minimos detalhes que fiz questão
+de colocar , como a animação do Charge Power e Sparks que só sai em 
+determinados momentos e etc , quem prestar bastante atenção vai notar  e 
+espero que todos gostem !
+    
+==========================================================================
+= 2.O que contém                                                         =
+==========================================================================
+
+Contém :
+
+*Golpes
+
+2     Socos  
+2     Chutes  
+1     Golpe forte 
+1     Esquiva
+3     Supers
+1     Especial , Hyper (versão original!)
+
+
+*Misc
+1     Intro
+1     win pose 
+1     Provocação
+2     Paletas ( A,B sendo as duas originais do ´94 )
+3     Spark Hit
+1     Spark Guard
+1     Power Charge (encher a barra de Power)
+1     Hyper Final Explod (Original do ´94)
+98%   Sons originais
+98%   Animações originais
+100%  Golpes Originais
+==========================================================================
+= 3.O que falta                                                          =
+==========================================================================
+
+*Golpes
+Acho que nem um !
+
+*Misc
+2     Paletas (ou mais)
+1     AI
+1     Final (Do trio Lengendary Men of Ikari formado por Ralf , Clark e 
+Heidern do KOF´94)
+
+==========================================================================
+= 4.Golpes gerais                                                        =
+==========================================================================
+ _______________________________________________________________________
+|                                                                       |
+|  O  O  O                    |  A         Chute Fraco                  |
+|   \ | /     Movimenteção    |  B         Chute Forte                  |
+|  O- O -O       geral        |  C         Esquiva                      |
+|   / | \                     |  X         Soco Fraco                   |
+|  O  O  O                    |  Y         Soco Forte                   |
+|                             |  Z         Golpe Forte                  |
+|                             |                                         |
+|                             |  X+Y       POWER UP                     |   
+|                             |                                         |
+|  Start     Provocação       |                                         |
+|                             |  -O -O     Correr                       |
+| -O + X     Arremeço         |  O- O-     Recuo rápido                 |
+|          (bem perto)        |                                         |
+|_______________________________________________________________________|
+
+
+*As animações de socos e chutes mudam estando perdo do adverário !  
+
+===========================================================================
+= 5.Super Golpes                                                          =
+===========================================================================
+
+ _ Super Attacks _______________________________________________________
+|  |  \   -O + X ou Y        Gatling attack   (3 Hits)                  |
+|  O   O                                                                |
+|_______________________________________________________________________|
+|  |   /  O- + X ou Y        Vulcan Punch                               |
+|  O  O                                                                 |
+|_______________________________________________________________________|                                                                       |
+|  -O + Y (bem perto)        Super Argentine Back Breaker               |
+|                                                                       |
+|_______________________________________________________________________|
+
+
+
+ *Os Super  estão  igual ao jogo original mudei apenas os comandos para
+maior praticidade na hora de executa-los . 
+
+ *Notem que com a barra de power maior que level 2 os golpes como também
+supers e o Hyper ganham mais sprites de animação .
+
+ *Depois do Supr Argentine Back Breaker e do arremeço normal é possivél 
+correr na direção do oponente caido e dar uma rasteira (forte ou fraco)
+almentando mais um hit e mais dano é claro !  
+
+===========================================================================
+= 6.Especial Attacks (Hyper Attacks)                                      =
+===========================================================================
+
+
+ _ Especial Attack (Hyper attack) ____________________________________
+|   /  -O + Y              *Baribari Vulcan Punch (MAX)                 |
+|  O                             Level 1 (14 hits) + rasteira           |
+|                                                                       |
+|_______________________________________________________________________|
+
+ *Golpe clássico do Ralf em sua  primeira performace como o Hyper também 
+ganha sprites de animação em level maior que 2 .  
+
+
+ *Infelismente pra quém não sabe o KOF94 tinha apenas um especial para 
+cada lutador por isso não coloquei mais alguns , mesmo assim na época era 
+o maximo e pra mim até hoje é ! 
+
+==========================================================================
+= 7.Combos                                                               =
+==========================================================================
+
+Alguns combos :
+
+Como inimigo encostado na parede:
+
+voadora com chute forte + soco fraco agachado + soco forte agachado +
+chute fraco agachado + chute forte agachado  e de mais um chute forte
+agachado como inimigo caido .
+= 6 hits  
+28% de damage 
+
+voadora com chute forte + soco fraco + chute fraco + chute forte .
+= 4 hits 
+
+voadora com chute forte + soco fraco agachado + soco forte agachado +
+chute fraco agachado + Vulcan punch + chute forte agachado como o 
+inimigo caido .
+= 6 hits
+36% de damage 
+
+OBS: É possivel executar o super Argentine Back Breaker no meio de um 
+combo normal !  
+
+==========================================================================
+= 8.Beta testers e bugs                                                  =
+==========================================================================
+
+Quase não sobrou nem um bug mas como nada é perfeito , vejamos alguns :
+
+-Arremeço (quando é executado no final da tela)
+-Super Argentine Back Breaker (quando é executado no final da tela)
+-Alguns Sparks estão desalinhados
+ 
+ ... acho que é só ! 
+ 
+Se alguém encontrar algum bug me avise por e-mail ou posta no tópico Ralf 94
+do forum da MugenBR ou me mande uma PM aproveite também pra postar o que achou 
+dicas ou dúvidas tudo é bem vindo !
+
+Beta testers : 
+
+-ROBO Z
+-Capoera (OFICIAL)        
+-Master Sagat level 3 (OFICIAL)  
+-Yin/Yang Dragon  
+-Marco Polo
+-???
+
+... esqueci de alguém ?
+
+ * Quero agradecer a todos que testaram , arrumaram ou simplesmente me deu
+alguma dica porque me ajudaram pra caramba , valeu mesmo turma !!!!  
+
+ 
+===========================================================================
+= 9.Proxima versão (1.2)                                                  =
+===========================================================================
+
+ Na próxima versão não vai ter muitas novidades pois já coloquei tudo que o 
+char possui apenas corrigirei os bugs colocarei mais algumas paletas e uma 
+history board , mas se você ficou querendo um "algo mais" logo estarei 
+lançando um Ralf Megamix ou seja um Ralf com combinações dos KOF´s 94,95,96,
+97 e 98 com sprites/golpes e animações editados além dos originais de cada 
+versão que possui , ainda está no começo é só esperar !  
+
+===========================================================================    
+= 10.Agradecimentos Z                                                     = 
+===========================================================================
+ 
+-Primeiro a Deus
+Por muitas coisas
+
+-A turma da Elecbyte (http://www.elecbyte.com)
+Por realizar o sonho de qualquer um fã de jogos de luta por criar 
+o M.U.G.E.N
+
+-Ao Luiz Barin , criador da falecida MUEGEN MANIA 
+Por me aceitar no seu grupo quando eu ainda não manjava de mugen
+
+-Ao eterno Rage_EX PLUS (Shishi Ryu)
+Por me ensinar os primeiros passos no mundo mugen e por me dar ótimos
+conselhos e dicas 
+
+-A MRP 
+Por me ajudar bastante no começo
+
+-A turma da antiga MUGEN11 (Mugen Eleven)
+Por me dar a maior força também 
+
+-Ao Capoera , Master Sagat l3 e meus outros beta testers 
+Por passar altas horas testando e arrumando este char
+
+ ... e especialmente a todos que de alguma forma me ajudou , insentivou 
+ou simplesmente reconheceu meu trabalho
+               ... a todos vocês meu MUITO OBRIGADO MESMO !!!
+
+===========================================================================    
+= 11.Contato                                                              = 
+===========================================================================
+=  Quem tiver alguma sugestão/idéia ou simplemente quiser dar um alô      =
+= me procure no forum da MugenBR , Mugenet ou simplesmente me mande       =
+= um e-mail todos que manderem seram respondidos , mas não será levado em = 
+= conta qualquer ofensa ou desrespeito a este trabalho que por simples    = 
+= que esteja foi feito com muita vontade e dedicação .                    =
+=                                                                         =
+= Obrigado por escolher Ralf 94  ...                                      =
+=                          ...nos vemos na próxima versão !               =                                                                     =
+=                                                                         =
+= Onde me encontrar :                                                     =   
+=                                                                         =
+=                                                                         =
+= MugenBR = www.mgbr.net                                                  =
+= Mugenet = www.mugenetbr.kit.net                                                      =
+= G.E.M   =                                                               =   
+=                                                                         = 
+=                                                                         =
+= Ralf Mem of Ikari style 94 para M.U.G.E.N  ripado e programado por ...  =
+=                                                                         =  
+=                                ROBO Z                                   =
+=                                                                         =
+=                                E-MAIL                                   =                        
+=                        dilsolimente@hotmail.com                         =
+===========================================================================    
+= 12.Outros trabalhos                                                     = 
+===========================================================================
+ Se você gostou do meu estilo de converter chars pro Mugen não deixe de ver 
+alguns de meus outros trabalhos como ...
+
+[Opção 1]
+
+Tipo  = Char
+Nome  = Carlos Myahmoto
+Jogo  = Final Fighter 2 (Snes)
+
+
+[Opção 2]
+
+Tipo  = Stage
+Nome  = Arctic Field (Chill Penguin Boss Stage)
+Jogo  = Mega Man X (Snes)
+
+===========================================================================
+= 13.MUGEN 3rd Strike                                                     =     
+===========================================================================
+ Para conferir e pegar Upgrades do Ralf´94 e dar um olhada nos meus outros 
+trabalhos e Wips de uma olhada na MUGEN Terceiro Strike minha Home Page 
+dedicada a Mugen e pricipamente sobre chars/stages antigos e você é um 
+colecionador a MUGEN 3rd é parado obrigatória ! obrigado e espero sua 
+visita !
+
+MUGEN 3rd Strike : 
+
+Com abertura =======> http://mugen3rd.kit.net/abertura.html 
+Sem abertura =======> http://mugen3rd.kit.net

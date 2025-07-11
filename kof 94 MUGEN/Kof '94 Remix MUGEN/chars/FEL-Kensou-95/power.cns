@@ -1,0 +1,143 @@
+;※※※※※※※※※※※※※※※※※※※※パワー溜め
+;理論説明
+;まずボタン同時おしをしたらこのステートに飛びます、そして押してる間は動きつつパワーを溜めます。
+;しかしそうすると一回ちょこっと押したらこの一連の動作を行なってしまうので
+;一番下のチェンジステートで「ボタンを離したら」というトリガーで立ち状態に戻るようにしてます
+;
+
+[Statedef 700]
+type = S
+movetype = I
+physics = S
+anim = 700
+velset = 0
+ctrl = 0
+
+[State 700, 1]
+type = PlaySnd
+trigger1 = Time = 0
+value = 700,0
+channel = 0
+
+[State 700, 2]
+type = PlaySnd
+trigger1 = Time = 0
+value = 700,1
+channel = 1
+
+[State 700, 3]
+type = PowerAdd
+trigger1 = ((Time + 2) % 2) = 0
+value = 5
+
+[State 700, 4]
+type = ChangeState
+trigger1 = power >= 5000
+value = 715
+
+[State 700, 5]
+type = ChangeState
+triggerall = AnimElem = 2, >= 0
+trigger1 = command != "hold_x"
+trigger2 = command != "hold_a"
+trigger3 = command != "hold_y"
+value = 710
+
+[State 700, 6]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 705
+
+; Power charge (charging)
+[Statedef 705]
+type = S
+movetype = I
+physics = S
+anim = 705
+
+[State 705, 1]
+type = PowerAdd
+trigger1 = ((Time + 2) % 2) = 0
+value = 8
+
+[State 705, 2]
+type = Explod
+trigger1 = ((Time + 12) % 12) = 0
+anim = 711
+ID = 700
+sprpriority = 3
+postype = p1
+pos = 0,-3
+bindtime = -1
+
+[State 705, 2]
+type = Explod
+trigger1 = ((Time + 12) % 12) = 0
+anim = 712
+ID = 700
+sprpriority = 3
+postype = p1
+pos = 0,1
+bindtime = -1
+
+[State 705, 3]
+type = ChangeState
+trigger1 = power >= 5000
+value = 715
+
+[State 705, 4]
+type = ChangeState
+trigger1 = command != "hold_x"
+trigger2 = command != "hold_a"
+trigger3 = command != "hold_y"
+value = 710
+
+; Power charge (end)
+[Statedef 710]
+type = S
+movetype = I
+physics = S
+anim = 710
+
+[State 710, 1]
+type = StopSnd
+trigger1 = Time = 0
+channel = 0
+
+[State 710, 2]
+type = StopSnd
+trigger1 = Time = 0
+channel = 1
+
+[State 710, 3]
+type = RemoveExplod
+trigger1 = Time = 0
+
+[State 710, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+; Power full
+[Statedef 715]
+type = S
+movetype = I
+physics = S
+anim = 715
+
+[State 715, 1]
+type = StopSnd
+trigger1 = Time = 0
+channel = 0
+
+[State 715, 2]
+type = StopSnd
+trigger1 = Time = 0
+channel = 1
+
+[State 715, 8]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1

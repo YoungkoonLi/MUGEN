@@ -1,0 +1,178 @@
+;***************************************************************************
+; ‘åŽÖ“ã -------------------------------------------------------------------
+;***************************************************************************
+
+[Statedef 2000]
+type = S
+movetype = A
+physics = S
+anim = 2000
+ctrl = 0
+
+[State 2000, pow]
+type = PowerAdd
+trigger1 = Life > 333
+trigger1 = time = 0
+value = -3000
+
+[State 2000, explod1]
+type = explod
+trigger1 = AnimElem = 2
+anim = 192
+pos = 38, -92
+shadow = 68,68,68
+removetime = 2
+ownpal = 1
+
+[State 2000, explod2]
+type = explod
+trigger1 = AnimElem = 3
+anim = 192
+pos = 24, -113
+shadow = 68,68,68
+removetime = 2
+ownpal = 1
+
+[State 2000, explod3]
+type = explod
+trigger1 = AnimElem = 4
+anim = 192
+pos = 22, -117
+shadow = 68,68,68
+removetime = 12
+ownpal = 1
+
+[State 2000, explod4]
+type = explod
+trigger1 = AnimElem = 5
+anim = 192
+pos = 7, -61
+shadow = 68,68,68
+removetime = 2
+ownpal = 1
+
+[State 2000, explod5]
+type = explod
+trigger1 = AnimElem = 6
+anim = 192
+pos = 10, -63
+shadow = 68,68,68
+removetime = 2
+ownpal = 1
+
+[State 2000, explod6]
+type = explod
+trigger1 = AnimElem = 7
+anim = 192
+pos = -27, -108
+shadow = 68,68,68
+removetime = 2
+ownpal = 1
+
+[State 2000, explod7]
+type = explod
+trigger1 = AnimElem = 8
+anim = 192
+pos = -22, -112
+shadow = 68,68,68
+removetime = 6
+ownpal = 1
+
+[State 2000, muteki]
+type = NotHitBy
+trigger1 = Time >= 0
+value = C
+time = 1
+
+[State 2000, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 2001
+ownpal = 1
+
+[Statedef 2001] ; ‘åŽÖ“ã ‘Oi
+type = S
+movetype = A
+physics = S
+velset = 15,0
+anim = 2001
+ctrl = 0
+
+[State 2001, 1]
+type = explod
+trigger1 = time = 0
+anim = 2010
+pos = -6, -59
+shadow = 68, 68, 68
+removetime = 26
+bindtime = 26
+sprpriority = 2
+ownpal = 1
+
+[State 2001, 2]
+type = explod
+trigger1 = AnimElem = 2 , 2
+anim = 2011
+pos = 56, -100
+shadow = 68, 68, 68
+removetime = 28
+bindtime = 28
+sprpriority = 2
+ownpal = 1
+
+[State 2001, hitef]
+type = Helper
+trigger1 = movehit
+ignorehitpause = 1
+persistent = 0
+stateno = 905
+
+[State 2001, HitDef]
+type = hitdef
+trigger1 = time = 0
+attr = S, HA
+damage = 350, 35
+animtype = Hard
+guardflag = MA
+pausetime = 0,15
+sparkno = -1
+guard.sparkno = -1
+hitsound   = S30,0
+guardsound = S23,0
+ground.type = High
+ground.slidetime = 14
+ground.hittime  = 16
+ground.velocity = -2,-6
+air.animtype = Back
+air.velocity = -2.5,-5
+palfx.time = 30
+palfx.add = 40,-70,-200
+palfx.sinadd = 40,30,0,10
+palfx.color = 0
+palfx.invertall = 1
+fall = 1
+fall.recover = 0
+
+[State 2001, Snd]
+type = playSnd
+trigger1 = Time = 0
+value = 30, 4
+
+[State 2001, Snd2]
+type = playSnd
+trigger1 = time = 0
+value = 12, 1
+
+[State 2001, pow]
+type = varset
+triggerall = var(0) >= 1
+trigger1 = Time = 1
+v = 0
+value = 0
+
+[State 2001, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+

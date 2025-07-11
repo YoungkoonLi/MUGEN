@@ -1,0 +1,103 @@
+;============================================================================
+; Estados Maestros
+;============================================================================
+
+;============================================================================
+; States that are always executed (use statedef -2)
+;============================================================================
+
+[Statedef -2]
+
+[State -2, 1]
+type = AssertSpecial
+trigger1 = Var(2)
+flag = noFG
+ignorehitpause = 1
+
+[State -2, 1]
+type = BGPalFX
+trigger1 = Var(2)
+add = 255,255,255
+time = 1
+ignorehitpause = 1
+
+[State -2, 1]
+type = VarSet
+trigger1 = Var(2)
+v = 2
+value = 0
+ignorehitpause = 1
+
+
+[State -2,Brillo]
+type = PalFX
+triggerall = (GameTime%3) = 0
+trigger1 = Power >=  Const(Data.Power)
+time = 1
+add = 60,60,60
+ignorehitpause = 1
+;============================================================================
+; States that are executed when in self's state file (use statedef -3)
+;============================================================================
+
+[Statedef -3]
+
+[State -3, StopSnd]
+type = StopSnd
+trigger1 =power=1000
+trigger2 = P2MoveType=H
+trigger3 =stateno= [5000,5172]
+channel = 20
+
+[State -3, StopSnd]
+type = StopSnd
+trigger1 =power=1000
+trigger2 = P2MoveType=H
+trigger3 =stateno= [5000,5172]
+channel = 21
+
+[State -3, 1]
+type = velset
+trigger1 = time = 1 && stateno = 10
+x = 0
+
+
+[State -3, 2]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 50
+value = 50,0
+
+
+[State -3, 3]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 52 || stateno = 106 || stateno = 1011
+value = 52,0
+
+
+[State -3, 4]
+type = StopSnd
+trigger1 = stateno != 100 && stateno != 1040 && stateno != 1045
+channel = 2
+
+
+[State -3, 5]
+type = PlaySnd
+trigger1 = Time = 1 && stateno = 5000 && (anim = 5000 || anim = 5010) && random % 10 < 5
+value = 5000,0
+
+[State -3, 5]
+type = PlaySnd
+trigger1 = Time = 1 && stateno = 5000 && (anim = 5001 || anim = 5011) && random % 10 < 5
+value = 5000,1
+
+[State -3, 5]
+type = PlaySnd
+trigger1 = Time = 1 && stateno = 5000 && (anim = 5002 || anim = 5012) && random % 10 < 5
+value = 5000,2
+
+[State -3, 5]
+type = PlaySnd
+trigger1 = Time = 1 && (stateno = 5030 || stateno = 5071) && random % 10 < 5
+value = 5000,3

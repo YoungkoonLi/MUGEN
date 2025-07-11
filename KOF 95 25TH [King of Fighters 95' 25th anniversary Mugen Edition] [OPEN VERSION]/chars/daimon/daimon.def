@@ -1,0 +1,62 @@
+;---------------------------
+; GORO DAIMON X
+; Version 1.0
+; BY: SANDER 71113
+;---------------------------
+
+;General Information
+
+[Info]
+Name         ="Goro Daimon"
+DisplayName  ="Goro Daimon"
+Author       ="Sander71113"
+VersionDate  =08,23,2004
+MugenVersion =4,14,2001
+Pal.Defaults =1,2,3,4,5,6,7,8,9,10,11,12
+
+;Files for the player
+[Files]
+;cmd      =daimon.cmd
+cmd     = daimedai.cmd   ;Medium AI
+;cmd     = dainoai.cmd    ;No AI
+cns      =daimon.cns
+stcommon =common1.cns
+st       =daimon.cns
+sprite   =daimon.sff
+anim     =daimon.air
+sound    =daimon.snd
+pal1=pal3.act
+pal2=pal5.act
+pal3=pal7.act
+pal4=pal1.act
+pal5=pal4.act
+pal6=pal6.act
+pal7=pal2.act
+pal8=pal8.act
+pal9=pal9.act
+pal10=pal10.act
+pal11=verdefluo.act
+pal12=azulfluo.act
+st1=daimona.cns
+st2=daimonb.cns
+st3=daimonc.cns
+
+
+
+
+;Arcade mode
+;[Arcade]
+;intro.storyboard  = intro.def
+;ending.storyboard = ending.def
+
+;NOTE:
+;PLS READ README.TXT
+
+;Product of Sander71113
+;http://go.to/sander71113
+;http://www.angelfire.com/jazz/sander71113
+;http://sander71113.mgbr.net
+;sander71113@yahoo.com
+[Arcade]
+intro.storyboard=
+ending.storyboard=

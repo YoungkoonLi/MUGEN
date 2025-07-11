@@ -1,0 +1,38 @@
+; Contains all the filenames needed for the character
+;Ver 0.92
+;http://www.bwhd.com/emuzone/Mugen/newweb/index.html
+
+; Player information
+[Info]
+name = "Choi Bounge"        ;Name of character
+displayname = "Choi Special" ;Name of character to display
+versiondate = 01,14,2002    ;Version date of character
+mugenversion = 04,14,2001   ;Version of M.U.G.E.N character works on
+author = "Fangke"         ;Character author name
+
+; Files for the player
+[Files]
+cmd     = ChoiS.cmd   ;Command set
+cns     = ChoiS.cns   ;Constants
+st      = ChoiS.cns   ;States
+st1     = ChoiSNA.cns
+st2     = ChoiSSA.cns
+st3     = ChoiSHA.cns
+st4     = Shows.cns
+stcommon = common1.cns ;Common states
+sprite  = Choi.sff   ;Sprite
+anim    = ChoiS.air   ;Animation
+sound   = ChoiS.snd   ;Sound
+pal1=ChoiS1.act	;94A
+pal2=ChoiS2.act	;94B
+pal3=ChoiS3.act
+pal4=ChoiS4.act
+pal5=ChoiS5.act
+pal6=ChoiS6.act
+pal7=ChoiSR.act	;95B
+pal8=BZL.act
+pal9=ChoiSF.act	;98
+pal10=ChoiC1.act;2000 Cool Choi1
+pal11=ChoiC2.act;2000 Cool Choi2
+pal12=ChoiC3.act;2000 Cool Choi3
+

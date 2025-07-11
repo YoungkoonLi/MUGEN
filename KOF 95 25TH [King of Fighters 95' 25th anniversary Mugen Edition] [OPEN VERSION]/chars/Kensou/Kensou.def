@@ -1,0 +1,28 @@
+[Info]
+name = "Kensou"
+displayname = "Sie Kensou"
+versiondate = 12,03,2000
+mugenversion = 11,29,2000
+author = "NeoGouki"
+pal.defaults = 1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+cmd     = kensou.cmd
+cns     = kensou.cns
+st      = kensou.cns
+stcommon = common1.cns
+sprite  = kensou.sff
+anim    = kensou.air
+sound   = kensou.snd
+pal1    = kof94a.act ;kof96a.act;kof98a.act;kof99a.act;
+pal2    = kof94b.act ;kof96b
+pal3    = kof95b.act
+pal4    = kof97c.act
+pal5    = kof98b.act
+pal6    = kof98c.act
+pal7    = Naranja.act
+pal8    = MateCocido.act
+pal9    = Rosa.act
+pal10   = Violeta.act
+pal11   = Blanco.act
+pal12   = Negro.act ;kof99b.act ;kof98d.act

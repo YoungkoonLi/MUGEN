@@ -1,0 +1,190 @@
+;-----------------------------------------------------------------------------------------------
+;Benimaru '94 by Duende Macabro
+;Supers.cns
+;------------------------------------------[ SUPERS ]-------------------------------------------
+
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+; Raikouken
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+[Statedef 2000]
+type = S                     
+movetype = A                      
+physics = S                      
+juggle = 5
+velset = 0,0                     
+ctrl = 0                         
+anim = 2000
+poweradd = 0
+sprpriority = 0   
+
+;--------------------------------- Super Charge
+
+[State 2000, SuperPause]
+type = SuperPause
+trigger1 = anim = 2000
+trigger1 = AnimElem = 1
+time = 39
+movetime = 39
+anim = -1
+sound = s10, 2
+darken = 1
+unhittable = 1
+
+[State 2000, VarReset]
+Type = VarSet
+trigger1 = time = 0
+trigger1 = life > 250
+fvar(23) = 0
+
+[State 2000, EnvColor2]
+type = EnvColor
+trigger1 = anim = 2000
+trigger1 = AnimElem = 1
+value = 0, 0, 0
+time = 39
+under = 1
+
+[State 2000, Explod]
+type = Explod
+trigger1 = anim = 2000
+trigger1 = AnimElemTime(1) = 0
+anim = 8102
+ID = 8102
+pos = -34,-90
+postype = P1
+sprpriority = -2
+supermove = 1
+ownpal = 1
+bindtime = -1
+
+[State 2000, Explod]
+type = Explod
+trigger1 = anim = 2000
+trigger1 = AnimElemTime(1) = 0
+anim = 8101
+ID = 8101
+pos = -34,-90
+postype = P1
+sprpriority = 4
+supermove = 1
+ownpal = 1
+bindtime = -1
+
+;--------------------------------- Super Charge
+
+[State 2000, eletric effect 1]
+type = Explod
+trigger1 = animelemtime(3) = 32 
+anim = 7000
+ID = 7000
+sprpriority = 1
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -2
+removeongethit = 1
+supermovetime = 9999
+pausemovetime = 9999
+ownpal = 1
+
+[State 2000, eletric effect 2]
+type = Explod
+trigger1 = animelemtime(3) = 33 
+anim = 7003
+ID = 7003
+sprpriority = -5
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = 5
+removeongethit = 1
+supermovetime = 9999
+pausemovetime = 9999
+ownpal = 1
+
+[State 1000, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElemTime(3) = 38
+value = 2,13
+channel = 0
+
+[State 1000, projectile 1]
+type = Projectile
+trigger1 = AnimElemTime(4) = 0
+trigger2 = AnimElemTime(4) = 4
+trigger3 = AnimElemTime(4) = 8
+trigger4 = AnimElemTime(4) = 12
+projanim = 7005
+projhitanim = 7005
+projpriority = 3
+projremovetime = 4
+offset = 0, 0
+velocity = 0,0
+attr = S, HP
+damage = 70, 5
+animtype = Heavy
+pausetime = 0,0
+sparkno = s8003
+sparkxy = 70, -75
+hitsound = S1, 8
+guardflag = MA
+guardsound = s1, 4
+guard.sparkno = s8006
+ground.type = High
+ground.slidetime = 14
+ground.hittime = 16
+ground.velocity = 0,0
+air.animtype = Back
+air.velocity = -4,-5
+air.juggle = 10
+getpower = 0, 0
+fall = 0
+palfx.time = 15
+palfx.color = 64
+palfx.invertall = 1
+palfx.add = 1,1,1
+palfx.mul = 256,256,256
+palfx.sinadd = 112,112,96,4
+
+[State 1000, projectile 2]
+type = Projectile
+trigger1 = AnimElemTime(4) = 16
+projanim = 7006
+projhitanim = 7006
+projid = 7006
+projpriority = 3
+projremovetime = 4
+offset = 0, 0
+velocity = 0,0
+attr = S, HP
+damage = 70, 5
+animtype = Heavy
+pausetime = 0,14
+sparkno = s8003
+sparkxy = 70, -75
+hitsound = S1, 8
+guardflag = MA
+guardsound = s1, 4
+guard.sparkno = s8006
+ground.type = High
+ground.slidetime = 14
+ground.hittime = 16
+ground.velocity = -4,-4
+air.animtype = Back
+air.velocity = -4,-5
+air.juggle = 10
+getpower = 0, 0
+fall = 1
+fall.recover = 0
+palfx.time = 30
+palfx.color = 64
+palfx.invertall = 1
+palfx.add = 1,1,1
+palfx.mul = 256,256,256
+palfx.sinadd = 112,112,96,4
+
+[State 2000, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1

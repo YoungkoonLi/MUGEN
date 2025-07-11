@@ -1,0 +1,117 @@
+[BG feu]
+type  		= anim
+actionno 	= 94
+;layerno		= 1
+start 		= -638,140
+delta 		= 1.7,2
+
+[BG feu]
+type  		= anim
+actionno 	= 94
+;layerno		= 1
+start 		= 0,140
+delta 		= 1.7,2
+
+[BG feu]
+type  		= anim
+actionno 	= 96
+;layerno		= 1
+start 		= 639,140
+delta 		= 1.7,2
+
+[BG feu]
+type  		= anim
+actionno 	= 97
+layerno		= 1
+start 		= -639,420
+delta 		= 2,2
+
+[BG feu]
+type  		= anim
+actionno 	= 95
+layerno		= 1
+start 		= 0,420
+delta 		= 2,2
+
+[BG feu]
+type  		= anim
+actionno 	= 97
+layerno		= 1
+start 		= 637,420
+delta 		= 2,2
+
+[BG paillettes]
+type = anim
+actionno = 99
+start = -699,70
+mask = 1
+layerno = 0
+delta = 1.6,1.6
+
+[BG paillettes]
+type = anim
+actionno = 101
+start = 0,70
+mask = 1
+layerno = 0
+delta = 1.6,1.6
+
+[BG paillettes]
+type = anim
+actionno = 99
+start = 698,70
+mask = 1
+layerno = 0
+delta = 1.6,1.6
+
+[BG paillettes]
+type = anim
+actionno = 98
+start = -701,450
+mask = 1
+layerno = 1
+delta = 2,2
+
+[BG paillettes]
+type = anim
+actionno = 100
+start = 0,450
+mask = 1
+layerno = 1
+delta = 2,2
+
+[BG paillettes]
+type = anim
+actionno = 98
+start = 699,450
+mask = 1
+layerno = 1
+delta = 2,2
+
+[BG arbre premier]
+type  		= normal
+spriteno 	= 2, 0
+layerno		= 1
+start 		= 60,550
+delta 		= 2,2
+trans		= addalpha
+alpha		= 250, 1
+
+
+[BG herbe]
+type  		= normal
+spriteno 	= 6, 0
+layerno		= 1
+start 		= 0,500
+delta 		= 2,2
+trans		= addalpha
+alpha		= 140, 20
+
+[BG herbe 2]
+type  		= normal
+spriteno 	= 5, 0
+;layerno		= 0
+start 		= 0,450
+delta 		= 1.8,2
+trans		= addalpha
+alpha		= 80, 20

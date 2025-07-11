@@ -1,0 +1,133 @@
+;SideStep
+[Statedef 702]
+type = S
+movetype = I
+physics = N
+anim = 702
+poweradd = 50
+sprpriority = -1
+velset = 0,0
+ctrl = 0
+
+[State 702, 1]
+type = PlaySnd
+trigger1 = Time = 0
+value = 702,0
+volume = 0
+channel = 0
+
+[State 702, 2]
+type = HitBy
+trigger1 = Time >= 0
+value = SCA, NT, ST, HT
+
+[State 702, 3]
+type = VarSet
+trigger1 = Time = 0
+var(1) = 0
+
+[State 702, 4]
+type = SprPriority
+trigger1 = Time = 8
+value = -1
+
+[State 702, 5]
+type = PlayerPush
+trigger1 = Time >= 0
+value = 0
+
+[State 702, 6]
+type = VarSet
+triggerall = animelem = 4, >= 2 && animelem = 5, < 0
+trigger1 = Command = "x"
+trigger2 = Command = "y"
+var(1) = 1
+
+[State 702, 7]
+type = ChangeState
+triggerall = animelem = 1, >= 4
+triggerall = animelem = 5, < 0
+trigger1 = var(1) = 1
+value = 703
+
+[State 702, 8]
+type = ChangeState
+triggerall = animelem = 1, >= 4
+triggerall = animelem = 5, < 0
+trigger1 = P2BodyDist x = [10,40]
+value = 703
+
+[State 702, 9]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;=================================================================================
+;Attack
+[Statedef 703]
+type = S
+movetype = A
+physics = S
+anim = 703
+poweradd = 30
+sprpriority = 2
+velset = 0,0
+ctrl = 0
+
+[State 191, 5]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = s0,0
+volume = 70
+
+[State 191, 5]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = s5,1
+volume = 200
+
+[State 703, 1]
+type = HitBy
+trigger1 = AnimElem = 4 < 0
+value = SCA, NT, ST, HT
+
+[State 703, 3]
+type = HitDef
+trigger1 = AnimElem = 4
+attr = S, NA
+hitflag = MAF
+animtype = hard
+damage = 51
+guardflag = MA
+pausetime = 12,12
+sparkno = S1037
+guard.sparkno = S1039
+sparkxy = 5,-93
+hitsound = S1,1
+guardsound = S200,3
+ground.type = low
+ground.slidetime = 17
+ground.hittime = 17
+ground.velocity = -11.5
+air.velocity = -3.5,-6
+airguard.velocity = -4,-6
+guard.velocity = -11.5
+ground.cornerpush.veloff = -12
+air.cornerpush.veloff = -6
+guard.cornerpush.veloff = -12
+getpower = 90,60
+givepower = 50,20
+fall = 0
+yaccel = .5
+
+[State 703, Player Push]
+type = Playerpush
+trigger1 = 1
+value = 1
+
+[State 703, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1

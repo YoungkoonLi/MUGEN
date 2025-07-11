@@ -1,0 +1,121 @@
+; The King of Fighters 95 (C) SNK/SNK Playmore 
+; Select screen
+; Version 1.0
+; Converted for Mugen by Dark Saviour
+
+;---------------------------------------------------------------------
+[Characters]
+; Row 1 (11 slots)
+kyo
+benimaru
+daimon
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+
+; Row 2 (11 slots)
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+
+; Row 3 (11 slots)
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+
+; Row 4 (11 slots)
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+char[xx]
+
+; Row 5 (3 slots)
+EMPTY
+EMPTY
+EMPTY
+EMPTY
+char[xx]
+char[xx]
+char[xx]
+EMPTY
+EMPTY
+EMPTY
+EMPTY
+
+; Row 6 (3 slots)
+EMPTY
+EMPTY
+EMPTY
+EMPTY
+char[xx]
+char[xx]
+char[xx]
+EMPTY
+EMPTY
+EMPTY
+EMPTY
+
+; Row 7 (3 slots)
+EMPTY
+EMPTY
+EMPTY
+EMPTY
+char[xx]
+char[xx]
+char[xx]
+EMPTY
+EMPTY
+EMPTY
+EMPTY
+
+; Row 8 (3 slots)
+EMPTY
+EMPTY
+EMPTY
+EMPTY
+char[xx]
+RANDOMSELECT
+char[xx]
+EMPTY
+EMPTY
+EMPTY
+EMPTY
+
+
+;---------------------------------------------------------------------
+[ExtraStages]
+stages/kfm.def
+stages/stage0.def
+
+;---------------------------------------------------------------------
+[Options]
+arcade.maxmatches = 6,1,1,0,0,0,0,0,0,0
+team.maxmatches = 4,1,1,0,0,0,0,0,0,0

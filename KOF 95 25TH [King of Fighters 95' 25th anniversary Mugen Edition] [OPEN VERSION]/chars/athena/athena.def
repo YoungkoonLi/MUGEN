@@ -1,0 +1,48 @@
+;------------------------------
+;    Asamiya Athena by Chloe
+;	   KOF2002
+;-----------------------------
+;     Athena public Beta 7
+;-----------------------------
+;      August 29th 2004
+;-----------------------------
+
+
+[Info]
+Name = "Athena Asamiya"
+DisplayName = "Athena Asamiya"
+VersionDate = 14,06,2003
+MugenVersion = 14,01,2001
+Author = "Chloe"
+Pal.Defaults = 1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+cmd = athena.cmd
+cns = athena.cns
+st = athena.cns
+st2 = athena-n.cns
+st3 = athena-s.cns
+st4 = athena-h.cns
+st5 = ai.cns
+stcommon = common1.cns
+sprite = athena.sff
+anim = athena.air
+sound = athena.snd
+
+;palettes
+pal1 = athena.act	     ;default pal in KOF2K2
+pal2 = athena2.act	     ;2nd pal in KOF2K2
+pal3 = white.act	     ;made by me
+pal4 = fake.act          ;This is not a SS palette :D
+pal5 = brazil.act        ;Ultra Rox muito bom palette, thanks to Orochi KOF97
+pal6 = dutch.act         ;requested by Junior Chillage
+pal7 = jor.act	     
+pal8 = cuteathena.act    ;made by Jorge H. Campos
+pal9 = lain.act          ;made by Lain
+pal10 = white.act	     
+pal11 = Violeta.act         
+pal12 = VerdeV.act       
+
+[Arcade]
+intro.storyboard =
+ending.storyboard = 

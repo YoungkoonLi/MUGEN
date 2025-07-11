@@ -1,0 +1,38 @@
+
+; Player information
+[Info]
+name = "94 Yuri Sakazaki"
+displayname = "Yuri Sakazaki"
+versiondate =03,08,2007   
+mugenversion =04,06,2004
+author = "Fervicante"
+pal.defaults = 6,3,4,2
+
+; Files for the player
+[Files]
+cmd     = 94_yuri.cmd
+cns     = 94_yuri.cns
+st      = 94_yuri.cns
+stcommon = common1.cns ;Common states
+sprite  = 94_yuri.sff
+anim    = 94_yuri.air
+sound   = 94_yuri.snd
+;
+pal1    = 94_yuri02.act
+pal2    = 94_yuri04.act
+pal3    = 94_yuri06.act
+;
+pal4    = 94_yuri01.act
+pal5    = 94_yuri03.act
+pal6    = 94_yuri05.act
+;
+pal7    = 94_yuri07.act
+pal8    = 94_yuri09.act
+;
+pal10   = 94_yuri08.act
+pal11   = 94_yuri10.act
+
+; Arcade mode
+;[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def

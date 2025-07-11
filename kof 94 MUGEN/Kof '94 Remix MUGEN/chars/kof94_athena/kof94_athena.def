@@ -1,0 +1,27 @@
+
+[Info]
+name = "Athena"
+displayname = "Athena"
+versiondate = 05,05,2011   
+mugenversion =01,01,2011
+author = "shimon"
+pal.defaults = 1
+
+
+[Files]
+cmd     = athena.cmd.txt
+cns     = athena.cns
+st      = athena.cns
+st2     = athena_s.cns
+stcommon = common1.cns
+sprite  = athena.sff
+anim    = athena.air
+sound   = athena.snd
+Pal1 = 2p.act;B       
+Pal2 = 2p.act;D  
+Pal3 = 2p.act  
+Pal4 = 1p.act;A  
+Pal5 = 1p.act;C  
+Pal6 = 1p.act
+
+

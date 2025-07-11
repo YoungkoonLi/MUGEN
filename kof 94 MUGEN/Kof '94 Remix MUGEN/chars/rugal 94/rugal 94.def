@@ -1,0 +1,30 @@
+[Info]
+name = "rugal94"          ;ルガール(KOF94)
+displayname = "Rugal"     ;ルガール・バーンシュタイン
+versiondate=10,05,2009    ;Version date of character
+mugenversion=06,14,2003   ;Version of M.U.G.E.N character works on
+author="Warusaki3"        ;悪咲3号
+Pal.Defaults=4,5
+
+[Files]
+cmd=rugal94.cmd
+cns=rugal94.cns
+st=rugal94.cns
+st1=kof94_system.cns
+st2=config.txt
+stcommon=common1.cns
+sprite=rugal94.sff
+anim=rugal94.air
+sound=rugal94.snd
+pal1=act004.act;オリジナルカラー2
+pal2=act005.act;オリジナルカラー3
+pal3=act006.act;オリジナルカラー4
+pal4=act001.act;Pカラー
+pal5=act002.act;Kカラー
+pal6=act003.act;オリジナルカラー1
+pal7=act010.act;オリジナルカラー6
+pal8=act011.act;オリジナルカラー7
+pal9=act012.act;オリジナルカラー8
+pal10=act007.act;95Pカラー
+pal11=act008.act;95Kカラー
+pal12=act009.act;オリジナルカラー5

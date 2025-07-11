@@ -1,0 +1,35 @@
+; Definition file for 95King
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "king"
+displayname = "95King"
+versiondate = 08,16,2001
+mugenversion = 04,14,2001
+author = "T^T"
+pal.defaults = 6,3,4,2
+
+; Files for the player - ÆÈ·¿¿¡¼­ 11,12,13¹ø À§Ä¡°¡ ¿Ê »ö±ò
+[Files]
+cmd     = 95king.cmd
+cns     = 95king.cns
+st      = 95king.cns
+stcommon = common1.cns
+sprite  = 95king.sff
+anim    = 95king.air
+sound   = 95king.snd
+pal1    = 95king1.act
+pal2    = 95king2.act
+pal6    = 95king3.act
+pal5    = 95king4.act
+pal3    = 95king5.act
+pal4    = 95king6.act
+pal7    = 95king7.act
+pal8    = 95king8.act
+pal9    = 95king9.act
+
+; Arcade mode
+;[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def

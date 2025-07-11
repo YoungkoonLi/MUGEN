@@ -1,0 +1,291 @@
+;================================================================================
+;                    CCI JOE 'S CODINGS FILE - part4
+;================================================================================
+
+;====================================================
+;
+;                      SCREW UPPER
+;
+;====================================================
+[Statedef 2000]
+type = S
+movetype = A
+physics = S
+anim = 2000
+poweradd = -1000
+velset = 0
+ctrl = 0
+
+[State 200, 1]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 2000,0
+
+[State 200, 1]
+type = PlaySnd
+trigger1 = AnimElem = 5, = 8
+value = 2000,1
+
+[State 200, 1]
+type = PlaySnd
+trigger1 = AnimElem = 5
+value = 1100,2
+
+[State 1000, expl]
+type = Explod
+trigger1 = animelem = 5
+anim = 3020
+ID = 1000
+sprpriority = 2
+postype = p1
+pos = 50,0
+bindtime = -1
+removeongethit = 1
+
+[State 3020, 3]
+type = Projectile
+trigger1 = AnimElem = 5, = 8
+projanim = 3021
+projhitanim = 3021
+projremanim = 3022
+projremovetime = 30
+projremove = 0
+projID = 1000
+projpriority = 5
+projmisstime = 10
+projhits = 6
+velocity = 1
+remvelocity = 0
+postype = p1
+offset = 50,0
+attr = S, HP
+damage = 350,10
+animtype = hard
+hitflag = MAFP
+guardflag = MA
+sparkno = 3
+guard.sparkno = 40
+sparkxy = 0,-50
+hitsound = S5,6
+guardsound = S6,0
+pausetime = 0,13
+ground.hittime = 19
+ground.type = high
+ground.slidetime = 19
+ground.velocity = -12.3
+air.velocity = -4,-6
+fall = 1
+air.juggle = 10
+yaccel = .5
+p2stateno = 3025
+getpower = 0
+
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[Statedef 3025]
+type = A
+movetype = H
+physics = N
+poweradd = 0
+velset = 0,0
+ctrl = 0
+
+[State 3025, anim]
+type = Changeanim2
+trigger1 = time = 0
+value = 3025
+
+[State 3025, vel]
+type = Velset
+trigger1 = 1
+x = -1
+
+[State 3025, vel]
+type = Velset
+trigger1 = time < 2
+y = -13
+
+[State 3025, vel]
+type = Veladd
+trigger1 = time > 1
+y = .5
+
+[State 3025, anim]
+type = Changestate
+trigger1 = pos Y >= -5
+trigger1 = vel Y > 0
+value = 3026
+
+[Statedef 3026]
+type = A
+movetype = H
+physics = N
+poweradd = 0
+velset = 0,0
+ctrl = 0
+
+[State 3025, anim]
+type = Changeanim2
+trigger1 = time = 0
+value = 3026
+
+[State 3025, vel]
+type = Posset
+trigger1 = time = 0
+y = 0
+
+[State 3025, vel]
+type = Velset
+trigger1 = 1
+x = -2
+
+[State 3025, vel]
+type = Velset
+trigger1 = time < 2
+y = -4
+
+[State 3025, vel]
+type = Veladd
+trigger1 = time > 1
+y = .5
+
+[State 5100, 8]
+type = GameMakeAnim
+trigger1 = Time = 1
+value = 62
+pos = 0, 0
+under = sysvar(1) <= 14
+
+[State 5100, 10]
+type = PlaySnd
+trigger1 = Time = 1
+value = F7,2
+
+[State 3025, anim]
+type = Selfstate
+trigger1 = pos Y >= -5
+trigger1 = vel Y > 0
+value = 5100
+
+[Statedef 2100]
+type = S
+movetype = A
+physics = S
+anim = 2100
+poweradd = -2000
+velset = 0
+ctrl = 0
+
+[State 200, 1]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 2100,0
+
+[State 200, 1]
+type = PlaySnd
+trigger1 = AnimElem = 5, = 8
+value = 2100,1
+
+[State 200, 1]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 1400,2
+
+[State 200, 1]
+type = PlaySnd
+trigger1 = AnimElem = 11
+value = 1100,2
+
+[State 1000, expl]
+type = Explod
+trigger1 = animelem = 4
+anim = 3020
+ID = 1000
+sprpriority = 2
+postype = p1
+pos = 50,0
+bindtime = -1
+removeongethit = 1
+
+[State 3020, 3]
+type = Projectile
+trigger1 = AnimElem = 4, = 8
+projanim = 3021
+projhitanim = 3021
+projremovetime = 22
+projremove = 0
+projID = 1000
+projpriority = 5
+projmisstime = 10
+velocity = 0
+remvelocity = 0
+postype = p1
+offset = 50,0
+attr = S, HP
+damage = 150,10
+animtype = hard
+hitflag = MAFP
+guardflag = MA
+sparkno = 3
+guard.sparkno = 40
+sparkxy = 0,-50
+hitsound = S5,4
+guardsound = S6,0
+pausetime = 0,13
+ground.hittime = 19
+ground.type = high
+ground.slidetime = 19
+ground.velocity = -3,-10
+guard.velocity = -12
+air.velocity = -3,-10
+fall = 1
+air.juggle = 7
+yaccel = .5
+getpower = 0
+
+[State 3020, 3]
+type = Projectile
+trigger1 = AnimElem = 11, = 2
+projanim = 3021
+projhitanim = 3021
+projremanim = 3022
+projremove = 0
+projID = 1000
+projpriority = 5
+projmisstime = 8
+projhits = 18
+velocity = 5
+remvelocity = 0
+postype = p1
+offset = 50,0
+attr = S, HP
+damage = 350,10
+animtype = hard
+hitflag = MAFP
+guardflag = MA
+sparkno = 3
+guard.sparkno = 40
+sparkxy = 0,-50
+hitsound = S5,6
+guardsound = S6,0
+pausetime = 0,13
+ground.hittime = 19
+ground.type = high
+ground.slidetime = 19
+ground.velocity = -12.3
+air.velocity = -4,-6
+fall = 1
+air.juggle = 7
+yaccel = .5
+p2stateno = 3025
+getpower = 0
+
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1

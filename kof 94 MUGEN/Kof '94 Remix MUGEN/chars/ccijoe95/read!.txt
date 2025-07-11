@@ -1,0 +1,146 @@
+JOE HIGASHI ~ the Kick boxing champion
+King of fighters 1995
+By CCIRocky aka Ironmugen aka David D.
+http://deltapark.i-xcell.com
+
+
+Beta release 1 - PRIVATE!
+
+WARNING: This char may have bugs. Thanks for reporting any bugs you find.
+
+
+What's done?
+-----------
+
+* Time over lose pose
+* Basics + requireds
+* Taunt
+* 1 Intro
+* 2 Win poses
+* All basic attacks
+* Command moves
+* 2 Throw
+* Hurricane Upper
+* Slash Kick
+* Tiger Kick
+* Bakuretsu Ken
+* Golden Heal
+* Screw Upper
+* Advancing Screw
+
+
+What's left?
+-----------
+
+
+
+NOTE for beta testers:
+----
+
+
+Might have bugs. Well, you know what to do if you find any :P
+
+
+
+Special moves
+-------------
+
+
+-O + X  (Back knuckle)
+
+\ + B  (Slide)
+ o
+
+
+Roll = A+X (hold back to roll backward)
+Charge power = A+Y
+Knockdown attack = Y+B
+Throws = at close distance, hold back or forward and press Y or B
+
+
+
+Hurricane Upper:
+
+O- / | \ -O + X/Y
+  O  O  O
+
+
+Golden Heal:
+
+|  / O- + A/B
+O O
+
+
+Tiger Kick:
+
+| \  -O  O  + A/B
+O  O    /
+
+
+Slash Kick:
+
+ / -O  + A/B
+O
+
+
+Bakuretsu Ken:
+
+Tap X or Y rapidly then: | \ -O + X/Y
+                         O  O
+
+
+Screw Upper (requires 1 power bar):
+
+-O O- / | \ -O + X/Y
+     O  O  O
+
+
+Advancing screw (requires 2 power bars):
+
+-O O- / | \ -O + X+Y
+     O  O  O
+
+
+Profile of Joe:
+--------------
+
+(Taken from www.kof10th.com)
+
+Fighting style: Muay Thai Kickboxing.
+Birthday: 29 of March.
+Height: 180cm
+Weight: 71kg
+Blood type: AB
+Birthplace: Japan.
+Hobby: Fighting.
+Personal Treasures: Headband.
+Fav food: Friend alligator bits.
+Hates: Dressing up.
+
+
+Special Thanks:
+--------------
+
+Bug repport: *
+
+Dark Saviour for his usefull progs.
+Neogouki (his Joe made me like MUGEN)
+Sander for the Counter system coding.
+Orochi KOf97 for helping out on timings years ago.
+Rumiko for the Andy review which was helpfull.
+Big Eli King, Dreamslayer, @ndroide for hostings.
+Chloe and Smogon for unknown reasons.
+Shin Dio, Walter, UltraJP/Kami.
+O Experto, Ice, DeeJack.
+
+Sion for installing my new UG forum.
+
+
+SNK for creating the KOF saga and another Korean fighter. RIP.
+Elecbyte for Mugen.
+
+Special Fucks:
+-------------
+
+Pacific Angra.
+AznMystik.

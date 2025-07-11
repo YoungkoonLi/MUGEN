@@ -1,0 +1,142 @@
+;-----------------------------------------------------------------------------------------------
+;Andy '94 by Duende Macabro
+;-2.cns
+
+[Statedef -2]
+
+[State -2, StopAI]
+type = VarSet
+triggerall = (var(59) > 0)
+trigger1 = (RoundState != 2)
+trigger2 = !Alive
+var(59) = -2
+IgnoreHitPause = 1
+
+[State -2, Simplifier]
+type = VarSet
+trigger1 = (var(59) = 1)
+trigger2 = (var(0):=0)
+var(0) = 1	
+IgnoreHitPause = 1
+
+[State -2, mostra no debug]
+type = displaytoclipboard
+trigger1 = 1
+text = "P2dist x = %.0f AI = %d POW = %f POW timer = %f\nTerry '94 by DM."
+params = p2bodydist x, var(0), fvar(23), fvar(24)
+
+[State -2, hit wall spark 1]
+type = Null
+trigger1 = stateno != 902
+trigger1 = numtarget > 0
+trigger1 = target(0), stateno = 902
+trigger1 = !numexplod(8632)
+trigger1 = enemy,numexplod(8632) = 0
+anim = 8632
+ID = 8632
+pos = floor(ifelse(Target(0), pos X <= 0, 135, 185) + target(0), pos x), floor(target(0), screenpos y - 50)
+postype = left
+sprpriority = 3
+ownpal = 1
+facing = ifelse(Target, Pos X >= 0,1,-1)
+bindtime = 1
+ignorehitpause = 1
+persistent = 0
+
+[State -2, hit wall spark 2]
+type = Null
+trigger1 = stateno != 902
+trigger1 = numtarget > 0
+trigger1 = target(0), stateno = 902
+trigger1 = !numexplod(8633)
+trigger1 = enemy,numexplod(8633) = 0
+anim = 8633
+ID = 8633
+pos = floor(ifelse(Target(0), pos X <= 0, 135, 185) + target(0), pos x), floor(target(0), screenpos y - 50)
+postype = left
+sprpriority = -1
+ownpal = 1
+facing = ifelse(Target, Pos X >= 0,1,-1)
+bindtime = 1
+ignorehitpause = 1
+persistent = 0
+
+[State -2, Hit Wall Sound]
+type = null
+trigger1 = NumTarget > 0
+trigger1 = target(0), StateNo = 902
+trigger1 = target(0), Time = 1
+value = 3, 22
+presistent = 0
+ignorehitpause = 1
+supermovetime = -1
+
+[State -2, WinKO effect]
+type = Helper
+trigger1 = WinKO
+trigger1 = NumHelper(9800) = 0
+trigger1 = stateno >= 1000
+helpertype = Normal
+name = "WinKO helper"
+id = 9800
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 9800
+keyctrl = 0
+ownpal = 1
+supermovetime = 1000
+pausemovetime = 1000
+ignorehitpause = 1
+
+[State -2, POW]
+type = Helper
+triggerall = !NumHelper(9000)
+trigger1 = roundstate >= 2
+id = 9000
+name = "POW bar"
+pos = 0,300
+postype = P1
+stateno = 9000
+helpertype = normal
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+persistent = 0
+pausemovetime = 99999999999999
+facing = facing*ifelse(teamside=1,1,-1)
+
+[State -2, POW timer]
+Type = VarSet
+Trigger1 = life > 250
+trigger1 = fvar(23) = 0.0
+fvar(24) = 0
+
+[State -2, POW timer]
+Type = VarAdd
+Trigger1 = life > 250
+trigger1 = fvar(23) = 300.0
+fvar(24) = .5
+
+[State -2, POW timer]
+Type = VarSet
+Trigger1 = life > 250
+trigger1 = fvar(24) > 300.0
+fvar(23) = 0
+
+[State -2, POW timer]
+Type = VarSet
+Trigger1 = life <= 250
+fvar(23) = 300.0
+
+[State -2, POW timer]
+Type = VarAdd
+triggerall = fvar(23) < 300.0
+trigger1 = movetype = H
+trigger1 = time = 0
+fvar(23) = floor(gethitvar(damage)*0.08)
+
+
+
+
+

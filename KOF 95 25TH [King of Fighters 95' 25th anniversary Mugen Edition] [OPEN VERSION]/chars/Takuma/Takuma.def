@@ -1,0 +1,30 @@
+; Player information
+[Info]
+name = "Takuma Sakazaki"
+displayname = "Takuma Sakazaki"
+versiondate = 07,31,2000
+mugenversion = 07,31,2000
+author = "Mouser"
+pal.defaults=1,2,3,4,5,6,7,8,9,10,11,12
+
+; Files for the player
+[Files]
+cmd     = Takuma.cmd
+cns     = Takuma.cns
+st      = Takuma.cns
+stcommon = common1.cns
+sprite  = Takuma.sff
+anim    = Takuma.air
+sound   = Takuma.snd
+pal1    = Takuma_01.act
+pal2    = Takuma-98-1.act
+pal3    = Takuma-98-2.act
+pal4    = Takuma-98-3.act
+pal5    = rojomalo.act
+pal6    = Takuma-98-6.act
+pal7    = turquesa.act
+pal8    = rojito.act
+pal9    = violeta.act
+pal10   = Azul.act
+pal11   = Verde.act
+pal12	= celeste.act

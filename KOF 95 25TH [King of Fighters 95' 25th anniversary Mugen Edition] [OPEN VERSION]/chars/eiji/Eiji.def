@@ -1,0 +1,27 @@
+; ここにキャラ情報を書いてください
+[Info]
+name = "Eiji Kisaragi"        ;キャラの名前
+displayname = "Eiji Kisaragi" ;表示されるキャラの名前
+versiondate = 11,22,2000    ;キャラの更新情報
+mugenversion = 11,22,2000   ;キャラが動くmugenのバージョン
+author = "ahuron"         ;キャラの製作者名
+pal.defaults = 1      ;敵としてでるキャラのパレット
+
+; Files for the player
+[Files]
+cmd     = Eiji_XI.cmd   ;キャラのコマンド
+cns     = Eiji_XI.cns   ;キャラのプログラム
+st      = Eiji_XI.cns   ;基本動作、必殺技、特殊ゲージ、-2、-3
+st2     = Eiji_XI2.cns  ;超必殺技
+stcommon = common1.cns 
+sprite  = Eiji_XI.sff   ;キャラの絵
+anim    = Eiji_XI.air   ;キャラの動き
+sound   = Eiji_XI.snd   ;キャラの音
+pal1    = Eiji_XI2.act
+pal2    = Eiji_XI4.act
+pal3    = Eiji_XI6.act
+pal4    = Eiji_XI.act
+pal5    = Eiji_XI3.act
+pal6    = Eiji_XI5.act
+pal7    = malo2.act
+pal8    = malob.act

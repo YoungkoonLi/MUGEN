@@ -1,0 +1,245 @@
+[Info]
+	name = "Chinesse River"
+
+[Camera]
+	startx = 0
+	starty = 0
+	boundleft = -200
+	boundright = 200
+	boundhigh = -67
+	boundlow = 0
+	verticalfollow = .075
+	tension = 50
+
+[PlayerInfo]
+	p1startx = -70
+	p1starty = 0
+	p1startz = 0
+	p1facing = 1
+
+	p2startx = 70
+	p2starty = 0
+	p2startz = 0
+	p2facing = -1
+
+	leftbound  = -1000
+	rightbound =  1000
+	topbound  =  0
+	botbound  =  0
+
+[Scaling]
+	topz = 0
+	botz = 50
+	topscale = 1
+	botscale = 1.2
+
+[Bound]
+	screenleft = 15
+	screenright = 15
+
+[StageInfo]
+	zoffset = 215
+	autoturn = 1
+	resetBG = 0
+
+[Shadow]
+	color = 170,170,170
+	yscale = .25
+
+[Music]
+	bgmusic = sound/Dora Shudders.mp3
+	bgvolume = 255
+
+[BGdef]
+	spr = stages/kiri-red.sff
+	debugbg = 0
+
+
+
+
+;----------------------------------
+[BG 1]
+	type = normal
+	spriteno = 0, 2
+	delta = 0, 0
+	mask = 0
+
+
+;----------------------/
+[BG bird1]
+	type = anim
+	actionno = 7
+	ID = 10
+	start = -240, 60
+	delta = 0.5, 0.5
+
+[BG bird1]
+	type = anim
+	actionno = 7
+	ID = 10
+	start = -260, 66
+	delta = 0.52, 0.52
+
+[BG bird1]
+	type = anim
+	actionno = 7
+	ID = 10
+	start = -310, 50
+	delta = 0.45, 0.45
+
+[BG bird1]
+	type = anim
+	actionno = 7
+	ID = 10
+	start = -330, 40
+	delta = 0.45, 0.45
+
+[BG bird1]
+	type = anim
+	actionno = 7
+	ID = 10
+	start = -350, 26
+	delta = 0.45, 0.45
+
+[BGCtrlDef 10]
+looptime = 2001
+CtrlID = 10
+
+[BGCtrl 10]
+	type = Posadd
+	time = 2000
+	x = -1001
+
+[BGCtrl 10]
+	type = VelSet
+	trigger1 = 1
+	x = 0.5
+
+
+;----------------------/
+[BG fisher]
+	type = anim
+	actionno = 8
+	ID = 20
+	delta = 0.45, 0.85
+
+[BGCtrlDef 20]
+looptime = 3200
+CtrlID = 20
+
+[BGCtrl 20]
+	type = PosSet
+	time = 0
+	x = 300
+	y = 160
+
+[BGCtrl 20]
+	type = VelSet
+	time > 0
+	x = -0.25
+
+;----------------------/
+[BG a]
+	type = normal
+	spriteno = 11, 0
+	delta = 0.85, 0.85
+	mask = 1
+
+
+[BG a]
+	type = anim
+	actionno = 100
+	delta = 0.82, 0.92
+	mask = 1
+	start = -320, -88
+
+[BG a]
+	type = anim
+	actionno = 103
+	delta = 0.65, 0.92
+	mask = 1
+	start = -140, 0
+
+[BG a]
+	type = normal
+	spriteno = 10, 0
+	delta = 0.8, 0.92
+	mask = 1
+
+;----------------------/
+[BG 3]
+	type = normal
+	spriteno = 3, 0
+	delta = 1, 1
+	mask = 1
+	start = -380, -67
+
+[BG 4]
+	type = normal
+	spriteno = 4, 0
+	delta = 1.2, 1
+	mask = 1
+	start = 100, -100
+
+;----------------------/
+
+[BG b]
+	type = parallax
+	spriteno = 1, 0
+	mask = 1
+	delta = .8, 1
+	xscale = .80, 1.16
+
+
+[BG b2]
+	type = normal
+	spriteno = 12, 0
+	mask = 1
+	layerno = 1
+	delta = 1.2, 1.2
+
+
+
+
+
+
+
+;----------------------------------
+;Animetion
+;----------------------------------
+[Begin Action 7]
+7,0, 0,0, 5
+7,1, 0,0, 5
+7,2, 0,0, 5
+7,3, 0,0, 5
+
+[Begin Action 8]
+8,0, 0,0, -1
+
+
+[Begin Action 100]
+3,0, 0,0, -1
+
+[Begin Action 110]
+3,0, 0,0, -1, V, A1
+
+[Begin Action 101]
+4,0, 0,0, -1
+
+[Begin Action 111]
+4,0, 0,0, -1, V, A1
+
+[Begin Action 102]
+3,0, 0,0, -1, H
+
+[Begin Action 121]
+3,0, 0,0, -1, HV, A1
+
+[Begin Action 103]
+4,0, 0,0, -1, H
+
+[Begin Action 113]
+4,0, 0,0, -1, HV, A1
+
+
+;[EOF]

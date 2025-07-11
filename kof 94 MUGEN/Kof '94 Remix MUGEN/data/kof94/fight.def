@@ -1,0 +1,319 @@
+[Files]
+sff=kofight.sff
+snd=fight.snd
+font3=kofbluename.fnt
+font4=koflevel.fnt
+font5=koftime.fnt
+font6=kofredname.fnt
+fightfx.sff=garoufx.sff
+fightfx.air=garoufx.air
+common.snd=common.snd
+
+[Lifebar]
+p1.pos=143,12
+p1.bg1.spr=11,0
+p1.mid.spr=12,0
+p1.front.spr=13,0
+p1.range.x=0,-102
+p2.pos=173,12
+p2.bg0.facing=-1
+p2.bg1.spr=11,0
+p2.bg1.facing=-1
+p2.mid.spr=12,0
+p2.mid.facing=-1
+p2.front.spr=13,0
+p2.front.facing=-1
+p2.range.x=0,102
+
+[Simul Lifebar]
+p1.pos=143,12
+p1.bg1.spr=11,0
+p1.mid.spr=12,0
+p1.front.spr=13,0
+p1.range.x=0,-102
+p2.pos=173,12
+p2.bg0.facing=-1
+p2.bg1.spr=11,0
+p2.bg1.facing=-1
+p2.mid.spr=12,0
+p2.mid.facing=-1
+p2.front.spr=13,0
+p2.front.facing=-1
+p2.range.x=0,102
+;Player 3
+p3.pos=143,20
+p3.bg1.spr=11,0
+p3.mid.spr=12,0
+p3.front.spr=13,0
+p3.range.x=0,-102
+;Player 4
+p4.pos=173,20
+p4.bg0.facing=-1
+p4.bg1.spr=11,0
+p4.bg1.facing=-1
+p4.mid.spr=12,0
+p4.mid.facing=-1
+p4.front.spr=13,0
+p4.front.facing=-1
+p4.range.x=0,102
+
+[Turns Lifebar]
+p1.pos=143,12
+p1.bg1.spr=11,0
+p1.mid.spr=12,0
+p1.front.spr=13,0
+p1.range.x=0,-102
+p2.pos=173,12
+p2.bg0.facing=-1
+p2.bg1.spr=11,0
+p2.bg1.facing=-1
+p2.mid.spr=12,0
+p2.mid.facing=-1
+p2.front.spr=13,0
+p2.front.facing=-1
+p2.range.x=0,102
+
+[Powerbar]
+p1.pos=75,230
+p1.bg1.spr=41,0
+p1.bg1.offset=0,0 ;69,0
+p1.bg0.spr=900,0
+p1.bg0.offset=-69,0
+p1.front.spr=43,0
+p1.range.x=0,-46
+p1.counter.offset=-23,9
+p1.counter.font=4,0,0
+p2.pos=290,230
+p2.bg1.spr=41,0
+p2.bg1.offset=0,0 ;69,0
+p2.bg0.spr=900,0
+p2.bg0.offset=0,0
+p2.front.spr=43,0
+p2.range.x=0,-46
+p2.counter.offset=-23,9
+p2.counter.font=4,0,0
+
+[Face]
+p1.pos=16,4
+p1.bg.spr=50,0
+p1.face.spr=9000,0
+p1.face.facing=1
+p1.face.offset=1,1
+p1.face.scale=0.82,0.88
+p2.pos=300,4
+p2.bg.spr=51,0
+p2.bg.facing=-1
+p2.face.spr=9000,0
+p2.face.facing=-1
+p2.face.offset=-1,1
+p2.face.scale=0.82,0.88
+
+[Simul Face]
+p1.pos=16,4
+p1.bg.spr=50,0
+p1.face.spr=9000,0
+p1.face.facing=1
+p1.face.offset=1,1
+p1.face.scale=0.82,0.88
+p2.pos=300,4
+p2.bg.spr=51,0
+p2.bg.facing=-1
+p2.face.spr=9000,0
+p2.face.facing=-1
+p2.face.offset=-1,1
+p2.face.scale=0.82,0.88
+p3.pos=16,35
+p3.bg.spr=50,1
+p3.face.spr=9000,0
+p3.face.scale=0.55,0.55
+p3.face.facing=1
+p3.face.offset=1,1
+p4.pos=300,35
+p4.bg.spr=51,1
+p4.bg.facing=-1
+p4.face.spr=9000,0
+p4.face.scale=0.55,0.56
+p4.face.facing=-1
+p4.face.offset=-1,1
+
+[Turns Face]
+p1.pos=16,4
+p1.bg.spr=50,0
+p1.face.spr=9000,0
+p1.face.facing=1
+p1.face.offset=1,1
+p1.face.scale=0.82,0.88
+p1.teammate.pos=16,35
+p1.teammate.bg.spr=50,1
+p1.teammate.face.spr=9000,0
+p1.teammate.face.scale=0.55,0.55
+p1.teammate.face.facing=1
+p1.teammate.face.offset=1,1
+p2.pos=300,4
+p2.bg.spr=51,0
+p2.bg.facing=-1
+p2.face.spr=9000,0
+p2.face.facing=-1
+p2.face.offset=-1,1
+p2.face.scale=0.82,0.88
+p2.teammate.pos=300,35
+p2.teammate.bg.spr=51,1
+p2.teammate.bg.facing=-1
+p2.teammate.face.spr=9000,0
+p2.teammate.face.scale=0.55,0.56
+p2.teammate.face.facing=-1
+p2.teammate.face.offset=-1,1
+
+[Name]
+p1.pos=40,27
+p1.name.font=3,0, 1
+p2.pos=175,27
+p2.name.font=6,0,1
+
+[Simul Name]
+p1.pos=40,40
+p1.name.font=3,0, 1
+p2.pos=175,40
+p2.name.font=6,0,1
+p3.pos=40,50
+p3.name.font=3,0,1
+p4.pos=175,50
+p4.name.font=6,0,1
+
+[Turns Name]
+p1.pos=40,27
+p1.name.font=3,0, 1
+p2.pos=175,27
+p2.name.font=6,0,1
+
+[Time]
+pos=49,4
+bg.spr=50,50
+counter.offset=110,22
+counter.font=5,0,0
+framespercount=60
+
+[Combo]
+pos=10,80
+start.x=-40
+counter.font=5,0
+counter.shake=1
+text.text= HIT!
+text.font=3,0
+text.offset=0,0
+displaytime=90
+
+[Round]
+match.wins=2
+start.waittime=30
+pos=0,0
+;round.time=0
+;round.default.offset = 160, 100
+;round.default.font=1,0, 0
+;round.default.text=
+;round.default.displaytime=60
+;round1.snd=0,1
+;round2.snd=0,2
+;round3.snd=0,3
+;round.sndtime=0
+;round1.offset = 160, 100
+;round1.anim = 
+fight.time=0
+fight.offset=160,110
+fight.anim=80
+fight.snd=1,0
+fight.sndtime=0
+ctrl.time = 30              ;Time players get control after "Fight"
+KO.time=0
+KO.offset=0,0
+KO.layerno=0
+KO.anim=200 
+KO.snd=2,0
+DKO.offset=0,0
+DKO.layerno=0
+DKO.anim=200 
+DKO.snd    = 2,1
+TO.offset  = 160, 70
+TO.font    = 1,5
+TO.text    = Time Over
+TO.displaytime = 60
+TO.snd     = 2,2
+KO.sndtime = 0             ;Time to play sound for KO, DKO and TO.
+slow.time  = 60            ;Time for KO slowdown (in ticks)
+over.waittime = 45         ;Time to wait after KO before player control is stopped
+over.hittime = 10          ;Time after KO that players can still damage each other (for double KO)
+over.wintime = 45          ;Time to wait before players change to win states
+over.time = 210            ;Time to wait before round ends
+win.time = 60
+; Win text
+win.offset = 160, 70
+win.font=6,0
+win.text=%s Wins
+win.displaytime = 540
+; 2-player win text
+win2.offset=160, 70
+win2.font=6,0
+win2.text=%s and %s Win
+win2.displaytime = 540
+; Draw text
+draw.offset = 160, 70
+draw.font = 1,0
+draw.text = Draw Game
+draw.displaytime = 540
+
+[Begin Action 200]
+520,0,0,0,3
+520,1,0,0,3
+520,0,0,0,3
+520,1,0,0,3
+520,0,0,0,3
+520,1,0,0,3
+520,0,0,0,3
+520,1,0,0,3
+520,0,0,0,3
+
+[Begin Action 80]
+80,0,-40,-10,4
+80,1,-40,-10,4
+80,2,-40,-10,4
+80,1,-40,-10,4
+80,2,-40,-10,4
+80,1,-40,-10,4
+80,2,-40,-10,4
+80,1,-40,-10,4
+80,2,-40,-10,4
+80,3,-40,-10,4
+80,4,-40,-10,4
+80,5,-40,-10,4
+80,6,-40,-10,4
+80,7,-40,-10,4
+80,8,-40,-10,4
+
+[WinIcon]
+p1.pos = 34,43    ;33,43
+p2.pos = 284,43   ;286,43
+p1.iconoffset = 12,0  
+p2.iconoffset = -12,0
+p1.counter.offset = 0,0
+p1.counter.font = 2,1
+p2.counter.offset = 0,0
+p2.counter.font = 2,1
+p1.n.spr = 100,0
+p2.n.spr = 100,0
+p1.s.spr = 101,0
+p2.s.spr = 101,0
+p1.h.spr = 102,0
+p2.h.spr = 102,0
+p1.throw.spr = 103,0
+p2.throw.spr = 103,0
+p1.c.spr = 104,0
+p2.c.spr = 104,0
+p1.t.spr = 105,0
+p2.t.spr = 105,0
+p1.suicide.spr = 106,0
+p2.suicide.spr = 106,0
+p1.teammate.spr = 107,0
+p2.teammate.spr = 107,0
+p1.perfect.spr = 110,0
+p2.perfect.spr = 110,0
+useiconupto = 4

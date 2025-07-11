@@ -1,0 +1,426 @@
+; The King of Fighters 95 (C) SNK/SNK Playmore 
+; Screenpack
+; Version 1.0
+; Converted for Mugen by Dark Saviour
+
+;-------------------------------------------------------------------
+[Info]
+name = "The King of Fighters 95"
+author = "Dark Saviour"
+
+;-------------------------------------------------------------------
+[Files]
+spr = kof95-sp.sff
+snd = kof95-sp.snd
+;logo.storyboard = kof95-sb-logo.def
+intro.storyboard = kof95-sb-intro.def
+select = ../select.def
+;select = kof95-sel.def
+fight = kof95-lb.def
+font1 = font/kof95-sp-menua.fnt
+font2 = font/kof95-sp-menub.fnt
+font3 = font/kof95-sp-win.fnt
+font4 = font/kof95-sp-mode.fnt
+font5 = font/kof95-sp-name.fnt
+
+
+;-------------------------------------------------------------------
+[Music]
+title.bgm = data/kof95/mp3/kof95-sp-title.mp3
+title.bgm.loop = 1
+select.bgm = data/kof95/mp3/kof95-sp-select.mp3
+select.bgm.loop = 1
+;vs.bgm = 
+;vs.bgm.loop = 
+
+;-------------------------------------------------------------------
+;Title screen definition
+[Title Info]
+fadein.time = 10
+fadeout.time = 10
+menu.pos = 160,71 ; 95
+menu.item.font = 2,0,0
+menu.item.active.font = 1,0,0
+menu.item.spacing = 0, 24
+
+menu.itemname.arcade = "( SINGLE PLAY  "
+menu.itemname.versus = "( SINGLE VS  "
+menu.itemname.teamarcade = "( TEAM PLAY  "
+menu.itemname.teamversus = "( TEAM VS  "
+menu.itemname.teamcoop = "( TEAM CO-OP  "
+menu.itemname.survival = "( SURVIVAL  "
+menu.itemname.survivalcoop = "( SURVIVAL CO-OP  "
+menu.itemname.training = "( PRACTICE  "
+menu.itemname.watch = "( HOW TO PLAY  "
+menu.itemname.options = "( OPTION  "
+menu.itemname.exit = "( EXIT  "
+
+menu.window.margins.y = 16, 0
+menu.window.visibleitems = 7
+menu.boxcursor.visible = 0 
+menu.boxcursor.coords = 0,0,0,0 
+
+cursor.move.snd = 100,0
+cursor.done.snd = 100,1
+cancel.snd = 100,2
+
+;----------------------------
+;Title background definition
+[TitleBGdef]
+
+[TitleBG 0]
+type  = normal
+spriteno = 5, 0
+start = 0, 0
+tile = 1,1
+velocity = -.5,-.5
+
+[TitleBG 1]
+type  = normal
+spriteno = 5, 1
+start = 0, 24
+mask = 1
+
+;-------------------------------------------------------------------
+;Character select definition
+[Select Info]
+fadein.time =10
+fadeout.time =10
+rows = 8
+columns = 11
+wrapping = 1 
+pos = 17,16
+showEmptyBoxes = 0
+moveOverEmptyBoxes = 0
+cell.size =25,25
+cell.spacing =1
+cell.bg.spr = ; 150,0
+cell.random.spr = 151,0
+cell.random.switchtime = 4
+
+p1.cursor.startcell = 0,0
+p1.cursor.active.anim = 160
+p1.cursor.done.spr = 160,0
+p1.cursor.move.snd = 100,0
+p1.cursor.done.snd = 100,1
+p1.random.move.snd = 100,0
+
+p2.cursor.startcell = 0,10
+p2.cursor.active.anim = 170
+p2.cursor.done.spr = 170,0
+p2.cursor.blink = 0
+p2.cursor.move.snd =100,0
+p2.cursor.done.snd =100,1
+p2.random.move.snd =100,0
+
+random.move.snd.cancel = 1
+stage.move.snd = 100,0
+stage.done.snd = 100,1
+cancel.snd = 100,2
+
+portrait.offset = 0,0
+portrait.scale = 1,1
+title.offset = 160,-20
+title.layerno = 0
+title.font = 1,0,0
+
+;Big portraits
+p1.face.offset = 15,161
+p1.face.scale = .6,.6
+p1.face.facing = 1
+
+p2.face.offset = 303,161
+p2.face.scale = .6,.6
+p2.face.facing = -1
+
+;Name
+p1.name.offset = 15,100
+p1.name.font = 5,0,1
+p2.name.offset = 304,120
+p2.name.font = 5,0,-1
+
+;Stage select
+stage.pos =160,236
+stage.active.font = 5,0,0
+stage.active2.font = 5,1,0
+stage.done.font = 5,0,0
+
+;Team menu
+teammenu.move.wrapping =1
+p1.teammenu.pos = 67, 139
+p1.teammenu.bg.anim = 182
+p1.teammenu.bg.offset = -17,71
+p1.teammenu.selftitle.font = 4,0,0
+p1.teammenu.selftitle.text = Team Mode
+p1.teammenu.enemytitle.font = 4,0,0
+p1.teammenu.enemytitle.text = Team Mode
+p1.teammenu.move.snd = 100,0
+p1.teammenu.value.snd = 100,0
+p1.teammenu.done.snd = 100,1
+p1.teammenu.item.offset = 0,25
+p1.teammenu.item.spacing = 0,20
+p1.teammenu.item.font = 4,2,0
+p1.teammenu.item.active.font = 4,1,0
+p1.teammenu.item.active2.font = 4,1,0
+;p1.teammenu.item.cursor.offset =
+;p1.teammenu.item.cursor.anim =
+;p1.teammenu.value.icon.offset = 
+;p1.teammenu.value.icon.spr = 
+p1.teammenu.value.empty.icon.offset = -17,6
+p1.teammenu.value.empty.icon.spr = 181,0
+p1.teammenu.value.spacing = 9,0
+
+;p2 team
+p2.teammenu.pos = 251, 139
+p2.teammenu.bg.anim = 182
+p2.teammenu.bg.offset = -17,71
+p2.teammenu.selftitle.font = 4,0,0
+p2.teammenu.selftitle.text = Team Mode
+p2.teammenu.enemytitle.font = 4,0,0
+p2.teammenu.enemytitle.text = Team Mode
+p2.teammenu.move.snd = 100,0
+p2.teammenu.value.snd = 100,0
+p2.teammenu.done.snd = 100,1
+p2.teammenu.item.offset = 0,25
+p2.teammenu.item.spacing = 0,20
+p2.teammenu.item.font = 4,2,0
+p2.teammenu.item.active.font =  4,1,0
+p2.teammenu.item.active2.font = 4,1,0
+;p2.teammenu.item.cursor.offset =
+;p2.teammenu.item.cursor.anim =
+;p2.teammenu.value.icon.offset =
+;p2.teammenu.value.icon.spr =
+p2.teammenu.value.empty.icon.offset = 10,6
+p2.teammenu.value.empty.icon.spr = 181,0
+p2.teammenu.value.spacing = -9,0
+
+[Begin Action 182]
+182,0, 0,0, 8
+182,1, 0,0, 8
+
+;-----------------------
+;Character select screen background
+[SelectBGdef]
+
+[SelectBG 0]
+type  = normal
+spriteno = 5, 0
+start = 0, 0
+tile = 1,1
+velocity = -.5,-.5
+
+[SelectBG 1]
+type  = normal
+spriteno = 150, 0
+start = 0, 14
+mask = 1
+
+[Begin Action 160]
+160,0, 0,0, 2
+160,1, 0,0, 2
+
+[Begin Action 170]
+170,0, 0,0, 2
+170,1, 0,0, 2
+
+;-------------------------------------------------------------------
+[VS Screen]
+time =150;Time to show screen
+fadein.time =15
+fadeout.time =15
+
+;Big portraits
+p1.pos = 15,50
+p1.facing = 1
+p1.scale = 1,1
+p2.pos = 303,50
+p2.facing = -1
+p2.scale = 1,1
+
+;Names
+p1.name.pos = 15,202
+p1.name.font = 5,0,1
+p2.name.pos = 303,202
+p2.name.font = 5,0,-1
+
+;-----------------------
+;VS Match up screen background
+[VersusBGdef] 
+
+[VersusBG 1] 
+type  = normal
+spriteno = 5, 0
+start = 0, 0
+tile = 1,1
+velocity = -.5,-.5
+
+[VersusBG 2]
+type  = normal
+spriteno = 200,0
+start = 0,0
+mask = 1
+
+[VersusBG 3] ;VS Screen
+type  = normal
+spriteno = 200,1
+start = 0,0
+mask = 1
+
+;-------------------------------------------------------------------
+;Demo mode definition
+[Demo Mode]
+enabled = 1
+select.enabled = 1
+vsscreen.enabled = 0
+title.waittime = 420
+fight.endtime = 1500
+fight.playbgm = 1
+fight.bars.display =1
+intro.waitcycles = 1
+debuginfo =0
+
+;-------------------------------------------------------------------
+;Continue screen definition
+[Continue Screen]
+enabled = 1
+
+;-------------------------------------------------------------------
+;Game over screen definition
+[Game Over Screen]
+enabled = 1
+storyboard = kof95-sb-gameover.def
+
+;-------------------------------------------------------------------
+;Victory screen definition
+;This is the screen that is shown when you win a match in arcade mode.
+;It will not be displayed on the last match of arcade mode.
+[Victory Screen]
+enabled = 1
+time = 300                ;Time to show screen
+fadein.time = 8
+fadeout.time = 15
+;Winner's portrait and name
+p1.offset = 400,-40
+p1.spr = 9000,2
+p1.facing = 1
+p1.scale = 1,1
+p1.window = 0,0, 1279,500
+p1.name.offset = 40,570
+p1.name.font = 3,3,1
+;Win quote text
+winquote.text = "Winner!" ;Default win quote text to show
+winquote.offset = 40,615
+winquote.font = 5,0,1
+winquote.window = 38,521, 1241,708
+winquote.textwrap = w     ;Word wrap
+
+;-----------------------
+;Victory screen background
+[VictoryBGdef] 
+
+[VictoryBG 1] 
+type  = normal
+spriteno = 100,0
+start = 0,0
+tile  = 1,1
+velocity = 0,1.5
+window = 0,501, 1279,959
+
+[VictoryBG 2]
+type  = normal
+spriteno = 100,1
+start = 0,0
+tile  = 1,1
+window = 0,0, 1279,500
+velocity = 0,1.5
+
+[VictoryBG 3]
+type  = normal
+spriteno = 100,1
+start = 0,0
+tile  = 1,1
+window = 25,520, 1254,709
+velocity = 0,1.5
+
+;-------------------------------------------------------------------
+;Win screen definition
+;This is the screen that is shown when you win in arcade mode.
+;It will not be displayed if the winning character has an ending.
+[Win Screen]
+enabled = 1
+wintext.text = Congratulations!
+wintext.font = 1,0,0
+wintext.offset = 159,70
+wintext.displaytime =-1
+wintext.layerno = 2
+fadein.time =32
+pose.time =300
+fadeout.time =64
+
+;-------------------------------------------------------------------
+;Game ending screen definition
+;This screen shows up after the Win Screen.
+;It will not be displayed if the winning character has an ending.
+[Default Ending]
+enabled = 0
+storyboard = 
+
+;-------------------------------------------------------------------
+;Ending credits screen definition
+;This screen shows up after the Win Screen and Ending
+[End Credits]
+enabled = 1
+storyboard = kof95-sb-ending.def
+
+;-------------------------------------------------------------------
+;Survival mode results screen definition
+;This is the screen that is shown when you win in survival mode.
+;It will not be displayed if the winning character has an ending.
+;Whole group is *2001.11.14 NEW*
+[Survival Results Screen]
+enabled =1
+winstext.text = Rounds survived: %i  ;Use %i for win counter
+winstext.font = 3,0,0
+winstext.offset = 159,70
+winstext.displaytime = -1
+winstext.layerno = 2
+fadein.time =32
+show.time =300
+fadeout.time =64
+roundstowin =5;Number of rounds to get win pose (lose pose otherwise)
+wintext.text=Rounds survived: %i;Use %i for win counter
+wintext.font=3,0,0
+wintext.offset=159,70
+wintext.displaytime=-1
+wintext.layerno=2
+
+;-------------------------------------------------------------------
+;Options screen definition
+[Option Info]
+cursor.move.snd = 100,0
+cursor.done.snd = 100,1
+cancel.snd = 100,2
+
+;-------------------
+;Options screen background
+[OptionBGdef] 
+
+[OptionBG 0]
+type  = normal
+spriteno = 5, 0
+start = 0, 0
+tile = 1,1
+velocity = -.5,-.5
+
+;-------------------------------------------------------------------
+[Survival Results Screen]
+enabled = 1
+winstext.text = Rounds survived:%i
+winstext.font = 3,0,0
+winstext.offset = 160,70
+winstext.displaytime = -1
+winstext.layerno = 2
+fadein.time = 32
+show.time = 300
+fadeout.time = 64
+roundstowin = 5

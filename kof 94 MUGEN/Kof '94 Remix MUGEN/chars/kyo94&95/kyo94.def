@@ -1,0 +1,25 @@
+; Definition file for kfm
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "Kyo'94"
+displayname = "Kyo'94"
+
+; Files for the player
+[Files]
+cmd     = kyo'94.cmd   ;Command set
+cns     = kyo94&95.cns   ;Constants
+st      = kyo94&95_Basic.cns   ;States
+st2     = kyo94_NA.cns
+st3     = kyo94_Sp.cns
+stcommon = common1.cns     ;Common states
+sprite  = kyo'94.sff   ;Sprite
+anim    = kyo'94.air   ;Animation
+sound   = kyo'94.snd   ;Sound
+pal1    = kyo'94p1.act   ;Palettes (can have up to 12)
+pal2    = kyo'94p2.act  ;
+pal3    = kyo'94p3.act  ;
+pal4    = kyo'94p4.act  ;
+pal5    = kyo'94p5.act  ;
+pal6    = kyo'94p6.act  ;

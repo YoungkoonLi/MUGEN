@@ -1,0 +1,22 @@
+; ここにキャラ情報を書いてください
+[Info]
+name = "Kensou-95"        ;キャラの名前
+displayname = "Kensou-95" ;表示されるキャラの名前
+versiondate = 11,22,2000    ;キャラの更新情報
+mugenversion = 11,22,2000   ;キャラが動くmugenのバージョン
+author = "FEL"         ;キャラの製作者名
+pal.defaults = 1      ;敵としてでるキャラのパレット
+
+; Files for the player
+[Files]
+cmd     = FEL-Kensou-95.cmd   ;キャラのコマンド
+cns     = FEL-Kensou-95.cns   ;キャラのプログラム
+st      = FEL-Kensou-95.cns   ;キャラのプログラム
+st1     = -3.cns
+st2     = power.cns
+st3     = away.cns
+stcommon = common.cns 
+sprite  = FEL-Kensou-95.sff   ;キャラの絵
+anim    = FEL-Kensou-95.air   ;キャラの動き
+sound   = FEL-Kensou-95.snd   ;キャラの音
+pal1    = FEL-Kensou-95.act  ;キャラの色（最大１２個）

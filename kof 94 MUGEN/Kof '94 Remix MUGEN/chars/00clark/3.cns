@@ -1,0 +1,548 @@
+[Statedef -3]
+;--------------------------------
+[State -3]
+type=DisplayToClipboard
+trigger1=1
+text="var(1):%d,var(25):%d,p2bodydist X:%f,prevstateno:%d"
+params=var(1),var(25),p2bodydist X,prevstateno
+
+[State -3]
+type=varSet
+trigger1=Enemy,Stateno=7025
+var(23)=1
+
+[State -3]
+type=varSet
+trigger1=Enemy,Stateno=[5100,5150]
+trigger2=Enemy,Movetype!=H
+var(23)=0
+
+[State -3]
+type=attackMulSet
+triggerall=Alive
+trigger1=1
+value=(1-((fvar(24))/10))
+
+[State -3]
+type=varSet
+triggerall=Enemy,Movetype!=H
+triggerall=Enemy,Stateno!=[5000,5090]
+triggerall=Stateno!=[200,4000]
+triggerall=Stateno!=[8200,8670]
+triggerall=fvar(24)!=0
+triggerall=Stateno!=52
+triggerall=prevStateno!=52
+trigger1=Time>=10
+trigger1=PrevStateno=52
+trigger2=Time>=10
+trigger2=stateno=[20,105]
+trigger3=Time>=10
+trigger3=stateno=[0,1]
+trigger4=Enemy,Stateno=[5100,5120]
+trigger5=Enemy,Stateno=[0,156]
+fvar(24)=0
+
+[State -3]
+type=varSet
+triggerall=fvar(24)!=0
+trigger1=Enemy,Stateno=[5100,5120]
+trigger2=Enemy,Stateno=[0,156]
+trigger3=Enemy,Name="Tin's Leona"
+trigger3=Enemy,Stateno=6000
+fvar(24)=0
+
+[State -3]
+type=varSet
+triggerall = var(30) != 0
+trigger1=Enemy,stateno=0||(Enemy,stateno=[20,21])||(Enemy,stateno=[10,12])||(Enemy,stateno=[5100,5120])
+trigger2 = movehit
+trigger2 = (stateno=[200,205])|| stateno = 235 || stateno = 261
+trigger3 = movehit
+trigger3 = stateno = 400 || stateno = 410|| stateno = 215
+var(30) = 0
+;///////////////////////////////////////////////////////////////
+[STate -3]
+type=varSet
+trigger1=roundstate!=2
+var(2)=0
+
+[State -3]
+type = Helper
+triggerall=(Stateno=[190,193])
+trigger1=Var(1)=0
+trigger1=NumHelper(5999)=0
+trigger1=Var(2)=0
+name="Clark_AI"
+id=5999
+helpertype=normal
+pos=0,-9999
+postype=p1
+stateno=5999
+keyctrl=1
+
+;GC関連
+;---------------------------------------------------------------------------
+;GCふっとばし
+[State -3,A]
+type = ChangeState
+value = 265
+triggerall = Power >= 1000
+triggerall = stateno=150||stateno=152
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype != L && (enemy,stateno != [5100,5120])
+trigger1 = random <= 5
+trigger1 = p2bodydist X = [0,30]
+
+;---------------------------------------------------------------------------
+;GC後退避け
+[State -3,back]
+type = ChangeState
+value = 280
+triggerall = Power >= 1000
+triggerall = stateno=150||stateno=152
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype != L && (enemy,stateno != [5100,5120])
+trigger1 = random <= 5
+trigger1 = enemy,vel X<0
+;---------------------------------------------------------------------------
+;GC前進避け
+[State -3,back]
+type = ChangeState
+value = 270
+triggerall = Power >= 1000
+triggerall = stateno=150||stateno=152
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype != L && (enemy,stateno != [5100,5120])
+trigger1 = random <= 5
+trigger1 = enemy,vel X>0
+
+;連続技関連
+;---------------------------------------------------------------------------
+;ストンピング
+[State -3]
+type = ChangeState
+value = 261
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype != A && enemy,statetype != L && (enemy,stateno != [5100,5120])
+triggerall = movecontact
+triggerall = random <= 5
+trigger1 = stateno = 400 || stateno = 410
+trigger2 = stateno = 215 && animelem =5 ,<= 0
+;---------------------------------------------------------------------------
+;デスレイクドライブ
+[State -1]
+type = ChangeState
+value = 880
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype = A
+triggerall = statetype = A && random <= 23
+trigger1 = ctrl
+trigger1 = p2bodydist X < 8
+trigger1 = p2movetype != H
+
+;===========================================================================
+;MAXウルトラアルゼンチンバックブリーカー
+[State -3]
+type = ChangeState
+value = 3200
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype != A && enemy,statetype != L && (enemy,stateno != [5100,5120])
+triggerall = movehit
+triggerall = power >= 2000 && random <= 5
+triggerall = p2bodydist X = [0,40]
+trigger1 = (stateno=[200,205])|| stateno = 235
+trigger2 = stateno = 400 || stateno = 410
+trigger3 = stateno = 215 && animelem =5 ,<= 0
+
+;ウルトラアルゼンチンバックブリーカー
+[State -3]
+type = ChangeState
+value = 3000
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype != A && enemy,statetype != L && (enemy,stateno != [5100,5120])
+triggerall = movehit
+triggerall = power >= 1000 && random <= 11
+triggerall = p2bodydist X = [0,40]
+trigger1 = (stateno=[200,205])|| stateno = 235
+trigger2 = stateno = 400 || stateno = 410
+trigger3 = stateno = 215 && animelem =5 ,<= 0
+
+;ランニングスリー
+[State -3]
+type = ChangeState
+value = 3600
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype != A && enemy,statetype != L && (enemy,stateno != [5100,5120])
+triggerall = movehit
+triggerall = power >= 1000 && random <= 11
+triggerall = p2bodydist X = [30,60]
+trigger1 = (stateno=[200,205])|| stateno = 235 || stateno =261
+trigger2 = stateno = 400 || stateno = 410
+trigger3 = stateno = 215 && animelem =5 ,<= 0
+;===========================================================================
+;スーパーアルゼンチンバックブリーカー
+[State -3]
+type = ChangeState
+value = 1000
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype != A && enemy,statetype != L && (enemy,stateno != [5100,5120])
+triggerall = movehit
+triggerall = p2bodydist X = [0,60]
+trigger1 = random <= 5
+trigger1 = stateno = 205
+trigger2 = random <= 33
+trigger2 = stateno = 400 || stateno = 410
+trigger3 = random <= 21
+trigger3 = stateno = 215 && animelem =5 ,<= 0
+
+;===========================================================================
+;超滞空フィッシャーマンバスター
+[State -3]
+type = ChangeState
+value = 1800
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype != A && enemy,statetype != L && (enemy,stateno != [5100,5120])
+triggerall = movehit
+triggerall = random <= 22
+triggerall = p2bodydist X = [0,50]
+trigger1 = (stateno=[200,205])|| stateno = 235
+trigger2 = stateno = 400 || stateno = 410
+
+;===========================================================================
+;スーパー・アラビアン・バーグラリー・バックブリーカー
+[State -3]
+type = ChangeState
+value = 1700
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype != A && enemy,statetype != L && (enemy,stateno != [5100,5120])
+triggerall = movehit
+triggerall = random <= 22
+triggerall = p2bodydist X = [30,80]
+trigger1 = stateno = 261
+trigger2 = stateno = 410
+
+;===========================================================================
+;ローリングクレイドル
+[State -3]
+type = ChangeState
+value = 1500
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype != A && enemy,statetype != L && (enemy,stateno != [5100,5120])
+triggerall = movehit
+triggerall = random <= 22
+triggerall = p2bodydist X = [30,80]
+trigger1 = stateno = 261
+trigger2 = stateno = 410
+
+;===========================================================================
+;ナパームストレッチ
+[State -3]
+type = ChangeState
+value = 1400
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype != A && enemy,statetype != L && (enemy,stateno != [5100,5120])
+triggerall = movehit
+triggerall = random <= 33
+triggerall = p2bodydist X = [0,60]
+trigger1 = stateno = 250 && numexplod(92) = 1
+
+;===========================================================================
+;ガトリングアタック
+[State -3]
+type = ChangeState
+value = 1100
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype != A && enemy,statetype != L && (enemy,stateno != [5100,5120])
+triggerall = movehit
+triggerall = random <= 22
+triggerall = p2bodydist X = [20,60]
+trigger1 = (stateno=[200,205])
+trigger2 = stateno = 400 || stateno = 410
+trigger3 = stateno = 215 && animelem =5 ,<= 0
+
+;===========================================================================
+;バルカンパンチ
+[State -3]
+type = ChangeState
+value = 1200
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype != A && enemy,statetype != L && (enemy,stateno != [5100,5120])
+triggerall = movehit
+triggerall = random <= 22
+triggerall = p2bodydist X = [20,60]
+trigger1 = (stateno=[200,205])
+trigger2 = stateno = 400 || stateno = 410
+trigger3 = stateno = 215 && animelem =5 ,<= 0
+
+;///////////////////////////////////////////////////////
+;追加技
+;ワンダフルコンボ
+[State -3]
+type=ChangeState 
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = random <= 500
+triggerall = stateno = 3310
+trigger1=animelem=13,>=0
+value=3350
+
+[State -3]
+type=ChangeState 
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = stateno = 3310
+trigger1=animelem=13,>=0
+value=3450
+
+[State -3]
+type=ChangeState 
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = random <= 888
+triggerall = stateno = 3350
+trigger1=enemy,stateno=3325
+trigger1=animelem=14,>=0
+trigger1=Animelem=16,<=0
+value=3370
+
+[State -3]
+type=ChangeState 
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = random <= 888
+triggerall = stateno = 3370
+trigger1=Power>=1000
+trigger1=animelem=13,>=0
+trigger1=animelem=14,<=0
+value=3410
+
+
+[State 3480]
+type=ChangeState 
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = random <= 888
+triggerall = stateno = 3460
+trigger1 = time >= 5
+trigger1 = animelem = 2,<= 0
+value = 3465
+
+[State 3480]
+type=ChangeState 
+trigger1 = Power >= 1000 && life <= 250
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = random <= 888
+triggerall = stateno = 3465
+trigger1 = time>=70
+trigger1 = time<=85
+value = 3468
+
+;///////////////////////////////////////////////////////
+;必殺技関連
+;フラッシングエルボー
+[State -3];SABから
+type=ChangeState 
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = random <= 333
+triggerall = stateno = 1030
+trigger1=animelem=6,>=0
+trigger1=animelem=8,<=0
+value=1550
+
+[State -3];フランケンシュタイナーから
+type=ChangeState 
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = random <= 33
+triggerall = stateno = 1310
+trigger1=animelem=8,>=0
+trigger1=Animelem=9,<=0
+value=1550
+
+[State -3];ナパームストレッチから
+type=ChangeState 
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = random <= 111
+triggerall = stateno = 1430
+trigger1=animelem=2,>=0
+trigger1=Animelem=4,<=0
+value=1550
+
+[State -3];Rクレイドルから
+type=ChangeState 
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = random <= 222
+triggerall = stateno = 1530
+trigger1=animelem=3,>=0
+trigger1=Animelem=4,<=0
+value=1550
+
+[State -3];SABBから
+type=ChangeState 
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = random <= 111
+triggerall = stateno = 1710
+trigger1=animelem=12,>=0
+trigger1=Animelem=13,<0
+value=1550
+
+[State -3]
+type=ChangeState 
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = random <= 222
+triggerall = stateno = 3460
+trigger1=animelem=6,>=0
+value=1550
+
+;ナパーム
+[State -3]
+type=ChangeState 
+triggerall = Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = random <= 15
+triggerall = stateno = 1100 || stateno = 1110
+trigger1=animelem=13,>=0
+trigger1=Movehit
+value=1405
+
+;---------------------------------------------------------------------------
+;空中弱パンチ
+[State -1]
+type = ChangeState
+value = 600
+triggerall = stateno = 54
+triggerall=Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype = S && (enemy,stateno != [5100,5120])
+trigger1 = random <= 20 && vel Y>0
+trigger1 = p2bodydist X = [0,30]
+trigger1 = ctrl
+;---------------------------------------------------------------------------
+;空中強パンチ
+[State -1]
+type = ChangeState
+value = 610
+triggerall = stateno = 54
+triggerall=Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype = S && (enemy,stateno != [5100,5120])
+trigger1 = random <= 20 && vel Y>0
+trigger1 = p2bodydist X = [0,30]
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+;空中弱キック
+[State -1]
+type = ChangeState
+value = 630
+triggerall = stateno = 54
+triggerall=Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype = A && (enemy,stateno != [5100,5120])
+trigger1 = random <= 10 && vel Y<0
+trigger1 = p2bodydist X = [0,30]
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+;空中強キック
+[State -1]
+type = ChangeState
+value = 640
+triggerall = stateno = 54
+triggerall=Roundstate=2
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype = A && (enemy,stateno != [5100,5120])
+trigger1 = random <= 20 && vel Y<0
+trigger1 = p2bodydist X = [0,30]
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+;空中弱パンチ
+[State -1]
+type = ChangeState
+value = ifelse(vel X = 0,600,605)
+triggerall=Roundstate=2
+triggerall = statetype = A
+triggerall = stateno != 54
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype = S && (enemy,stateno != [5100,5120])
+trigger1 = random <= 20 && vel Y>0
+trigger1 = p2bodydist X = [0,30]
+trigger1 = ctrl
+;---------------------------------------------------------------------------
+;空中強パンチ
+[State -1]
+type = ChangeState
+value = ifelse(vel X = 0,610,615)
+triggerall=Roundstate=2
+triggerall = statetype = A
+triggerall = stateno != 54
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype = S && (enemy,stateno != [5100,5120])
+trigger1 = random <= 20 && vel Y>0
+trigger1 = p2bodydist X = [0,40]
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+;空中弱キック
+[State -1]
+type = ChangeState
+value = ifelse(vel X = 0,630,635)
+triggerall=Roundstate=2
+triggerall = statetype = A
+triggerall = stateno != 54
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype = A && (enemy,stateno != [5100,5120])
+trigger1 = random <= 20 && vel Y<0
+trigger1 = p2bodydist X = [0,60]
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+;空中強キック
+[State -1]
+type = ChangeState
+value = ifelse(vel X = 0,640,645)
+triggerall=Roundstate=2
+triggerall = statetype = A
+triggerall = stateno != 54
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype = A && (enemy,stateno != [5100,5120])
+trigger1 = random <= 360 && vel Y<0
+trigger1 = p2bodydist X = [0,50]
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+;空中ふっとばし
+[State -1]
+type = ChangeState
+value = 255
+triggerall=Roundstate=2
+triggerall = statetype = A
+triggerall = stateno != 54
+triggerall = var(1)=1&&var(3)=1
+triggerall = enemy,statetype = A && (enemy,stateno != [5100,5120])
+trigger1 = random <= 360 && vel Y<0
+trigger1 = p2bodydist X = [0,30]
+trigger1 = ctrl
+

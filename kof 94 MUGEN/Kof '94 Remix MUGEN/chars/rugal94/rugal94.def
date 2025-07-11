@@ -1,0 +1,23 @@
+; ここにキャラ情報を書いてください
+[Info]
+name = "Rugal94"        ;キャラの名前
+displayname = "Rugal94" ;表示されるキャラの名前
+versiondate = 11,22,2000    ;キャラの更新情報
+mugenversion = 11,22,2000   ;キャラが動くmugenのバージョン
+author = "bad darkness"         ;キャラの製作者名
+pal.defaults = 6,3,4,2      ;敵としてでるキャラのパレット
+
+; Files for the player
+[Files]
+cmd     = rugal94.cmd   ;キャラのコマンド
+cns     = rugal94.cns   ;キャラのプログラム
+st      = rugal94.cns   ;キャラのプログラム
+stcommon = common1.cns 
+sprite  = rugal94.sff   ;キャラの絵
+anim    = rugal94.air   ;キャラの動き
+sound   = rugal94.snd   ;キャラの音
+pal1    = rugal94.act  ;キャラの色（最大１２個）
+pal2    = rugal94B.act  
+pal3    = green.act
+pal4    = gold.act
+pal5    = blue.act  

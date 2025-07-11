@@ -1,0 +1,281 @@
+
+;------------------------------------------------------------------------------
+; 勝利時スローヘルパー
+[Statedef 20000]
+movetype = I
+sprpriority = -1
+anim = 20000
+ctrl = 0
+
+[State 20000, 影はない]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[state 20000, 赤]
+type=EnvColor
+trigger1 = time = 0
+trigger2 = time = 2
+trigger3 = time = 4
+trigger4 = time = 6
+trigger5 = time = 8
+trigger6 = time = 10
+value = 255,0,0
+time = 2
+under = 1
+ignorehitpause = 1
+
+[state 20000, 白]
+type=EnvColor
+trigger1 = time = 1
+trigger2 = time = 3
+trigger3 = time = 5
+trigger4 = time = 7
+trigger5 = time = 9
+trigger6 = time = 11
+value = 255,255,255
+time = 2
+under = 1
+ignorehitpause = 1
+
+[State 20000, スロー処理]
+type = Pause
+trigger1 = time%2 = 0
+trigger1 = time <= 12
+time = 1
+movetime = 0
+ignorehitpause = 1
+
+[State 20000, 消去]
+type = destroyself
+trigger1 = roundstate > 3
+trigger1 = time > 12
+trigger2 = numhelper(20001)
+ignorehitpause = 1
+
+;------------------------------------------------------------------------------
+; 勝利時スローヘルパー2(天地返しKO)
+[Statedef 20001]
+movetype = I
+sprpriority = -1
+anim = 20000
+ctrl = 0
+
+[State 20000, 影はない]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[state 20000, 赤]
+type=EnvColor
+trigger1 = time = 0
+trigger2 = time = 2
+trigger3 = time = 4
+trigger4 = time = 6
+trigger5 = time = 8
+trigger6 = time = 10
+trigger7 = time = 12
+trigger8 = time = 14
+trigger9 = time = 16
+trigger10 = time = 18
+trigger11 = time = 20
+trigger12 = time = 22
+trigger13 = time = 24
+trigger14 = time = 26
+trigger15 = time = 28
+trigger16 = time = 30
+trigger17 = time = 32
+trigger18 = time = 34
+trigger19 = time = 36
+trigger20 = time = 38
+trigger21 = time = 40
+trigger22 = time = 42
+trigger23 = time = 44
+trigger24 = time = 46
+trigger25 = time = 48
+trigger26 = time = 50
+trigger27 = time = 52
+trigger28 = time = 54
+trigger29 = time = 56
+trigger30 = time = 58
+trigger31 = time = 60
+trigger32 = time = 62
+trigger33 = time = 64
+trigger34 = time = 66
+trigger35 = time = 68
+trigger36 = time = 70
+trigger37 = time = 72
+trigger38 = time = 74
+trigger39 = time = 76
+trigger40 = time = 78
+trigger41 = time = 80
+trigger42 = time = 82
+trigger43 = time = 84
+trigger44 = time = 86
+trigger45 = time = 88
+trigger46 = time = 90
+trigger47 = time = 92
+trigger48 = time = 94
+trigger49 = time = 96
+trigger50 = time = 98
+trigger51 = time = 100
+trigger52 = time = 102
+trigger53 = time = 104
+trigger54 = time = 106
+trigger55 = time = 108
+trigger56 = time = 110
+trigger57 = time = 112
+trigger58 = time = 114
+trigger59 = time = 116
+trigger60 = time = 118
+trigger61 = time = 120
+trigger62 = time = 122
+trigger63 = time = 124
+trigger64 = time = 126
+trigger65 = time = 128
+trigger66 = time = 130
+trigger67 = time = 132
+trigger68 = time = 134
+trigger69 = time = 136
+trigger70 = time = 138
+trigger71 = time = 140
+trigger72 = time = 142
+trigger73 = time = 144
+trigger74 = time = 146
+trigger75 = time = 148
+trigger76 = time = 150
+trigger77 = time = 152
+trigger78 = time = 154
+trigger79 = time = 156
+trigger80 = time = 158
+trigger81 = time = 160
+trigger82 = time = 162
+trigger83 = time = 164
+trigger84 = time = 166
+trigger85 = time = 168
+trigger86 = time = 170
+trigger87 = time = 172
+trigger88 = time = 174
+trigger89 = time = 176
+trigger90 = time = 178
+trigger91 = time = 180
+trigger92 = time = 182
+trigger93 = time = 184
+trigger94 = time = 186
+value = 255,0,0
+time = 2
+under = 1
+ignorehitpause = 1
+
+[state 20000, 白]
+type=EnvColor
+trigger1 = time = 1
+trigger2 = time = 3
+trigger3 = time = 5
+trigger4 = time = 7
+trigger5 = time = 9
+trigger6 = time = 11
+trigger7 = time = 13
+trigger8 = time = 15
+trigger9 = time = 17
+trigger10 = time = 19
+trigger11 = time = 21
+trigger12 = time = 23
+trigger13 = time = 25
+trigger14 = time = 27
+trigger15 = time = 29
+trigger16 = time = 31
+trigger17 = time = 33
+trigger18 = time = 35
+trigger19 = time = 37
+trigger20 = time = 39
+trigger21 = time = 41
+trigger22 = time = 45
+trigger23 = time = 47
+trigger24 = time = 49
+trigger25 = time = 51
+trigger26 = time = 53
+trigger27 = time = 55
+trigger28 = time = 57
+trigger29 = time = 59
+trigger30 = time = 61
+trigger31 = time = 63
+trigger32 = time = 65
+trigger33 = time = 67
+trigger34 = time = 69
+trigger35 = time = 71
+trigger36 = time = 73
+trigger37 = time = 75
+trigger38 = time = 77
+trigger39 = time = 79
+trigger40 = time = 81
+trigger41 = time = 83
+trigger42 = time = 85
+trigger43 = time = 87
+trigger44 = time = 89
+trigger45 = time = 91
+trigger46 = time = 93
+trigger47 = time = 95
+trigger48 = time = 97
+trigger49 = time = 99
+trigger50 = time = 101
+trigger51 = time = 103
+trigger52 = time = 105
+trigger53 = time = 107
+trigger54 = time = 109
+trigger55 = time = 111
+trigger56 = time = 113
+trigger57 = time = 115
+trigger58 = time = 117
+trigger59 = time = 119
+trigger60 = time = 121
+trigger61 = time = 123
+trigger62 = time = 125
+trigger63 = time = 127
+trigger64 = time = 129
+trigger65 = time = 131
+trigger66 = time = 133
+trigger67 = time = 135
+trigger68 = time = 137
+trigger69 = time = 139
+trigger70 = time = 141
+trigger71 = time = 143
+trigger72 = time = 145
+trigger73 = time = 147
+trigger74 = time = 149
+trigger75 = time = 151
+trigger76 = time = 153
+trigger77 = time = 155
+trigger78 = time = 157
+trigger79 = time = 159
+trigger80 = time = 161
+trigger81 = time = 163
+trigger82 = time = 165
+trigger83 = time = 167
+trigger84 = time = 169
+trigger85 = time = 171
+trigger86 = time = 173
+trigger87 = time = 175
+trigger88 = time = 177
+trigger89 = time = 179
+trigger90 = time = 181
+trigger91 = time = 183
+trigger92 = time = 185
+value = 255,255,255
+time = 2
+under = 1
+ignorehitpause = 1
+
+[State 20000, スロー処理]
+type = Pause
+trigger1 = time%2 = 0
+trigger1 = time <= 186
+time = 1
+movetime = 0
+
+[State 20000, 消去]
+type = destroyself
+trigger1 = roundstate > 3
+trigger1 = time > 185
+ignorehitpause = 1
+

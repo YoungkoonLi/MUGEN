@@ -1,0 +1,42 @@
+; Definition file for Iron Kim Kaph Hwan
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "Kim Kaphwan"
+displayname = "Kim"
+versiondate = 23,04,2004 ;Started
+mugenversion = 04,01,2001
+author = "David Demianoff"
+pal.defaults = 1,2,3,4,5,6,7,8,9,10,11,12
+
+; Files for the player
+[Files]
+cmd      = kim.cmd	;Other config
+cns      = kim.cns	;Constants
+st       = kim.cns	;States
+st1      = attacks.cns	;States
+st2      = specials.cns	;States
+st3      = hypers.cns	;States
+st4      = misc.cns	;States
+stcommon = common1.cns		;Common states
+sprite   = kim.sff	;Sprite
+anim     = kim.air	;Animation
+sound    = kim.snd	;Sound
+;sound    = kim_korea.snd	;Alternate Sound file
+pal1     = kim_2k2a.act	;Normal palette
+pal2     = kim_2k2b.act	;2nd palette
+pal3     = kim_2k2c.act
+pal4     = kim_2k2d.act
+pal5     = kim5.act
+pal6     = kim6.act
+pal7     = kim7.act
+pal8     = kim8.act
+pal9     = kim9.act
+pal10    = kim_xib.act
+pal11    = kim_xic.act
+pal12    = kim_xid.act
+
+; Arcade mode
+;[Arcade]
+;ending.storyboard = clara_end.def

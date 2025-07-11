@@ -1,0 +1,70 @@
+Robert Moves
+
+94':
+You can access this mode by pressing start in the intro of the first fight.
+This is also the default mode.
+
+Features:
+Evade
+plus 25% damage when in max mode
+Can use DMs freely when life <= 20%
+Can use SDM when life <= 20% and in max mode
+
+Throws
+Kubikiri Nage:		When close, b / f + y
+
+Normal Attacks
+a : 			Weak Kick
+b : 			Strong Kick
+x : 			Weak Punch
+y : 			Strong Punch
+a+x or c:		Evade
+b+y or z:		Knock Down Attack
+x+y :			Power Up
+
+Special Attacks
+qcf + P :		Ryuugeki Ken
+dp + p:			Ryuuga
+hcb + k :		Gen'ei Kyaku
+in air, qcb + k :	Hien Ryuujin Kyaku
+hold DB, F + k :	Hien Senpuu Kyaku
+F, hcf + p :		Haou Shoukou Ken
+
+DM
+qcf, hcb + p :		Ryuuko Ranbu
+
+AOF:
+You can access the AOF mode by pressing forward + start during the intro of the first fight.
+
+Features:
+Start with full Ki meter
+Special Attacks damage varies according to the Ki meter.
+Can perform the Deadly Energy Blast when Ki meter is >= 60%
+Can perform the DM when life <= 20% and Ki meter is >= 75%
+
+Throws
+Kubikiri Nage:		When close, b / f + y
+
+Normal Attacks
+a : 			Weak Kick
+b : 			Strong Kick
+x : 			Weak Punch
+y : 			Strong Punch
+b+y or z:		Knock Down Attack
+x+y :			Power Up
+
+Special Attacks
+qcf + P :		Ryuugeki Ken
+dp + p:			Ryuuga
+hcb + k :		Gen'ei Kyaku
+in air, qcb + k :	Hien Ryuujin Kyaku
+hold DB, F + k :	Hien Senpuu Kyaku
+
+Deadly Energy Blast
+F, hcf + p :		Haou Shoukou Ken
+
+DM
+qcf, hcb + p :		Ryuuko Ranbu
+
+
+

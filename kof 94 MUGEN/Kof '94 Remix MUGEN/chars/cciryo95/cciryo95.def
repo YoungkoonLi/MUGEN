@@ -1,0 +1,40 @@
+;==========================================================
+; Definition file for CCI Ryo 95
+; For Winmugen
+; Ironmugen
+;==========================================================
+
+; Player information
+[Info]
+name = "Ryo Sakazaki"
+displayname = "CCI Ryo"
+versiondate = 10,11,2006 ;Started
+mugenversion = 04,01,2001
+author = "David Demianoff"
+pal.defaults = 1,2,3,4
+
+; Files for the player
+[Files]
+cmd      = ryo95.cmd        ;Other config
+cns      = ryo95.cns        ;Constants
+st       = ryo95.cns        ;States
+st1      = attacks.cns        ;States
+st2      = specials.cns        ;States
+st3      = hypers.cns        ;States
+st4      = misc.cns        ;States
+stcommon = common1.cns     ;Common states
+sprite   = ryo95.sff        ;Sprite
+anim     = ryo95.air        ;Animation
+sound    = ryo95.snd        ;Sound
+pal1     = ryo95.act        ;Normal palette
+pal2     = ryo95b.act
+pal3     = ryo94b.act
+pal4     = ryo_aof2b.act
+pal5	 = ryo_aof2c.act
+pal6	 = ryo_aof2d.act
+pal7	 = ryoNBC_a.act     ; Made by BaoJJ
+pal8	 = ryobr.act
+;pal9	 = 9.act
+;pal10	 = 10.act
+;pal11	 = 11.act
+;pal12	 = 12.act

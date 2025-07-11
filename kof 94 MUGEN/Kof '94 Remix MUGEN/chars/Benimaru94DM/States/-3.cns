@@ -1,0 +1,298 @@
+;-----------------------------------------------------------------------------------------------
+;Benimaru '94 by Duende Macabro
+;-3.cns
+
+[Statedef -3]
+
+[State -3, SetAI]
+type = VarSet
+triggerall = !RoundState
+triggerall = IsHomeTeam
+trigger1 = (TeamSide = 2)
+trigger2 = (MatchNo > 1)
+var(59) = 1
+
+[State -3, Unfair]
+type = VarSet
+trigger1 = !RoundState
+trigger1 = (var(59) != 1)
+trigger1 = NumPartner
+trigger1 = (ID > Partner,ID)
+trigger1 = (TeamSide = 2)
+var(59) = 1
+
+[State -3, AI Helper (Compatibly Partnered Version)]
+type = Helper
+trigger1 = !var(59)
+trigger1 = !NumHelper(9742)
+trigger1 = (RoundState = 2)
+trigger1 = Alive
+trigger1 = NumPartner
+trigger1 = Partner,SelfAnimExist(9741)
+HelperType = normal
+name = "AI Helper (Simul Version)"
+ID = 9742
+pos = 9999999,99999
+StateNo = 9742
+KeyCtrl = 1
+PauseMoveTime = 999999999
+SuperMoveTime = 999999999
+
+[State -3, AI Helper]
+type = Helper
+triggerall = !var(59)
+triggerall = !NumHelper(9741)
+triggerall = (RoundState = 2)
+triggerall = Alive
+trigger1 = !NumPartner
+trigger2 = !(Partner,SelfAnimExist(9741))
+HelperType = normal
+name = "AI helper"
+ID = 9741
+pos = 9999999,99999
+StateNo = 9741
+KeyCtrl = 1
+PauseMoveTime = 999999999
+SuperMoveTime = 999999999
+
+[State -3, TurnBackOnAI]
+type = VarSet
+trigger1 = (var(59) = -2)
+trigger1 = (RoundState = 2)
+trigger1 = Alive
+var(59) = 1
+
+[State -3, HitPauseTime Helper]
+type = null;Helper
+triggerall = var(59)!=1
+triggerall = !NumHelper(9743)
+triggerall = (RoundState = 2)
+triggerall = Alive
+trigger1 = (MatchNo = 1)
+trigger2 = NumPartner
+trigger2 = (ID > Partner,ID)
+HelperType = normal
+name = "HitPauseTime"
+ID = 9743
+pos = 9999999,99999
+StateNo = 9743
+PauseMoveTime = 999999999
+SuperMoveTime = 999999999
+
+[State -3, XOR]
+type = VarSet
+triggerall = var(59)!=1
+triggerall = (var(57) = GameTime-1)
+triggerall = NumHelper(9743)
+triggerall = !(Helper(9743),var(1))
+trigger1 = (command = "a") ^^ (command = "a2")
+trigger2 = (command = "b") ^^ (command = "b2")
+trigger3 = (command = "c") ^^ (command = "c2")
+trigger4 = (command = "x") ^^ (command = "x2")
+trigger5 = (command = "y") ^^ (command = "y2")
+trigger6 = (command = "z") ^^ (command = "z2")
+trigger7 = (command = "start") ^^ (command = "start2")
+trigger8 = (command = "holda") ^^ (command = "holda2")
+trigger9 = (command = "holdb") ^^ (command = "holdb2")
+trigger10 = (command = "holdc") ^^ (command = "holdc2")
+trigger11 = (command = "holdx") ^^ (command = "holdx2")
+trigger12 = (command = "holdy") ^^ (command = "holdy2")
+trigger13 = (command = "holdz") ^^ (command = "holdz2")
+trigger14 = (command = "holdstart") ^^ (command = "holdstart2")
+trigger15 = (command = "holdfwd") ^^ (command = "holdfwd2")
+trigger16 = (command = "holdback") ^^ (command = "holdback2")
+trigger17 = (command = "holdup") ^^ (command = "holdup2")
+trigger18 = (command = "holddown") ^^ (command = "holddown2")
+trigger19 = (command = "recovery") ^^ (command = "recovery2")
+var(59) = 1
+
+[State -3, GameTimeVar]
+type = VarSet
+trigger1 = 1
+var(57) = GameTime
+IgnoreHitPause = 1
+
+
+[State -3, Landing Sound]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 52 
+trigger2 = stateno = 106 
+value = 40, 0
+
+[State -3, apanha]
+type = PlaySnd
+triggerall = alive
+triggerall = random < 600
+trigger1 = Time = 0 && stateno = 5000
+trigger2 = Time = 0 && stateno = 5010
+trigger3 = Time = 0 && stateno = 5020
+trigger4 = Time = 0 && stateno = 5070
+trigger5 = Time = 0 && stateno = 5080
+trigger6 = Time = 1 && stateno = 5100
+value = s2,0 + (random%3)
+volume = 200
+
+[State -3, voices]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 200 
+trigger2 = stateno = 400
+trigger3 = stateno = 600 
+value = s2, 5
+
+[State -3, voices]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 210 
+trigger2 = stateno = 410
+trigger3 = stateno = 610 
+trigger4 = stateno = 300
+value = s2, 6
+
+[State -3, voices]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 230 
+trigger2 = stateno = 430
+trigger3 = stateno = 630 || stateno = 635 
+value = s2, 7
+
+[State -3, voices]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 240 
+trigger2 = stateno = 440
+trigger3 = stateno = 640 || stateno = 645 
+value = s2, 8
+
+[State -3, voices]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 220 
+trigger2 = stateno = 221
+trigger3 = stateno = 620 
+value = s2, 10
+
+[state -3, special strength var reset] 
+type = varset 
+trigger1 = (var(14) > 0) && Stateno < 1000 
+v = 14 
+value = 0
+
+[State -3, just defense off]
+type = VarSet
+trigger1 = PrevStateNo = 700
+v = 19 
+value = 0
+
+[State -3, shinkuu katategoma anti-bug]
+type = VarSet
+trigger1 = stateno != 1150
+v = 15
+value = 0
+
+[State -3, reset hit time]
+type = VarSet
+trigger1 = movetype != A
+var(22) = 0
+
+[State -3, weak moves hit time]
+type = VarSet
+trigger1 = stateno = 200
+trigger2 = stateno = 230
+trigger3 = stateno = 400
+trigger4 = stateno = 430
+trigger5 = stateno = 600
+trigger6 = stateno = 630
+var(22) = 10 - 6 * (statetype = A)
+
+[State -3, strong moves hit time]
+type = VarSet
+trigger1 = stateno = 210
+trigger2 = stateno = 240
+trigger3 = stateno = 410
+trigger4 = stateno = 440
+trigger5 = stateno = 610
+trigger6 = stateno = 640
+trigger7 = stateno = 220
+trigger8 = stateno = 620
+trigger9 = stateno = 221
+trigger10 = stateno = 300
+var(22) = 20 - 6 * (statetype = A)
+
+[State -3, AfterImage lv1/roll]
+type = AfterImage
+trigger1 = stateno = 2000 || stateno = 2200
+trigger1 = time = 1
+trigger2 = stateno = 710
+trigger2 = time = 1
+palcontrast = 120,120,220
+time = 2
+
+[State -3, AfterImage lv2]
+type = null
+trigger1 = stateno = 2100 || stateno = 2400
+trigger1 = time = 1
+palcontrast = 220,60,60
+palladd = 25,5,5
+palmul = .75,.35,.35
+time = 2
+
+[State -3, AfterImage lv3]
+type = null
+trigger1 = stateno = 2600
+trigger1 = time = 1
+palcontrast = 220,200,60
+palladd = 25,20,5
+palmul = .75,.60,.35
+time = 2
+
+[State -3, afterimage remove]
+type = AfterImageTime
+trigger1 = stateno = [2000,3000]
+trigger2 = stateno = 710
+time = 2
+
+[State -3, Counter]
+Type = Explod
+trigger1 = movehit && numtarget && hitdefattr = SCA,AA
+trigger1 = var(28)
+trigger1 = (target,movetype = H) && !(target,time)
+trigger1 = NumExplod(8100) = 0
+ignorehitpause = 1
+id = 8100
+anim = ifelse(TeamSide = 2,81001,8100)
+postype = Left
+pos = 10 + (300 * (teamside = 2)),75
+bindtime = -1
+removetime = -2
+ontop = 1
+ownpal = 1
+facing = 1
+pausemovetime = 100
+
+[State -2, countervar]
+type = varset
+trigger1 = 1
+var(28) = ifelse((p2movetype = A),1,0)
+
+[State -3, Guard Crush]
+Type = Explod
+trigger1 = movehit && numtarget && hitdefattr = SCA,AA
+trigger1 = var(20) >=2
+trigger1 = (target,movetype = H) && !(target,time)
+trigger1 = NumExplod(8107) = 0
+ignorehitpause = 1
+id = 8107
+anim = ifelse(TeamSide = 2,81071,8107)
+postype = Left
+pos = 10 + (300 * (teamside = 2)),75
+bindtime = -1
+removetime = -2
+ontop = 1
+ownpal = 1
+facing = 1
+pausemovetime = 100
+
+

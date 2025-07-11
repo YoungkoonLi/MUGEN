@@ -1,0 +1,40 @@
+;==========================================================
+; Definition file for CCI Rugal 95
+; For Winmugen
+; Ironmugen
+;==========================================================
+
+; Player information
+[Info]
+name = "Omega Rugal"
+displayname = "Omega Rugal B"
+versiondate = 15,04,2007 ;Started
+mugenversion = 04,01,2001
+author = "David Demianoff"
+pal.defaults = 1,2,3,4
+
+; Files for the player
+[Files]
+cmd      = regal.cmd        ;Other config
+cns      = rugal95.cns        ;Constants
+st       = rugal95.cns        ;States
+st1      = attacks.cns        ;States
+st2      = specials.cns        ;States
+st3      = hypers.cns        ;States
+st4      = misc.cns        ;States
+stcommon = common1.cns     ;Common states
+sprite   = rugal95.sff        ;Sprite
+anim     = rugal95.air        ;Animation
+sound    = regalo.snd        ;Sound
+pal1     = rugal95.act        ;Normal palette
+pal2     = rugal95_b.act
+pal3     = rugal98_a.act
+pal4     = rugal98_b.act
+pal5	 = rugal98_c.act
+pal6	 = rugal98_d.act
+;pal7	 = rugal98_d.act
+;pal8	 = rugal98b.act
+;pal9	 = rugal95.act
+;pal10	 = 10.act
+;pal11	 = 11.act
+;pal12	 = 12.act

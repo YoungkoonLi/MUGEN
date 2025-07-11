@@ -1,0 +1,222 @@
+[Info]
+name="The King of Fighters 94"
+author="Trial Force"
+Version="0.3"
+
+[Files]
+spr=kofight.sff
+snd=system.snd
+logo.storyboard=neogeo.def
+intro.storyboard=kof94intro.sce
+select=select.def
+fight=fight.def
+font1=kofbluename.fnt
+font2=kofredname.fnt
+font3=kofbluename.fnt
+
+[Music]
+title.bgm=data/kof94/ouei.mp3 
+title.bgm.loop=1
+select.bgm=data/kof94/tumdum.mp3 
+select.bgm.loop=1
+vs.bgm=
+vs.bgm.loop=1 
+
+[Title Info]
+menu.pos=154,100
+menu.item.font=1,0,0
+menu.item.active.font=2,0,0
+menu.item.spacing=0,13
+menu.itemname.arcade="ARCADE"
+menu.itemname.versus="VS MODE"
+menu.itemname.teamarcade="TEAM ARCADE"
+menu.itemname.teamversus="TEAM VS"
+menu.itemname.teamcoop="TEAM CO-OP"
+menu.itemname.training="TRAINING"
+menu.itemname.watch="WATCH"
+menu.itemname.options="OPTIONS"
+menu.itemname.exit="EXIT"
+menu.window.margins.y=12,8
+menu.window.visibleitems=9
+menu.boxcursor.visible=0
+menu.boxcursor.coords=-48,-10,47,2
+cursor.move.snd=100,0
+cursor.done.snd=100,1
+cancel.snd=100,2
+
+[TitleBGdef]
+bgclearcolor=0,0,0
+
+[TitleBG 0]
+type=normal
+spriteno=901,1
+start=-150,0
+
+[Select Info]
+rows=4
+columns=13
+wrapping=1
+pos=3,150
+showemptyboxes=0
+moveoveremptyboxes=0
+cell.size=22,22
+cell.spacing=1
+cell.bg.spr=50,0
+cell.random.spr=151,0
+cell.random.switchtime=4
+p1.cursor.startcell=0,0
+p1.cursor.active.spr=52,0
+p1.cursor.done.spr=52,0
+p1.cursor.move.snd=100,0
+p1.cursor.done.snd=100,1
+p1.random.move.snd=100,0
+p2.cursor.startcell=0,0
+p2.cursor.active.spr=52,0
+p2.cursor.done.spr=52,0
+p2.cursor.blink=1
+p2.cursor.move.snd=100,0
+p2.cursor.done.snd=100,1
+p2.random.move.snd=100,0
+random.move.snd.cancel=0
+stage.move.snd=100,0
+stage.done.snd=100,1
+cancel.snd=100,2
+portrait.offset=1,1
+portrait.scale=0.82,0.88
+p1.face.offset=0,9
+p1.face.scale=1,1
+p1.face.facing=1
+p2.face.offset=320,9
+p2.face.scale=1,1
+p2.face.facing=-1
+p1.name.offset=10,132
+p1.name.font=1,0,1
+p2.name.offset=309,132
+p2.name.font=2,0,-1
+stage.pos=160,237
+stage.active.font=1,0,0
+stage.active2.font=2,0
+stage.done.font=1,0
+teammenu.move.wrapping=1
+p1.teammenu.pos=20, 30
+;p1.teammenu.bg.spr =
+p1.teammenu.selftitle.font=1,0, 1
+p1.teammenu.selftitle.text=Select team mode
+p1.teammenu.enemytitle.font=2,0, 1
+p1.teammenu.enemytitle.text=Opponent team mode
+p1.teammenu.move.snd = 100,0
+p1.teammenu.value.snd = 100,0
+p1.teammenu.done.snd = 100,1
+p1.teammenu.item.offset = 0,20
+p1.teammenu.item.spacing = 0,15
+p1.teammenu.item.font=1,0, 1
+p1.teammenu.item.active.font=2,0, 1
+p1.teammenu.item.active2.font=2,0, 1 ;Second font color for blinking
+p1.teammenu.item.cursor.offset = -10, 0
+p1.teammenu.item.cursor.anim = 180
+p1.teammenu.value.icon.offset = 60,1
+p1.teammenu.value.icon.spr = 181,0
+p1.teammenu.value.empty.icon.offset = 60,1
+p1.teammenu.value.empty.icon.spr = 182,0
+p1.teammenu.value.spacing = 6,0
+;p2 team
+p2.teammenu.pos = 299, 30
+;p2.teammenu.bg.spr =
+p2.teammenu.selftitle.font=2,0, -1
+p2.teammenu.selftitle.text = Select team mode
+p2.teammenu.enemytitle.font=1,0, -1
+p2.teammenu.enemytitle.text = Opponent team mode
+p2.teammenu.move.snd = 100,0
+p2.teammenu.value.snd = 100,0
+p2.teammenu.done.snd = 100,1
+p2.teammenu.item.offset = 0,20
+p2.teammenu.item.spacing = 0,15
+p2.teammenu.item.font=2,0, -1
+p2.teammenu.item.active.font=1,0, -1
+p2.teammenu.item.active2.font=1,0, -1
+p2.teammenu.item.cursor.offset = 10, 0
+p2.teammenu.item.cursor.anim = 190
+p2.teammenu.value.icon.offset = -60,1
+p2.teammenu.value.icon.spr = 191,0
+p2.teammenu.value.empty.icon.offset = -60,1
+p2.teammenu.value.empty.icon.spr = 192,0
+p2.teammenu.value.spacing = -6,0
+
+[SelectBGdef]
+
+[SelectBG 0] ;Scrolling background
+type=normal
+spriteno=901,0
+layerno=0
+start=-150,0
+
+[VS Screen]
+time=0
+p1.pos=20,-1000
+p1.facing=1             ;*2001.04.01 NEW*
+p1.scale=1,1            ;*2001.04.01 NEW*
+p2.pos=299,-1000
+p2.facing=-1            ;*2001.04.01 NEW*
+p2.scale=1,1            ;*2001.04.01 NEW*
+p1.name.pos=0,0
+p1.name.font=-1
+p2.name.pos=0,0
+p2.name.font=-1
+
+[VersusBGdef] 
+
+[VersusBG 1] 
+type=normal
+spriteno=200,7
+start=-150,0
+
+[Demo Mode]
+enabled = 1               ;Set to 1 to enable demo mode, 0 to disable
+select.enabled = 0        ;Set to 1 to display select screen, 0 to disable
+vsscreen.enabled = 0      ;Set to 1 to display versus screen, 0 to disable
+title.waittime = 600      ;Time to wait at title before starting demo mode
+fight.endtime = 1500      ;Time to display the fight before returning to title
+fight.playbgm = 0         ;Set to 1 to enable in-fight BGM, 0 to disable
+fight.bars.display = 0    ;Set to 1 to display lifebar, 0 to disable
+intro.waitcycles = 1      ;Cycles to wait before intro cutscene is played again
+debuginfo = 0             ;Set to 0 to hide debugging info (debug mode only)
+
+[Continue Screen]
+enabled = 1               ;Set to 1 to show continue screen, 0 to disable
+
+[Game Over Screen]
+enabled = 0               ;Set to 1 to show game over screen, 0 to disable
+storyboard =              ;Game over storyboard filename
+
+[Win Screen]
+enabled = 1
+wintext.text = Congratulations!
+wintext.font = 2,0,0
+wintext.offset = 159,70
+wintext.displaytime = -1
+wintext.layerno = 2
+fadein.time = 32
+pose.time = 300
+fadeout.time = 64
+
+[Default Ending]
+enabled = 0               ;Set to 1 to show credits, 0 to disable
+storyboard =              ;Default ending storyboard filename
+
+[End Credits]
+enabled = 0               ;Set to 1 to show credits, 0 to disable
+storyboard =              ;Credits storyboard filename
+
+[Option Info]
+cursor.move.snd = 100,0
+cursor.done.snd = 100,1
+cancel.snd = 100,2
+
+[OptionBGdef] 
+
+[OptionBG 1]
+type=normal
+spriteno=901,0
+start=-150,0
+
+

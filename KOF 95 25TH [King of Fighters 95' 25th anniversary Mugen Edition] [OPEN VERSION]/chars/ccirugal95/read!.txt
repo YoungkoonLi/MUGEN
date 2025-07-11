@@ -1,0 +1,138 @@
+OMEGA RUGAL ~ the Evil thief!!1
+King of fighters 1995
+By CCIRocky aka Ironmugen aka David D.
+http://deltapark.i-xcell.com
+
+
+Beta release 1 - PRIVATE!
+
+WARNING: This char may have bugs. Thanks for reporting any bugs you find.
+
+
+What's done?
+-----------
+
+* Time over lose pose
+* Basics + requireds
+* Taunt
+* 1 Intro
+* 2 Win poses
+* All basic attacks
+* Command move
+* 2 Throw
+* Reppu Ken
+* Kaiser Wave
+* Dark Crystal Reflector
+* God Press
+* Genocide Cutter
+* Gigantic Pressure DM
+* Destruction Omega SDM
+
+
+What's left?
+-----------
+
+
+
+NOTE for beta testers:
+----
+
+
+Might have bugs. Well, you know what to do if you find any :P
+
+
+
+Special moves
+-------------
+
+
+-O + X  (side liver blow)
+
+Roll = A+X (hold back to roll backward)
+Charge power = A+Y
+Knockdown attack = Y+B
+Throws = at close distance, hold back or forward and press Y or B (Y version can be done in air)
+
+
+
+Reppu Ken:
+
+| \ -O + X/Y
+O  O
+
+
+Kaiser Wave:
+
+-O O- / | \ -O + X/Y
+     O  O  O
+
+
+Dark Crystal Reflector:
+
+| \ -O + A/B
+O  O
+
+
+God Press:
+
+-O \  |  / O- + X/Y
+    O O O
+
+
+Genocide Cutter:
+
+|  / O- O  + A/B
+O O      \
+
+
+Gigantic Pressure (requires 1 power bar):
+
+-O \  |  / O- -O \  |  / O- + X/Y
+    O O O         O O O
+
+
+Destruction Omega (requires 2 power bars):
+
+| \  -O | \ -O + A+B
+O  O    O  O
+
+
+Profile of Rugal:
+----------------
+
+(Taken from www.kof10th.com)
+
+Fighting style: A Composite Fighting Style Mastering All Fighting Styles.
+Birthday: 10 of February.
+Height: 197cm
+Weight: 103kg
+Blood type: Unknown
+Birthplace: Unknown.
+Hobby: World conquest.
+Personal Treasures: His evil soul.
+Fav food: No particular preferences or dislikes.
+Hates: Justice.
+
+
+Special Thanks:
+--------------
+
+Bug repport: Dark Saviour
+
+Dark Saviour for his usefull progs.
+Sander for the Counter system coding.
+Orochi KOf97, Neogouki, Rumiko.
+Big Eli King for hostings.
+Shin Dio, Walter, UltraJP/Kami.
+
+Sion for installing my new UG forum.
+
+
+SNK for creating the KOF saga and its classic boss. RIP.
+Elecbyte for Mugen.
+
+Special Fucks:
+-------------
+
+Pacific Angra.
+AznMystik.

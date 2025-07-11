@@ -1,0 +1,733 @@
+; Running Three
+[Statedef 4500]
+type    = S
+physics = N
+movetype= A
+anim = 4500
+poweradd = -2000
+ctrl = 0
+juggle = 15
+velset = 0,0
+facep2 = 1
+
+[State 3100, 1.1]
+type = SuperPause
+trigger1 = animelem = 3
+trigger1 = var(10) = 0
+anim = -1
+time = 30
+
+[State 3100, 1.2];foreground superspark 
+type = Explod
+trigger1 = animelem = 3
+anim = f104
+pos = 0,-77
+postype = p1
+supermove = 1
+bindtime = 30
+ontop = 1
+ownpal = 1
+
+[State 3100, 1.3];background superspark 
+type = Explod
+trigger1 = animelem = 3
+trigger1 = var(10) = 0;disable for counter mode
+anim = f105
+pos = 0,-77
+postype = p1
+supermove = 1
+bindtime = 30
+ontop = 0
+ownpal = 1
+
+[State 3100, 1.4];chime snd
+type = playsnd
+trigger1 = animelem = 3
+value = f20,2
+
+[State 3300, ƒƒhƒŒ?”wŒiŒø‰Ê]
+type = Explod
+trigger1 = time = [13,45]
+anim = f9000
+ID = 9000
+sprpriority = -4
+postype = back
+pos = 0,0;-5,-3
+vel = 0, 0
+;removetime = 128
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+
+[State 3100, 1.5]
+type = playsnd
+trigger1 = animelem = 3
+value = 0,48
+volume = 80
+channel = 0
+
+[State 3100, 2.1]
+type = Velset
+trigger1 = animelem = 6
+x = const(velocity.run.fwd.x)+1.5
+
+[State 3100, 2.2]
+type = Velset
+trigger1 = animelem = 15
+x = 0
+
+[State 3100, 3] ; Shadows
+type = Afterimage
+trigger1 = Animelem = 4
+time = 33
+length = 9
+FrameGap = 3
+
+[State 3100, 4]
+type = Nothitby
+trigger1 = time >= 0
+trigger1 = time <= 10
+value = SCA
+
+[State 3100, 5]
+type = sprpriority
+trigger1 = 1
+value = 3
+
+[State 3100, 5.1]
+type = PlaySnd
+trigger1 = Timemod = 71,17;start playing from time = 0,then play again for every 71 more ticks
+value = 0,5
+channel = 20
+
+[State 3100, 5.2]
+type = StopSnd
+trigger1 = AnimTime = 0
+;trigger2 = time >= 20
+;trigger2 = p2bodydist x <= 25
+channel = 20;running snd
+
+[State 3100, 6]
+type = PlaySnd
+trigger1 = Time = 42
+value = 0,49
+volume = -80
+
+[State 3100, 8.1]
+type = Varset
+trigger1 = Time = 0
+var(1) = 0
+
+[State 3100, 8.2]
+type = Varadd
+trigger1 = Time >= 14
+var(1) = 1
+
+[State 3100, 7.1]
+type = Changestate
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[State 3100, 7.2]
+type = Changestate
+trigger1 = time >= 20
+trigger1 = p2bodydist x <= 25
+value = 4501
+
+;-----------------------------
+; Running Three - Grab Attempt
+[Statedef 4501]
+type    = S
+physics = N
+movetype= A
+anim = 4501
+ctrl = 0
+velset = 0,0
+
+[State 3101, 1]
+type = Nothitby
+trigger1 = time = 0
+value = SCA
+
+[State 3101, 2]
+type = sprpriority
+trigger1 = 1
+value = 3
+
+[State 3300, ƒƒhƒŒ?”wŒiŒø‰Ê]
+type = Explod
+trigger1 = 1
+anim = f9000
+ID = 9000
+sprpriority = -4
+postype = back
+pos = 0,0;-5,-3
+vel = 0, 0
+;removetime = 128
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+
+[State 3101, 3]
+type = Hitdef
+triggerall = time = 0
+trigger1 = var(1) >= 11
+trigger2 = p2movetype != H;does not grab when opponent is hurt
+trigger2 = var(1) <= 10
+attr = S, HT
+hitflag = M
+priority = 7, Miss
+sparkno = -1
+sprpriority = 2
+p2facing = 1
+p1stateno = 4502
+p2stateno = 3120
+p2getp1state = 1
+id = 4500
+;nochainID = nochain_1, nochain_2 (int)
+numhits = 0
+givepower = 288
+
+[State 3101, 4]
+type = Changestate
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;------------------------
+; Running Three - Succeed
+[Statedef 4502]
+type    = S
+physics = N
+movetype= A
+anim = 4502
+ctrl = 0
+velset = 0,0
+
+[State 3300, ƒƒhƒŒ?”wŒiŒø‰Ê]
+type = Explod
+trigger1 = 1
+anim = f9000
+ID = 9000
+sprpriority = -4
+postype = back
+pos = 0,0;-5,-3
+vel = 0, 0
+;removetime = 128
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+
+[State 3102, 1.1]
+type = Velset
+trigger1 = animelem = 14
+x = -const(velocity.walk.fwd.x)
+
+[State 3102, 1.2]
+type = Velset
+trigger1 = animelem = 16
+x = -const(velocity.run.fwd.x)-2
+
+[State 3102, 1.2]
+type = Veladd
+trigger1 = animelem = 20
+x = -4
+
+[State 3102, 1.4]
+type = Velset
+trigger1 = animelem = 20
+y = -9
+
+[State 3102, 1.4]
+type = Gravity
+trigger1 = time >= 99
+
+[State 3102, 2.1]
+type = Posadd
+trigger1 = animelem = 10
+x = 35
+
+[State 3102, 2.2]
+type = Posadd
+trigger1 = animelem = 20
+x = -39
+
+[State 3102, 3.1]
+type = TargetBind
+trigger1 = time >= 0
+trigger1 = time <= 10
+pos = 55,0
+
+[State 3102, 3.2]
+type = TargetBind
+trigger1 = time >= 11
+trigger1 = time <= 18
+pos = 22,-60
+
+[State 3102, 3.3]
+type = TargetBind
+trigger1 = time >= 19
+trigger1 = time <= 21
+pos = 7,-63
+
+[State 3102, 3.4]
+type = TargetBind
+trigger1 = time >= 22
+trigger1 = time <= 25
+pos = 0,-75
+
+[State 3102, 3.5]
+type = TargetBind
+trigger1 = time >= 26
+trigger1 = time <= 29
+pos = -9,-93
+
+[State 3102, 3.6]
+type = TargetBind
+trigger1 = time >= 30
+trigger1 = time <= 33
+pos = 0,-117
+
+[State 3102, 3.7]
+type = TargetBind
+trigger1 = time >= 34
+trigger1 = time <= 37
+pos = 4,-117
+
+[State 3102, 3.8]
+type = TargetBind
+trigger1 = time >= 38
+trigger1 = time <= 41
+pos = 10,-118
+
+[State 3102, 3.9]
+type = TargetBind
+trigger1 = time >= 42
+trigger1 = time <= 45
+pos = -14,-119
+
+[State 3102, 3.10]
+type = TargetBind
+trigger1 = time >= 46
+trigger1 = time <= 49
+pos = -6,-105
+
+[State 3102, 3.11]
+type = TargetBind
+trigger1 = time >= 50
+trigger1 = time <= 52
+pos = 0,-105
+
+[State 3102, 3.12]
+type = TargetBind
+trigger1 = time >= 53
+trigger1 = time <= 70
+pos = -1,-105
+
+[State 3102, 3.13]
+type = TargetBind
+trigger1 = time >= 71
+trigger1 = time <= 75
+pos = -3,-113
+
+[State 3102, 3.14]
+type = TargetBind
+trigger1 = time >= 76
+trigger1 = time <= 81
+pos = -1,-118
+
+[State 3102, 3.15]
+type = TargetBind
+trigger1 = time >= 82
+trigger1 = time <= 85
+pos = -21,-109
+
+[State 3102, 3.16]
+type = TargetBind
+trigger1 = time >= 86
+trigger1 = time <= 89
+pos = -21,-108
+
+[State 3102, 3.17]
+type = TargetBind
+trigger1 = time >= 90
+trigger1 = time <= 93
+pos = -21,-104
+
+[State 3102, 3.18]
+type = TargetBind
+trigger1 = time >= 94
+trigger1 = time <= 97
+pos = -21,-74 ;-104
+
+[State 3102, 3.19]
+type = TargetBind
+trigger1 = time >= 98
+trigger1 = time <= 106
+pos = -19,-66 ;-96
+
+[State 3102, 3.20]
+type = TargetBind
+trigger1 = time >= 107
+trigger1 = time <= 110
+pos = -22,-91 ;-111
+
+[State 3102, 3.21]
+type = TargetBind
+trigger1 = time >= 111
+pos = -19,-73 ;-93
+
+[State 3102, 4]
+type = Explod
+trigger1 = time = 0
+anim = f21
+pos = 65,-83
+postype = p1
+bindtime = 1
+ownpal = 1
+sprpriority = 2;between player and opponent
+
+[State 3102, 5.1]
+type = sprpriority
+trigger1 = time <= 10
+value = 3
+
+[State 3102, 5.2]
+type = sprpriority
+trigger1 = time >= 11
+trigger1 = time <= 18
+trigger2 = time >= 34
+value = 2
+
+[State 3102, 5.3]
+type = sprpriority
+trigger1 = time >= 19
+trigger1 = time <= 33
+value = 1
+
+[State 3102, 6.1]
+type = Playsnd
+trigger1 = time = 0
+value = 0,33
+volume = 80
+
+[State 3102, 6.2]
+type = Playsnd
+trigger1 = animelem = 20
+value = 0,3
+volume = 80
+
+[State 3102, 6.2]
+type = Playsnd
+trigger1 = animelem = 21
+value = 0,51
+
+[State 3102, 7.1]
+type = PlaySnd
+trigger1 = animelem = 14
+value = 0,5
+channel = 20
+
+[State 3102, 7.2]
+type = StopSnd
+trigger1 = animelem = 20
+channel = 20;running snd
+
+[State 3102, 8]
+type = Width
+trigger1 = 1
+edge = 30,35
+
+[State 3102, 9]
+type = Changestate
+;trigger1 = time >= 100
+trigger1 = Pos y >= 0
+trigger1 = Vel y > 0
+value = 4503
+
+;-----------------------------
+; Running Three - Reach ground
+[Statedef 4503]
+type    = S
+physics = N
+movetype= A
+anim = 4503
+ctrl = 0
+velset = 0,0
+
+[State 3300, ƒƒhƒŒ?”wŒiŒø‰Ê]
+type = Explod
+trigger1 = 1
+anim = f9000
+ID = 9000
+sprpriority = -4
+postype = back
+pos = 0,0;-5,-3
+vel = 0, 0
+;removetime = 128
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+
+[State 3103, 1.1]
+type = Posset
+trigger1 = time = 0
+y = 0
+
+[State 3103, 1.2]
+type = Posadd
+trigger1 = animelem = 1
+x = -15
+
+[State 3103, 2]
+type = TargetBind
+trigger1 = time >= 0
+trigger1 = time <= 19
+pos = -33,-5
+
+[State 3103, 4]
+type = Width
+trigger1 = 1
+edge = 0,30
+
+[State 800, hit]
+type = Hitadd
+trigger1 = Animelem = 1
+value = 1
+
+[State 812, 4];damage
+type = Targetlifeadd
+trigger1 = animelem = 1
+value = -600
+;absolute = 1
+
+[State 3103, 5.1];smash ground effect
+type = Explod
+trigger1 = Time = 0
+anim = 8120
+pos = 0,5
+postype = p2
+bindtime = 1
+ontop = 0
+ownpal = 1
+
+[State 3103, 5.2];ground wave
+type = Explod
+trigger1 = p2stateno = 4522
+anim = 8100
+pos = 22,5
+postype = p2
+bindtime = 1
+ontop = 0
+ownpal = 1
+persistent = 0
+
+[State 3103, 5.3];dust
+type = Explod
+trigger1 = p2stateno = 4522
+anim = 8150
+pos = -10,-8
+postype = p2
+bindtime = 1
+ontop = 1
+ownpal = 1
+persistent = 0
+
+[State 3103, 6.1]
+type = Playsnd
+trigger1 = Time = 0
+value = 0,40
+volume = -80
+
+[State 3103, 6.2]
+type = Playsnd
+trigger1 = p2stateno = 4522
+value = 0,37
+volume = -80
+persistent = 0
+
+[State 3103, 7]
+type = velset
+trigger1 = Animelem = 4
+x = 5
+
+[State 3103, 7]
+type = Changestate
+trigger1 = AnimTime = 0
+value = 11
+ctrl = 1
+
+;-----------------------
+; Throw by HSDM
+[Statedef 4520]
+type    = S
+physics = N
+movetype= H
+ctrl = 0
+velset = 0,0
+
+[State 3120, 1]
+type = Changeanim2
+trigger1 = Time = 0
+value = 3120
+
+[State 3120, 2.1]
+type = sprpriority
+trigger1 = time >= 11
+trigger1 = time <= 18
+trigger2 = time >= 34
+value = 1
+
+[State 3120, 2.2]
+type = sprpriority
+trigger1 = time >= 19
+trigger1 = time <= 33
+value = 2
+
+[State 3120, 3]
+type = Width
+trigger1 = 1
+value = -30,-30
+
+[State 3120, 4];short flash
+type = Envcolor
+trigger1 = time = 0
+value = 248,248,248
+time = 1
+under = 1
+
+[State 3120, 5]
+type = Changestate
+trigger1 = time >= 111
+trigger1 = pos y >= -89
+trigger2 = p2stateno = 4503
+value = 4521
+
+;--------------------------------------
+; Throw by Running Three - Reach ground
+[Statedef 4521]
+type    = S
+physics = N
+movetype= H
+ctrl = 0
+velset = 0,0
+
+[State 3121, 1]
+type = Changeanim2
+trigger1 = Time = 0
+value = 3121
+
+[State 3121, 2.1]
+type = Velset
+trigger1 = time = 20
+x = -5
+y = -7
+
+[State 3121, 2.2];gravity
+type = Veladd
+trigger1 = time >= 20
+y = .5
+
+[State 3121, 3]
+type = Width
+trigger1 = time <= 20
+value = -30,-30
+
+[State 3121, 4]
+type = Turn
+trigger1 = time = 0
+value = 1
+
+[State 3121, 5];shaking effect
+type = Envshake
+trigger1 = time = 0
+time = 20
+freq = 70
+ampl = -8
+
+[State 3121, 7];short flash
+type = Envcolor
+trigger1 = time = 0
+value = 248,248,248
+time = 1
+under = 1
+
+[State 3121, 8]
+type = Changestate
+trigger1 = time >= 21
+trigger1 = pos y >= -20
+trigger1 = vel y > 0
+value = 4522
+
+;----------------------------------
+; Throw by Running Three - Bouncing
+[Statedef 4522]
+type    = A
+physics = N
+movetype= H
+ctrl = 0
+velset = -3,-4
+
+[State 3122, 1]
+type = Changeanim2
+trigger1 = Time = 0
+value = 3122
+
+[State 3122, 2.1]
+type = posset
+trigger1 = time = 0
+y = 0
+
+[State 3122, 2.2];gravity
+type = Veladd
+trigger1 = time >= 3
+y = .5
+
+[State 3122, 2.3]
+type = posset
+trigger1 = time = 3
+y = -10
+
+[State 3122, 3]
+type = Posfreeze
+trigger1 = time >= 0
+trigger1 = time <= 2
+
+[State 3122, 4]
+type = Changestate
+trigger1 = time >= 4
+trigger1 = pos y >= -20
+trigger1 = vel y > 0
+value = 4523
+
+;------------------------------------
+; Throw by Running Three - lying down
+[Statedef 4523]
+type    = L
+physics = N
+movetype= H
+ctrl = 0
+velset = 0,0
+
+[State 3123, 1]
+type = Changeanim2
+trigger1 = time = 0
+value = 3123
+
+[State 3123, 2]
+type = posset
+trigger1 = time = 0
+y = 0
+
+[State 3123, 3.1] ;If just died
+type = SelfState
+triggerall = !alive
+trigger1 = Time = 0
+value = 5150
+
+[State 3123, 3.2] ;If alive
+type = SelfState
+triggerall = alive
+trigger1 = Time = 25
+value = 5120

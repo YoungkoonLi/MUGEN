@@ -1,0 +1,268 @@
+;-----------------------------------------------------------------------------------------------
+;Andy '94 by Duende Macabro
+;Supers.cns
+;------------------------------------------[ SUPERS ]-------------------------------------------
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+; Chou Reppa Dan
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+[Statedef 2000]
+type = S                     
+movetype = A                      
+physics = S                      
+juggle = ifelse((p2movetype = H && p2statetype = A), 10, 5)                  
+velset = 0,0                     
+ctrl = 0                         
+anim = 2000
+poweradd = 0
+sprpriority = 2   
+
+;--------------------------------- Super Charge
+
+[State 2000, SuperPause]
+type = SuperPause
+trigger1 = anim = 2000
+trigger1 = AnimElem = 1
+time = 39
+movetime = 39
+anim = -1
+sound = s10, 2
+darken = 0
+unhittable = 1
+
+[State 2000, VarReset]
+Type = VarSet
+trigger1 = time = 0
+trigger1 = life > 250
+fvar(23) = 0
+
+[State 2000, EnvColor2]
+type = EnvColor
+trigger1 = anim = 2000
+trigger1 = AnimElem = 1
+value = 0, 0, 0
+time = 39
+under = 1
+
+[State 2000, Explod]
+type = Explod
+trigger1 = anim = 2000
+trigger1 = AnimElemTime(1) = 0
+anim = 8102
+ID = 8102
+pos = 0,-39
+postype = P1
+sprpriority = -2
+supermove = 1
+ownpal = 1
+bindtime = -1
+
+[State 2000, Explod]
+type = Explod
+trigger1 = anim = 2000
+trigger1 = AnimElemTime(1) = 0
+anim = 8101
+ID = 8101
+pos = 0,-39
+postype = P1
+sprpriority = 4
+supermove = 1
+ownpal = 1
+bindtime = -1
+
+;--------------------------------- Super Charge
+
+[State 2000, statetype]
+type = statetypeset
+trigger1 = anim = 2000 && animelemtime(6) >= 0
+statetype = A
+physics = N
+
+[State 2000, vel]
+type = velset
+trigger1 = anim = 2000 && !animelemtime(6)
+x = 8
+y = -6.5
+
+[State 2000, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElemTime(3) = 1
+trigger1 = anim = 2000
+value = 2,13
+channel = 0
+
+[State 2000, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 6
+trigger1 = anim = 2000
+value = 3,29
+channel = 1
+
+[State 2000, grav]
+type = gravity
+trigger1 = anim = 2000 && animelemtime(6) >= 0
+
+[State 2000, hit1]
+type = HitDef
+trigger1 = anim = 2000
+trigger1 = animelem = 5 || animelem = 6
+attr = S, SA
+damage = 50,15
+animtype = hard
+guardflag = MA
+sparkno = s8003
+guard.sparkno = s8006
+sparkxy = 0,-60
+hitsound = s1,5
+guardsound = s1,4
+pausetime = 13,13
+ground.hittime = 19
+ground.type = low
+ground.slidetime = 19
+ground.velocity = -6,-3
+air.velocity = -4,-3
+air.fall = 1
+fall = 1
+fall.recover.time = 120
+ground.cornerpush.veloff = 0
+Palfx.time = 60
+Palfx.add = 240,50,0
+Palfx.mul = 250,224,120
+Palfx.sinadd = 110,55,85,10
+palfx.invertall = 1
+
+[State 2000, hit2]
+type = HitDef
+trigger1 = anim = 2000
+trigger1 = animelemtime(7) = 0 || animelemtime(7) = 2 || animelemtime(7) = 4 
+attr = S, SA
+damage = 50,15
+animtype = hard
+guardflag = MA
+sparkno = s8003
+guard.sparkno = s8006
+sparkxy = 0,-60
+hitsound = s1,5
+guardsound = s1,4
+pausetime = 13,13
+ground.hittime = 19
+ground.type = low
+ground.slidetime = 19
+ground.velocity = -6,-3
+air.velocity = -4,-3
+air.fall = 1
+fall = 1
+fall.recover.time = 120
+ground.cornerpush.veloff = 0
+getpower = 0
+Palfx.time = 60
+Palfx.add = 240,50,0
+Palfx.mul = 250,224,120
+Palfx.sinadd = 110,55,85,10
+palfx.invertall = 1
+
+[State 2000, hit3]
+type = HitDef
+trigger1 = anim = 2000
+trigger1 = animelemtime(8) = 0 || animelemtime(8) = 3 
+attr = S, SA
+damage = 50,15
+animtype = hard
+guardflag = MA
+sparkno = s8003
+guard.sparkno = s8006
+sparkxy = 0,-60
+hitsound = s1,5
+guardsound = s1,4
+pausetime = 13,13
+ground.hittime = 19
+ground.type = low
+ground.slidetime = 19
+ground.velocity = -6,-3
+air.velocity = -4,-3
+air.fall = 1
+fall = 1
+fall.recover.time = 120
+ground.cornerpush.veloff = 0
+getpower = 0
+Palfx.time = 60
+Palfx.add = 240,50,0
+Palfx.mul = 250,224,120
+Palfx.sinadd = 110,55,85,10
+palfx.invertall = 1
+
+[State 2000, effect1]
+type = explod
+trigger1 = !numexplod(7002)
+trigger1 = AnimElem = 6
+anim = 7002
+ID = 7002
+postype = p1
+bindtime = -1
+sprpriority = 4
+removetime = -1
+ownpal = 1
+removeongethit = 1
+
+[State 2000, effect2]
+type = explod
+trigger1 = !numexplod(7003)
+trigger1 = AnimElem = 7
+anim = 7003
+ID = 7003
+postype = p1
+bindtime = -1
+sprpriority = 4
+removetime = -1
+ownpal = 1
+removeongethit = 1
+
+[State 2000, effect3]
+type = explod
+trigger1 = !numexplod(7004)
+trigger1 = AnimElem = 8
+anim = 7004
+ID = 7004
+postype = p1
+bindtime = -1
+removetime = -1
+sprpriority = 4
+ownpal = 1
+removeongethit = 1
+
+[State 2000, effect3]
+type = explod
+trigger1 = !numexplod(7005)
+trigger1 = AnimElem = 9
+anim = 7005
+ID = 7005
+postype = p1
+bindtime = 1
+vel = -.2,-.1
+removetime = -2
+sprpriority = 4
+ownpal = 1
+removeongethit = 1
+
+[State 2000, remove effect1]
+type = removeexplod
+trigger1 = AnimElem = 7
+ID = 7002
+
+[State 2000, remove effect2]
+type = removeexplod
+trigger1 = AnimElem = 8
+ID = 7003
+
+[State 2000, remove effect3]
+type = removeexplod
+trigger1 = AnimElem = 9
+ID = 7004
+
+[State 2000, changeanim]
+type = changestate
+trigger1 = pos y >= 10 && anim = 2000
+trigger1 = time > 30
+value = 1151
+persistent = 0

@@ -1,0 +1,68 @@
+[Statedef -3]
+
+;ゲーム中に常にいつでも開始したいステート、ここでは「着地音」に使用しています
+;下の条件は「52か106のステートに移動して１フレーム目に」と言う事です。
+;52と106はバックステップとジャンプの着地のステートです。
+[State -3, Landing Sound]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 52 
+trigger2 = stateno = 106 
+value = 40, 0
+
+;※※※※※※※※※※※※※※※※※※※※ハイジャンプ
+;理論は簡単
+;ハイジャンプコマンドを入れた「瞬間」、varスイッチを１にする
+;でハイジャンプのコマンドは最後がU、つまりジャンプする
+;そしてジャンプステート５０の時にvarスイッチが１ならveladdで加速します
+;varスイッチを０にするトリガーは「ステート５０の２フレーム目」です。
+
+[State 821, 1] ;←コマンドを入れたらVarをON
+type = varset
+trigger1 = command = "jump"
+trigger1 = ctrl = 1
+trigger1 = statetype = s
+v = 1
+value = 1
+
+[State 821, 1] ;←varをOFFにするステート
+type = varset
+trigger1 = stateno = 50
+trigger1 = time = 2
+v = 1
+value = 0
+
+[State 821, 1] ;←ジャンプ力にveladdを使って加速
+type = veladd
+trigger1 = var(1) = 1
+trigger1 = stateno = 50
+y = -1.5
+
+[State 821, 1] ;←前にボタンを押してたら前にも加速
+type = veladd
+trigger1 = var(1) = 1
+trigger1 = stateno = 50
+trigger1 = command = "holdfwd"
+x = 1.3
+
+[State 821, 1] ;←後ろなら後ろに加速
+type = veladd
+trigger1 = var(1) = 1
+trigger1 = stateno = 50
+trigger1 = command = "holdback"
+x = -0.5
+
+[State 50, 4];←成功したときの残像
+type = AfterImage
+trigger1 = var(1) = 1
+trigger1 = stateno = 50
+time = 20
+trans = add1
+timegap = 1
+framegap = 2
+length = 8
+palbright = 12,12,12
+palcontrast = 225,225,225
+palpostbright = 0,0,0
+paladd = 0,0,0
+palmul = 1,1,1

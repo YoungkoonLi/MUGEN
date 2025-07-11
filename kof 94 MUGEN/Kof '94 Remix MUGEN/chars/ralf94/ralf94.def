@@ -1,0 +1,32 @@
+; Definition file for Ralf KOF´94 style
+
+; Player information
+[Info]
+name = "Ralf Jones"           ;Name of character
+displayname = "Ralf 94"       ;Name of character to display
+versiondate =  10,9,2002      ;Version date of character
+mugenversion = 04,14,2001     ;Version of M.U.G.E.N character works on
+author = "Robo Z"             ;Character author name
+pal.defaults =   1,2          ;Default palettes in order of preference
+
+; Files for the player
+[Files]
+cmd     = ralf.cmd     ;Command set
+cns     = ralf.cns     ;Constants
+st      = ralf.cns     ;States
+;st1    = ai.cns        ======>Em construção
+stcommon = common1.cns ;Common states
+sprite  = ralf.sff     ;Sprite
+anim    = ralf.air     ;Animation
+sound   = ralf.snd     ;Sound
+pal1    = normal.act   ;Palettes (can have up to 12)
+pal2    = preto.act
+;pal3    = verde.act     =====>Em construção
+;pal4    = ouro.act      =====>Em construção 
+;pal5    = azul1.act     =====>Em construção
+;pal6    = vermelho1.act =====>Em construção
+
+; Arcade mode
+[Arcade]
+;intro.storyboard = intro.def   =====>Em construção
+;ending.storyboard = ending.def =====>Em construção

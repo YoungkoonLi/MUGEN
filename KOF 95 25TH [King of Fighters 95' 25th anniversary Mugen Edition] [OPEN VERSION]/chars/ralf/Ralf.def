@@ -1,0 +1,33 @@
+;LAST UP DATA- 2006.10.07	Version=I-2
+[Info]
+Name="Ralf Jones"
+DisplayName="Ralf Jones"
+VersionDate=04,14,2001
+MugenVersion=04,14,2001
+Author="zzzasd" ;"zzzasd13@yahoo.co.kr" "www.neo-eye.com" "http://conversion.wo.to/"
+Pal.Defaults=1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+cmd=Ralf.cmd
+cns=Ralf.cns
+st=Ralf.cns
+st1=Ralf-b.cns 
+st2=Ralf-c.cns
+st3= Ralf-a.cns
+st4= UltraNueva.txt
+stcommon = common1.cns
+sprite=Ralf.sff
+anim=Ralf.air
+sound=Ralf.snd
+pal1=Ralf02-B.act
+pal2=Ralf02-D.act
+pal3=RalfMarron.act
+pal4=Verde.act
+pal5=Ralf02-C.act
+pal6=Ralf02-A.act
+pal7=Roja.act
+pal8=Azul.act
+pal9=violeta.act
+pal10=violetafx.act
+pal11=negro.act
+pal12=rugal.act

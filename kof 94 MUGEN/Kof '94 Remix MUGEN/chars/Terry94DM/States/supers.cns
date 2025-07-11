@@ -1,0 +1,178 @@
+;-----------------------------------------------------------------------------------------------
+;Andy '94 by Duende Macabro
+;Supers.cns
+;------------------------------------------[ SUPERS ]-------------------------------------------
+
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+; Power Geiser
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+[Statedef 2000]
+type = S                     
+movetype = A                      
+physics = S                      
+juggle = 5
+velset = 0,0                     
+ctrl = 0                         
+anim = 2000
+poweradd = 0
+sprpriority = 2   
+
+;--------------------------------- Super Charge
+
+[State 2000, SuperPause]
+type = SuperPause
+trigger1 = anim = 2000
+trigger1 = AnimElem = 2
+time = 39
+movetime = 39
+anim = -1
+sound = s10, 2
+darken = 0
+unhittable = 1
+
+[State 2000, VarReset]
+Type = VarSet
+trigger1 = time = 0
+trigger1 = life > 250
+fvar(23) = 0
+
+[State 2000, EnvColor2]
+type = EnvColor
+trigger1 = anim = 2000
+trigger1 = AnimElem = 2
+value = 0, 0, 0
+time = 39
+under = 1
+
+[State 2000, Explod]
+type = Explod
+trigger1 = anim = 2000
+trigger1 = AnimElemTime(2) = 0
+anim = 8102
+ID = 8102
+pos = -34,-93
+postype = P1
+sprpriority = -2
+supermove = 1
+ownpal = 1
+bindtime = -1
+
+[State 2000, Explod]
+type = Explod
+trigger1 = anim = 2000
+trigger1 = AnimElemTime(2) = 0
+anim = 8101
+ID = 8101
+pos = -34,-93
+postype = P1
+sprpriority = 4
+supermove = 1
+ownpal = 1
+bindtime = -1
+
+;--------------------------------- Super Charge
+
+[State 2000, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+value = 2,13 + 4 * (random < 500)
+channel = 0
+
+[State 2000, dm sound]
+type = Playsnd
+trigger1 = AnimElem = 5
+value = 3,31
+
+[State 2000, effect1]
+type = explod
+trigger1 = !numexplod(70021)
+trigger1 = AnimElem = 5
+anim = 70021
+ID = 70021
+postype = p1
+bindtime = -1
+sprpriority = 3
+removetime = -2
+ownpal = 1
+removeongethit = 1
+
+[State 2000, effect3]
+type = explod
+triggerall = !numexplod(70022)
+trigger1 = AnimElem = 3
+anim = 7002
+ID = 70022
+pos = -38,-99
+postype = p1
+bindtime = -1
+sprpriority = 3
+removetime = -2
+scale = 1.2,1.2
+ownpal = 1
+removeongethit = 1
+
+[State 2000, effect4]
+type = explod
+triggerall = !numexplod(70023)
+trigger1 = AnimElem = 4
+anim = 7002
+ID = 70023
+pos = -8,-50
+postype = p1
+bindtime = -1
+sprpriority = 3
+removetime = -2
+scale = 1.2,1.2
+ownpal = 1
+removeongethit = 1
+
+[State 2000, tremor]
+type = Envshake
+trigger1 = animelem = 5
+time = 30
+ampl = 5
+freq = 70
+
+[State 2000, projectile]
+type = Projectile
+trigger1 = AnimElem = 5
+projanim = 7003
+projhitanim = 7003
+projID = 7003
+projremovetime = 42
+velocity = 0
+projpriority = 5
+postype = p1
+offset = 65,0
+attr = S, SP
+damage = 350,10
+animtype = hard
+fall.animtype = Up
+hitflag = MAFPD
+guardflag = MA
+sparkno = s8003
+guard.sparkno = s8006
+sparkxy = 10,-35
+hitsound = s1,6
+guardsound = s1,4
+pausetime = 0,13
+ground.hittime = 20
+ground.type = high
+ground.slidetime = 20
+ground.velocity = -3,-10
+air.velocity = -3,-10
+fall = 1
+fall.recover = 0
+air.juggle = 10
+yaccel = .5
+
+[State 2000, remove effect antibug]
+type = Removeexplod
+trigger1 = 1
+ID = 7004
+
+[State 2000, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1

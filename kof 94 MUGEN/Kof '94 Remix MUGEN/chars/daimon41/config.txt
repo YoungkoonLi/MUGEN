@@ -1,0 +1,268 @@
+
+;---------------------------------------------------------------------------
+; 地獄極楽落とし(成功) - 相手側3(バウンド)
+[Statedef 2104]
+type    = L
+movetype= H
+physics = N
+ctrl = 0
+
+[state 1104,相手のアニメ変更]
+type = ChangeAnim2
+trigger1 = time = 0
+value = 1104
+ignorehitpause = 1
+
+[State 1104, 落下ダメージ]
+type = LifeAdd
+trigger1 = time = 0
+value = -90
+persistent = 0
+ignorehitpause = 1
+
+[state 1103,死亡時一時停止]
+type = PosFreeze
+trigger1 = time >= 0 && time <= 10
+trigger1 = !Alive
+
+[State 1104, 相手を押さない]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 1104, 投げは喰らう]
+type = HitBy
+trigger1 = 1
+value = SCA,ST,HT
+ignorehitpause = 1
+
+[State 1104, 3]
+type = HitFallVel
+trigger1 = Time = 0
+
+[State 1104, 4]
+type = PosSet
+trigger1 = Time = 0
+y = -5
+
+[State 1104, 5]
+type = VelSet
+trigger1 = time = 0
+x = 1
+y = -5
+
+[State 1104, 5]
+type = VelAdd
+trigger1 = 1
+trigger1 = Alive
+y = .3
+
+[State 1104, 5]
+type = VelAdd
+trigger1 = 1
+trigger1 = !Alive
+y = .2
+
+[State 1104, 6]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 1105
+
+;---------------------------------------------------------------------------
+; 地獄極楽落とし(成功) - 相手側4(ダウン1)
+[Statedef 2105]
+type    = L
+movetype= H
+physics = N
+ctrl = 0
+
+[State 1103, 無敵]
+type = NotHitBy
+trigger1 = time <= 25
+value = SCA,NA,SA,HA,NP,SP,HP,NT
+ignorehitpause = 1
+
+[State 1103, 投げは喰らう]
+type = HitBy
+trigger1 = time <= 25
+value = SCA,ST,HT
+ignorehitpause = 1
+
+[State 1103, 無敵]
+type = NotHitBy
+trigger1 = time > 26
+value = SCA
+ignorehitpause = 1
+
+[State 50, ダウンSE]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,5
+
+[State 5110, 1] ;For hit up/up-diag type (from state 5081)
+type = ChangeAnim
+persistent = 0
+trigger1 = SelfAnimExist(5110 + (anim % 10))
+trigger1 = anim = [5081,5089]
+value = 5110 + (anim % 10)
+
+[State 5110, 2] ;Hit ground anim (normal)
+type = ChangeAnim
+triggerall = time = 0
+triggerall = anim != [5110,5119] ;Not already changed anim
+trigger1 = anim != [5161,5169]
+trigger2 = !SelfAnimExist(5170 + (anim % 10))
+value = 5170
+
+[State 5110, 3] ;Hit ground anim (for hit up)
+type = ChangeAnim
+triggerall = time = 0
+triggerall = anim != [5110,5119] ;Not already changed anim
+trigger1 = anim = [5161,5169]
+trigger1 = SelfAnimExist(5170 + (anim % 10))
+value = 5170 + (anim % 10)
+
+[State 5110, 5]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 5110, 9] ;For hit up type
+type = ChangeAnim
+triggerall = anim = [5171,5179]
+triggerall = SelfAnimExist(5110 + (anim % 10))
+trigger1 = AnimTime = 0
+trigger2 = SysVar(0) ;SysVar(0) = 1 avoids hit ground anim
+value = 5110 + (anim % 10)
+persistent = 0
+
+[State 5110, 生存]
+type = ChangeAnim
+triggerall = Anim != [5111,5119]
+trigger1 = AnimTime = 0
+trigger2 = SysVar(0)
+value = 5110
+persistent = 0
+
+[State 1104, 5]
+type = VelSet
+trigger1 = time = 0
+x = 2.5
+y = -3
+
+[State 1104, 5]
+type = VelAdd
+trigger1 = 1
+y = .33
+
+[State 5110, 13]
+type = VelMul
+trigger1 = 1
+x = 0.85
+
+[State 1104, 6]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 1106
+
+;---------------------------------------------------------------------------
+; 地獄極楽落とし(成功) - 相手側5(ダウン2)
+[Statedef 2106]
+type    = L
+movetype= H
+physics = N
+ctrl = 0
+
+[State 1103, 無敵]
+type = NotHitBy
+trigger1 = time <= 25
+value = SCA,NA,SA,HA,NP,SP,HP,NT
+ignorehitpause = 1
+
+[State 5110, 13]
+type = VelMul
+trigger1 = time >= 0 && time <= 1
+x = 0.01
+
+[State 1103, 投げは喰らう]
+type = HitBy
+trigger1 = time <= 25
+value = SCA,ST,HT
+ignorehitpause = 1
+
+[State 1103, 無敵]
+type = NotHitBy
+trigger1 = time > 26
+value = SCA
+ignorehitpause = 1
+
+[State 50, ダウンSE]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,5
+
+[State 5110, 1] ;For hit up/up-diag type (from state 5081)
+type = ChangeAnim
+persistent = 0
+trigger1 = SelfAnimExist(5110 + (anim % 10))
+trigger1 = anim = [5081,5089]
+value = 5110 + (anim % 10)
+
+[State 5110, 2] ;Hit ground anim (normal)
+type = ChangeAnim
+triggerall = time = 0
+triggerall = anim != [5110,5119] ;Not already changed anim
+trigger1 = anim != [5161,5169]
+trigger2 = !SelfAnimExist(5170 + (anim % 10))
+value = 5170
+
+[State 5110, 3] ;Hit ground anim (for hit up)
+type = ChangeAnim
+triggerall = time = 0
+triggerall = anim != [5110,5119] ;Not already changed anim
+trigger1 = anim = [5161,5169]
+trigger1 = SelfAnimExist(5170 + (anim % 10))
+value = 5170 + (anim % 10)
+
+[State 5110, 5]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 5110, 8]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+
+[State 5110, 9] ;For hit up type
+type = ChangeAnim
+triggerall = anim = [5171,5179]
+triggerall = SelfAnimExist(5110 + (anim % 10))
+trigger1 = AnimTime = 0
+trigger2 = SysVar(0) ;SysVar(0) = 1 avoids hit ground anim
+value = 5110 + (anim % 10)
+persistent = 0
+
+[State 5110, 生存]
+type = ChangeAnim
+triggerall = Anim != [5111,5119]
+trigger1 = AnimTime = 0
+trigger2 = SysVar(0)
+value = 5110
+persistent = 0
+
+[State 5110, 死亡時]
+type = ChangeState
+triggerall = !alive
+trigger1 = AnimTime = 0
+trigger2 = SysVar(0)
+trigger3 = Anim = [5110,5119]
+value = 5150
+
+[State 5110, 13]
+type = SelfState
+trigger1 = time >= 50
+value = 5120
+
