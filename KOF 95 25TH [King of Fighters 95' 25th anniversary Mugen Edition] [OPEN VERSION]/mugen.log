@@ -2,7 +2,7 @@
 M.U.G.E.N ver 1.00 (2011.01.18) status log
 ------------------------------------------
 Parsing command line...
-Command line: D:\Games\KOF\KOF 95 25TH [King of Fighters 95' 25th anniversary Mugen Edition] [OPEN VERSION] Screenkof95\mugen.exe
+Command line: D:\Games\KOF\MUGEN\KOF 95 25TH [King of Fighters 95' 25th anniversary Mugen Edition] [OPEN VERSION]\mugen.exe
 Parse command line OK
 Initializing...
 Allocating game variables
@@ -64,7 +64,7 @@ Set up graphics...timer...OK
 Playing storyboard kof95-sb-logo.def: scene
 attempting load and start...attempting load of data/mugen1/mp3/kof95-sb-logo.mp3...Couldn't open BGM file data/mugen1/mp3/kof95-sb-logo.mp3!
 error 1!
-Storyboard playback canceled 80:0 k6A p0
+Storyboard playback canceled 400:0 kD p0
 Finished playing storyboard kof95-sb-logo.def: scene
 Initializing character info...OK
 Initializing select screen...finding characters...
@@ -183,9 +183,11 @@ Storyboard file not found: kof95-sb-intro.defEntering character select.
 attempting load and start...attempting load of data/kof95/mp3/kof95-sp-title.mp3...hooking mixer callback...
 success!
 starting BGM...
+Options Screen
+Return from Options Screen
+Attempting to set graphics to 640x480x16 mode 0x0...success
 attempting load and start...attempting load of data/kof95/mp3/kof95-sp-select.mp3...success!
 starting BGM...
-Attempting to set graphics to 640x480x16 mode 0x0...success
 Loading character chars/omegarugal/omegarugal.def...
   Loading info...OK
   Loading cmd command set omegarugal.cmd...OK
@@ -201,41 +203,137 @@ Loading character chars/omegarugal/omegarugal.def...
   SFF v1.01 palette hack engaged.
   8275 expressions (2699 on trigger lines)
 Character omegarugal.def loaded OK
-Loading character chars/iori/iori.def...
+Loading character chars/heidern/heidern.def...
   Loading info...OK
-  Loading cmd command set Iori.cmd...OK
-  Loading cns Iori.cns...OK
-  Loading cmd state entry Iori.cmd...OK
+  Loading cmd command set heidern.cmd...OK
+  Loading cns heidern.cns...attempting load and start...no BGM...OK
+  Loading cns heidern-s.cns...OK
+  Loading cns heidern-h.cns...OK
+  Loading cns add-heidern.ini...OK
+  Loading cmd state entry heidern.cmd...OK
   Loading common states common1.cns...OK
   Unloading command names...OK
-  Loading sff Iori.sff...OK
-  Loading anim Iori.air...OK
-  Loading snd Iori.snd...OK
+  Loading sff Heidern.sff...OK
+  Loading anim Heidern.air...OK
+  Loading snd Heidern.snd...OK
   Loading pals...(1,1)(1,2)(1,3)(1,4)(1,5)(1,6)(1,7)(1,8)(1,9)(1,10)(1,11)(1,12)OK
   SFF v1.01 palette hack engaged.
-  12180 expressions (4534 on trigger lines)
-Character iori.def loaded OK
+  5255 expressions (1793 on trigger lines)
+Character heidern.def loaded OK
+Initializing stage...
+  Loading BG...OK
+  Allocating helpers...OK
+Stage initialized OK
+Start of game loop
+attempting load of sound/desert requiem.mp3...success!
+prebuffering BGM...
+Loading character chars/ralf/ralf.def...
+  Loading info...OK
+  Loading cmd command set Ralf.cmd...OK
+  Loading cns Ralf.cns...OK
+  Loading cns Ralf-b.cns...OK
+  Loading cns Ralf-c.cns...OK
+  Loading cns Ralf-a.cns...OK
+  Loading cns UltraNueva.txt...OK
+  Loading cmd state entry Ralf.cmd...OK
+  Loading common states common1.cns...OK
+  Unloading command names...OK
+  Loading sff Ralf.sff...OK
+  Loading anim Ralf.air...OK
+  Loading snd Ralf.snd...ERROR loading wave file 11, 44: Corrupted or unrecognized WAV file
+SND file loaded with errors: Ralf.snd
+OK
+  Loading pals...(1,1)(1,2)(1,3)(1,4)(1,5)(1,6)(1,7)(1,8)(1,9)(1,10)(1,11)(1,12)OK
+  SFF v1.01 palette hack engaged.
+  15142 expressions (5066 on trigger lines)
+Character ralf.def loaded OK
+End of game loop
+Total time: 140.23s
+Total frames: 8416 	Skipped frames: 0
+Avg game rate: 60.02
+Avg frame rate: 60.02
+
 attempting load and start...no BGM...Initializing stage...
   Loading BG...OK
   Allocating helpers...OK
 Stage initialized OK
 Start of game loop
+attempting load of sound/desert requiem.mp3...success!
+prebuffering BGM...
+Loading character chars/billy/billy.def...
+  Loading info...OK
+  Loading cmd command set billy.cmd...OK
+  Loading cns billy.cns...OK
+  Loading cns billy-1.cns...OK
+  Loading cns billy-2.cns...OK
+  Loading cmd state entry billy.cmd...OK
+  Loading common states common1.cns...OK
+  Unloading command names...OK
+  Loading sff billy.sff...OK
+  Loading anim billy.air...OK
+  Loading snd billy.snd...OK
+  Loading pals...(1,1)(1,2)(1,3)(1,4)(1,5)(1,6)(1,7)(1,8)(1,9)(1,10)(1,11)(1,12)OK
+  SFF v1.01 palette hack engaged.
+  8619 expressions (2789 on trigger lines)
+Character billy.def loaded OK
 End of game loop
-Total time: 268.65s
-Total frames: 16120 	Skipped frames: 0
-Avg game rate: 60.00
-Avg frame rate: 60.00
+Total time: 84.17s
+Total frames: 5052 	Skipped frames: 0
+Avg game rate: 60.02
+Avg frame rate: 60.02
+
+attempting load and start...no BGM...Initializing stage...
+  Loading BG...OK
+  Allocating helpers...OK
+Stage initialized OK
+Start of game loop
+attempting load of sound/saxophone storm.mp3...success!
+prebuffering BGM...
+Loading character chars/chin/chin.def...
+  Loading info...OK
+  Loading cmd command set Chin-KOFM.cmd...OK
+  Loading cns Chin-KOFM.cns...OK
+  Loading cns Chin-KOFM-N.cns...OK
+  Loading cns Chin-KOFM-S.cns...OK
+  Loading cns Chin-KOFM-H.cns...OK
+  Loading cns Chin-KOFM-2-3.cns...OK
+  Loading cmd state entry Chin-KOFM.cmd...OK
+  Loading common states common1.cns...OK
+  Unloading command names...OK
+  Loading sff Chin-KOFM.sff...OK
+  Loading anim Chin-KOFM.air...OK
+  Loading snd Chin-KOFM.snd...OK
+  Loading pals...(1,1)(1,2)(1,3)(1,4)(1,5)(1,6)(1,7)(1,8)(1,9)(1,10)(1,11)(1,12)OK
+  SFF v1.01 palette hack engaged.
+  7321 expressions (2562 on trigger lines)
+Character chin.def loaded OK
+End of game loop
+Total time: 90.37s
+Total frames: 5424 	Skipped frames: 0
+Avg game rate: 60.02
+Avg frame rate: 60.02
+
+attempting load and start...no BGM...Initializing stage...
+  Loading BG...attempting load of sound/dora shudders.mp3...OK
+  Allocating helpers...success!
+OK
+Stage initialized OK
+Start of game loop
+prebuffering BGM...
+End of game loop
+Total time: 167.98s
+Total frames: 10074 	Skipped frames: 0
+Avg game rate: 59.97
+Avg frame rate: 59.97
 
 Entering character select.
-attempting load and start...attempting load of data/kof95/mp3/kof95-sp-select.mp3...success!
-starting BGM...
 attempting load and start...attempting load of data/kof95/mp3/kof95-sp-title.mp3...success!
 starting BGM...
 Returned from main loop
 Deinitializing...
-Frames      : 16120
-Time elapsed: 274.890 sec
-ticks: 27489, tps: 100, start 58, end 27547
+Frames      : 28966
+Time elapsed: 501.530 sec
+ticks: 50153, tps: 100, start 73, end 50226
 
 Clearing player cache...OK
 Freeing character info...OK
@@ -249,11 +347,11 @@ Deintializing timer...OK
 Deinitializing graphics...OK
 Deinitializing BGM...Cleaning up mixer callback...unhooking mixer callback...
 
-Mixer callback was entered 5908 times
-Mixer callback timing stats (last 5908 calls):
-	4.000000 median, 7.604604 avg, 13.526329 sample std. dev.
-Top 10 slowest times:	582 (1), 348 (1), 289 (1), 138 (2), 137 (1), 117 (1), 106 (1), 102 (1), 88 (1), 87 (1)
-Top 10 fastest times:	3 (611), 4 (2501), 5 (1105), 6 (475), 7 (289), 8 (168), 9 (96), 10 (52), 11 (36), 12 (50)
+Mixer callback was entered 10783 times
+Mixer callback timing stats (last 10783 calls):
+	10.000000 median, 15.657702 avg, 29.751107 sample std. dev.
+Top 10 slowest times:	1797 (1), 984 (1), 967 (1), 779 (1), 520 (1), 423 (1), 310 (1), 308 (1), 306 (1), 305 (1)
+Top 10 fastest times:	3 (14), 4 (53), 5 (28), 6 (32), 7 (232), 8 (1441), 9 (2323), 10 (1701), 11 (1075), 12 (693)
 OK
 Deinitializing sound...OK
 Successful program termination.

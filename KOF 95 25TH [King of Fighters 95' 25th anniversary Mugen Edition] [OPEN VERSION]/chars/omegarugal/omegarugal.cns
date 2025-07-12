@@ -4235,9 +4235,9 @@ velset = 0,0
 
 [State 4000, 1]
 type = NotHitBy
-trigger1 = Time = 80
-value = SCA
-time = 500
+trigger1 = Time = 50
+value = SCA, SP
+time = 360
 
 [State 4000, 0]
 type = PlaySnd

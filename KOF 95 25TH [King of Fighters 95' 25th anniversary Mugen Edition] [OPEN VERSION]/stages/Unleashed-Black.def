@@ -1,0 +1,789 @@
+[Info]
+name ="Unleashed-Black"
+displayname="Unleashed-Black"
+author="Matter"
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -224
+boundright = 224
+boundhigh=-30
+boundlow=0
+verticalfollow = .92
+floortension = 100
+tension = 50
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+;--- Common ---
+leftbound  = -1000 
+rightbound =  1000 
+topbound  =  0 
+botbound  =  0 
+;--------------------------------------------------------
+[Scaling]
+topz     = 0     
+botz     = 50
+topscale = 1 
+botscale = 1.2
+;--------------------------------------------------------
+[Bound]
+screenleft = 20
+screenright = 20
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 222
+autoturn = 1
+resetBG = 0
+HIres = 1 
+;--------------------------------------------------------
+[Shadow]
+intensity = 0
+color = 0,0,0
+yscale = 0
+reflect = 0
+[Reflection]
+intensity = 128
+;--------------------------------------------------------
+[Music]
+bgmusic =sound/KOF XV Rugal Remix.mp3
+bgvolume = 255
+;========================================================
+[BGdef]
+spr = stages/Unleashed.sff
+debugbg = 0
+[BG sky]
+type = normal
+spriteno = 0,6
+layerno = 0             
+start = 0, 2
+delta = .32,.83
+mask = 0
+;[BG Folat]
+;type = anim
+;actionno = 999
+;start = 0,283
+;delta = 2,2
+;mask = 0
+;layerno = 0     
+[BG Flama Vortex]
+type = anim
+actionno = 989
+start = 95,70
+delta = 2,2
+mask = 1
+
+[BG Flama Vortex]
+type = anim
+actionno = 989
+start = 370,70
+delta = 2,2
+mask = 1
+
+[BG Flama Vortex]
+type = anim
+actionno = 989
+start = 605,70
+delta = 2,2
+mask = 1
+
+[BG Flama Vortex]
+type = anim
+actionno = 989
+start = -190,70
+delta = 2,2
+mask = 1
+
+[BG Flama Vortex]
+type = anim
+actionno = 989
+start = -460,70
+delta = 2,2
+mask = 1
+
+[BG Flama Vortex]
+type = anim
+actionno = 989
+start = -705,70
+delta = 2,2
+mask = 1
+
+[Begin Action 989]
+989,7, 0,0, 1, ,A
+989,7, 0,0, 1, ,A
+989,7, 0,0, 1, ,A
+989,7, 0,0, 1, ,A
+989,8, 0,0, 1, ,A
+989,8, 0,0, 1, ,A
+989,8, 0,0, 1, ,A
+989,8, 0,0, 1, ,A
+989,9, 0,0, 1, ,A
+989,9, 0,0, 1, ,A
+989,9, 0,0, 1, ,A
+989,9, 0,0, 1, ,A
+[BG FLOOR]
+type  = normal
+spriteno = 0,2
+delta = 2,2
+start =  0,150
+mask = 1
+tile = 1, 0
+layerno = 0
+[BG FLOOR]
+type  = normal
+spriteno = 1,0
+delta = 2,2
+mask = 1
+tile = 1, 0
+layerno = 0
+[BG           ]
+type = anim
+layerno = 0
+actionno = 34
+start =  -320, 0
+delta = 0,0
+trans = None 
+mask = 0
+[BG  n ʗ C1]
+type = anim
+layerno = 0
+actionno = 235
+start =  -150, 350
+delta = 2,2
+trans = None 
+mask = 0
+[BG  n ʗ C2]
+type = anim
+layerno = 0
+actionno = 236
+start =  -157, 370
+delta = 2,2
+trans = None 
+mask = 0
+[BG  n ʗ C3]
+type = anim
+layerno = 0
+actionno = 237
+start =  -228, 428
+delta = 2,2
+trans = None 
+mask = 0
+[BG  n ʗ C4]
+type = anim
+layerno = 0
+actionno = 238
+start =  -364, 390
+delta = 2,2
+trans = None 
+mask = 0
+[BG  n ʗ C5]
+type = anim
+layerno = 0
+actionno = 239
+start =  -428, 436
+delta = 2,2
+trans = None 
+mask = 0
+[BG  n ʗ C6]
+type = anim
+layerno = 0
+actionno = 240
+start =  -270, 410
+delta = 2,2
+trans = None 
+mask = 0
+[BG  n ʗ C7]
+type = anim
+layerno = 0
+actionno = 241
+start =  -350, 390
+delta = 2,2
+trans = None 
+mask = 0
+[BG  n ʗ C8]
+type = anim
+layerno = 0
+actionno = 242
+start =  -500, 433
+delta = 2,2
+trans = None 
+mask = 0
+[BG  n ʗ C9]
+type = anim
+layerno = 0
+actionno = 243
+start =  -570, 381
+delta = 2,2
+trans = None 
+mask = 0
+[BG  n ʗ C10]
+type = anim
+layerno = 0
+actionno = 244
+start =  -609, 437
+delta = 2,2
+trans = None 
+mask = 0
+[BG  n ʗ  EC1]
+type = anim
+layerno = 0
+actionno = 235
+start =  150, 350
+delta = 2,2
+trans = None 
+mask = 0
+[BG  n ʗ  EC2]
+type = anim
+layerno = 0
+actionno = 236
+start =  157, 370
+delta = 2,2
+trans = None 
+mask = 0
+[BG  n ʗ  EC3]
+type = anim
+layerno = 0
+actionno = 237
+start =  228, 428
+delta = 2,2
+trans = None 
+mask = 0
+[BG  n ʗ  EC4]
+type = anim
+layerno = 0
+actionno = 238
+start =  364, 390
+delta = 2,2
+trans = None 
+mask = 0
+[BG  n ʗ  EC5]
+type = anim
+layerno = 0
+actionno = 239
+start =  428, 436
+delta = 2,2
+trans = None 
+mask = 0
+[BG  n ʗ  EC6]
+type = anim
+layerno = 0
+actionno = 240
+start =  270, 410
+delta = 2,2
+trans = None 
+mask = 0
+[BG  n ʗ  EC7]
+type = anim
+layerno = 0
+actionno = 241
+start =  350, 390
+delta = 2,2
+trans = None 
+mask = 0
+[BG  n ʗ  EC8]
+type = anim
+layerno = 0
+actionno = 242
+start =  500, 433
+delta = 2,2
+trans = None 
+mask = 0
+[BG  n ʗ  EC9]
+type = anim
+layerno = 0
+actionno = 243
+start =  570, 381
+delta = 2,2
+trans = None 
+mask = 0
+[BG  n ʗ  EC10]
+type = anim
+layerno = 0
+actionno = 244
+start =  609, 437
+delta = 2,2
+trans = None 
+mask = 0
+[Begin Action 235]
+15,0, 0,0, 3 ,,A
+15,1, 0,0, 3 ,,A
+15,2, 0,0, 3 ,,A
+15,3, 0,0, 3 ,,A
+15,0, 10000,0, 100
+[Begin Action 236]
+15,0, 0,0, 3 ,,A
+15,1, 0,0, 3 ,,A
+15,2, 0,0, 3 ,,A
+15,3, 0,0, 3 ,,A
+15,0, 10000,0, 200
+[Begin Action 237]
+15,0, 0,0, 3 ,,A
+15,1, 0,0, 3 ,,A
+15,2, 0,0, 3 ,,A
+15,3, 0,0, 3 ,,A
+15,0, 10000,0, 136
+[Begin Action 238]
+15,0, 10000,0, 108
+15,0, 0,0, 3 ,,A
+15,1, 0,0, 3 ,,A
+15,2, 0,0, 3 ,,A
+15,3, 0,0, 3 ,,A
+15,0, 10000,0, 11
+[Begin Action 239]
+15,0, 10000,0, 4
+15,0, 0,0, 3 ,,A
+15,1, 0,0, 3 ,,A
+15,2, 0,0, 3 ,,A
+15,3, 0,0, 3 ,,A
+15,0, 10000,0, 166
+[Begin Action 240]
+15,0, 10000,0, 268
+15,0, 0,0, 3 ,,A
+15,1, 0,0, 3 ,,A
+15,2, 0,0, 3 ,,A
+15,3, 0,0, 3 ,,A
+[Begin Action 241]
+15,0, 10000,0, 128
+15,0, 0,0, 3 ,,A
+15,1, 0,0, 3 ,,A
+15,2, 0,0, 3 ,,A
+15,3, 0,0, 3 ,,A
+[Begin Action 242]
+15,0, 10000,0, 209
+15,0, 0,0, 3 ,,A
+15,1, 0,0, 3 ,,A
+15,2, 0,0, 3 ,,A
+15,3, 0,0, 3 ,,A
+[Begin Action 243]
+15,0, 0,0, 3 ,,A
+15,1, 0,0, 3 ,,A
+15,2, 0,0, 3 ,,A
+15,3, 0,0, 3 ,,A
+15,0, 10000,0, 115
+[Begin Action 244]
+15,0, 10000,0, 128
+15,0, 0,0, 3 ,,A
+15,1, 0,0, 3 ,,A
+15,2, 0,0, 3 ,,A
+15,3, 0,0, 3 ,,A
+15,0, 10000,0, 70
+
+
+[Begin Action 34]
+11,10, 0,0, 1 ,,A
+11,11, 0,0, 1 ,,A
+11,12, 0,0, 1 ,,A
+11,13, 0,0, 1 ,,A
+11,14, 0,0, 1 ,,A
+11,15, 0,0, 1 ,,A
+11,16, 0,0, 1 ,,A
+11,17, 0,0, 1 ,,A
+11,18, 0,0, 1 ,,A
+11,19, 0,0, 1 ,,A
+11,20, 0,0, 1 ,,A
+11,10, 0,0, 1 ,,A
+11,11, 0,0, 1 ,,A
+11,12, 0,0, 1 ,,A
+11,13, 0,0, 1 ,,A
+11,14, 0,0, 1 ,,A
+11,15, 0,0, 1 ,,A
+11,16, 0,0, 1 ,,A
+11,17, 0,0, 1 ,,A
+11,18, 0,0, 1 ,,A
+11,19, 0,0, 1 ,,A
+11,20, 0,0, 1 ,,A
+11,21, 0,0, 1 ,,A
+11,22, 0,0, 1 ,,A
+11,23, 0,0, 1 ,,A
+11,24, 0,0, 1 ,,A
+11,25, 0,0, 1 ,,A
+11,26, 0,0, 1 ,,A
+11,26, 100000,0, 30 ,,A
+11,0, 0,0, 1 ,,A
+11,1, 0,0, 1 ,,A
+11,2, 0,0, 1 ,,A
+11,3, 0,0, 1 ,,A
+11,4, 0,0, 1 ,,A
+11,5, 0,0, 1 ,,A
+11,6, 0,0, 1 ,,A
+11,7, 0,0, 1 ,,A
+11,8, 0,0, 1 ,,A
+11,9, 0,0, 1 ,,A
+11,10, 0,0, 1 ,,A
+11,11, 0,0, 1 ,,A
+11,12, 0,0, 1 ,,A
+11,13, 0,0, 1 ,,A
+11,14, 0,0, 1 ,,A
+11,15, 0,0, 1 ,,A
+11,16, 0,0, 1 ,,A
+11,17, 0,0, 1 ,,A
+11,18, 0,0, 1 ,,A
+11,19, 0,0, 1 ,,A
+11,20, 0,0, 1 ,,A
+11,21, 0,0, 1 ,,A
+11,22, 0,0, 1 ,,A
+11,23, 0,0, 1 ,,A
+11,24, 0,0, 1 ,,A
+11,25, 0,0, 1 ,,A
+11,26, 0,0, 1 ,,A
+11,26, 100000,0, 60 ,,A
+11,15, 0,0, 1 ,,A
+11,16, 0,0, 1 ,,A
+11,17, 0,0, 1 ,,A
+11,18, 0,0, 1 ,,A
+11,19, 0,0, 1 ,,A
+11,20, 0,0, 1 ,,A
+11,21, 0,0, 1 ,,A
+11,22, 0,0, 1 ,,A
+11,23, 0,0, 1 ,,A
+11,24, 0,0, 1 ,,A
+11,25, 0,0, 1 ,,A
+11,26, 0,0, 1 ,,A
+11,26, 100000,0, 70 ,,A
+
+
+[Begin Action 100]
+30,5,0,0,100,,A
+30,0,0,0,4,,A
+30,1,0,0,4,,A
+30,2,0,0,4,,A
+30,3,0,0,4,,A
+31,5,0,0,500,,A
+31,0,0,0,4,,A
+31,1,0,0,4,,A
+31,2,0,0,4,,A
+31,3,0,0,4,,A
+32,5,0,0,500,,A
+32,0,0,0,4,,A
+32,1,0,0,4,,A
+32,2,0,0,4,,A
+32,3,0,0,4,,A
+33,5,0,0,500,,A
+33,0,0,0,4,,A
+33,1,0,0,4,,A
+33,2,0,0,4,,A
+33,3,0,0,4,,A
+30,5,0,0,400,,A
+[Begin Action 110]
+31,5,0,0,200,,A
+31,0,0,0,4,,A
+31,1,0,0,4,,A
+31,2,0,0,4,,A
+31,3,0,0,4,,A
+32,5,0,0,500,,A
+32,0,0,0,4,,A
+32,1,0,0,4,,A
+32,2,0,0,4,,A
+32,3,0,0,4,,A
+33,5,0,0,500,,A
+33,0,0,0,4,,A
+33,1,0,0,4,,A
+33,2,0,0,4,,A
+33,3,0,0,4,,A
+30,5,0,0,500,,A
+30,0,0,0,4,,A
+30,1,0,0,4,,A
+30,2,0,0,4,,A
+30,3,0,0,4,,A
+30,5,0,0,300,,A
+[Begin Action 120]
+32,5,0,0,300,,A
+32,0,0,0,4,,A
+32,1,0,0,4,,A
+32,2,0,0,4,,A
+32,3,0,0,4,,A
+33,5,0,0,500,,A
+33,0,0,0,4,,A
+33,1,0,0,4,,A
+33,2,0,0,4,,A
+33,3,0,0,4,,A
+30,5,0,0,500,,A
+30,0,0,0,4,,A
+30,1,0,0,4,,A
+30,2,0,0,4,,A
+30,3,0,0,4,,A
+31,5,0,0,500,,A
+31,0,0,0,4,,A
+31,1,0,0,4,,A
+31,2,0,0,4,,A
+31,3,0,0,4,,A
+30,5,0,0,200,,A
+[Begin Action 130]
+33,5,0,0,400,,A
+33,0,0,0,4,,A
+33,1,0,0,4,,A
+33,2,0,0,4,,A
+33,3,0,0,4,,A
+30,5,0,0,500,,A
+30,0,0,0,4,,A
+30,1,0,0,4,,A
+30,2,0,0,4,,A
+30,3,0,0,4,,A
+31,5,0,0,500,,A
+31,0,0,0,4,,A
+31,1,0,0,4,,A
+31,2,0,0,4,,A
+31,3,0,0,4,,A
+32,5,0,0,500,,A
+32,0,0,0,4,,A
+32,1,0,0,4,,A
+32,2,0,0,4,,A
+32,3,0,0,4,,A
+30,5,0,0,100,,A
+
+
+
+[BG Flama Vortex]
+type = anim
+actionno = 977
+start = 95,255
+delta = 2,2
+mask = 1
+
+[BG Flama Vortex]
+type = anim
+actionno = 977
+start = 370,255
+delta = 2,2
+mask = 1
+
+[BG Flama Vortex]
+type = anim
+actionno = 977
+start = 605,250
+delta = 2,2
+mask = 1
+
+[BG Flama Vortex]
+type = anim
+actionno = 977
+start = -190,255
+delta = 2,2
+mask = 1
+
+[BG Flama Vortex]
+type = anim
+actionno = 977
+start = -460,255
+delta = 2,2
+mask = 1
+
+[BG Flama Vortex]
+type = anim
+actionno = 977
+start = -705,250
+delta = 2,2
+mask = 1
+
+
+
+[Begin Action 977]
+977,0, 0,0, 1, ,A
+977,1, 0,0, 1, ,A
+977,2, 0,0, 1, ,A
+977,3, 0,0, 1, ,A
+977,4, 0,0, 1, ,A
+977,5, 0,0, 1, ,A
+977,6, 0,0, 1, ,A
+977,7, 0,0, 1, ,A
+977,8, 0,0, 1, ,A
+977,9, 0,0, 1, ,A
+977,10, 0,0, 1, ,A
+977,11, 0,0, 1, ,A
+977,12, 0,0, 1, ,A
+977,13, 0,0, 1, ,A
+977,14, 0,0, 1, ,A
+977,15, 0,0, 1, ,A
+
+
+[BG Flama Vortex]
+type = anim
+actionno = 966
+start = 95,120
+delta = 2,2
+mask = 1
+
+[BG Flama Vortex]
+type = anim
+actionno = 966
+start = 370,120
+delta = 2,2
+mask = 1
+
+[BG Flama Vortex]
+type = anim
+actionno = 966
+start = 605,117
+delta = 2,2
+mask = 1
+
+[BG Flama Vortex]
+type = anim
+actionno = 966
+start = -190,120
+delta = 2,2
+mask = 1
+
+[BG Flama Vortex]
+type = anim
+actionno = 966
+start = -460,120
+delta = 2,2
+mask = 1
+
+[BG Flama Vortex]
+type = anim
+actionno = 966
+start = -705,117
+delta = 2,2
+mask = 1
+
+
+
+
+
+[Begin Action 966]
+966,0, 0,0, 1, ,A
+966,1, 0,0, 1, ,A
+966,2, 0,0, 1, ,A
+966,3, 0,0, 1, ,A
+966,4, 0,0, 1, ,A
+966,5, 0,0, 1, ,A
+966,6, 0,0, 1, ,A
+966,7, 0,0, 1, ,A
+966,8, 0,0, 1, ,A
+966,9, 0,0, 1, ,A
+966,10, 0,0, 1, ,A
+966,11, 0,0, 1, ,A
+966,12, 0,0, 1, ,A
+966,13, 0,0, 1, ,A
+966,14, 0,0, 1, ,A
+966,15, 0,0, 1, ,A
+
+[BG Cruz]
+type = anim
+actionno = 999
+start = -350,115
+delta = 2,2
+mask = 1
+
+
+[BG Cruz]
+type = anim
+actionno = 999
+start = 220,115
+delta = 2,2
+mask = 1
+
+[Begin action 999]
+999,0,0,0,5
+999,0,0,0,5,,A1
+999,0,0,0,5,,A
+999,0,0,0,5,,A1
+
+
+
+[BG Skull]
+type = anim
+actionno = 990
+start = -33,150
+delta = 2,2
+mask = 1
+
+[Begin action 990]
+999,1,0,0,5
+999,1,0,0,5,,A1
+999,1,0,0,5,,A
+999,1,0,0,5,,A1
+
+
+;[BG Energy1]
+;type  = anim
+;actionno = 870  
+;start = -10,181
+;delta = 2,2
+
+;[Begin Action 870]
+;870,1, 0,0, 1, ,A
+;-1,0, 0,0, 1, ,A
+
+
+[BG Flama Vortex6]
+type = anim
+actionno = 545
+start = -114,70
+delta = 2,2
+mask = 1
+
+[BG Flama Vortex7]
+type = anim
+actionno = 540
+start = -114,-13
+delta = 2,2
+mask = 1
+
+
+
+
+[Begin Action 545]
+545,2, 0,0, 1, ,A
+545,2, 0,0, 1, ,A
+545,2, 0,0, 1, ,A
+545,2, 0,0, 1, ,A
+545,2, 0,0, 1, ,A
+545,2, 0,0, 1, ,A
+545,2, 0,0, 1, ,A
+545,2, 0,0, 1, ,A
+545,12, 0,0, 1, ,A
+545,12, 0,0, 1, ,A
+545,12, 0,0, 1, ,A
+545,12, 0,0, 1, ,A
+545,12, 0,0, 1, ,A
+545,12, 0,0, 1, ,A
+545,12, 0,0, 1, ,A
+545,12, 0,0, 1, ,A
+545,4, 0,0, 1, ,A
+545,4, 0,0, 1, ,A
+545,4, 0,0, 1, ,A
+545,4, 0,0, 1, ,A
+545,4, 0,0, 1, ,A
+545,4, 0,0, 1, ,A
+545,4, 0,0, 1, ,A
+545,4, 0,0, 1, ,A
+
+
+[Begin Action 540]
+545,5, 0,0, 1, ,A
+545,5, 0,0, 1, ,A
+545,5, 0,0, 1, ,A
+545,5, 0,0, 1, ,A
+545,5, 0,0, 1, ,A
+545,5, 0,0, 1, ,A
+545,5, 0,0, 1, ,A
+545,5, 0,0, 1, ,A
+545,9, 0,0, 1, ,A
+545,9, 0,0, 1, ,A
+545,9, 0,0, 1, ,A
+545,9, 0,0, 1, ,A
+545,9, 0,0, 1, ,A
+545,9, 0,0, 1, ,A
+545,9, 0,0, 1, ,A
+545,9, 0,0, 1, ,A
+545,7, 0,0, 1, ,A
+545,7, 0,0, 1, ,A
+545,7, 0,0, 1, ,A
+545,7, 0,0, 1, ,A
+545,7, 0,0, 1, ,A
+545,7, 0,0, 1, ,A
+545,7, 0,0, 1, ,A
+545,7, 0,0, 1, ,A
