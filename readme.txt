@@ -10,7 +10,7 @@ I made minor adjustments and fixes to a few characters within this build, includ
 - Modifying state definitions to improve gameplay behavior
 - Adjusting character mechanics for smoother play
 
-These changes were made using Fighter Factory(https://fighterfactory.com/), and they are intended to improve compatibility, balance, or visual polish.
+These changes were made using Fighter Factory(https://virtualltek.com/fighter-factory/), and they are intended to improve compatibility, balance, or visual polish.
 
 ## Credits
 
