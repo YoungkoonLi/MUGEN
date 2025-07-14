@@ -1,7 +1,7 @@
 ; ここにキャラ情報を書いてください
 [Info]
 name = "Omega Rugal"        ;キャラの名前
-displayname = "Orichi Rugal" ;表示されるキャラの名前
+displayname = "Orochi Rugal" ;表示されるキャラの名前
 versiondate = 11,22,2000    ;キャラの更新情報
 mugenversion = 11,22,2000   ;キャラが動くmugenのバージョン
 author = "bad darkness"         ;キャラの製作者名
