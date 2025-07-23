@@ -13,7 +13,7 @@ Pal.Defaults=1,2,3,4,5,6,7,8,9,10,11,12
 
 ; Files for the Player
 [Files]
-cmd     = Brian - copia.cmd
+cmd     = Brian.cmd
 cns     = Brian-N.cns  ;Constants
 st      = Brian-N.cns  ;States (Normal)
 st1     = Brian-S.cns  ;States (Special)

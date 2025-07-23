@@ -1106,7 +1106,7 @@ value = s0, 9
 type = HitDef
 trigger1 = Time = 0
 attr = A, NA
-damage    = 90
+damage = 90*(1 + var(2)) 
 guardflag = HA
 priority = 4
 pausetime = 12,12
@@ -1549,7 +1549,7 @@ value = 802
 [State 802, 2]
 type = LifeAdd
 trigger1 = Time = 71
-value = -100
+value = -70*(1 + 1.25*var(2))
 
 [State 802, 2]
 type = velset
@@ -4235,9 +4235,9 @@ velset = 0,0
 
 [State 4000, 1]
 type = NotHitBy
-trigger1 = Time = 50
+trigger1 = Time = 60
 value = SCA, SP
-time = 360
+time = 310
 
 [State 4000, 0]
 type = PlaySnd

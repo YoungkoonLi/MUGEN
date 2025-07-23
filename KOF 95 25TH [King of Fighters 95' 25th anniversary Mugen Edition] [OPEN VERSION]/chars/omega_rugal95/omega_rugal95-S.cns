@@ -3191,7 +3191,7 @@ sprpriority = 5
 [state a]
 type = targetlifeadd
 trigger1 = animelem = 3
-value = ifelse(Var(16),-ceil(310*((1.0+(fvar(3)/10))*fvar(2))),-315)
+value = ifelse(Var(16),-ceil(400*((1.0+(fvar(3)/10))*fvar(2))),-315)
 
 [state a]
 type = targetPoweradd

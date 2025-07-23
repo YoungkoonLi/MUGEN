@@ -437,7 +437,7 @@ time = 2
 type = HitDef
 trigger1 = time = 0
 attr = S, HT
-damage = 10
+damage = 15
 animtype = hard
 hitflag = MAF
 guardflag = MA
@@ -614,7 +614,7 @@ getpower = 0
 type = HitDef
 trigger1 = animelem = 26
 attr = S, HA
-damage = 20
+damage = 30
 animtype = hard
 hitflag = MAF
 guardflag = D
@@ -749,7 +749,7 @@ value = 2000,0
 type = HitDef
 trigger1 = animelem = 1
 attr = A, HA
-damage = 60
+damage = 65
 animtype = hard
 hitflag = MAF
 guardflag = M

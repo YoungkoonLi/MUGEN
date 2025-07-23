@@ -2,7 +2,7 @@
 M.U.G.E.N ver 1.00 (2011.01.18) status log
 ------------------------------------------
 Parsing command line...
-Command line: D:\Games\KOF\kof 94 MUGEN\Kof '94 Remix MUGEN\mugen.exe
+Command line: D:\Games\KOF\MUGEN\KOF 94 MUGEN\Kof '94 Remix MUGEN\mugen.exe
 Parse command line OK
 Initializing...
 Allocating game variables
@@ -63,7 +63,7 @@ Playing storyboard neogeo.def: scene
 attempting load and start...attempting load of data/kof94/mp3/kof94-sb-logo.mp3...hooking mixer callback...
 success!
 starting BGM...
-Storyboard playback finished OK
+Storyboard playback canceled 80:0 k6A p0
 Finished playing storyboard neogeo.def: scene
 Initializing character info...OK
 Initializing select screen...finding characters...OK
@@ -72,56 +72,11 @@ Entering main loop
 Playing storyboard kof94intro.sce: scene
 attempting load and start...attempting load of data/kof94/ouei.mp3...success!
 starting BGM...
-attempting load and start...attempting load of data/kof94/tadam.mp3...success!
-starting BGM...
-Storyboard playback finished OK
+Storyboard playback canceled 10:0 k6B p0
 Finished playing storyboard kof94intro.sce: scene
 Entering character select.
 attempting load and start...attempting load of data/kof94/ouei.mp3...success!
 starting BGM...
-Initializing stage...
-  Loading BG...OK
-  Allocating helpers...OK
-Stage initialized OK
-Loading character chars/robert94/robert94.def...
-  Loading info...OK
-  Loading cmd command set robert94.cmd...OK
-  Loading cns robert94.cns...OK
-  Loading cns aof.st...OK
-  Loading cns special.st...OK
-  Loading cmd state entry robert94.cmd...OK
-  Loading common states common1.cns...OK
-  Unloading command names...OK
-  Loading sff robert.sff...OK
-  Loading anim robert94.air...OK
-  Loading snd robert.snd...OK
-  Loading pals...(1,1)(1,2)(1,3)(1,4)(1,5)(1,6)(1,7)(1,8)(1,9)(1,10)(1,11)(1,12)OK
-  SFF v1.01 palette hack engaged.
-  4180 expressions (1256 on trigger lines)
-Character robert94.def loaded OK
-Loading character chars/95king/95king.def...
-  Loading info...OK
-  Loading cmd command set 95king.cmd...OK
-  Loading cns 95king.cns...OK
-  Loading cmd state entry 95king.cmd...OK
-  Loading common states common1.cns...OK
-  Unloading command names...OK
-  Loading sff 95king.sff...OK
-  Loading anim 95king.air...OK
-  Loading snd 95king.snd...OK
-  Loading pals...(1,1)(1,2)(1,3)(1,4)(1,5)(1,6)(1,7)(1,8)(1,9)OK
-  SFF v1.01 palette hack engaged.
-  5072 expressions (1719 on trigger lines)
-Character 95king.def loaded OK
-Start of game loop
-End of game loop
-Total time: 29.25s
-Total frames: 1756 	Skipped frames: 0
-Avg game rate: 60.03
-Avg frame rate: 60.03
-
-Entering character select.
-attempting load and start...nothing to do!
 attempting load and start...attempting load of data/kof94/tumdum.mp3...success!
 starting BGM...
 Loading character chars/rugal94/rugal94.def...
@@ -134,51 +89,197 @@ Loading character chars/rugal94/rugal94.def...
   Loading sff rugal94.sff...OK
   Loading anim rugal94.air...OK
   Loading snd rugal94.snd...OK
-  Loading pals...(1,1)attempting load and start...no BGM...(1,2)(1,3)(1,4)(1,5)OK
+  Loading pals...(1,1)(1,2)(1,3)(1,4)(1,5)OK
   SFF v1.01 palette hack engaged.
   7794 expressions (2598 on trigger lines)
 Character rugal94.def loaded OK
-Loading character chars/kyo94&95/kyo94.def...
+Loading character chars/94_yuri/94_yuri.def...
   Loading info...OK
-  Loading cmd command set kyo'94.cmd...OK
-  Loading cns kyo94&95.cns...OK
-  Loading cns kyo94_NA.cns...OK
-  Loading cns kyo94_Sp.cns...OK
-  Loading cmd state entry kyo'94.cmd...OK
+  Loading cmd command set 94_yuri.cmd...attempting load and start...no BGM...OK
+  Loading cns 94_yuri.cns...OK
+  Loading cmd state entry 94_yuri.cmd...OK
   Loading common states common1.cns...OK
   Unloading command names...OK
-  Loading sff kyo'94.sff...OK
-  Loading anim kyo'94.air...OK
-  Loading snd kyo'94.snd...OK
+  Loading sff 94_yuri.sff...OK
+  Loading anim 94_yuri.air...OK
+  Loading snd 94_yuri.snd...OK
+  Loading pals...(1,1)(1,2)(1,3)(1,4)(1,5)(1,6)(1,7)(1,8)(1,10)(1,11)OK
+  SFF v1.01 palette hack engaged.
+  5720 expressions (1911 on trigger lines)
+Character 94_yuri.def loaded OK
+Initializing stage...
+  Loading BG...attempting load of stages/-06-ne-english-stage-.mp3...OK
+  Allocating helpers...success!
+OK
+Stage initialized OK
+Start of game loop
+prebuffering BGM...
+Loading character chars/ccimai95/ccimai95.def...
+  Loading info...OK
+  Loading cmd command set mai95.cmd...OK
+  Loading cns mai95.cns...OK
+  Loading cns attacks.cns...OK
+  Loading cns specials.cns...OK
+  Loading cns hypers.cns...OK
+  Loading cns misc.cns...OK
+  Loading cmd state entry mai95.cmd...OK
+  Loading common states common1.cns...OK
+  Unloading command names...OK
+  Loading sff mai95.sff...OK
+  Loading anim mai95.air...OK
+  Loading snd mai95.snd...OK
   Loading pals...(1,1)(1,2)(1,3)(1,4)(1,5)(1,6)OK
   SFF v1.01 palette hack engaged.
-  3825 expressions (1131 on trigger lines)
-Character kyo94.def loaded OK
+  4698 expressions (1948 on trigger lines)
+Character ccimai95.def loaded OK
+End of game loop
+Total time: 79.09s
+Total frames: 4747 	Skipped frames: 0
+Avg game rate: 60.02
+Avg frame rate: 60.02
+
 Initializing stage...
   Loading BG...OK
   Allocating helpers...OK
 Stage initialized OK
 Start of game loop
-attempting load of stages/-10-esaka-japan-stage-.mp3...success!
+attempting load and start...no BGM...attempting load of stages/-06-ne-english-stage-.mp3...success!
 prebuffering BGM...
-Loading character chars/daimon41/daimon41.def...
+Loading character chars/Andy94DM/Andy94DM.def...
   Loading info...OK
-  Loading cmd command set daimon_cmd.cns...OK
-  Loading cns daimon.cns...OK
-  Loading cns STAND.cns...OK
-  Loading cns helpers.cns...OK
-  Loading cmd state entry daimon_cmd.cns...OK
+  Loading cmd command set command.cmd...OK
+  Loading cns constants.cns...OK
+  Loading cns States/normal.cns...OK
+  Loading cns States/specials.cns...OK
+  Loading cns States/supers.cns...OK
+  Loading cns States/helpers.cns...OK
+  Loading cns States/-2.cns...OK
+  Loading cns States/-3.cns...OK
+  Loading cmd state entry command.cmd...OK
   Loading common states common1.cns...OK
   Unloading command names...OK
-  Loading sff daimon.sff...OK
-  Loading anim daimon.air...OK
-  Loading snd daimon.snd...OK
-  Loading pals...OK
-  2891 expressions (1408 on trigger lines)
-Character daimon41.def loaded OK
+  Loading sff sprite.sff...OK
+  Loading anim anim.air...OK
+  Loading snd sound.snd...OK
+  Loading pals...(1,1)(1,2)(1,3)(1,4)(1,5)(1,6)(1,7)(1,8)(1,9)OK
+  SFF v1.01 palette hack engaged.
+  Loading learned AI States/AI.ai...OK
+  3380 expressions (1368 on trigger lines)
+Character Andy94DM.def loaded OK
+Attempting to set graphics to 640x480x16 mode 0x0 (fullscreen)...success
 End of game loop
-Total time: 71.96s
-Total frames: 4320 	Skipped frames: 0
+Total time: 62.97s
+Total frames: 3770 	Skipped frames: 0
+Avg game rate: 59.87
+Avg frame rate: 59.87
+
+attempting load and start...no BGM...Initializing stage...
+  Loading BG...OK
+  Allocating helpers...OK
+Stage initialized OK
+Start of game loop
+attempting load of stages/-09-napolitan-blues-italy-stage-.mp3...success!
+prebuffering BGM...
+End of game loop
+Total time: 71.17s
+Total frames: 4272 	Skipped frames: 0
+Avg game rate: 60.03
+Avg frame rate: 60.03
+
+attempting load and start...attempting load of data/kof94/tumdum.mp3...success!
+starting BGM...
+Initializing stage...
+  Loading BG...OK
+  Allocating helpers...OK
+Stage initialized OK
+Start of game loop
+attempting load and start...no BGM...attempting load of stages/-09-napolitan-blues-italy-stage-.mp3...success!
+prebuffering BGM...
+Loading character chars/Terry94DM/Terry94DM.def...
+  Loading info...OK
+  Loading cmd command set command.cmd...OK
+  Loading cns constants.cns...OK
+  Loading cns States/normal.cns...OK
+  Loading cns States/specials.cns...OK
+  Loading cns States/supers.cns...OK
+  Loading cns States/helpers.cns...OK
+  Loading cns States/-2.cns...OK
+  Loading cns States/-3.cns...OK
+  Loading cmd state entry command.cmd...OK
+  Loading common states common1.cns...OK
+  Unloading command names...OK
+  Loading sff sprite.sff...OK
+  Loading anim anim.air...OK
+  Loading snd sound.snd...OK
+  Loading pals...(1,1)(1,2)(1,3)(1,4)(1,5)(1,6)(1,7)(1,8)(1,9)(1,10)(1,11)(1,12)OK
+  SFF v1.01 palette hack engaged.
+  Loading learned AI States/AI.ai...OK
+  3332 expressions (1384 on trigger lines)
+Character Terry94DM.def loaded OK
+End of game loop
+Total time: 95.03s
+Total frames: 5704 	Skipped frames: 0
+Avg game rate: 60.02
+Avg frame rate: 60.02
+
+Initializing stage...
+  Loading BG...OK
+  Allocating helpers...OK
+Stage initialized OK
+Start of game loop
+attempting load and start...no BGM...attempting load of stages/-09-napolitan-blues-italy-stage-.mp3...success!
+prebuffering BGM...
+Loading character chars/00clark/00clark.def...
+  Loading info...OK
+  Loading cmd command set 00clark.cmd...OK
+  Loading cns 00clark.cns...OK
+  Loading cns 3.cns...OK
+  Loading cmd state entry 00clark.cmd...OK
+  Loading common states common.st...OK
+  Unloading command names...OK
+  Loading sff 00clark.sff...OK
+  Loading anim 00clark.air...OK
+  Loading snd 00clark.snd...OK
+  Loading pals...(1,1)(1,2)(1,3)(1,4)(1,5)(1,6)OK
+  SFF v1.01 palette hack engaged.
+  10320 expressions (3772 on trigger lines)
+Character 00clark.def loaded OK
+End of game loop
+Total time: 74.01s
+Total frames: 4442 	Skipped frames: 0
+Avg game rate: 60.02
+Avg frame rate: 60.02
+
+attempting load and start...no BGM...Initializing stage...
+  Loading BG...attempting load of stages/-04-jungle-bouncer-brazil-stage-.mp3...success!
+OK
+  Allocating helpers...OK
+Stage initialized OK
+Start of game loop
+prebuffering BGM...
+Loading character chars/Benimaru94DM/Benimaru94DM.def...
+  Loading info...OK
+  Loading cmd command set command.cmd...OK
+  Loading cns constants.cns...OK
+  Loading cns States/normal.cns...OK
+  Loading cns States/specials.cns...OK
+  Loading cns States/supers.cns...OK
+  Loading cns States/helpers.cns...OK
+  Loading cns States/-2.cns...OK
+  Loading cns States/-3.cns...OK
+  Loading cmd state entry command.cmd...OK
+  Loading common states common1.cns...OK
+  Unloading command names...OK
+  Loading sff sprite.sff...OK
+  Loading anim anim.air...OK
+  Loading snd sound.snd...OK
+  Loading pals...(1,1)(1,2)(1,3)(1,4)(1,5)(1,6)(1,7)(1,8)(1,9)(1,10)OK
+  SFF v1.01 palette hack engaged.
+  3538 expressions (1479 on trigger lines)
+Character Benimaru94DM.def loaded OK
+End of game loop
+Total time: 70.05s
+Total frames: 4205 	Skipped frames: 0
 Avg game rate: 60.03
 Avg frame rate: 60.03
 
@@ -189,37 +290,6 @@ OK
 Stage initialized OK
 Start of game loop
 prebuffering BGM...
-End of game loop
-Total time: 36.82s
-Total frames: 2210 	Skipped frames: 0
-Avg game rate: 60.02
-Avg frame rate: 60.02
-
-Entering character select.
-attempting load and start...attempting load of data/kof94/ouei.mp3...success!
-starting BGM...
-attempting load and start...attempting load of data/kof94/tumdum.mp3...success!
-starting BGM...
-Initializing stage...
-attempting load and start...no BGM...  Loading BG...OK
-  Allocating helpers...OK
-Stage initialized OK
-Start of game loop
-attempting load of stages/-11-yuu-korea-stage-.mp3...success!
-prebuffering BGM...
-End of game loop
-Total time: 34.75s
-Total frames: 2086 	Skipped frames: 0
-Avg game rate: 60.03
-Avg frame rate: 60.03
-
-attempting load and start...attempting load of data/kof94/tumdum.mp3...success!
-starting BGM...
-Entering character select.
-attempting load and start...attempting load of data/kof94/ouei.mp3...success!
-starting BGM...
-attempting load and start...attempting load of data/kof94/tumdum.mp3...success!
-starting BGM...
 Loading character chars/rugalB/rugalB.def...
   Loading info...OK
   Loading cmd command set rugalB.cmd...OK
@@ -234,23 +304,96 @@ Loading character chars/rugalB/rugalB.def...
   SFF v1.01 palette hack engaged.
   1557 expressions (616 on trigger lines)
 Character rugalB.def loaded OK
-Entering character select.
-attempting load and start...attempting load of data/kof94/ouei.mp3...success!
-starting BGM...
+End of game loop
+Total time: 70.26s
+Total frames: 4217 	Skipped frames: 0
+Avg game rate: 60.02
+Avg frame rate: 60.02
+
+Initializing stage...
+  Loading BG...attempting load and start...no BGM...attempting load of stages/-14-getsutou-r-d-boss-stage-1-.mp3...success!
+OK
+  Allocating helpers...OK
+Stage initialized OK
+Start of game loop
+prebuffering BGM...
+End of game loop
+Total time: 62.61s
+Total frames: 3758 	Skipped frames: 0
+Avg game rate: 60.02
+Avg frame rate: 60.02
+
+Initializing stage...
+  Loading BG...attempting load and start...no BGM...attempting load of stages/-16-ketsutou-r-d-boss-stage-2-.mp3...success!
+OK
+  Allocating helpers...OK
+Stage initialized OK
+Start of game loop
+prebuffering BGM...
+Loading character chars/rugal 94/rugal 94.def...
+  Loading info...OK
+  Loading cmd command set rugal94.cmd...OK
+  Loading cns rugal94.cns...OK
+  Loading cns kof94_system.cns...OK
+  Loading cns config.txt...OK
+  Loading cmd state entry rugal94.cmd...OK
+  Loading common states common1.cns...OK
+  Unloading command names...OK
+  Loading sff rugal94.sff...OK
+  Loading anim rugal94.air...OK
+  Loading snd rugal94.snd...OK
+  Loading pals...(1,1)(1,2)(1,3)(1,4)(1,5)(1,6)(1,7)(1,8)(1,9)(1,10)(1,11)(1,12)OK
+  SFF v1.01 palette hack engaged.
+  4418 expressions (1960 on trigger lines)
+Character rugal 94.def loaded OK
+End of game loop
+Total time: 73.14s
+Total frames: 4390 	Skipped frames: 0
+Avg game rate: 60.02
+Avg frame rate: 60.02
+
+Initializing stage...
+  Loading BG...attempting load and start...no BGM...attempting load of stages/-16-ketsutou-r-d-boss-stage-2-.mp3...OK
+  Allocating helpers...OK
+Stage initialized OK
+success!
+Start of game loop
+prebuffering BGM...
+End of game loop
+Total time: 157.03s
+Total frames: 9423 	Skipped frames: 0
+Avg game rate: 60.01
+Avg frame rate: 60.01
+
 attempting load and start...attempting load of data/kof94/tumdum.mp3...success!
 starting BGM...
-Initializing stage...
+attempting load and start...no BGM...Initializing stage...
   Loading BG...OK
   Allocating helpers...OK
 Stage initialized OK
 Start of game loop
-attempting load and start...no BGM...attempting load of stages/-10-esaka-japan-stage-.mp3...success!
+attempting load of stages/-16-ketsutou-r-d-boss-stage-2-.mp3...success!
 prebuffering BGM...
 End of game loop
-Total time: 221.77s
-Total frames: 13307 	Skipped frames: 0
-Avg game rate: 60.00
-Avg frame rate: 60.00
+Total time: 140.08s
+Total frames: 8407 	Skipped frames: 0
+Avg game rate: 60.02
+Avg frame rate: 60.02
+
+attempting load and start...attempting load of data/kof94/tumdum.mp3...success!
+starting BGM...
+attempting load and start...no BGM...Initializing stage...
+  Loading BG...OK
+  Allocating helpers...OK
+Stage initialized OK
+Start of game loop
+attempting load of stages/-16-ketsutou-r-d-boss-stage-2-.mp3...success!
+prebuffering BGM...
+End of game loop
+Total time: 52.40s
+Total frames: 3146 	Skipped frames: 0
+Avg game rate: 60.04
+Avg frame rate: 60.04
 
 attempting load and start...attempting load of data/kof94/tumdum.mp3...success!
 starting BGM...
@@ -259,9 +402,9 @@ attempting load and start...attempting load of data/kof94/ouei.mp3...success!
 starting BGM...
 Returned from main loop
 Deinitializing...
-Frames      : 23679
-Time elapsed: 489.990 sec
-ticks: 48999, tps: 100, start 53, end 49052
+Frames      : 60481
+Time elapsed: 1026.170 sec
+ticks: 102617, tps: 100, start 65, end 102682
 
 Clearing player cache...OK
 Freeing character info...OK
@@ -275,11 +418,11 @@ Deintializing timer...OK
 Deinitializing graphics...OK
 Deinitializing BGM...Cleaning up mixer callback...unhooking mixer callback...
 
-Mixer callback was entered 10551 times
-Mixer callback timing stats (last 10551 calls):
-	16.000000 median, 18.442423 avg, 15.082424 sample std. dev.
-Top 10 slowest times:	722 (1), 526 (1), 466 (1), 399 (1), 310 (1), 289 (1), 214 (1), 212 (1), 210 (1), 197 (1)
-Top 10 fastest times:	4 (2), 5 (25), 6 (36), 7 (47), 8 (63), 9 (144), 10 (301), 11 (470), 12 (708), 13 (897)
+Mixer callback was entered 22097 times
+Mixer callback timing stats (last 22097 calls):
+	15.000000 median, 16.853464 avg, 34.550027 sample std. dev.
+Top 10 slowest times:	2606 (1), 2202 (1), 1885 (1), 1594 (1), 1275 (1), 1195 (1), 1088 (1), 760 (1), 667 (1), 356 (1)
+Top 10 fastest times:	2 (1), 3 (2), 4 (8), 5 (8), 6 (75), 7 (449), 8 (993), 9 (1301), 10 (1230), 11 (1166)
 OK
 Deinitializing sound...OK
 Successful program termination.
