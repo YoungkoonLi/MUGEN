@@ -198,7 +198,7 @@ Loading character chars/omegarugal/omegarugal.def...
   Loading snd omegarugal.snd...OK
   Loading pals...(1,1)(1,2)(1,3)(1,4)(1,5)(1,6)(1,7)(1,8)(1,9)(1,10)(1,11)(1,12)OK
   SFF v1.01 palette hack engaged.
-  8275 expressions (2699 on trigger lines)
+  8277 expressions (2699 on trigger lines)
 Character omegarugal.def loaded OK
 Loading character chars/iori/iori.def...
   Loading info...OK
@@ -215,15 +215,17 @@ Loading character chars/iori/iori.def...
   12180 expressions (4534 on trigger lines)
 Character iori.def loaded OK
 attempting load and start...no BGM...Initializing stage...
-  Loading BG...OK
+  Loading BG...attempting load of sound/slam no.5.mp3...success!
+OK
   Allocating helpers...OK
 Stage initialized OK
 Start of game loop
+prebuffering BGM...
 End of game loop
-Total time: 43.36s
-Total frames: 2603 	Skipped frames: 0
-Avg game rate: 60.03
-Avg frame rate: 60.03
+Total time: 115.63s
+Total frames: 6939 	Skipped frames: 0
+Avg game rate: 60.01
+Avg frame rate: 60.01
 
 attempting load and start...attempting load of data/kof95/mp3/kof95-sp-select.mp3...success!
 starting BGM...
@@ -232,9 +234,9 @@ attempting load and start...attempting load of data/kof95/mp3/kof95-sp-title.mp3
 starting BGM...
 Returned from main loop
 Deinitializing...
-Frames      : 2603
-Time elapsed: 47.990 sec
-ticks: 4799, tps: 100, start 74, end 4873
+Frames      : 6939
+Time elapsed: 121.120 sec
+ticks: 12112, tps: 100, start 68, end 12180
 
 Clearing player cache...OK
 Freeing character info...OK
@@ -248,11 +250,11 @@ Deintializing timer...OK
 Deinitializing graphics...OK
 Deinitializing BGM...Cleaning up mixer callback...unhooking mixer callback...
 
-Mixer callback was entered 1026 times
-Mixer callback timing stats (last 1026 calls):
-	6.000000 median, 7.668616 avg, 6.948522 sample std. dev.
-Top 10 slowest times:	104 (1), 88 (1), 57 (1), 55 (1), 54 (1), 50 (1), 46 (1), 45 (1), 39 (1), 38 (4)
-Top 10 fastest times:	3 (69), 4 (256), 5 (148), 6 (112), 7 (114), 8 (100), 9 (38), 10 (15), 11 (23), 12 (19)
+Mixer callback was entered 2601 times
+Mixer callback timing stats (last 2601 calls):
+	14.000000 median, 15.569781 avg, 12.546743 sample std. dev.
+Top 10 slowest times:	274 (1), 194 (1), 172 (1), 164 (1), 160 (3), 154 (1), 153 (1), 145 (1), 143 (1), 113 (1)
+Top 10 fastest times:	4 (2), 5 (1), 6 (6), 7 (83), 8 (147), 9 (135), 10 (141), 11 (97), 12 (137), 13 (386)
 OK
 Deinitializing sound...OK
 Successful program termination.

@@ -322,7 +322,7 @@ anim = 200                       ;このステートで表示するスプライトステート番号(0
 type = HitDef
 trigger1 = AnimElem = 4
 attr = S, NA                     ;立ち状態で、通常の攻撃(ｓは立ち、ｎは通常、aは攻撃を表す)
-damage = 45*(1 + 1.25*var(2)), 0                   ;ダメージ量（左が当たった時、右はガードした時）
+damage = 45*(1 + 1.5*var(2)), 0                   ;ダメージ量（左が当たった時、右はガードした時）
 animtype = Light                 ;当てた時の相手のポーズ（light/midium/hard/back）から選択
 guardflag = MA                   ;ガードできる状態（ｍaは全ての状態でガード可能）
 hitflag = MAF                    ;当てる事のできる条件
@@ -386,7 +386,7 @@ type = HitDef
 trigger1 = AnimElem = 3
 attr = S, NA
 animtype  = hard
-damage    = 100*(1 + 1.25*var(2))
+damage    = 100*(1 + 1.5*var(2))
 guardflag = MA
 pausetime = 12,12
 sparkno = 1
@@ -443,7 +443,7 @@ type = HitDef
 trigger1 = AnimElem = 2
 attr = S, NA
 animtype  = Medium
-damage    = 45*(1 + 1.25*var(2))
+damage    = 45*(1 + 1.5*var(2))
 guardflag = MA
 pausetime = 12,12
 sparkno = 0
@@ -491,7 +491,7 @@ type = HitDef
 trigger1 = AnimElem = 5
 attr = S, NA
 animtype  = hard
-damage    = 50*(1 + 1.25*var(2))
+damage    = 50*(1 + 1.5*var(2))
 guardflag = MA
 pausetime = 12,12
 sparkno = 1
@@ -512,7 +512,7 @@ type = HitDef
 trigger1 = AnimElem = 6
 attr = S, NA
 animtype  = Medium
-damage    = 50*(1 + 1.25*var(2))
+damage    = 50*(1 + 1.5*var(2))
 guardflag = MA
 pausetime = 12,12
 sparkno = 1
@@ -549,7 +549,7 @@ sprpriority = 2                  ;表示した絵の重なり具合(2一番前　0通常　-1奥)
 type = HitDef
 trigger1 = AnimElem = 2
 attr = S, NA                     ;立ち状態で、通常の攻撃(ｓは立ち、ｎは通常、aは攻撃を表す)
-damage = 43, 0                   ;ダメージ量（左が当たった時、右はガードした時）
+damage = 45*(1 + 1.5*var(2)), 0                    ;ダメージ量（左が当たった時、右はガードした時）
 animtype = Light                 ;当てた時の相手のポーズ（light/midium/hard/back）から選択
 guardflag = MA                   ;ガードできる状態（ｍaは全ての状態でガード可能）
 hitflag = MAF                    ;当てる事のできる条件
@@ -602,7 +602,7 @@ sprpriority = 2                  ;表示した絵の重なり具合(2一番前　0通常　-1奥)
 type = HitDef
 trigger1 = AnimElem = 4
 attr = S, NA                     ;立ち状態で、通常の攻撃(ｓは立ち、ｎは通常、aは攻撃を表す)
-damage = 100*(1 + 1.25*var(2)), 0                   ;ダメージ量（左が当たった時、右はガードした時）
+damage = 100*(1 + 1.5*var(2)), 0                   ;ダメージ量（左が当たった時、右はガードした時）
 animtype = back                 ;当てた時の相手のポーズ（light/midium/hard/back）から選択
 guardflag = MA                   ;ガードできる状態（ｍaは全ての状態でガード可能）
 hitflag = MAF                    ;当てる事のできる条件
@@ -666,7 +666,7 @@ type = HitDef
 trigger1 = AnimElem = 2
 attr = S, NA
 animtype  = Medium
-damage    = 45*(1 + 1.25*var(2))
+damage    = 45*(1 + 1.5*var(2))
 guardflag = L
 pausetime = 12,12
 sparkno = 0
@@ -714,7 +714,7 @@ type = HitDef
 trigger1 = AnimElem = 3
 attr = S, NA
 animtype  = hard
-damage    = 50*(1 + 1.25*var(2))
+damage    = 50*(1 + 1.5*var(2))
 guardflag = MA
 pausetime = 12,12
 sparkno = 0
@@ -780,7 +780,7 @@ value = s0, 8
 type = HitDef
 trigger1 = Time = 0
 attr = C, NA
-damage    = 45*(1 + 1.25*var(2))
+damage    = 45*(1 + 1.5*var(2))
 priority  = 3
 animtype  = Light
 hitflag = MAF
@@ -830,7 +830,7 @@ value = s0, 9
 type = HitDef
 trigger1 = AnimElem = 3
 attr = C, NA
-damage    = 100*(1 + 1.25*var(2))
+damage    = 100*(1 + 1.5*var(2))
 animtype  = Medium
 hitflag = MAF
 guardflag = M
@@ -878,7 +878,7 @@ value = s0, 8
 type = HitDef
 trigger1 = Time = 0
 attr = C, NA
-damage    = 45*(1 + 1.25*var(2))
+damage    = 45*(1 + 1.5*var(2))
 animtype  = Light
 hitflag = MAFD
 guardflag = L
@@ -928,7 +928,7 @@ value = s0, 9
 type = HitDef
 trigger1 = Time = 0
 attr = C, NA
-damage    = 100*(1 + 1.25*var(2))
+damage    = 100*(1 + 1.5*var(2))
 hitflag = MAF
 guardflag = L
 pausetime = 12,12
@@ -977,7 +977,7 @@ value = s0, 8
 type = HitDef
 trigger1 = Time = 0
 attr = A, NA
-damage    = 45*(1 + 1.25*var(2))
+damage    = 45*(1 + 1.5*var(2))
 guardflag = HA
 priority = 3
 pausetime = 7,8
@@ -1023,7 +1023,7 @@ value = s0, 9
 type = HitDef
 trigger1 = Time = 0
 attr = A, NA
-damage = 100*(1 + 1.25*var(2))
+damage = 100*(1 + 1.5*var(2))
 guardflag = HA
 priority = 4
 pausetime = 12,12
@@ -1065,7 +1065,7 @@ value = s0, 8
 type = HitDef
 trigger1 = Time = 0
 attr = A, NA
-damage = 45*(1 + 1.25*var(2))
+damage = 45*(1 + 1.5*var(2))
 guardflag = HA
 priority = 3
 pausetime = 8,8
@@ -1106,7 +1106,7 @@ value = s0, 9
 type = HitDef
 trigger1 = Time = 0
 attr = A, NA
-damage = 100*(1 + 1.25*var(2)) 
+damage = 100*(1 + 1.5*var(2)) 
 guardflag = HA
 priority = 4
 pausetime = 12,12
@@ -1372,7 +1372,7 @@ type = HitDef
 trigger1 = Time = 0
 attr = S, NA
 animtype  = Medium
-damage    = 77
+damage    = 110*(1 + 1.5*var(2)), 0 
 guardflag = MAF
 pausetime = 12,12
 sparkno = S2990
@@ -1588,7 +1588,7 @@ type = HitDef
 trigger1 = Time = 0
 attr = S, NA
 animtype  = Medium
-damage    = 77
+damage    = 110*(1 + 1.5*var(2)), 0 
 guardflag = MAF
 pausetime = 12,12
 sparkno = S2990
