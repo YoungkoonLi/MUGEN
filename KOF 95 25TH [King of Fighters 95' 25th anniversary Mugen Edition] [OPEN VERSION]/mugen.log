@@ -64,7 +64,7 @@ Set up graphics...timer...OK
 Playing storyboard kof95-sb-logo.def: scene
 attempting load and start...attempting load of data/mugen1/mp3/kof95-sb-logo.mp3...Couldn't open BGM file data/mugen1/mp3/kof95-sb-logo.mp3!
 error 1!
-Storyboard playback canceled 10:0 k6B p0
+Storyboard playback canceled 80:0 k6A p0
 Finished playing storyboard kof95-sb-logo.def: scene
 Initializing character info...OK
 Initializing select screen...finding characters...
@@ -185,21 +185,23 @@ success!
 starting BGM...
 attempting load and start...attempting load of data/kof95/mp3/kof95-sp-select.mp3...success!
 starting BGM...
-Loading character chars/omegarugal/omegarugal.def...
+Loading character chars/omega_rugal95/omega_rugal95.def...
   Loading info...OK
-  Loading cmd command set omegarugal.cmd...OK
-  Loading cns omegarugal.cns...OK
-  Loading cns orochi.cns...OK
-  Loading cmd state entry omegarugal.cmd...OK
+  Loading cmd command set omega_rugal95.cmd...OK
+  Loading cns omega_rugal95.cns...OK
+  Loading cns omega_rugal95-N.cns...OK
+  Loading cns omega_rugal95-S.cns...OK
+  Loading cns omega_rugal95-2-3.cns...OK
+  Loading cmd state entry omega_rugal95.cmd...OK
   Loading common states common1.cns...OK
   Unloading command names...OK
-  Loading sff omegarugal.sff...OK
-  Loading anim omegarugal.air...OK
-  Loading snd omegarugal.snd...OK
+  Loading sff omega_rugal95.sff...OK
+  Loading anim omega_rugal95.air...OK
+  Loading snd omega_rugal95.snd...OK
   Loading pals...(1,1)(1,2)(1,3)(1,4)(1,5)(1,6)(1,7)(1,8)(1,9)(1,10)(1,11)(1,12)OK
   SFF v1.01 palette hack engaged.
-  8277 expressions (2699 on trigger lines)
-Character omegarugal.def loaded OK
+  5848 expressions (1786 on trigger lines)
+Character omega_rugal95.def loaded OK
 Loading character chars/iori/iori.def...
   Loading info...OK
   Loading cmd command set Iori.cmd...OK
@@ -215,17 +217,17 @@ Loading character chars/iori/iori.def...
   12180 expressions (4534 on trigger lines)
 Character iori.def loaded OK
 attempting load and start...no BGM...Initializing stage...
-  Loading BG...attempting load of sound/slam no.5.mp3...success!
-OK
+  Loading BG...OK
   Allocating helpers...OK
 Stage initialized OK
 Start of game loop
+attempting load of sound/ryuuko and ken.mp3...success!
 prebuffering BGM...
 End of game loop
-Total time: 115.63s
-Total frames: 6939 	Skipped frames: 0
-Avg game rate: 60.01
-Avg frame rate: 60.01
+Total time: 9.81s
+Total frames: 590 	Skipped frames: 0
+Avg game rate: 60.14
+Avg frame rate: 60.14
 
 attempting load and start...attempting load of data/kof95/mp3/kof95-sp-select.mp3...success!
 starting BGM...
@@ -234,9 +236,9 @@ attempting load and start...attempting load of data/kof95/mp3/kof95-sp-title.mp3
 starting BGM...
 Returned from main loop
 Deinitializing...
-Frames      : 6939
-Time elapsed: 121.120 sec
-ticks: 12112, tps: 100, start 68, end 12180
+Frames      : 590
+Time elapsed: 16.960 sec
+ticks: 1696, tps: 100, start 58, end 1754
 
 Clearing player cache...OK
 Freeing character info...OK
@@ -250,11 +252,11 @@ Deintializing timer...OK
 Deinitializing graphics...OK
 Deinitializing BGM...Cleaning up mixer callback...unhooking mixer callback...
 
-Mixer callback was entered 2601 times
-Mixer callback timing stats (last 2601 calls):
-	14.000000 median, 15.569781 avg, 12.546743 sample std. dev.
-Top 10 slowest times:	274 (1), 194 (1), 172 (1), 164 (1), 160 (3), 154 (1), 153 (1), 145 (1), 143 (1), 113 (1)
-Top 10 fastest times:	4 (2), 5 (1), 6 (6), 7 (83), 8 (147), 9 (135), 10 (141), 11 (97), 12 (137), 13 (386)
+Mixer callback was entered 353 times
+Mixer callback timing stats (last 353 calls):
+	10.000000 median, 13.611898 avg, 19.863669 sample std. dev.
+Top 10 slowest times:	273 (1), 156 (1), 119 (1), 90 (1), 84 (1), 80 (1), 70 (1), 66 (1), 62 (1), 61 (1)
+Top 10 fastest times:	3 (4), 4 (4), 5 (5), 6 (2), 7 (10), 8 (69), 9 (68), 10 (55), 11 (36), 12 (26)
 OK
 Deinitializing sound...OK
 Successful program termination.

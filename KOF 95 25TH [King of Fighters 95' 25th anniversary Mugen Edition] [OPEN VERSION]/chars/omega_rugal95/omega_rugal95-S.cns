@@ -1236,7 +1236,7 @@ attr = S, SA
 animtype = Hard
 hitflag = MA
 guardflag = M
-damage = 180,8
+damage = IfElse(life/const(data.life)<=0.3, 195, 165),10
 sparkno = s7003
 guard.sparkno = s7011
 sparkxy = -10,-20
@@ -1313,7 +1313,7 @@ attr = S, SA
 animtype = Hard
 hitflag = MAF
 guardflag = M
-damage = 140,8
+damage = IfElse(life/const(data.life)<=0.3, 160, 125),10
 sparkno = s7003
 guard.sparkno = s7011
 sparkxy = -13,-60
@@ -3448,7 +3448,7 @@ attr = S, HA
 animtype = Hard
 hitflag = MAF
 guardflag = M
-damage = 50,13
+damage = IfElse(life <= const(data.life)*0.25,75, 55),13
 sparkno = s7002
 guard.sparkno = s7011
 sparkxy = -20+Random%20,-80+random%50
@@ -3480,7 +3480,7 @@ attr = S, HA
 animtype = Hard
 hitflag = MAF
 guardflag = M
-damage = 50,13
+damage = IfElse(life <= const(data.life)*0.25,75, 55),13
 sparkno = s7002
 guard.sparkno = s7011
 sparkxy = -20+Random%20,-100+random%50
@@ -3579,7 +3579,7 @@ attr = S, HA
 animtype = Hard
 hitflag = MAF
 guardflag = M
-damage = 96,24
+damage = IfElse(life <= const(data.life)*0.25,120, 90),24
 sparkno = s7003
 guard.sparkno = s7011
 sparkxy = -13,-30
